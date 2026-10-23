@@ -3,7 +3,8 @@
 Stage: **S2 (dataset adaptation, variable time intervals, weather sequences)**.
 Date: 2026-10-23.
 Branch: `agro-s0-upstream`, base commit `395651d` (S1: `0e8ea40`).
-S2 implementation commit: `TBD` (recorded in a follow-up docs commit, as in S1).
+S2 implementation commit: **`4261c08`** (`s2: FIP dataset adapter, pair
+builder, weather windows, real batch`).
 
 Inputs are the **frozen S1 artifacts**; nothing here rewrites
 `data/manifests/fip1_pairs_consecutive.parquet`, `manifest_spec.json` or any

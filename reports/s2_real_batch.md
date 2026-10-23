@@ -1,7 +1,7 @@
 # S2 — Real FIP batch, weather windows and frozen-encoder verification
 
 Stage: **S2**. Date: 2026-10-23. Branch `agro-s0-upstream`, base commit `395651d`.
-S2 implementation commit: `TBD`.
+S2 implementation commit: **`4261c08`**.
 Companion: `reports/s2_pairs.md`.
 
 **No model training was started.** The frozen DINOv2 encoder was run in
