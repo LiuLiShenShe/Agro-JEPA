@@ -1,0 +1,39 @@
+built 569,821 pairs in 18.2s
+wrote reports/s2_pairs_stats.json
+wrote external_data/pairs_cache/fip1_pairs_s2.parquet (41.6 MB, not committed)
+wrote reports/s2_pairs_sample.csv (200 rows)
+{
+  "n_pairs": 569821,
+  "pair_types": {
+    "consecutive": 147092,
+    "span7": 115702,
+    "span14": 109653,
+    "span21": 100880,
+    "span28": 96494
+  },
+  "splits": {
+    "test_environment": 16528,
+    "test_genotype": 30631,
+    "test_genotype_environment": 5711,
+    "test_plot": 25203,
+    "train": 452855,
+    "validation": 38893
+  },
+  "dedupe": {
+    "n_observation_rows_in_manifest": 153022,
+    "n_duplicate_rows_removed": 1872,
+    "n_unique_plot_image_pairs": 151150,
+    "n_plots": 4058,
+    "n_plots_with_duplicates": 1362
+  },
+  "weather": {
+    "n_windows_fully_covered": 569821,
+    "n_windows_with_missing_days": 0
+  },
+  "leakage": {
+    "official_split_disjoint_plots": true,
+    "custom_split_rows_match_plots": true,
+    "n_plots": 4058,
+    "n_genotypes": 904
+  }
+}

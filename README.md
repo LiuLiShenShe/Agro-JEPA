@@ -3,21 +3,38 @@
 Environment-driven latent growth prediction on FIP 1.0 winter-wheat imagery, built as an
 incremental evolution of the official DINO-WM training code.
 
-**Stage 0 status: baseline landing + upstream code audit only. No Agro-JEPA model module
-exists yet.**
+**Stage 2 status: real FIP 1.0 dataset adapter, pair builder, daily weather
+windows and frozen-DINOv2 batch verification are implemented. No Agro-JEPA
+model has been trained yet (S3).**
 
 ## Layout
 
 ```
 Agro-JEPA/
+├── agro_jepa/                   # project code (added on top of upstream)
+│   ├── datasets/
+│   │   ├── fip_pairs.py         # consecutive + fixed-span pair builder
+│   │   ├── fip_weather.py       # daily weather store, (t_a, t_b] windows
+│   │   ├── fip_dataset.py       # torch Dataset (images or cached features)
+│   │   ├── collate.py           # variable-length padding + masks
+│   │   └── provenance.py        # pinned model/dataset/cache identifiers
+│   └── config/s2_dataset.yaml   # one config for the whole data path
+├── data/manifests/              # frozen S1 manifests (committed)
 ├── reports/
 │   ├── s0_upstream_audit.md     # provenance, license, deps, entry points, blockers, commands
 │   ├── s0_api_map.md            # real call chain, tensor shapes, change-interface list,
 │   │                            #   module -> upstream class/function map
-│   └── s0_run_logs/             # transcripts of the actual S0 runs
+│   ├── s1_*.md / s1_*.json      # FIP audit, splits, label timing, cache protocol
+│   ├── s2_pairs.md              # S2 pair construction and real counts
+│   ├── s2_real_batch.md         # S2 real batch + encoder geometry verification
+│   └── s*_run_logs/             # transcripts of the actual runs
 ├── tools/
 │   ├── make_toy_pointmaze.py    # synthetic dataset in point_maze on-disk format
-│   └── s0_forward_smoke.py      # shape/forward/backward/rollout probe
+│   ├── s0_forward_smoke.py      # shape/forward/backward/rollout probe
+│   ├── s1_*.py                  # FIP download, audit, cache, figures
+│   ├── s2_build_pairs.py        # build and report the S2 pair table
+│   ├── s2_inspect_batch.py      # real batch + frozen-encoder verification
+│   └── s2_verify.py             # S2 acceptance checks (74 checks)
 ├── patches/
 │   └── 0001-...patch            # the only upstream edit (torch.hub ':main' ref)
 └── dino_wm/                     # vendored clone, git-ignored (not a submodule)
@@ -92,3 +109,30 @@ results. The paper-grade stack is the `dino_wm` conda environment in `dino_wm/en
 Read `reports/s0_api_map.md` §6–§7: every planned Agro-JEPA module is mapped to the upstream
 class/function it attaches to (dataset adapter, weather forcing via the action channel,
 phenotype anchoring via proprio, predictor swap, rollout evaluator, loss masking).
+
+## Reproduce the S1 + S2 data path
+
+```bash
+.venv-s0/bin/python tools/s2_build_pairs.py \
+    --config agro_jepa/config/s2_dataset.yaml --mode both \
+    --out external_data/pairs_cache/fip1_pairs_s2.parquet \
+    --report reports/s2_pairs_stats.json --sample-csv reports/s2_pairs_sample.csv
+
+.venv-s0/bin/python tools/s2_inspect_batch.py \
+    --config agro_jepa/config/s2_dataset.yaml --batch-size 8 \
+    --report reports/s2_real_batch.json
+
+.venv-s0/bin/python tools/s2_verify.py     # 74/74 acceptance checks
+```
+
+Real numbers: 569,821 pairs (147,092 consecutive + 4 fixed-span families),
+569,821/569,821 weather windows fully covered, `[8, 256, 768]` patch tokens from
+`224×224` inputs. Full detail in `reports/s2_pairs.md` and
+`reports/s2_real_batch.md`.
+
+## Next stage entry point (S3)
+
+`reports/s2_real_batch.md` §7 and §10: the 224×224 → 256-token configuration is
+`img_size: 256` in the trainer config only (no source edit), and the upstream
+VQVAE decoder is **incompatible** with 256 tokens, so S3 must run latent-only
+(`has_decoder=False`, `model.train_decoder=False`).

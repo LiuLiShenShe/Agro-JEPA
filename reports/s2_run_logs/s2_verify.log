@@ -1,0 +1,81 @@
+PASS A_plot_has_image_on_date
+PASS A_image_date_matches_stem
+PASS A_cc_label_on_same_day
+PASS A_ph_label_within_7d
+PASS A_weather_window_length
+PASS A_weather_window_end_is_t_b
+PASS A_plot_has_a_pair_ending_on_date
+PASS A_pair_is_same_plot
+PASS A_pair_weather_window_eq_delta
+PASS B_pair_dates_match_stems
+PASS B_pair_stems_belong_to_plot
+PASS B_observation_dates_match_stems
+PASS B_no_duplicate_stems_in_pairs
+PASS C_all_delta_positive
+PASS C_window_n_days_eq_delta
+PASS C_window_bounds_eq_dates
+PASS C_weather_full_coverage
+PASS C_window_dates_are_ta_plus_1_to_tb
+PASS C_mask_length_eq_window
+PASS C_local_pairs_exist
+PASS C_batch_weather_lengths_eq_delta
+PASS C_batch_mask_padding
+PASS C_batch_window_left_open_right_closed
+PASS C_cached_features_available
+PASS C_cached_token_shape
+PASS C_cached_features_finite
+PASS C_missing_cache_raises
+PASS D_cc_measured_zero_kept
+PASS D_ph_measured_zero_kept
+PASS D_whc_measured_zero_kept
+PASS D_sen_measured_zero_kept
+PASS D_cc_missing_is_nan_not_zero
+PASS D_cc_missing_has_no_label_date
+PASS D_ph_missing_is_nan_not_zero
+PASS D_ph_missing_has_no_label_date
+PASS D_whc_missing_is_nan_not_zero
+PASS D_whc_missing_has_no_label_date
+PASS D_sen_missing_is_nan_not_zero
+PASS D_sen_missing_has_no_label_date
+PASS D_ph_negatives_preserved
+PASS D_ph_negative_flag_matches_value
+PASS D_ph_negatives_not_clipped
+PASS D_cc_zero_with_mask_stays_valid
+PASS D_ph_zero_with_mask_stays_valid
+PASS D_whc_zero_with_mask_stays_valid
+PASS D_sen_zero_with_mask_stays_valid
+PASS D_sen_only_in_labeled_years
+PASS D_near_white_frame_flagged
+PASS D_flagged_frame_not_dropped
+PASS E_official_splits_share_no_plot
+PASS E_custom_split_additive_official_preserved
+PASS E_pair_split_inherited_from_plot
+PASS E_custom_train_and_cross_year_disjoint_plots
+PASS E_cross_year_years_are_2018_2022
+PASS E_cross_year_genotype_overlap_reported
+PASS F_tokens_256
+PASS F_emb_dim_768
+PASS F_matches_mainline_geometry
+PASS F_cache_roundtrip_consistent
+PASS F_upstream_mainline_encoder_input_224
+PASS F_upstream_mainline_num_patches_256
+PASS F_decoder_incompatibility_documented
+PASS G_no_training_in_report
+PASS G_no_checkpoint_written
+PASS H_exists[reports/s2_pairs.md]
+PASS H_exists[reports/s2_real_batch.md]
+PASS H_exists[reports/s2_pairs_stats.json]
+PASS H_exists[reports/s2_real_batch.json]
+PASS H_exists[agro_jepa/datasets/fip_dataset.py]
+PASS H_exists[agro_jepa/datasets/fip_pairs.py]
+PASS H_exists[agro_jepa/datasets/fip_weather.py]
+PASS H_exists[agro_jepa/datasets/collate.py]
+PASS H_exists[tools/s2_build_pairs.py]
+PASS H_exists[tools/s2_inspect_batch.py]
+
+74/74 checks passed
+{
+  "status": "ok",
+  "stage": "S2",
+  "checks": 74
+}

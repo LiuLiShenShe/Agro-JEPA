@@ -1,0 +1,80 @@
+# Agro-JEPA S2 dataset configuration (real FIP 1.0 manifests; no training)
+#
+# Every path is relative to the repository root.  The frozen S1 artifacts are
+# inputs only: S2 never rewrites data/manifests/fip1_*.parquet or the
+# manifest_spec.json SHA256 table.
+
+manifest_id: fip1-s2-v1
+
+data:
+  observations: data/manifests/fip1_observations.csv.gz
+  plots: data/manifests/fip1_plots.csv
+  custom_splits: data/manifests/custom_crossyear_splits.csv
+  weather_daily: data/manifests/weather_daily_first_plot_per_year.csv
+  images_root: external_data/fip1_images
+  feature_cache_dir: external_data/dino_cache
+
+pair_rule:
+  mode: both                # consecutive | span | both
+  spans: [7, 14, 21, 28]
+  span_tolerance_days: 2
+  min_delta_days: 1         # excludes duplicate-image / same-day pairs
+  max_delta_days: 120
+  label_max_lag_days: 7     # primary S1 mask; 3 d is the strict variant
+  dedupe_image_stems: true
+
+image:
+  size: 224                 # mainline224 encoder input
+  protocol: mainline224
+  protocol_version: s1-v1
+  mode: visual              # visual | cached_features
+  quality_policy: report_only
+  quality_rule:
+    name: near-white-luma-v1
+    near_white_mean: 0.60      # measured: flagged frame 0.886, next-brightest 0.280
+    near_white_std: 0.12
+    min_luma_std: 0.01
+
+weather:
+  channels:
+    - T_mean_C
+    - T_max_C
+    - T_min_C
+    - RH_mean_pct
+    - Rs_sum_MJ_m2_d
+    - P_sum_raw
+  add_vpd: false            # VPD is a derived channel; formula recorded in provenance
+  window: "(t_a, t_b]"
+
+labels:
+  traits: [cc, ph, whc, sen]
+  cc_unit: fraction_0_1     # metadata says '%', values are fractions (S1)
+  keep_ph_negative: true
+  keep_measured_zero: true
+
+normalization:
+  fit_split: train          # never fit on validation/test labels
+  traits: [cc, ph]
+  weather: [T_mean_C, T_max_C, T_min_C, RH_mean_pct, Rs_sum_MJ_m2_d, P_sum_raw]
+
+# --- upstream DINO-WM interface geometry (verified in tools/s2_inspect_batch.py)
+upstream_geometry:
+  encoder: dinov2_vitb14
+  patch_size: 14
+  emb_dim: 768
+  # upstream computes: num_side = img_size // decoder_scale(16)
+  #                    encoder_image_size = num_side * patch_size(14)
+  #                    num_patches = num_side ** 2
+  # mainline224 tokens (224 -> 16x16) require:
+  #   num_side = 224 // 14 = 16  =>  num_patches = 256
+  #   encoder_image_size = 16 * 14 = 224 (Resize is a no-op)
+  # The upstream default img_size=224 yields num_side=14, encoder_image_size=196,
+  # num_patches=196 -- i.e. the upstream196 protocol, not mainline224.
+  mainline:
+    encoder_input: 224
+    n_tokens: 256
+    num_patches_for_predictor: 256
+  upstream_default:
+    encoder_input: 196
+    n_tokens: 196
+    num_patches_for_predictor: 196

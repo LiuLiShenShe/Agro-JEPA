@@ -1,0 +1,715 @@
+{
+  "generated_at": "2026-10-23T18:07:18+0800",
+  "stage": "S2",
+  "manifest_id": "fip1-s2-v1",
+  "elapsed_seconds": 18.94,
+  "rule": {
+    "manifest_id": "fip1-s2-v1",
+    "mode": "both",
+    "spans": [
+      7,
+      14,
+      21,
+      28
+    ],
+    "span_tolerance_days": 2,
+    "min_delta_days": 1,
+    "max_delta_days": 120,
+    "label_max_lag_days": 7,
+    "dedupe_image_stems": true
+  },
+  "input_manifests": {
+    "observations": "data/manifests/fip1_observations.csv.gz",
+    "plots": "data/manifests/fip1_plots.csv",
+    "custom_splits": "data/manifests/custom_crossyear_splits.csv",
+    "weather_daily": "data/manifests/weather_daily_first_plot_per_year.csv"
+  },
+  "dedupe": {
+    "n_observation_rows_in_manifest": 153022,
+    "n_duplicate_rows_removed": 1872,
+    "n_unique_plot_image_pairs": 151150,
+    "n_plots": 4058,
+    "n_plots_with_duplicates": 1362
+  },
+  "n_pairs": 569821,
+  "pair_types": {
+    "consecutive": 147092,
+    "span7": 115702,
+    "span14": 109653,
+    "span21": 100880,
+    "span28": 96494
+  },
+  "span_pair_counts": {
+    "7": 115702,
+    "14": 109653,
+    "21": 100880,
+    "28": 96494
+  },
+  "splits": {
+    "by_split": {
+      "test_environment": 16528,
+      "test_genotype": 30631,
+      "test_genotype_environment": 5711,
+      "test_plot": 25203,
+      "train": 452855,
+      "validation": 38893
+    },
+    "by_custom_split": {
+      "cross_year_test": 214844,
+      "id_test": 32816,
+      "train": 278501,
+      "val": 43660
+    },
+    "by_harvest_year": {
+      "2016": 80797,
+      "2017": 50236,
+      "2018": 71177,
+      "2019": 22239,
+      "2021": 201705,
+      "2022": 143667
+    },
+    "by_pair_type": {
+      "consecutive": 147092,
+      "span14": 109653,
+      "span21": 100880,
+      "span28": 96494,
+      "span7": 115702
+    },
+    "by_split_and_type": {
+      "test_environment|consecutive": 4511,
+      "test_environment|span14": 2944,
+      "test_environment|span21": 3030,
+      "test_environment|span28": 2687,
+      "test_environment|span7": 3356,
+      "test_genotype|consecutive": 8195,
+      "test_genotype|span14": 5868,
+      "test_genotype|span21": 5296,
+      "test_genotype|span28": 5081,
+      "test_genotype|span7": 6191,
+      "test_genotype_environment|consecutive": 1599,
+      "test_genotype_environment|span14": 1012,
+      "test_genotype_environment|span21": 1037,
+      "test_genotype_environment|span28": 928,
+      "test_genotype_environment|span7": 1135,
+      "test_plot|consecutive": 7131,
+      "test_plot|span14": 4784,
+      "test_plot|span21": 4190,
+      "test_plot|span28": 4031,
+      "test_plot|span7": 5067,
+      "train|consecutive": 114648,
+      "train|span14": 87687,
+      "train|span21": 80814,
+      "train|span28": 77570,
+      "train|span7": 92136,
+      "validation|consecutive": 11008,
+      "validation|span14": 7358,
+      "validation|span21": 6513,
+      "validation|span28": 6197,
+      "validation|span7": 7817
+    }
+  },
+  "delta_days": {
+    "min": 1,
+    "max": 93,
+    "median": 13.0,
+    "mean": 14.083849138589136,
+    "p90": 28.0,
+    "hist_0_3": 64739,
+    "hist_4_7": 150144,
+    "hist_8_14": 124422,
+    "hist_15_21": 108151,
+    "hist_22_28": 99259,
+    "hist_29_35": 20727,
+    "hist_36_60": 1495,
+    "hist_60plus": 884,
+    "n_dt_zero": 0,
+    "consecutive_only": {
+      "n": 147092,
+      "min": 1,
+      "max": 93,
+      "median": 4.0,
+      "mean": 6.196278519565986,
+      "p90": 12.0
+    }
+  },
+  "labels": {
+    "cc": {
+      "name": "canopy_cover",
+      "unit": "fraction 0-1 (trait metadata says '%', values are fractions)",
+      "years_with_labels": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022
+      ],
+      "n_both_valid": 541770,
+      "n_a_valid": 553594,
+      "n_b_valid": 549760,
+      "n_value_present_a": 569821,
+      "n_value_present_b": 569821,
+      "n_zero_a": 10,
+      "n_zero_b": 6,
+      "n_zero_valid_a": 10,
+      "n_zero_valid_b": 6,
+      "n_both_valid_by_split": {
+        "test_environment": 15069,
+        "test_genotype": 28671,
+        "test_genotype_environment": 4921,
+        "test_plot": 23443,
+        "train": 433969,
+        "validation": 35697
+      }
+    },
+    "ph": {
+      "name": "plant_height",
+      "unit": "m",
+      "years_with_labels": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022
+      ],
+      "n_both_valid": 447928,
+      "n_a_valid": 450514,
+      "n_b_valid": 473763,
+      "n_value_present_a": 569821,
+      "n_value_present_b": 569821,
+      "n_zero_a": 42130,
+      "n_zero_b": 25408,
+      "n_zero_valid_a": 15950,
+      "n_zero_valid_b": 11900,
+      "n_both_valid_by_split": {
+        "test_environment": 16460,
+        "test_genotype": 22569,
+        "test_genotype_environment": 5677,
+        "test_plot": 16962,
+        "train": 360061,
+        "validation": 26199
+      }
+    },
+    "whc": {
+      "name": "wheat_head_count",
+      "unit": "count",
+      "years_with_labels": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022
+      ],
+      "n_both_valid": 259773,
+      "n_a_valid": 267328,
+      "n_b_valid": 304583,
+      "n_value_present_a": 567791,
+      "n_value_present_b": 567791,
+      "n_zero_a": 297702,
+      "n_zero_b": 259035,
+      "n_zero_valid_a": 77464,
+      "n_zero_valid_b": 67222,
+      "n_both_valid_by_split": {
+        "test_environment": 639,
+        "test_genotype": 13167,
+        "test_genotype_environment": 222,
+        "test_plot": 9444,
+        "train": 222170,
+        "validation": 14131
+      }
+    },
+    "sen": {
+      "name": "senescence",
+      "unit": "0-10 score",
+      "years_with_labels": [
+        2016,
+        2017,
+        2018
+      ],
+      "n_both_valid": 23205,
+      "n_a_valid": 23281,
+      "n_b_valid": 44253,
+      "n_value_present_a": 201495,
+      "n_value_present_b": 201495,
+      "n_zero_a": 78629,
+      "n_zero_b": 69204,
+      "n_zero_valid_a": 6794,
+      "n_zero_valid_b": 11419,
+      "n_both_valid_by_split": {
+        "test_environment": 0,
+        "test_genotype": 1985,
+        "test_genotype_environment": 0,
+        "test_plot": 2389,
+        "train": 14950,
+        "validation": 3881
+      }
+    },
+    "ph_negative": {
+      "n_a": 5572,
+      "n_b": 4422,
+      "note": "raw negative PH values are preserved (not clipped); validity is deferred to a dedicated sensitivity analysis"
+    }
+  },
+  "weather_window": {
+    "n_pairs": 569821,
+    "n_windows_length_matches_delta": 1,
+    "n_windows_fully_covered": 569821,
+    "n_windows_with_missing_days": 0,
+    "min_valid_days": 1,
+    "worst_coverage_ratio": 1.0,
+    "n_days_expected_by_split": {
+      "test_environment": 243093,
+      "test_genotype": 430495,
+      "test_genotype_environment": 83800,
+      "test_plot": 353735,
+      "train": 6368368,
+      "validation": 545782
+    },
+    "weather_years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022
+    ],
+    "weather_manifest_id": "s1-weather-daily-v1@19aa4ee2f476",
+    "weather_daily_sha256": "19aa4ee2f476ba13d34793899b74797d99080b813fbaee7c3c851e6236a4b52e"
+  },
+  "weather_provenance": {
+    "source": "data/manifests/weather_daily_first_plot_per_year.csv",
+    "manifest_id": "s1-weather-daily-v1",
+    "window_convention": "(t_a, t_b] -- left open, right closed; length == delta_days",
+    "channels": {
+      "T_mean_C": {
+        "unit": "degC",
+        "formula": "mean of hourly temperature_air_200cm over the calendar day",
+        "derived": false
+      },
+      "T_max_C": {
+        "unit": "degC",
+        "formula": "max of hourly temperature_air_200cm",
+        "derived": false
+      },
+      "T_min_C": {
+        "unit": "degC",
+        "formula": "min of hourly temperature_air_200cm",
+        "derived": false
+      },
+      "RH_mean_pct": {
+        "unit": "%",
+        "formula": "mean of hourly humidity_air_200cm",
+        "derived": false
+      },
+      "Rs_sum_MJ_m2_d": {
+        "unit": "MJ m-2 d-1",
+        "formula": "sum(hourly irradiance_solar_200cm W m-2) * 3600 s / 1e6",
+        "derived": false
+      },
+      "P_sum_raw": {
+        "unit": "raw sensor unit (UNRESOLVED - not mm)",
+        "formula": "sum(hourly precipitation_200cm) in raw sensor units",
+        "derived": false
+      },
+      "VPD_mean_kPa": {
+        "unit": "kPa",
+        "formula": "mean(0.6108*exp(17.27*T/(T+237.3)) * (1 - RH/100))",
+        "derived": true
+      }
+    },
+    "precipitation_unit_status": "unresolved",
+    "excluded_derived_quantities": [
+      "cumulative precipitation",
+      "water balance / evapotranspiration",
+      "growing degree days (base temperature not verified for FIP)"
+    ],
+    "reuse": "one daily table per harvest_year; all plots of a year share it (S1 verified identical station series across 3 plots/year)"
+  },
+  "weather_coverage_by_year": {
+    "2016": {
+      "year": 2016,
+      "n_days": 366,
+      "date_first": "2015-09-01",
+      "date_last": "2016-08-31",
+      "n_days_all_finite": 366,
+      "n_days_partial_hours": 0,
+      "channel_means": {
+        "T_mean_C": 9.933481216430664,
+        "T_max_C": 14.25480842590332,
+        "T_min_C": 6.067767143249512,
+        "RH_mean_pct": 84.16020202636719,
+        "Rs_sum_MJ_m2_d": 12.359962463378906,
+        "P_sum_raw": 4.182128429412842
+      },
+      "channel_mins": {
+        "T_mean_C": -7.695300102233887,
+        "T_max_C": -4.0,
+        "T_min_C": -11.10159969329834,
+        "RH_mean_pct": 55.86589813232422,
+        "Rs_sum_MJ_m2_d": 1.6304999589920044,
+        "P_sum_raw": 0.0
+      },
+      "channel_maxs": {
+        "T_mean_C": 24.606800079345703,
+        "T_max_C": 32.40620040893555,
+        "T_min_C": 18.703100204467773,
+        "RH_mean_pct": 100.0,
+        "Rs_sum_MJ_m2_d": 30.605100631713867,
+        "P_sum_raw": 68.40160369873047
+      }
+    },
+    "2017": {
+      "year": 2017,
+      "n_days": 365,
+      "date_first": "2016-09-01",
+      "date_last": "2017-08-31",
+      "n_days_all_finite": 365,
+      "n_days_partial_hours": 0,
+      "channel_means": {
+        "T_mean_C": 9.89320182800293,
+        "T_max_C": 14.265375137329102,
+        "T_min_C": 5.950973987579346,
+        "RH_mean_pct": 84.25662231445312,
+        "Rs_sum_MJ_m2_d": 13.237220764160156,
+        "P_sum_raw": 2.1264517307281494
+      },
+      "channel_mins": {
+        "T_mean_C": -9.05780029296875,
+        "T_max_C": -7.19920015335083,
+        "T_min_C": -13.796899795532227,
+        "RH_mean_pct": 53.47460174560547,
+        "Rs_sum_MJ_m2_d": 1.4744999408721924,
+        "P_sum_raw": 0.0
+      },
+      "channel_maxs": {
+        "T_mean_C": 26.112600326538086,
+        "T_max_C": 32.3125,
+        "T_min_C": 21.406200408935547,
+        "RH_mean_pct": 100.0,
+        "Rs_sum_MJ_m2_d": 32.3745002746582,
+        "P_sum_raw": 33.80350112915039
+      }
+    },
+    "2018": {
+      "year": 2018,
+      "n_days": 365,
+      "date_first": "2017-09-01",
+      "date_last": "2018-08-31",
+      "n_days_all_finite": 365,
+      "n_days_partial_hours": 0,
+      "channel_means": {
+        "T_mean_C": 10.143777847290039,
+        "T_max_C": 14.531818389892578,
+        "T_min_C": 6.136275768280029,
+        "RH_mean_pct": 81.92994689941406,
+        "Rs_sum_MJ_m2_d": 12.882027626037598,
+        "P_sum_raw": 2.493588447570801
+      },
+      "channel_mins": {
+        "T_mean_C": -10.08329963684082,
+        "T_max_C": -8.60159969329834,
+        "T_min_C": -13.0,
+        "RH_mean_pct": 47.64189910888672,
+        "Rs_sum_MJ_m2_d": 0.6710000038146973,
+        "P_sum_raw": 0.0
+      },
+      "channel_maxs": {
+        "T_mean_C": 26.996700286865234,
+        "T_max_C": 34.5,
+        "T_min_C": 20.0,
+        "RH_mean_pct": 100.0,
+        "Rs_sum_MJ_m2_d": 31.134599685668945,
+        "P_sum_raw": 37.19969940185547
+      }
+    },
+    "2019": {
+      "year": 2019,
+      "n_days": 365,
+      "date_first": "2018-09-01",
+      "date_last": "2019-08-31",
+      "n_days_all_finite": 365,
+      "n_days_partial_hours": 0,
+      "channel_means": {
+        "T_mean_C": 10.066442489624023,
+        "T_max_C": 14.560659408569336,
+        "T_min_C": 6.050673484802246,
+        "RH_mean_pct": 82.70875549316406,
+        "Rs_sum_MJ_m2_d": 13.13802433013916,
+        "P_sum_raw": 2.973888397216797
+      },
+      "channel_mins": {
+        "T_mean_C": -4.066500186920166,
+        "T_max_C": -2.199199914932251,
+        "T_min_C": -6.398399829864502,
+        "RH_mean_pct": 48.129600524902344,
+        "Rs_sum_MJ_m2_d": 0.6169999837875366,
+        "P_sum_raw": 0.0
+      },
+      "channel_maxs": {
+        "T_mean_C": 27.074199676513672,
+        "T_max_C": 34.90620040893555,
+        "T_min_C": 20.093799591064453,
+        "RH_mean_pct": 100.0,
+        "Rs_sum_MJ_m2_d": 31.81439971923828,
+        "P_sum_raw": 53.99610137939453
+      }
+    },
+    "2021": {
+      "year": 2021,
+      "n_days": 365,
+      "date_first": "2020-09-01",
+      "date_last": "2021-08-31",
+      "n_days_all_finite": 365,
+      "n_days_partial_hours": 0,
+      "channel_means": {
+        "T_mean_C": 9.369874000549316,
+        "T_max_C": 13.577718734741211,
+        "T_min_C": 5.61313009262085,
+        "RH_mean_pct": 84.89351654052734,
+        "Rs_sum_MJ_m2_d": 12.320242881774902,
+        "P_sum_raw": 3.5664567947387695
+      },
+      "channel_mins": {
+        "T_mean_C": -8.050100326538086,
+        "T_max_C": -6.898399829864502,
+        "T_min_C": -11.296899795532227,
+        "RH_mean_pct": 48.47529983520508,
+        "Rs_sum_MJ_m2_d": 0.7935000061988831,
+        "P_sum_raw": 0.0
+      },
+      "channel_maxs": {
+        "T_mean_C": 24.48699951171875,
+        "T_max_C": 31.796899795532227,
+        "T_min_C": 18.906200408935547,
+        "RH_mean_pct": 100.0,
+        "Rs_sum_MJ_m2_d": 31.850000381469727,
+        "P_sum_raw": 62.20209884643555
+      }
+    },
+    "2022": {
+      "year": 2022,
+      "n_days": 365,
+      "date_first": "2021-09-01",
+      "date_last": "2022-08-31",
+      "n_days_all_finite": 365,
+      "n_days_partial_hours": 0,
+      "channel_means": {
+        "T_mean_C": 10.596111297607422,
+        "T_max_C": 15.189835548400879,
+        "T_min_C": 6.3771562576293945,
+        "RH_mean_pct": 81.32647705078125,
+        "Rs_sum_MJ_m2_d": 13.942575454711914,
+        "P_sum_raw": 2.184847354888916
+      },
+      "channel_mins": {
+        "T_mean_C": -2.6874001026153564,
+        "T_max_C": -1.0,
+        "T_min_C": -5.5,
+        "RH_mean_pct": 47.415401458740234,
+        "Rs_sum_MJ_m2_d": 0.8289999961853027,
+        "P_sum_raw": 0.0
+      },
+      "channel_maxs": {
+        "T_mean_C": 27.113300323486328,
+        "T_max_C": 34.5,
+        "T_min_C": 19.593799591064453,
+        "RH_mean_pct": 100.0,
+        "Rs_sum_MJ_m2_d": 31.351900100708008,
+        "P_sum_raw": 33.60639953613281
+      }
+    }
+  },
+  "leakage_checks": {
+    "official_split_shared_plot_uid": {},
+    "official_split_disjoint_plots": true,
+    "custom_split_rows_match_plots": true,
+    "custom_cross_year_test_vs_train_shared_genotypes": 370,
+    "custom_cross_year_test_vs_id_test_shared_genotypes": 78,
+    "custom_note": "cross-year test holds out YEARS, not genotypes; genotype overlap with train is by construction and is reported, not hidden",
+    "every_pair_shares_one_plot": true,
+    "image_dates_match_filename_stems": true,
+    "pair_split_inherited_from_plot": true,
+    "n_plots": 4058,
+    "n_genotypes": 904
+  },
+  "normalization": {
+    "fit_split": "train",
+    "n_pairs_used": 452855,
+    "traits": {
+      "cc": {
+        "name": "canopy_cover",
+        "n": 882152,
+        "mean": 0.3983324688942495,
+        "std": 0.25734105289489956,
+        "min": 0.0,
+        "max": 0.9673
+      },
+      "ph": {
+        "name": "plant_height",
+        "n": 743211,
+        "mean": 0.4530503243358883,
+        "std": 0.35238822763967576,
+        "min": -0.0137,
+        "max": 1.3398
+      }
+    },
+    "weather_years": [
+      2016,
+      2017,
+      2018,
+      2021,
+      2022
+    ],
+    "weather": {
+      "T_mean_C": {
+        "n": 1826,
+        "mean": 9.987258911132812,
+        "std": 7.60080623626709,
+        "min": -10.08329963684082,
+        "max": 27.113300323486328
+      },
+      "T_max_C": {
+        "n": 1826,
+        "mean": 14.363851547241211,
+        "std": 9.012482643127441,
+        "min": -8.60159969329834,
+        "max": 34.5
+      },
+      "T_min_C": {
+        "n": 1826,
+        "mean": 6.02908182144165,
+        "std": 6.518959045410156,
+        "min": -13.796899795532227,
+        "max": 21.406200408935547
+      },
+      "RH_mean_pct": {
+        "n": 1826,
+        "mean": 83.3138198852539,
+        "std": 12.046333312988281,
+        "min": 47.415401458740234,
+        "max": 100.0
+      },
+      "Rs_sum_MJ_m2_d": {
+        "n": 1826,
+        "mean": 12.948083877563477,
+        "std": 8.740700721740723,
+        "min": 0.6710000038146973,
+        "max": 32.3745002746582
+      },
+      "P_sum_raw": {
+        "n": 1826,
+        "mean": 2.911390781402588,
+        "std": 6.525360584259033,
+        "min": 0.0,
+        "max": 68.40160369873047
+      }
+    },
+    "note": "statistics use train-split labels only; weather uses daily series of years that contain train plots (2019 excluded)"
+  },
+  "pair_schema": {
+    "pair_id": "sha1(manifest|plot|stem_a|stem_b|pair_type|span)[:16]",
+    "manifest_id": "pair manifest id (fip1-s2-v1)",
+    "pair_type": "'consecutive' or 'span{S}'",
+    "span_days": "target span for span pairs, -1 for consecutive",
+    "plot_uid": "FIP plot-year id; both ends share it",
+    "genotype_id": "anonymised 64-hex genotype id from fip1_plots.csv",
+    "harvest_year": "int, one of 2016/2017/2018/2019/2021/2022",
+    "split": "official split inherited from the plot",
+    "custom_split": "custom-crossyear-v1 split, stored separately",
+    "i": "position of image A within the deduplicated plot trajectory",
+    "j": "position of image B within the deduplicated plot trajectory",
+    "obs_index_a/b": "obs_index in fip1_observations.csv.gz",
+    "image_stem_a/b": "audited filename stem (authoritative date source)",
+    "image_a/b": "inner_plot_image path (HF URL)",
+    "date_a/b": "image date YYYY-MM-DD",
+    "delta_days": "(date_b - date_a).days == window length",
+    "window_start_exclusive": "t_a, open bound of the weather window",
+    "window_end_inclusive": "t_b, closed bound of the weather window",
+    "window_n_days": "number of daily weather steps == delta_days",
+    "cc_a/b": "raw canopy_cover at t_a / t_b (fraction 0-1 (trait metadata says '%', values are fractions)), NaN if absent",
+    "cc_a/b_lag": "signed lag label_date - image_date, days",
+    "cc_a/b_date": "actual measurement date of the matched label",
+    "cc_mask_a/b": "value present AND |lag| <= label_max_lag_days",
+    "ph_a/b": "raw plant_height at t_a / t_b (m), NaN if absent",
+    "ph_a/b_lag": "signed lag label_date - image_date, days",
+    "ph_a/b_date": "actual measurement date of the matched label",
+    "ph_mask_a/b": "value present AND |lag| <= label_max_lag_days",
+    "whc_a/b": "raw wheat_head_count at t_a / t_b (count), NaN if absent",
+    "whc_a/b_lag": "signed lag label_date - image_date, days",
+    "whc_a/b_date": "actual measurement date of the matched label",
+    "whc_mask_a/b": "value present AND |lag| <= label_max_lag_days",
+    "sen_a/b": "raw senescence at t_a / t_b (0-10 score), NaN if absent",
+    "sen_a/b_lag": "signed lag label_date - image_date, days",
+    "sen_a/b_date": "actual measurement date of the matched label",
+    "sen_mask_a/b": "value present AND |lag| <= label_max_lag_days",
+    "ph_negative_a/b": "true when raw PH is negative (kept, not clipped)"
+  },
+  "columns": [
+    "pair_id",
+    "manifest_id",
+    "pair_type",
+    "span_days",
+    "plot_uid",
+    "genotype_id",
+    "harvest_year",
+    "split",
+    "custom_split",
+    "i",
+    "j",
+    "obs_index_a",
+    "obs_index_b",
+    "image_stem_a",
+    "image_stem_b",
+    "image_a",
+    "image_b",
+    "date_a",
+    "date_b",
+    "delta_days",
+    "window_start_exclusive",
+    "window_end_inclusive",
+    "window_n_days",
+    "cc_a",
+    "cc_b",
+    "cc_a_lag",
+    "cc_b_lag",
+    "cc_a_date",
+    "cc_b_date",
+    "cc_mask_a",
+    "cc_mask_b",
+    "ph_a",
+    "ph_b",
+    "ph_a_lag",
+    "ph_b_lag",
+    "ph_a_date",
+    "ph_b_date",
+    "ph_mask_a",
+    "ph_mask_b",
+    "whc_a",
+    "whc_b",
+    "whc_a_lag",
+    "whc_b_lag",
+    "whc_a_date",
+    "whc_b_date",
+    "whc_mask_a",
+    "whc_mask_b",
+    "sen_a",
+    "sen_b",
+    "sen_a_lag",
+    "sen_b_lag",
+    "sen_a_date",
+    "sen_b_date",
+    "sen_mask_a",
+    "sen_mask_b",
+    "ph_negative_a",
+    "ph_negative_b"
+  ],
+  "output_parquet": {
+    "path": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+    "bytes": 41603300,
+    "sha256": "08e80a057b22273d55b6f64c64090f56a119f61988cfe14ad392f9ec39ae923e",
+    "committed": false,
+    "reason": "derived from committed S1 manifests; rebuild with this tool"
+  }
+}

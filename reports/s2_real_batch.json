@@ -1,0 +1,1396 @@
+{
+  "generated_at": "2026-10-23T18:10:02+0800",
+  "stage": "S2",
+  "config": "agro_jepa/config/s2_dataset.yaml",
+  "pairs_source": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+  "n_pairs_total": 569821,
+  "n_pairs_with_both_images_local": 152,
+  "n_local_images": 97,
+  "n_local_plots": 6,
+  "local_pair_types": {
+    "consecutive": 39,
+    "span21": 32,
+    "span14": 29,
+    "span7": 28,
+    "span28": 24
+  },
+  "local_splits": {
+    "train": 147,
+    "test_environment": 5
+  },
+  "batch_indices": [
+    3,
+    22,
+    144,
+    143,
+    145,
+    142,
+    11,
+    77
+  ],
+  "batch_pair_ids": [
+    "52a8f61f0355c98e",
+    "60e054101c4a2fe6",
+    "04eb582f98806ccf",
+    "36565f3a2b5036e9",
+    "85f69ab214298ccc",
+    "920ea6c1f6312e5f",
+    "e93e01e525e3c1bc",
+    "6c0489c3c7189741"
+  ],
+  "batch_size": 8,
+  "fields": [
+    {
+      "field": "image_a",
+      "required": true,
+      "description": "anchor image tensor / features",
+      "kind": "tensor",
+      "shape": [
+        8,
+        3,
+        224,
+        224
+      ],
+      "dtype": "torch.float32",
+      "n_elements": 1204224,
+      "n_nan": 0,
+      "n_finite": 1204224
+    },
+    {
+      "field": "image_b",
+      "required": true,
+      "description": "target image tensor / features",
+      "kind": "tensor",
+      "shape": [
+        8,
+        3,
+        224,
+        224
+      ],
+      "dtype": "torch.float32",
+      "n_elements": 1204224,
+      "n_nan": 0,
+      "n_finite": 1204224
+    },
+    {
+      "field": "weather_daily",
+      "required": true,
+      "description": "daily weather (L, C)",
+      "kind": "tensor",
+      "shape": [
+        8,
+        29,
+        6
+      ],
+      "dtype": "torch.float32",
+      "n_elements": 1392,
+      "n_nan": 0,
+      "n_finite": 1392
+    },
+    {
+      "field": "weather_mask",
+      "required": true,
+      "description": "per-day validity (L,)",
+      "kind": "tensor",
+      "shape": [
+        8,
+        29
+      ],
+      "dtype": "torch.bool",
+      "n_elements": 232,
+      "n_true": 115,
+      "n_false": 117
+    },
+    {
+      "field": "weather_n_hours_min",
+      "required": false,
+      "description": "",
+      "kind": "tensor",
+      "shape": [
+        8,
+        29
+      ],
+      "dtype": "torch.int32",
+      "n_elements": 232
+    },
+    {
+      "field": "weather_dates",
+      "required": false,
+      "description": "",
+      "kind": "ndarray",
+      "shape": [
+        8,
+        29
+      ],
+      "dtype": "object"
+    },
+    {
+      "field": "weather_lengths",
+      "required": false,
+      "description": "",
+      "kind": "tensor",
+      "shape": [
+        8
+      ],
+      "dtype": "torch.int64",
+      "n_elements": 8
+    },
+    {
+      "field": "delta_days",
+      "required": true,
+      "description": "(date_b - date_a).days",
+      "kind": "tensor",
+      "shape": [
+        8
+      ],
+      "dtype": "torch.int64",
+      "n_elements": 8
+    },
+    {
+      "field": "harvest_year",
+      "required": true,
+      "description": "harvest year",
+      "kind": "tensor",
+      "shape": [
+        8
+      ],
+      "dtype": "torch.int64",
+      "n_elements": 8
+    },
+    {
+      "field": "phenotype_a",
+      "required": true,
+      "description": "phenotype vector at t_a (NaN = missing)",
+      "kind": "tensor",
+      "shape": [
+        8,
+        4
+      ],
+      "dtype": "torch.float32",
+      "n_elements": 32,
+      "n_nan": 4,
+      "n_finite": 28
+    },
+    {
+      "field": "phenotype_b",
+      "required": true,
+      "description": "phenotype vector at t_b",
+      "kind": "tensor",
+      "shape": [
+        8,
+        4
+      ],
+      "dtype": "torch.float32",
+      "n_elements": 32,
+      "n_nan": 4,
+      "n_finite": 28
+    },
+    {
+      "field": "phenotype_mask_a",
+      "required": true,
+      "description": "validity of phenotype_a",
+      "kind": "tensor",
+      "shape": [
+        8,
+        4
+      ],
+      "dtype": "torch.bool",
+      "n_elements": 32,
+      "n_true": 14,
+      "n_false": 18
+    },
+    {
+      "field": "phenotype_mask_b",
+      "required": true,
+      "description": "validity of phenotype_b",
+      "kind": "tensor",
+      "shape": [
+        8,
+        4
+      ],
+      "dtype": "torch.bool",
+      "n_elements": 32,
+      "n_true": 14,
+      "n_false": 18
+    },
+    {
+      "field": "label_lag_days",
+      "required": true,
+      "description": "signed label lag per trait and end",
+      "kind": "tensor",
+      "shape": [
+        8,
+        2,
+        4
+      ],
+      "dtype": "torch.float32",
+      "n_elements": 64,
+      "n_nan": 8,
+      "n_finite": 56
+    },
+    {
+      "field": "label_dates",
+      "required": true,
+      "description": "actual measurement dates per trait and end",
+      "kind": "list",
+      "length": 8,
+      "example": "[['2016-02-16' '2016-04-11' '2016-05-17' '2016-06-28']\n ['2016-02-18' '2016-04-11' '2016-05-17' '2016-06-28']]"
+    },
+    {
+      "field": "ph_negative_a",
+      "required": false,
+      "description": "",
+      "kind": "tensor",
+      "shape": [
+        8
+      ],
+      "dtype": "torch.bool",
+      "n_elements": 8,
+      "n_true": 0,
+      "n_false": 8
+    },
+    {
+      "field": "ph_negative_b",
+      "required": false,
+      "description": "",
+      "kind": "tensor",
+      "shape": [
+        8
+      ],
+      "dtype": "torch.bool",
+      "n_elements": 8,
+      "n_true": 0,
+      "n_false": 8
+    },
+    {
+      "field": "trait_names",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 4,
+      "example": "cc"
+    },
+    {
+      "field": "plot_uid",
+      "required": true,
+      "description": "FIP plot-year id",
+      "kind": "list",
+      "length": 8,
+      "example": "FPWW0120667"
+    },
+    {
+      "field": "genotype_id",
+      "required": true,
+      "description": "anonymised genotype id",
+      "kind": "list",
+      "length": 8,
+      "example": "cb5f3d28dbc1d75282fb1f4dd3bece85ec1effcfb65f103836807b33cc086ef8"
+    },
+    {
+      "field": "split",
+      "required": true,
+      "description": "official split",
+      "kind": "list",
+      "length": 8,
+      "example": "train"
+    },
+    {
+      "field": "pair_id",
+      "required": true,
+      "description": "stable pair id",
+      "kind": "list",
+      "length": 8,
+      "example": "52a8f61f0355c98e"
+    },
+    {
+      "field": "pair_type",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 8,
+      "example": "consecutive"
+    },
+    {
+      "field": "image_stem_a",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 8,
+      "example": "FPWW0120667_RGB1_20160216_125228"
+    },
+    {
+      "field": "image_stem_b",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 8,
+      "example": "FPWW0120667_RGB1_20160218_112806"
+    },
+    {
+      "field": "image_dates",
+      "required": true,
+      "description": "(date_a, date_b)",
+      "kind": "list",
+      "length": 8,
+      "example": "('2016-02-16', '2016-02-18')"
+    },
+    {
+      "field": "weather_date_range",
+      "required": true,
+      "description": "(t_a, t_b]",
+      "kind": "list",
+      "length": 8,
+      "example": "('2016-02-16', '2016-02-18')"
+    },
+    {
+      "field": "weather_manifest_id",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 8,
+      "example": "s1-weather-daily-v1@19aa4ee2f476"
+    },
+    {
+      "field": "image_stats_a",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 8,
+      "example": "{'image_path': 'external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160216_125228.png', 'luma_mean': 0.8858900666236877, 'luma_std': 0.03826630488038063, 'luma_min': 0.47973859310150146, 'luma_ma"
+    },
+    {
+      "field": "image_stats_b",
+      "required": false,
+      "description": "",
+      "kind": "list",
+      "length": 8,
+      "example": "{'image_path': 'external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160218_112806.png', 'luma_mean': 0.23224762082099915, 'luma_std': 0.09132187068462372, 'luma_min': 0.01568627543747425, 'luma_m"
+    }
+  ],
+  "date_examples": [
+    {
+      "pair_id": "52a8f61f0355c98e",
+      "plot_uid": "FPWW0120667",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_stem_a": "FPWW0120667_RGB1_20160216_125228",
+      "image_stem_b": "FPWW0120667_RGB1_20160218_112806",
+      "image_dates": [
+        "2016-02-16",
+        "2016-02-18"
+      ],
+      "weather_window": [
+        "2016-02-16",
+        "2016-02-18"
+      ],
+      "delta_days": 2,
+      "phenotype_a": [
+        0.1571,
+        0.2228,
+        0.0,
+        2.0
+      ],
+      "phenotype_b": [
+        0.2135,
+        0.2228,
+        0.0,
+        2.0
+      ],
+      "phenotype_mask_a": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          55.0,
+          91.0,
+          133.0
+        ],
+        [
+          0.0,
+          53.0,
+          89.0,
+          131.0
+        ]
+      ],
+      "label_dates": [
+        [
+          "2016-02-16",
+          "2016-04-11",
+          "2016-05-17",
+          "2016-06-28"
+        ],
+        [
+          "2016-02-18",
+          "2016-04-11",
+          "2016-05-17",
+          "2016-06-28"
+        ]
+      ]
+    },
+    {
+      "pair_id": "60e054101c4a2fe6",
+      "plot_uid": "FPWW0120667",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_stem_a": "FPWW0120667_RGB1_20160524_181130",
+      "image_stem_b": "FPWW0120667_RGB1_20160530_153903",
+      "image_dates": [
+        "2016-05-24",
+        "2016-05-30"
+      ],
+      "weather_window": [
+        "2016-05-24",
+        "2016-05-30"
+      ],
+      "delta_days": 6,
+      "phenotype_a": [
+        0.5054,
+        0.7954,
+        0.0,
+        2.0
+      ],
+      "phenotype_b": [
+        0.6406,
+        0.9404,
+        13.7109,
+        2.0
+      ],
+      "phenotype_mask_a": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          35.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          29.0
+        ]
+      ],
+      "label_dates": [
+        [
+          "2016-05-24",
+          "2016-05-24",
+          "2016-05-24",
+          "2016-06-28"
+        ],
+        [
+          "2016-05-30",
+          "2016-05-31",
+          "2016-05-30",
+          "2016-06-28"
+        ]
+      ]
+    },
+    {
+      "pair_id": "04eb582f98806ccf",
+      "plot_uid": "FPWW0240010",
+      "split": "test_environment",
+      "harvest_year": 2019,
+      "image_stem_a": "FPWW0240010_RGB1_20190213_164548",
+      "image_stem_b": "FPWW0240010_RGB1_20190313_111612",
+      "image_dates": [
+        "2019-02-13",
+        "2019-03-13"
+      ],
+      "weather_window": [
+        "2019-02-13",
+        "2019-03-13"
+      ],
+      "delta_days": 28,
+      "phenotype_a": [
+        0.0851,
+        0.0066,
+        0.0,
+        null
+      ],
+      "phenotype_b": [
+        0.1066,
+        0.0127,
+        0.0,
+        null
+      ],
+      "phenotype_mask_a": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          2.0,
+          91.0,
+          null
+        ],
+        [
+          0.0,
+          0.0,
+          63.0,
+          null
+        ]
+      ],
+      "label_dates": [
+        [
+          "2019-02-13",
+          "2019-02-15",
+          "2019-05-15",
+          null
+        ],
+        [
+          "2019-03-13",
+          "2019-03-13",
+          "2019-05-15",
+          null
+        ]
+      ]
+    },
+    {
+      "pair_id": "36565f3a2b5036e9",
+      "plot_uid": "FPWW0240010",
+      "split": "test_environment",
+      "harvest_year": 2019,
+      "image_stem_a": "FPWW0240010_RGB1_20190222_113625",
+      "image_stem_b": "FPWW0240010_RGB1_20190313_111612",
+      "image_dates": [
+        "2019-02-22",
+        "2019-03-13"
+      ],
+      "weather_window": [
+        "2019-02-22",
+        "2019-03-13"
+      ],
+      "delta_days": 19,
+      "phenotype_a": [
+        0.0831,
+        0.0141,
+        0.0,
+        null
+      ],
+      "phenotype_b": [
+        0.1066,
+        0.0127,
+        0.0,
+        null
+      ],
+      "phenotype_mask_a": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          0.0,
+          82.0,
+          null
+        ],
+        [
+          0.0,
+          0.0,
+          63.0,
+          null
+        ]
+      ],
+      "label_dates": [
+        [
+          "2019-02-22",
+          "2019-02-22",
+          "2019-05-15",
+          null
+        ],
+        [
+          "2019-03-13",
+          "2019-03-13",
+          "2019-05-15",
+          null
+        ]
+      ]
+    },
+    {
+      "pair_id": "85f69ab214298ccc",
+      "plot_uid": "FPWW0240010",
+      "split": "test_environment",
+      "harvest_year": 2019,
+      "image_stem_a": "FPWW0240010_RGB1_20190313_111612",
+      "image_stem_b": "FPWW0240010_RGB1_20190411_104455",
+      "image_dates": [
+        "2019-03-13",
+        "2019-04-11"
+      ],
+      "weather_window": [
+        "2019-03-13",
+        "2019-04-11"
+      ],
+      "delta_days": 29,
+      "phenotype_a": [
+        0.1066,
+        0.0127,
+        0.0,
+        null
+      ],
+      "phenotype_b": [
+        0.3203,
+        0.096,
+        0.0,
+        null
+      ],
+      "phenotype_mask_a": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          0.0,
+          63.0,
+          null
+        ],
+        [
+          0.0,
+          1.0,
+          34.0,
+          null
+        ]
+      ],
+      "label_dates": [
+        [
+          "2019-03-13",
+          "2019-03-13",
+          "2019-05-15",
+          null
+        ],
+        [
+          "2019-04-11",
+          "2019-04-12",
+          "2019-05-15",
+          null
+        ]
+      ]
+    },
+    {
+      "pair_id": "920ea6c1f6312e5f",
+      "plot_uid": "FPWW0240010",
+      "split": "test_environment",
+      "harvest_year": 2019,
+      "image_stem_a": "FPWW0240010_RGB1_20190329_110921",
+      "image_stem_b": "FPWW0240010_RGB1_20190411_104455",
+      "image_dates": [
+        "2019-03-29",
+        "2019-04-11"
+      ],
+      "weather_window": [
+        "2019-03-29",
+        "2019-04-11"
+      ],
+      "delta_days": 13,
+      "phenotype_a": [
+        0.1465,
+        0.0169,
+        0.0,
+        null
+      ],
+      "phenotype_b": [
+        0.3203,
+        0.096,
+        0.0,
+        null
+      ],
+      "phenotype_mask_a": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          0.0,
+          47.0,
+          null
+        ],
+        [
+          0.0,
+          1.0,
+          34.0,
+          null
+        ]
+      ],
+      "label_dates": [
+        [
+          "2019-03-29",
+          "2019-03-29",
+          "2019-05-15",
+          null
+        ],
+        [
+          "2019-04-11",
+          "2019-04-12",
+          "2019-05-15",
+          null
+        ]
+      ]
+    },
+    {
+      "pair_id": "e93e01e525e3c1bc",
+      "plot_uid": "FPWW0120667",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_stem_a": "FPWW0120667_RGB1_20151109_143845",
+      "image_stem_b": "FPWW0120667_RGB1_20151112_163433",
+      "image_dates": [
+        "2015-11-09",
+        "2015-11-12"
+      ],
+      "weather_window": [
+        "2015-11-09",
+        "2015-11-12"
+      ],
+      "delta_days": 3,
+      "phenotype_a": [
+        0.0174,
+        0.2228,
+        0.0,
+        2.0
+      ],
+      "phenotype_b": [
+        0.0152,
+        0.2228,
+        0.0,
+        2.0
+      ],
+      "phenotype_mask_a": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          154.0,
+          190.0,
+          232.0
+        ],
+        [
+          0.0,
+          151.0,
+          187.0,
+          229.0
+        ]
+      ],
+      "label_dates": [
+        [
+          "2015-11-09",
+          "2016-04-11",
+          "2016-05-17",
+          "2016-06-28"
+        ],
+        [
+          "2015-11-12",
+          "2016-04-11",
+          "2016-05-17",
+          "2016-06-28"
+        ]
+      ]
+    },
+    {
+      "pair_id": "6c0489c3c7189741",
+      "plot_uid": "FPWW0120667",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_stem_a": "FPWW0120667_RGB1_20151109_143845",
+      "image_stem_b": "FPWW0120667_RGB1_20151124_143423",
+      "image_dates": [
+        "2015-11-09",
+        "2015-11-24"
+      ],
+      "weather_window": [
+        "2015-11-09",
+        "2015-11-24"
+      ],
+      "delta_days": 15,
+      "phenotype_a": [
+        0.0174,
+        0.2228,
+        0.0,
+        2.0
+      ],
+      "phenotype_b": [
+        0.0989,
+        0.2228,
+        0.0,
+        2.0
+      ],
+      "phenotype_mask_a": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "phenotype_mask_b": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "label_lag_days": [
+        [
+          0.0,
+          154.0,
+          190.0,
+          232.0
+        ],
+        [
+          0.0,
+          139.0,
+          175.0,
+          217.0
+        ]
+      ],
+      "label_dates": [
+        [
+          "2015-11-09",
+          "2016-04-11",
+          "2016-05-17",
+          "2016-06-28"
+        ],
+        [
+          "2015-11-24",
+          "2016-04-11",
+          "2016-05-17",
+          "2016-06-28"
+        ]
+      ]
+    }
+  ],
+  "weather_checks": {
+    "n_samples": 8,
+    "lengths": [
+      2,
+      6,
+      28,
+      19,
+      29,
+      13,
+      3,
+      15
+    ],
+    "delta_days": [
+      2,
+      6,
+      28,
+      19,
+      29,
+      13,
+      3,
+      15
+    ],
+    "length_equals_delta": true,
+    "window_is_left_open_right_closed": true,
+    "mask_matches_lengths_and_padding": true,
+    "n_padded_weather_steps": 117,
+    "n_valid_weather_steps": 115,
+    "weather_channels": [
+      "T_mean_C",
+      "T_max_C",
+      "T_min_C",
+      "RH_mean_pct",
+      "Rs_sum_MJ_m2_d",
+      "P_sum_raw"
+    ],
+    "examples": [
+      {
+        "pair_id": "52a8f61f0355c98e",
+        "image_dates": [
+          "2016-02-16",
+          "2016-02-18"
+        ],
+        "weather_window": [
+          "2016-02-16",
+          "2016-02-18"
+        ],
+        "weather_n_days": 2,
+        "delta_days": 2,
+        "weather_dates_head": [
+          "2016-02-17",
+          "2016-02-18"
+        ],
+        "weather_dates_tail": [
+          "2016-02-17",
+          "2016-02-18"
+        ],
+        "weather_first_day": [
+          0.90829998254776,
+          2.199199914932251,
+          -0.5,
+          94.54170227050781,
+          3.462599992752075,
+          0.39989998936653137
+        ]
+      },
+      {
+        "pair_id": "60e054101c4a2fe6",
+        "image_dates": [
+          "2016-05-24",
+          "2016-05-30"
+        ],
+        "weather_window": [
+          "2016-05-24",
+          "2016-05-30"
+        ],
+        "weather_n_days": 6,
+        "delta_days": 6,
+        "weather_dates_head": [
+          "2016-05-25",
+          "2016-05-26",
+          "2016-05-27"
+        ],
+        "weather_dates_tail": [
+          "2016-05-29",
+          "2016-05-30"
+        ],
+        "weather_first_day": [
+          13.824899673461914,
+          20.0,
+          7.398399829864502,
+          76.96739959716797,
+          26.690799713134766,
+          0.0
+        ]
+      },
+      {
+        "pair_id": "04eb582f98806ccf",
+        "image_dates": [
+          "2019-02-13",
+          "2019-03-13"
+        ],
+        "weather_window": [
+          "2019-02-13",
+          "2019-03-13"
+        ],
+        "weather_n_days": 28,
+        "delta_days": 28,
+        "weather_dates_head": [
+          "2019-02-14",
+          "2019-02-15",
+          "2019-02-16"
+        ],
+        "weather_dates_tail": [
+          "2019-03-12",
+          "2019-03-13"
+        ],
+        "weather_first_day": [
+          2.824899911880493,
+          10.60159969329834,
+          -2.0,
+          84.55339813232422,
+          11.130499839782715,
+          0.0
+        ]
+      }
+    ]
+  },
+  "weather_provenance": {
+    "source": "data/manifests/weather_daily_first_plot_per_year.csv",
+    "manifest_id": "s1-weather-daily-v1",
+    "window_convention": "(t_a, t_b] -- left open, right closed; length == delta_days",
+    "channels": {
+      "T_mean_C": {
+        "unit": "degC",
+        "formula": "mean of hourly temperature_air_200cm over the calendar day",
+        "derived": false
+      },
+      "T_max_C": {
+        "unit": "degC",
+        "formula": "max of hourly temperature_air_200cm",
+        "derived": false
+      },
+      "T_min_C": {
+        "unit": "degC",
+        "formula": "min of hourly temperature_air_200cm",
+        "derived": false
+      },
+      "RH_mean_pct": {
+        "unit": "%",
+        "formula": "mean of hourly humidity_air_200cm",
+        "derived": false
+      },
+      "Rs_sum_MJ_m2_d": {
+        "unit": "MJ m-2 d-1",
+        "formula": "sum(hourly irradiance_solar_200cm W m-2) * 3600 s / 1e6",
+        "derived": false
+      },
+      "P_sum_raw": {
+        "unit": "raw sensor unit (UNRESOLVED - not mm)",
+        "formula": "sum(hourly precipitation_200cm) in raw sensor units",
+        "derived": false
+      },
+      "VPD_mean_kPa": {
+        "unit": "kPa",
+        "formula": "mean(0.6108*exp(17.27*T/(T+237.3)) * (1 - RH/100))",
+        "derived": true
+      }
+    },
+    "precipitation_unit_status": "unresolved",
+    "excluded_derived_quantities": [
+      "cumulative precipitation",
+      "water balance / evapotranspiration",
+      "growing degree days (base temperature not verified for FIP)"
+    ],
+    "reuse": "one daily table per harvest_year; all plots of a year share it (S1 verified identical station series across 3 plots/year)"
+  },
+  "label_checks": {
+    "cc": {
+      "measured_zero_a": 0,
+      "measured_zero_b": 0,
+      "missing_nan_a": 0,
+      "missing_nan_b": 0,
+      "present_but_outside_lag_a": 0,
+      "present_but_outside_lag_b": 0
+    },
+    "ph": {
+      "measured_zero_a": 0,
+      "measured_zero_b": 0,
+      "missing_nan_a": 0,
+      "missing_nan_b": 0,
+      "present_but_outside_lag_a": 3,
+      "present_but_outside_lag_b": 3
+    },
+    "whc": {
+      "measured_zero_a": 1,
+      "measured_zero_b": 0,
+      "missing_nan_a": 0,
+      "missing_nan_b": 0,
+      "present_but_outside_lag_a": 7,
+      "present_but_outside_lag_b": 7
+    },
+    "sen": {
+      "measured_zero_a": 0,
+      "measured_zero_b": 0,
+      "missing_nan_a": 4,
+      "missing_nan_b": 4,
+      "present_but_outside_lag_a": 4,
+      "present_but_outside_lag_b": 4
+    },
+    "ph_negative": {
+      "n_flag_a": 0,
+      "n_flag_b": 0,
+      "n_negative_values_kept_a": 0,
+      "n_negative_values_kept_b": 0,
+      "note": "negative PH stays in phenotype_*; it is flagged, never clipped"
+    },
+    "examples": [
+      {
+        "pair_id": "52a8f61f0355c98e",
+        "trait": "whc",
+        "end": "a",
+        "value": 0.0,
+        "mask": false,
+        "label_date": "2016-05-17"
+      },
+      {
+        "pair_id": "60e054101c4a2fe6",
+        "trait": "whc",
+        "end": "a",
+        "value": 0.0,
+        "mask": true,
+        "label_date": "2016-05-24"
+      },
+      {
+        "pair_id": "04eb582f98806ccf",
+        "trait": "whc",
+        "end": "a",
+        "value": 0.0,
+        "mask": false,
+        "label_date": "2019-05-15"
+      },
+      {
+        "pair_id": "36565f3a2b5036e9",
+        "trait": "whc",
+        "end": "a",
+        "value": 0.0,
+        "mask": false,
+        "label_date": "2019-05-15"
+      }
+    ]
+  },
+  "image_quality": {
+    "policy": "report_only",
+    "rule": {
+      "name": "near-white-luma-v1",
+      "near_white_mean": 0.6,
+      "near_white_std": 0.12,
+      "min_luma_std": 0.01
+    },
+    "n_flagged_in_batch": 1,
+    "flagged": [
+      {
+        "pair_id": "52a8f61f0355c98e",
+        "end": "a",
+        "stem": "FPWW0120667_RGB1_20160216_125228.png",
+        "luma_mean": 0.8859,
+        "luma_std": 0.0383,
+        "near_white": true,
+        "quality_usable": false
+      }
+    ],
+    "local_pool": {
+      "n_images": 97,
+      "n_flagged": 1,
+      "flagged": [
+        {
+          "stem": "FPWW0120667_RGB1_20160216_125228",
+          "path": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160216_125228.png",
+          "luma_mean": 0.8859,
+          "luma_std": 0.0383,
+          "near_white": true,
+          "quality_usable": false
+        }
+      ],
+      "luma_mean_range": [
+        0.0776,
+        0.8859
+      ],
+      "luma_std_range": [
+        0.0335,
+        0.1939
+      ]
+    },
+    "note": "flags are reported, never applied; no image is dropped in S2"
+  },
+  "encoding": {
+    "device": "cuda:0",
+    "torch": "2.10.0+cu128",
+    "model": "dinov2_vitb14",
+    "repo": "/fj/Agro-JEPA/external_data/third_party/dinov2",
+    "repo_git_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+    "model_load_seconds": 2.26,
+    "batch_forward_seconds": 0.373,
+    "n_images_encoded": 16,
+    "input_shape": [
+      8,
+      3,
+      224,
+      224
+    ],
+    "tokens_a_shape": [
+      8,
+      256,
+      768
+    ],
+    "tokens_b_shape": [
+      8,
+      256,
+      768
+    ],
+    "n_tokens": 256,
+    "emb_dim": 768,
+    "expected": {
+      "n_tokens": 256,
+      "emb_dim": 768
+    },
+    "matches_mainline_geometry": true,
+    "sample_id_order_preserved": true,
+    "transform_reproduced_from_raw_png_max_abs_diff": 0.0
+  },
+  "cache_roundtrip": {
+    "n_compared": 13,
+    "max_abs_diff": 0.0070323944091796875,
+    "min_cosine": 0.9999975562095642,
+    "all_shapes_match": true,
+    "examples": [
+      {
+        "pair_id": "52a8f61f0355c98e",
+        "end": "a",
+        "stem": "FPWW0120667_RGB1_20160216_125228",
+        "cache_file": "external_data/dino_cache/mainline224_s1-v1/d620a1ef99e8dc9b9a5bb212933b25b9e2b30a4b285e5ffa06da73ee9d37870a.npy",
+        "cached_shape": [
+          256,
+          768
+        ],
+        "live_shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.0043468475341796875,
+        "mean_cos": 1.0000003576278687
+      },
+      {
+        "pair_id": "04eb582f98806ccf",
+        "end": "a",
+        "stem": "FPWW0240010_RGB1_20190213_164548",
+        "cache_file": "external_data/dino_cache/mainline224_s1-v1/511fa79b2f1edd17be67f4582edb5a05c2fbf90f774c60e0c63fd4787c11bfd0.npy",
+        "cached_shape": [
+          256,
+          768
+        ],
+        "live_shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.0069122314453125,
+        "mean_cos": 0.9999976754188538
+      },
+      {
+        "pair_id": "36565f3a2b5036e9",
+        "end": "a",
+        "stem": "FPWW0240010_RGB1_20190222_113625",
+        "cache_file": "external_data/dino_cache/mainline224_s1-v1/2dc219bf5246b6fa5f5a4e4ebec52a5e8092dd401516f00f3f88da74526f7dbb.npy",
+        "cached_shape": [
+          256,
+          768
+        ],
+        "live_shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.0038890838623046875,
+        "mean_cos": 0.9999992847442627
+      }
+    ]
+  },
+  "upstream_geometry": {
+    "mainline": {
+      "upstream_img_size": 256,
+      "computed_num_side_patches": 16,
+      "encoder_image_size": 224,
+      "encoder_transform": "Compose(\n    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)\n)",
+      "num_patches_train_py": 256,
+      "encoder_input_shape": [
+        8,
+        3,
+        224,
+        224
+      ],
+      "z_shape": [
+        8,
+        1,
+        256,
+        770
+      ],
+      "visual_tokens": 256,
+      "predictor_num_patches": 256,
+      "predictor_pos_embedding": [
+        1,
+        256,
+        770
+      ],
+      "predictor_output": [
+        8,
+        256,
+        770
+      ],
+      "predictor_attention_mask": [
+        1,
+        1,
+        256,
+        256
+      ]
+    },
+    "upstream_default": {
+      "upstream_img_size": 224,
+      "computed_num_side_patches": 14,
+      "encoder_image_size": 196,
+      "encoder_transform": "Compose(\n    Resize(size=196, interpolation=bilinear, max_size=None, antialias=True)\n)",
+      "num_patches_train_py": 196,
+      "encoder_input_shape": [
+        8,
+        3,
+        196,
+        196
+      ],
+      "z_shape": [
+        8,
+        1,
+        196,
+        770
+      ],
+      "visual_tokens": 196
+    },
+    "note": "LocalDino wraps the same frozen local DINOv2 weights used for the S1 cache; upstream models.dino.DinoV2Encoder resolves a moving ':main' hub ref and is not used here. With img_size=256 upstream computes encoder_image_size=(256//16)*14=224 and num_patches=(256//16)^2=256, i.e. mainline224; with img_size=224 it computes 196/196.",
+    "decoder_geometry": {
+      "196": {
+        "n_tokens": 196,
+        "grid": 14,
+        "decoded_shape": [
+          2,
+          3,
+          224,
+          224
+        ],
+        "matches_224_visual_target": true
+      },
+      "256": {
+        "n_tokens": 256,
+        "grid": 16,
+        "decoded_shape": [
+          2,
+          3,
+          256,
+          256
+        ],
+        "matches_224_visual_target": false
+      },
+      "verdict": "The upstream VQVAE decoder reconstructs 224x224 only from 196 tokens (14x14 grid). With mainline224's 256 tokens it reconstructs 256x256, so VWorldModel.forward's decoder MSE against the 224x224 obs tensor would be a shape error. S3 latent experiments must run with has_decoder=False (or add a decoder resized to a 16x16 grid); the predictor path itself is consistent at 256 tokens."
+    }
+  }
+}

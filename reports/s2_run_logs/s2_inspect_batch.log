@@ -1,0 +1,63 @@
+/fj/Agro-JEPA/external_data/third_party/dinov2/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/fj/Agro-JEPA/external_data/third_party/dinov2/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/fj/Agro-JEPA/external_data/third_party/dinov2/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: Identity()
+action encoder: Identity()
+proprio_dim: 1, after repeat: 1
+action_dim: 1, after repeat: 1
+emb_dim: 770
+Model emb_dim:  770
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: Identity()
+action encoder: Identity()
+proprio_dim: 1, after repeat: 1
+action_dim: 1, after repeat: 1
+emb_dim: 770
+Model emb_dim:  770
+pairs: 569,821 total, 152 with both images local (6 plots, 97 local PNGs)
+batch: 8 samples from splits ['test_environment', 'train']
+field                          shape                  dtype          extra
+image_a                        [8, 3, 224, 224]       torch.float32  nan=0
+image_b                        [8, 3, 224, 224]       torch.float32  nan=0
+weather_daily                  [8, 29, 6]             torch.float32  nan=0
+weather_mask                   [8, 29]                torch.bool     true=115
+weather_n_hours_min            [8, 29]                torch.int32    nan=None
+weather_dates                  ndarray               
+weather_lengths                [8]                    torch.int64    nan=None
+delta_days                     [8]                    torch.int64    nan=None
+harvest_year                   [8]                    torch.int64    nan=None
+phenotype_a                    [8, 4]                 torch.float32  nan=4
+phenotype_b                    [8, 4]                 torch.float32  nan=4
+phenotype_mask_a               [8, 4]                 torch.bool     true=14
+phenotype_mask_b               [8, 4]                 torch.bool     true=14
+label_lag_days                 [8, 2, 4]              torch.float32  nan=8
+label_dates                    list                   8             
+ph_negative_a                  [8]                    torch.bool     true=0
+ph_negative_b                  [8]                    torch.bool     true=0
+trait_names                    list                   4             
+plot_uid                       list                   8             
+genotype_id                    list                   8             
+split                          list                   8             
+pair_id                        list                   8             
+pair_type                      list                   8             
+image_stem_a                   list                   8             
+image_stem_b                   list                   8             
+image_dates                    list                   8             
+weather_date_range             list                   8             
+weather_manifest_id            list                   8             
+image_stats_a                  list                   8             
+image_stats_b                  list                   8             
+
+weather: {'n_samples': 8, 'lengths': [2, 6, 28, 19, 29, 13, 3, 15], 'delta_days': [2, 6, 28, 19, 29, 13, 3, 15], 'length_equals_delta': True, 'window_is_left_open_right_closed': True, 'mask_matches_lengths_and_padding': True, 'n_padded_weather_steps': 117, 'n_valid_weather_steps': 115}
+labels: {'cc': {'measured_zero_a': 0, 'measured_zero_b': 0, 'missing_nan_a': 0, 'missing_nan_b': 0, 'present_but_outside_lag_a': 0, 'present_but_outside_lag_b': 0}, 'ph': {'measured_zero_a': 0, 'measured_zero_b': 0, 'missing_nan_a': 0, 'missing_nan_b': 0, 'present_but_outside_lag_a': 3, 'present_but_outside_lag_b': 3}, 'whc': {'measured_zero_a': 1, 'measured_zero_b': 0, 'missing_nan_a': 0, 'missing_nan_b': 0, 'present_but_outside_lag_a': 7, 'present_but_outside_lag_b': 7}, 'sen': {'measured_zero_a': 0, 'measured_zero_b': 0, 'missing_nan_a': 4, 'missing_nan_b': 4, 'present_but_outside_lag_a': 4, 'present_but_outside_lag_b': 4}, 'ph_negative': {'n_flag_a': 0, 'n_flag_b': 0, 'n_negative_values_kept_a': 0, 'n_negative_values_kept_b': 0, 'note': 'negative PH stays in phenotype_*; it is flagged, never clipped'}}
+encode: [8, 3, 224, 224] -> [8, 256, 768] / [8, 256, 768] matches=True in 0.373s
+cache roundtrip: {'n_compared': 13, 'max_abs_diff': 0.0070323944091796875, 'min_cosine': 0.9999975562095642, 'all_shapes_match': True}
+upstream: {'mainline': {'upstream_img_size': 256, 'encoder_image_size': 224, 'num_patches_train_py': 256, 'visual_tokens': 256, 'predictor_output': [8, 256, 770]}, 'upstream_default': {'upstream_img_size': 224, 'encoder_image_size': 196, 'num_patches_train_py': 196, 'visual_tokens': 196}}
+
+wrote reports/s2_real_batch.json in 9.6s
