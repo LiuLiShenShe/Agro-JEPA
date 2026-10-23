@@ -1,0 +1,126 @@
+[get ] test_environment-00000-of-00001.parquet (27.5 MB)
+[ ok ] test_environment-00000-of-00001.parquet 5.5s sha256=0fcdcf36f6d7034aacc58d15857531078ae0255ea825bcf98554484f9ef15349
+[get ] test_genotype-00000-of-00001.parquet (151.3 MB)
+[ ok ] test_genotype-00000-of-00001.parquet 8.1s sha256=25b6da2b2d099c7e511bf2740d3d5d2baefe8647b852eefc4a572daa3c169581
+[get ] test_genotype_environment-00000-of-00001.parquet (38.3 MB)
+[ ok ] test_genotype_environment-00000-of-00001.parquet 5.4s sha256=e598f0c3cf34592328b18f9ae55dd903c265126d26477f781918f4e71765daef
+[get ] test_plot-00000-of-00001.parquet (153.5 MB)
+[ ok ] test_plot-00000-of-00001.parquet 11.7s sha256=7dfe6570639862eef12c571e2c2a131353048881aa796b6ec0e24ed7608bd5e1
+[get ] train-00000-of-00007.parquet (207.9 MB)
+[ ok ] train-00000-of-00007.parquet 9.7s sha256=2f1a71cd29f30f30418998fe0a0fc06e32180c2445b99db04ee687bb40706eb3
+[get ] train-00001-of-00007.parquet (189.2 MB)
+[ ok ] train-00001-of-00007.parquet 8.0s sha256=a15866e0b9310e0563c8a4c31ea3e91c93fe67e2a41872d8ac3e6ddb0a44b30a
+[get ] train-00002-of-00007.parquet (182.7 MB)
+[ ok ] train-00002-of-00007.parquet 24.2s sha256=67592a119846c97e8284ab0d9cf6a1769cc80cf8aa467196110caae822dd5f00
+[get ] train-00003-of-00007.parquet (114.8 MB)
+[ ok ] train-00003-of-00007.parquet 6.4s sha256=0df0a6337de276482f12fa4f2685e9a03241f610beacb117aecd30a8dc3695cc
+[get ] train-00004-of-00007.parquet (10.3 MB)
+[ ok ] train-00004-of-00007.parquet 3.5s sha256=10cab37b122abc29c31b2cea302fdfd445d69620df21cb7a1d16beb9cdebc67e
+[get ] train-00005-of-00007.parquet (36.8 MB)
+[ ok ] train-00005-of-00007.parquet 4.4s sha256=175b7aaddb036d2ae6b6a761c78c117458425c28435fbf6284436d140d5a8a99
+[get ] train-00006-of-00007.parquet (30.4 MB)
+[ ok ] train-00006-of-00007.parquet 7.9s sha256=04af42894cc71340b970ecc0d78b8e509681d2c79599bea4a6fc852030e086a3
+[get ] validation-00000-of-00002.parquet (116.6 MB)
+[ ok ] validation-00000-of-00002.parquet 7.1s sha256=af703adec24f48e1427cec805ceca7662a641720449441d796ba20f3c8205cd5
+[get ] validation-00001-of-00002.parquet (116.4 MB)
+[ ok ] validation-00001-of-00002.parquet 5.8s sha256=69369f8f6e65f67d8fd689defce25912640fc2eb17e95783c592d3df91eab2ef
+{
+  "dataset": "mikeboss/FIP1",
+  "revision": "11cdd84bc0ba8d5c6641ea7b53550b1658527e1c",
+  "hf_endpoint": "https://hf-mirror.com",
+  "downloaded_at": "2026-10-23T14:43:25+0800",
+  "total_seconds": 107.8,
+  "files": [
+    {
+      "file": "test_environment-00000-of-00001.parquet",
+      "status": "downloaded",
+      "size": 27529156,
+      "sha256": "0fcdcf36f6d7034aacc58d15857531078ae0255ea825bcf98554484f9ef15349",
+      "seconds": 5.5
+    },
+    {
+      "file": "test_genotype-00000-of-00001.parquet",
+      "status": "downloaded",
+      "size": 151265501,
+      "sha256": "25b6da2b2d099c7e511bf2740d3d5d2baefe8647b852eefc4a572daa3c169581",
+      "seconds": 8.1
+    },
+    {
+      "file": "test_genotype_environment-00000-of-00001.parquet",
+      "status": "downloaded",
+      "size": 38305429,
+      "sha256": "e598f0c3cf34592328b18f9ae55dd903c265126d26477f781918f4e71765daef",
+      "seconds": 5.4
+    },
+    {
+      "file": "test_plot-00000-of-00001.parquet",
+      "status": "downloaded",
+      "size": 153525540,
+      "sha256": "7dfe6570639862eef12c571e2c2a131353048881aa796b6ec0e24ed7608bd5e1",
+      "seconds": 11.7
+    },
+    {
+      "file": "train-00000-of-00007.parquet",
+      "status": "downloaded",
+      "size": 207898052,
+      "sha256": "2f1a71cd29f30f30418998fe0a0fc06e32180c2445b99db04ee687bb40706eb3",
+      "seconds": 9.7
+    },
+    {
+      "file": "train-00001-of-00007.parquet",
+      "status": "downloaded",
+      "size": 189211287,
+      "sha256": "a15866e0b9310e0563c8a4c31ea3e91c93fe67e2a41872d8ac3e6ddb0a44b30a",
+      "seconds": 8.0
+    },
+    {
+      "file": "train-00002-of-00007.parquet",
+      "status": "downloaded",
+      "size": 182674719,
+      "sha256": "67592a119846c97e8284ab0d9cf6a1769cc80cf8aa467196110caae822dd5f00",
+      "seconds": 24.2
+    },
+    {
+      "file": "train-00003-of-00007.parquet",
+      "status": "downloaded",
+      "size": 114834185,
+      "sha256": "0df0a6337de276482f12fa4f2685e9a03241f610beacb117aecd30a8dc3695cc",
+      "seconds": 6.4
+    },
+    {
+      "file": "train-00004-of-00007.parquet",
+      "status": "downloaded",
+      "size": 10339036,
+      "sha256": "10cab37b122abc29c31b2cea302fdfd445d69620df21cb7a1d16beb9cdebc67e",
+      "seconds": 3.5
+    },
+    {
+      "file": "train-00005-of-00007.parquet",
+      "status": "downloaded",
+      "size": 36758958,
+      "sha256": "175b7aaddb036d2ae6b6a761c78c117458425c28435fbf6284436d140d5a8a99",
+      "seconds": 4.4
+    },
+    {
+      "file": "train-00006-of-00007.parquet",
+      "status": "downloaded",
+      "size": 30366420,
+      "sha256": "04af42894cc71340b970ecc0d78b8e509681d2c79599bea4a6fc852030e086a3",
+      "seconds": 7.9
+    },
+    {
+      "file": "validation-00000-of-00002.parquet",
+      "status": "downloaded",
+      "size": 116556393,
+      "sha256": "af703adec24f48e1427cec805ceca7662a641720449441d796ba20f3c8205cd5",
+      "seconds": 7.1
+    },
+    {
+      "file": "validation-00001-of-00002.parquet",
+      "status": "downloaded",
+      "size": 116403834,
+      "sha256": "69369f8f6e65f67d8fd689defce25912640fc2eb17e95783c592d3df91eab2ef",
+      "seconds": 5.8
+    }
+  ]
+}

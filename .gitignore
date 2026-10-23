@@ -2,3 +2,6 @@
 /.venv-s0/
 __pycache__/
 *.pyc
+/external_data/
+*.npy
+/data/manifests/fip1_observations.csv

@@ -1,0 +1,26 @@
+/fj/Agro-JEPA/tools/s1_audit_fip.py:362: DtypeWarning: Columns (21) have mixed types. Specify dtype option on import or set low_memory=False.
+  odf = pd.read_csv(obs_csv)
+{
+  "n_plot_rows": 4058,
+  "n_unique_plot_uid": 4058,
+  "split_counts": {
+    "test_environment": 190,
+    "test_genotype": 246,
+    "test_genotype_environment": 62,
+    "test_plot": 250,
+    "train": 2930,
+    "validation": 380
+  },
+  "year_counts": {
+    "2016": 710,
+    "2017": 756,
+    "2018": 756,
+    "2019": 252,
+    "2021": 792,
+    "2022": 792
+  },
+  "n_observations": 153022
+}
+wrote data/manifests/fip1_plots.csv (4058 rows)
+wrote data/manifests/fip1_observations.csv (153022 rows)
+wrote reports/s1_fip_audit.json

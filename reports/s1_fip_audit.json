@@ -1,0 +1,420 @@
+{
+  "generated_at": "2026-10-23T16:21:58+0800",
+  "parquet_dir": "external_data/fip1_parquet",
+  "shards": [
+    {
+      "file": "test_environment-00000-of-00001.parquet",
+      "bytes": 27529156,
+      "sha256": "0fcdcf36f6d7034aacc58d15857531078ae0255ea825bcf98554484f9ef15349"
+    },
+    {
+      "file": "test_genotype-00000-of-00001.parquet",
+      "bytes": 151265501,
+      "sha256": "25b6da2b2d099c7e511bf2740d3d5d2baefe8647b852eefc4a572daa3c169581"
+    },
+    {
+      "file": "test_genotype_environment-00000-of-00001.parquet",
+      "bytes": 38305429,
+      "sha256": "e598f0c3cf34592328b18f9ae55dd903c265126d26477f781918f4e71765daef"
+    },
+    {
+      "file": "test_plot-00000-of-00001.parquet",
+      "bytes": 153525540,
+      "sha256": "7dfe6570639862eef12c571e2c2a131353048881aa796b6ec0e24ed7608bd5e1"
+    },
+    {
+      "file": "train-00000-of-00007.parquet",
+      "bytes": 207898052,
+      "sha256": "2f1a71cd29f30f30418998fe0a0fc06e32180c2445b99db04ee687bb40706eb3"
+    },
+    {
+      "file": "train-00001-of-00007.parquet",
+      "bytes": 189211287,
+      "sha256": "a15866e0b9310e0563c8a4c31ea3e91c93fe67e2a41872d8ac3e6ddb0a44b30a"
+    },
+    {
+      "file": "train-00002-of-00007.parquet",
+      "bytes": 182674719,
+      "sha256": "67592a119846c97e8284ab0d9cf6a1769cc80cf8aa467196110caae822dd5f00"
+    },
+    {
+      "file": "train-00003-of-00007.parquet",
+      "bytes": 114834185,
+      "sha256": "0df0a6337de276482f12fa4f2685e9a03241f610beacb117aecd30a8dc3695cc"
+    },
+    {
+      "file": "train-00004-of-00007.parquet",
+      "bytes": 10339036,
+      "sha256": "10cab37b122abc29c31b2cea302fdfd445d69620df21cb7a1d16beb9cdebc67e"
+    },
+    {
+      "file": "train-00005-of-00007.parquet",
+      "bytes": 36758958,
+      "sha256": "175b7aaddb036d2ae6b6a761c78c117458425c28435fbf6284436d140d5a8a99"
+    },
+    {
+      "file": "train-00006-of-00007.parquet",
+      "bytes": 30366420,
+      "sha256": "04af42894cc71340b970ecc0d78b8e509681d2c79599bea4a6fc852030e086a3"
+    },
+    {
+      "file": "validation-00000-of-00002.parquet",
+      "bytes": 116556393,
+      "sha256": "af703adec24f48e1427cec805ceca7662a641720449441d796ba20f3c8205cd5"
+    },
+    {
+      "file": "validation-00001-of-00002.parquet",
+      "bytes": 116403834,
+      "sha256": "69369f8f6e65f67d8fd689defce25912640fc2eb17e95783c592d3df91eab2ef"
+    }
+  ],
+  "split_of_shard": {
+    "test_environment-00000-of-00001.parquet": "test_environment",
+    "test_genotype-00000-of-00001.parquet": "test_genotype",
+    "test_genotype_environment-00000-of-00001.parquet": "test_genotype_environment",
+    "test_plot-00000-of-00001.parquet": "test_plot",
+    "train-00000-of-00007.parquet": "train",
+    "train-00001-of-00007.parquet": "train",
+    "train-00002-of-00007.parquet": "train",
+    "train-00003-of-00007.parquet": "train",
+    "train-00004-of-00007.parquet": "train",
+    "train-00005-of-00007.parquet": "train",
+    "train-00006-of-00007.parquet": "train",
+    "validation-00000-of-00002.parquet": "validation",
+    "validation-00001-of-00002.parquet": "validation"
+  },
+  "inner_plot_image_integrity": {
+    "n_plots": 4058,
+    "n_plots_with_length_mismatch": 1773,
+    "n_full_images": 160772,
+    "n_inner_images": 153022,
+    "n_full_images_without_inner": 7741,
+    "n_orphan_inner_images": 0,
+    "n_filename_date_mismatch": 0
+  },
+  "n_plot_rows": 4058,
+  "n_unique_plot_uid": 4058,
+  "split_counts": {
+    "test_environment": 190,
+    "test_genotype": 246,
+    "test_genotype_environment": 62,
+    "test_plot": 250,
+    "train": 2930,
+    "validation": 380
+  },
+  "split_year_counts": {
+    "test_environment": {
+      "2019": 190
+    },
+    "test_genotype": {
+      "2016": 60,
+      "2017": 60,
+      "2018": 60,
+      "2021": 28,
+      "2022": 38
+    },
+    "test_genotype_environment": {
+      "2019": 62
+    },
+    "test_plot": {
+      "2016": 79,
+      "2017": 78,
+      "2018": 74,
+      "2021": 11,
+      "2022": 8
+    },
+    "train": {
+      "2016": 452,
+      "2017": 492,
+      "2018": 520,
+      "2021": 742,
+      "2022": 724
+    },
+    "validation": {
+      "2016": 119,
+      "2017": 126,
+      "2018": 102,
+      "2021": 11,
+      "2022": 22
+    }
+  },
+  "year_counts": {
+    "2016": 710,
+    "2017": 756,
+    "2018": 756,
+    "2019": 252,
+    "2021": 792,
+    "2022": 792
+  },
+  "year_lot": {
+    "2016": {
+      "4": 355,
+      "3": 355
+    },
+    "2017": {
+      "2": 378,
+      "6": 378
+    },
+    "2018": {
+      "1": 378,
+      "3": 378
+    },
+    "2019": {
+      "2": 126,
+      "4": 126
+    },
+    "2021": {
+      "3": 396,
+      "4": 396
+    },
+    "2022": {
+      "2": 396,
+      "5": 396
+    }
+  },
+  "n_observations": 153022,
+  "trait_metadata": {
+    "canopy_cover": {
+      "trait_id": 38,
+      "trait_name": "Canopy coverage",
+      "method_id": 323,
+      "method_name": "Canopy cover calculation based on FIP image and Zenkel et al. segmentation",
+      "si_unit": "%",
+      "responsible": "luroth"
+    },
+    "height": {
+      "trait_id": 5,
+      "trait_name": "Plant height",
+      "method_id": 304,
+      "method_name": "Remote sensing based canopy height extraction",
+      "si_unit": "m",
+      "responsible": "luroth"
+    },
+    "spike_count": {
+      "trait_id": 15,
+      "trait_name": "Spike number",
+      "method_id": 380,
+      "method_name": "Wheat head counts with YOLOv5",
+      "si_unit": "1",
+      "responsible": "luroth"
+    },
+    "senescence": {
+      "trait_id": 102,
+      "trait_name": "Canopy senescence in central plot area",
+      "method_id": 353,
+      "method_name": "Visual canopy greenness scoring",
+      "si_unit": "1",
+      "responsible": "anjonas"
+    },
+    "heading": {},
+    "height_final": {},
+    "yield": {
+      "method_name": "Grain yield determination with balance and moisture correction 14 %",
+      "si_unit": "t ha^{-1}"
+    },
+    "yield_adjusted": {},
+    "protein": {
+      "method_name": "Measurement of grain protein content using NIRs",
+      "si_unit": "%"
+    }
+  },
+  "genotype_overlap": {
+    "n_genotypes_by_year": {
+      "2016": 335,
+      "2017": 352,
+      "2018": 353,
+      "2019": 78,
+      "2021": 346,
+      "2022": 373
+    },
+    "pairwise_shared_genotypes": {
+      "2016_2017": 328,
+      "2016_2018": 327,
+      "2016_2019": 53,
+      "2016_2021": 49,
+      "2016_2022": 64,
+      "2017_2018": 346,
+      "2017_2019": 67,
+      "2017_2021": 61,
+      "2017_2022": 78,
+      "2018_2019": 71,
+      "2018_2021": 63,
+      "2018_2022": 81,
+      "2019_2021": 43,
+      "2019_2022": 58,
+      "2021_2022": 101
+    }
+  },
+  "cc_lag_days": {
+    "n_matched": 153022,
+    "n_missing": 0,
+    "lag_median_signed": 0.0,
+    "lag_mean_signed": -0.5425036922795415,
+    "frac_lag_0": 0.895466011423194,
+    "frac_abs_le_3": 0.927768556155324,
+    "frac_abs_le_7": 0.9632797898341415,
+    "frac_positive": 0.04102678046293997,
+    "frac_negative": 0.06350720811386598
+  },
+  "cc_value_stats": {
+    "n_valid": 153022,
+    "n_zero": 2,
+    "min": 0.0,
+    "max": 0.9673,
+    "median": 0.3337,
+    "within_3d": {
+      "n_valid": 141969,
+      "n_zero": 2,
+      "min": 0.0,
+      "max": 0.9673,
+      "median": 0.3308
+    },
+    "within_7d": {
+      "n_valid": 147403,
+      "n_zero": 2,
+      "min": 0.0,
+      "max": 0.9673,
+      "median": 0.3264
+    }
+  },
+  "ph_lag_days": {
+    "n_matched": 153022,
+    "n_missing": 0,
+    "lag_median_signed": 0.0,
+    "lag_mean_signed": 16.64092744834076,
+    "frac_lag_0": 0.49143260446210346,
+    "frac_abs_le_3": 0.7081073309720171,
+    "frac_abs_le_7": 0.7575773418201305,
+    "frac_positive": 0.3909307158447805,
+    "frac_negative": 0.11763667969311602
+  },
+  "ph_value_stats": {
+    "n_valid": 153022,
+    "n_zero": 10524,
+    "min": -0.0962,
+    "max": 1.6074,
+    "median": 0.2566,
+    "within_3d": {
+      "n_valid": 108356,
+      "n_zero": 2586,
+      "min": -0.0962,
+      "max": 1.6074,
+      "median": 0.4949
+    },
+    "within_7d": {
+      "n_valid": 115926,
+      "n_zero": 3378,
+      "min": -0.0962,
+      "max": 1.6074,
+      "median": 0.4861
+    }
+  },
+  "whc_lag_days": {
+    "n_matched": 152454,
+    "n_missing": 568,
+    "lag_median_signed": 13.0,
+    "lag_mean_signed": 39.36754037283377,
+    "frac_lag_0": 0.42622036811103675,
+    "frac_abs_le_3": 0.4422120770855471,
+    "frac_abs_le_7": 0.46886273892452807,
+    "frac_positive": 0.544597058784945,
+    "frac_negative": 0.029182573104018263
+  },
+  "whc_value_stats": {
+    "n_valid": 152454,
+    "n_zero": 77234,
+    "min": 0.0,
+    "max": 845.5,
+    "median": 0.0,
+    "within_3d": {
+      "n_valid": 67417,
+      "n_zero": 15372,
+      "min": 0.0,
+      "max": 845.5,
+      "median": 194.25
+    },
+    "within_7d": {
+      "n_valid": 71480,
+      "n_zero": 17304,
+      "min": 0.0,
+      "max": 845.5,
+      "median": 188.25
+    }
+  },
+  "sen_lag_days": {
+    "n_matched": 61135,
+    "n_missing": 91887,
+    "lag_median_signed": 70.0,
+    "lag_mean_signed": 80.79082358714321,
+    "frac_lag_0": 0.08868896704015702,
+    "frac_abs_le_3": 0.17340312423325427,
+    "frac_abs_le_7": 0.1792753741719146,
+    "frac_positive": 0.8676371963686922,
+    "frac_negative": 0.04367383659115073
+  },
+  "sen_value_stats": {
+    "n_valid": 61135,
+    "n_zero": 21335,
+    "min": 0.0,
+    "max": 10.0,
+    "median": 1.0,
+    "within_3d": {
+      "n_valid": 10601,
+      "n_zero": 2110,
+      "min": 0.0,
+      "max": 10.0,
+      "median": 3.0
+    },
+    "within_7d": {
+      "n_valid": 10960,
+      "n_zero": 2211,
+      "min": 0.0,
+      "max": 10.0,
+      "median": 3.0
+    }
+  },
+  "per_year_observation_traits": {
+    "2016": {
+      "n_obs": 25566,
+      "cc_valid": 25566,
+      "ph_valid": 25566,
+      "whc_valid": 25566,
+      "sen_valid": 25335
+    },
+    "2017": {
+      "n_obs": 14534,
+      "cc_valid": 14534,
+      "ph_valid": 14534,
+      "whc_valid": 14534,
+      "sen_valid": 14534
+    },
+    "2018": {
+      "n_obs": 21266,
+      "cc_valid": 21266,
+      "ph_valid": 21266,
+      "whc_valid": 21254,
+      "sen_valid": 21266
+    },
+    "2019": {
+      "n_obs": 6445,
+      "cc_valid": 6445,
+      "ph_valid": 6445,
+      "whc_valid": 5889,
+      "sen_valid": 0
+    },
+    "2021": {
+      "n_obs": 48285,
+      "cc_valid": 48285,
+      "ph_valid": 48285,
+      "whc_valid": 48285,
+      "sen_valid": 0
+    },
+    "2022": {
+      "n_obs": 36926,
+      "cc_valid": 36926,
+      "ph_valid": 36926,
+      "whc_valid": 36926,
+      "sen_valid": 0
+    }
+  }
+}

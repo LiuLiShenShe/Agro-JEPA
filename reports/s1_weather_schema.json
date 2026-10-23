@@ -1,0 +1,434 @@
+{
+  "sensors": {
+    "temperature_air_200cm": "degC",
+    "humidity_air_200cm": "%",
+    "irradiance_solar_200cm": "W m-2 (hourly mean; inferred)",
+    "precipitation_200cm": "raw (unit not stated in data card)"
+  },
+  "optional_sensors": [
+    "temperature_air_10cm",
+    "humidity_air_10cm",
+    "temperature_soil_5cm"
+  ],
+  "years": {
+    "2019": {
+      "n_plots_checked": 3,
+      "sensors": {
+        "temperature_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2018-09-01",
+          "date_last": "2019-08-31",
+          "value_min": -6.3984375,
+          "value_max": 34.90625,
+          "value_mean": 10.066442146475456,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "ce4cd45f489b5421",
+          "identical_across_checked_plots": true
+        },
+        "humidity_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2018-09-01",
+          "date_last": "2019-08-31",
+          "value_min": 23.796875,
+          "value_max": 100.0,
+          "value_mean": 82.70875249714612,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "cc0b8fe088995813",
+          "identical_across_checked_plots": true
+        },
+        "irradiance_solar_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2018-09-01",
+          "date_last": "2019-08-31",
+          "value_min": 0.0,
+          "value_max": 1044.0,
+          "value_mean": 152.0604690482083,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "234d41816a26af03",
+          "identical_across_checked_plots": true
+        },
+        "precipitation_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2018-09-01",
+          "date_last": "2019-08-31",
+          "value_min": 0.0,
+          "value_max": 18.0,
+          "value_mean": 0.12391172086811501,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "5e9bd6c6df53e092",
+          "identical_across_checked_plots": true
+        }
+      }
+    },
+    "2016": {
+      "n_plots_checked": 3,
+      "sensors": {
+        "temperature_air_200cm": {
+          "n_records": 8784,
+          "n_days": 366,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2015-09-01",
+          "date_last": "2016-08-31",
+          "value_min": -11.1015625,
+          "value_max": 32.40625,
+          "value_mean": 9.933481935594903,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "053a0b49f0372fbc",
+          "identical_across_checked_plots": true
+        },
+        "humidity_air_200cm": {
+          "n_records": 8784,
+          "n_days": 366,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2015-09-01",
+          "date_last": "2016-08-31",
+          "value_min": 34.0,
+          "value_max": 100.0,
+          "value_mean": 84.16020249886157,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "b5ca4ccbc4da3e02",
+          "identical_across_checked_plots": true
+        },
+        "irradiance_solar_200cm": {
+          "n_records": 8784,
+          "n_days": 366,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2015-09-01",
+          "date_last": "2016-08-31",
+          "value_min": 10.203125,
+          "value_max": 953.0,
+          "value_mean": 143.05510551855647,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "19d2bae453b7e0db",
+          "identical_across_checked_plots": true
+        },
+        "precipitation_200cm": {
+          "n_records": 8784,
+          "n_days": 366,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2015-09-01",
+          "date_last": "2016-08-31",
+          "value_min": 0.0,
+          "value_max": 18.40625,
+          "value_mean": 0.1742551904341345,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "5b3a9fb33e608a9a",
+          "identical_across_checked_plots": true
+        }
+      }
+    },
+    "2017": {
+      "n_plots_checked": 3,
+      "sensors": {
+        "temperature_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2016-09-01",
+          "date_last": "2017-08-31",
+          "value_min": -13.796875,
+          "value_max": 32.3125,
+          "value_mean": 9.893201185252568,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "2c6a5eee3138823a",
+          "identical_across_checked_plots": true
+        },
+        "humidity_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2016-09-01",
+          "date_last": "2017-08-31",
+          "value_min": 26.796875,
+          "value_max": 100.0,
+          "value_mean": 84.25662635559361,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "0fd735b219cda848",
+          "identical_across_checked_plots": true
+        },
+        "irradiance_solar_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2016-09-01",
+          "date_last": "2017-08-31",
+          "value_min": 0.0,
+          "value_max": 1037.0,
+          "value_mean": 153.20855527555563,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "b20c3219796eb9f5",
+          "identical_across_checked_plots": true
+        },
+        "precipitation_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2016-09-01",
+          "date_last": "2017-08-31",
+          "value_min": 0.0,
+          "value_max": 22.0,
+          "value_mean": 0.08860197720462329,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "8749e05ec48a98ed",
+          "identical_across_checked_plots": true
+        }
+      }
+    },
+    "2018": {
+      "n_plots_checked": 3,
+      "sensors": {
+        "temperature_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2017-09-01",
+          "date_last": "2018-08-31",
+          "value_min": -13.0,
+          "value_max": 34.5,
+          "value_mean": 10.14377767484482,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "80d286d56a9951ac",
+          "identical_across_checked_plots": true
+        },
+        "humidity_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2017-09-01",
+          "date_last": "2018-08-31",
+          "value_min": 22.796875,
+          "value_max": 100.0,
+          "value_mean": 81.92995148401826,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "d97ca7ab837a48bb",
+          "identical_across_checked_plots": true
+        },
+        "irradiance_solar_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2017-09-01",
+          "date_last": "2018-08-31",
+          "value_min": 0.0,
+          "value_max": 983.5,
+          "value_mean": 149.09755887244935,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "0fd1bca67d00993c",
+          "identical_across_checked_plots": true
+        },
+        "precipitation_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2017-09-01",
+          "date_last": "2018-08-31",
+          "value_min": 0.0,
+          "value_max": 19.0,
+          "value_mean": 0.10389933825627853,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "4317d6a2ca9ebc87",
+          "identical_across_checked_plots": true
+        }
+      }
+    },
+    "2021": {
+      "n_plots_checked": 3,
+      "sensors": {
+        "temperature_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2020-09-01",
+          "date_last": "2021-08-31",
+          "value_min": -11.296875,
+          "value_max": 31.796875,
+          "value_mean": 9.369871054174693,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "b08cabdfbfbd65a1",
+          "identical_across_checked_plots": true
+        },
+        "humidity_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2020-09-01",
+          "date_last": "2021-08-31",
+          "value_min": 23.5,
+          "value_max": 100.0,
+          "value_mean": 84.89351455479452,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "5a39e3573902799e",
+          "identical_across_checked_plots": true
+        },
+        "irradiance_solar_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2020-09-01",
+          "date_last": "2021-08-31",
+          "value_min": 0.0,
+          "value_max": 993.0,
+          "value_mean": 142.59541214895032,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "7c076f414a4c2ee9",
+          "identical_across_checked_plots": true
+        },
+        "precipitation_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2020-09-01",
+          "date_last": "2021-08-31",
+          "value_min": 0.0,
+          "value_max": 22.0,
+          "value_mean": 0.148602141637236,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "89600a53577caf03",
+          "identical_across_checked_plots": true
+        }
+      }
+    },
+    "2022": {
+      "n_plots_checked": 3,
+      "sensors": {
+        "temperature_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2021-09-01",
+          "date_last": "2022-08-31",
+          "value_min": -5.5,
+          "value_max": 34.5,
+          "value_mean": 10.59611148921322,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "3dfd2829cea437bd",
+          "identical_across_checked_plots": true
+        },
+        "humidity_air_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2021-09-01",
+          "date_last": "2022-08-31",
+          "value_min": 25.296875,
+          "value_max": 100.0,
+          "value_mean": 81.32647866723744,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "e0c48a3acb87f323",
+          "identical_across_checked_plots": true
+        },
+        "irradiance_solar_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2021-09-01",
+          "date_last": "2022-08-31",
+          "value_min": 0.0,
+          "value_max": 1006.5,
+          "value_mean": 161.37238681740956,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "325cfc5c04cc0e86",
+          "identical_across_checked_plots": true
+        },
+        "precipitation_200cm": {
+          "n_records": 8760,
+          "n_days": 365,
+          "records_per_day_min": 24,
+          "records_per_day_max": 24,
+          "date_first": "2021-09-01",
+          "date_last": "2022-08-31",
+          "value_min": 0.0,
+          "value_max": 21.40625,
+          "value_mean": 0.09103509214915097,
+          "n_nan": 0,
+          "digitizing_gaps": [],
+          "array_digest": "93bb15e58fefa360",
+          "identical_across_checked_plots": true
+        }
+      }
+    }
+  },
+  "daily_aggregation": {
+    "output": "data/manifests/weather_daily_first_plot_per_year.csv",
+    "years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022
+    ],
+    "n_days_by_year": {
+      "2016": 366,
+      "2017": 365,
+      "2018": 365,
+      "2019": 365,
+      "2021": 365,
+      "2022": 365
+    },
+    "formulas": {
+      "T_mean": "mean of hourly temperature_air_200cm over the calendar day",
+      "T_max": "max of hourly temperature_air_200cm",
+      "T_min": "min of hourly temperature_air_200cm",
+      "RH_mean": "mean of hourly humidity_air_200cm",
+      "Rs_sum": "sum(hourly irradiance W m-2) * 3600 s / 1e6 -> MJ m-2 d-1",
+      "P_sum": "sum(hourly precipitation_200cm) -> raw units, unit unresolved",
+      "VPD_mean": "mean(es(T) * (1 - RH/100)), es=0.6108*exp(17.27T/(T+237.3)) kPa"
+    },
+    "precipitation_unit_status": "unresolved; reported as raw sensor units"
+  }
+}

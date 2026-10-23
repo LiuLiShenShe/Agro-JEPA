@@ -1,0 +1,47 @@
+PASS n_plots
+PASS unique_plot_uid
+PASS n_observations
+PASS n_inner_images_matches_plots
+PASS split_size[train]
+PASS split_size[validation]
+PASS split_size[test_plot]
+PASS split_size[test_genotype]
+PASS split_size[test_environment]
+PASS split_size[test_genotype_environment]
+PASS n_pairs
+PASS pair_dt_matches_dates
+PASS pair_dt_positive
+PASS window_matches_dt
+PASS window_bounds_match_dates
+PASS pair_manifest_id
+PASS pair_image_a_plot
+PASS pair_image_b_plot
+PASS obs_filename_date
+PASS obs_filename_plot
+PASS cc_lag_consistent
+PASS cc_value_implies_date
+PASS ph_lag_consistent
+PASS ph_value_implies_date
+PASS whc_lag_consistent
+PASS whc_value_implies_date
+PASS sen_lag_consistent
+PASS sen_value_implies_date
+PASS dino[upstream196]_tokens
+PASS dino[upstream196]_dim
+PASS dino[upstream196]_dtype
+PASS dino[mainline224]_tokens
+PASS dino[mainline224]_dim
+PASS dino[mainline224]_dtype
+PASS dino_commit
+PASS dino_weights_sha
+PASS artifact_sha[fip1_plots.csv]
+PASS artifact_sha[fip1_observations.csv.gz]
+PASS artifact_sha[fip1_pairs_consecutive.parquet]
+PASS artifact_sha[custom_crossyear_splits.csv]
+PASS artifact_sha[weather_daily_first_plot_per_year.csv]
+
+41/41 checks passed
+{
+  "status": "ok",
+  "checked_at": "2026-10-23T16:43:38"
+}

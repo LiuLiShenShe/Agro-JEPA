@@ -1,0 +1,91 @@
+{
+  "manifest_id": "fip1-s1-v1",
+  "created_at": "2026-10-23T16:42:11+0800",
+  "dataset": {
+    "name": "mikeboss/FIP1",
+    "revision": "11cdd84bc0ba8d5c6641ea7b53550b1658527e1c",
+    "license": "CC-BY-4.0",
+    "parquet_shards": 13,
+    "parquet_total_bytes": 1375668510
+  },
+  "official_splits": {
+    "names": [
+      "train",
+      "validation",
+      "test_plot",
+      "test_genotype",
+      "test_environment",
+      "test_genotype_environment"
+    ],
+    "source": "row membership of the HuggingFace parquet shards",
+    "note": "test_environment and test_genotype_environment contain only 2019 plots; test_plot is 'seen genotypes, seen environment, unseen plots'; test_genotype is unseen genotypes in seen environments."
+  },
+  "custom_split": {
+    "rule_version": "custom-crossyear-v1",
+    "seed": 42,
+    "id_years": [
+      2016,
+      2017,
+      2019,
+      2021
+    ],
+    "cross_year_years": [
+      2018,
+      2022
+    ],
+    "rule": "within each ID year, genotypes are sorted, permuted with numpy RandomState(42), and assigned 80/10/10 to train/val/id_test; 2018 and 2022 are held out entirely",
+    "note": "ID-Test = seen years, unseen genotypes."
+  },
+  "sample_definition": {
+    "unit": "one image pair from the same plot_uid",
+    "anchor_image": "inner_plot_images entry on date t_a",
+    "target_image": "another inner_plot_images entry on date t_b",
+    "required": "t_b > t_a; both images belong to the same plot_uid",
+    "\u0394t": "(t_b - t_a).days",
+    "consecutive_pairs": "fip1_pairs_consecutive.parquet (\u0394t unrestricted)",
+    "span_pairs": "for each span in {7,14,21,28,35,42} d, for each anchor image, choose the nearest later image with |\u0394t - span| <= 2 d; counts in reports/s1_split_statistics.json"
+  },
+  "weather_window": {
+    "convention": "(t_a, t_b] -- left open, right closed",
+    "n_daily_steps": "\u0394t",
+    "raw_records": "hourly, 24 records per day, Sep 1 -> Aug 31",
+    "missingness": "0 NaN in every checked year; identical across plots of a year",
+    "left_join": "daily aggregates are built in S2; S1 provides window bounds"
+  },
+  "label_matching": {
+    "rule": "for every image date, match the nearest measurement date of each trait; record the signed lag label_date - image_date",
+    "validity_masks": "downstream uses |lag| <= 3 d (strict) or <= 7 d (primary); the exact thresholds and counts are in reports/s1_label_timing.md",
+    "missing_vs_zero": "a trait is missing when there is no measurement date in the plot record; a measured 0 is kept as 0 and is never imputed"
+  },
+  "units": {
+    "canopy_cover": "raw 0-1 fraction (trait metadata says '%'; values are fractions)",
+    "height": "m",
+    "spike_count": "count (dimensionless)",
+    "senescence": "0-10 score",
+    "yield": "t ha-1",
+    "protein": "%",
+    "weather": "temperature degC, humidity %, irradiance W m-2, precipitation raw"
+  },
+  "artifacts": {
+    "fip1_plots.csv": {
+      "bytes": 1179116,
+      "sha256": "67a73d2affe72cfac6d909323e07fe5bbf85f42dcc201e98f2f23862b9eab59f"
+    },
+    "fip1_observations.csv.gz": {
+      "bytes": 5416802,
+      "sha256": "82b68b64d799636e8d1bce3d9571b581128d4fe94e90e56a8873f119de9f0a60"
+    },
+    "fip1_pairs_consecutive.parquet": {
+      "bytes": 5699126,
+      "sha256": "b528caa1f9bb7e449d1805936cf13c2b6985b9ada2865085608fa83544917618"
+    },
+    "custom_crossyear_splits.csv": {
+      "bytes": 555428,
+      "sha256": "5c8acbf78e4f56588a8c9cb72008e40302eebe3b1529950fe000fa103d99d0d9"
+    },
+    "weather_daily_first_plot_per_year.csv": {
+      "bytes": 170053,
+      "sha256": "19aa4ee2f476ba13d34793899b74797d99080b813fbaee7c3c851e6236a4b52e"
+    }
+  }
+}

@@ -1,0 +1,3213 @@
+{
+  "generated_at": "2026-10-23T15:43:19+0800",
+  "device": "cuda:0",
+  "model": {
+    "name": "dinov2_vitb14",
+    "num_features": 768,
+    "embed_dim": 768,
+    "patch_size": 14,
+    "n_blocks": 12,
+    "num_heads": 12,
+    "n_params": 86580480,
+    "loading": "torch.hub.load(repo, 'dinov2_vitb14', source='local', pretrained=True)",
+    "repo_dir": "/fj/Agro-JEPA/external_data/third_party/dinov2",
+    "repo_git_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "weights_file": "/home/test/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth",
+    "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+    "weights_url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth",
+    "weights_state_dict_sha256": "6ba9dd85ee9ac3caec717ec270ee86bb44f57b3b4787679b64e5e1c549af0906"
+  },
+  "model_load_seconds": 1.95,
+  "preprocessing": {
+    "upstream196": [
+      "PIL RGB",
+      "ToTensor (uint8/255, CHW)",
+      "Resize(224)",
+      "CenterCrop(224)",
+      "Normalize(mean=0.5,std=0.5) per channel",
+      "Resize(196)",
+      "DINOv2 ViT-B/14"
+    ],
+    "mainline224": [
+      "PIL RGB",
+      "ToTensor (uint8/255, CHW)",
+      "Resize(224)",
+      "CenterCrop(224)",
+      "Normalize(mean=0.5,std=0.5) per channel",
+      "DINOv2 ViT-B/14"
+    ],
+    "note": "DINOv2 does not normalize internally; 0.5 normalization is the only one."
+  },
+  "summary": {
+    "upstream196": {
+      "n_images": 60,
+      "token_shapes": [
+        [
+          1,
+          196,
+          768
+        ]
+      ],
+      "n_tokens": [
+        196
+      ],
+      "dtype": [
+        "torch.float32"
+      ],
+      "cache_dtype": "float16",
+      "mean_forward_seconds": 0.01287,
+      "median_forward_seconds": 0.0122,
+      "mean_e2e_seconds": 0.05919,
+      "throughput_images_per_s": 16.89,
+      "cache_bytes_total": 18071040,
+      "cache_bytes_per_image_mean": 301184.0,
+      "projected_gib_for_153k_images": 42.9
+    },
+    "mainline224": {
+      "n_images": 60,
+      "token_shapes": [
+        [
+          1,
+          256,
+          768
+        ]
+      ],
+      "n_tokens": [
+        256
+      ],
+      "dtype": [
+        "torch.float32"
+      ],
+      "cache_dtype": "float16",
+      "mean_forward_seconds": 0.01743,
+      "median_forward_seconds": 0.01632,
+      "mean_e2e_seconds": 0.05723,
+      "throughput_images_per_s": 17.47,
+      "cache_bytes_total": 23600640,
+      "cache_bytes_per_image_mean": 393344.0,
+      "projected_gib_for_153k_images": 56.1
+    }
+  },
+  "images": [
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2015-11-09",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20151109_143845.png",
+      "source_sha256": "297d08f92353ad8c33e1b05b5cb0720467bfc249515d7cdd10d38bc1e62df697",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/4f71fdaed36b47afcfd4a65711aafd236a98e52b9a9de7a0db747d6cfa4aeed7.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01247,
+      "e2e_seconds": 0.0489,
+      "cache_key": "4f71fdaed36b47afcfd4a65711aafd236a98e52b9a9de7a0db747d6cfa4aeed7"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2015-11-24",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20151124_143423.png",
+      "source_sha256": "89a1a1a099453e62beb058a18c79fc515ca837c5857bbd12a241d9159b8d97eb",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/45623e279c68259c445fb5196c0f6348f30f75a10e9213987c23f3d29afb7c0e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01282,
+      "e2e_seconds": 0.09668,
+      "cache_key": "45623e279c68259c445fb5196c0f6348f30f75a10e9213987c23f3d29afb7c0e"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2015-12-07",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20151207_145538.png",
+      "source_sha256": "e77d831d4741a4f5304382ae0def006a67ff934a713569ca779ac19e165294fc",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/80560adbee3067dc70fff5265a73c0dfc8410fcaf0ce91d7dc8eafd5d8bcb78f.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01109,
+      "e2e_seconds": 0.03864,
+      "cache_key": "80560adbee3067dc70fff5265a73c0dfc8410fcaf0ce91d7dc8eafd5d8bcb78f"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-01-26",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160126_121135.png",
+      "source_sha256": "d697eb38cda2ff4515ababde0d89f8898663073a0dc4118c10e83789a2ccffb8",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/5db410293a7673f391e646b69867def9383da03039bb7559c82c99e868d8a141.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0109,
+      "e2e_seconds": 0.07091,
+      "cache_key": "5db410293a7673f391e646b69867def9383da03039bb7559c82c99e868d8a141"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-02-16",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160216_125228.png",
+      "source_sha256": "c502ec2f49f44ee7963debf03d08feb2c64d30895d7a27808116898cac918397",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/c2a6ead16defd14a1a9067c11c983084d8a288ef80ed940de1847e2f35c77535.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01118,
+      "e2e_seconds": 0.08964,
+      "cache_key": "c2a6ead16defd14a1a9067c11c983084d8a288ef80ed940de1847e2f35c77535"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-03-14",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160314_112234.png",
+      "source_sha256": "73828440ef683e58a523785f25d4aac1ec58556b7d361a974827ad6aaad29fcd",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/9f95e2fe2e4465d442bd8b61cbd466114edec860cbe483a010285d36d56a45fb.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.00782,
+      "e2e_seconds": 0.04953,
+      "cache_key": "9f95e2fe2e4465d442bd8b61cbd466114edec860cbe483a010285d36d56a45fb"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-04-06",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160406_115729.png",
+      "source_sha256": "a2d98b04d7893e0bd460fc605489a855495a510be0734aed068f082b3075c0fb",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/139d20ce691c25f1c557356fbdfa285c8ba1287ea1918510fc8e82040d129332.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01257,
+      "e2e_seconds": 0.04214,
+      "cache_key": "139d20ce691c25f1c557356fbdfa285c8ba1287ea1918510fc8e82040d129332"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-05-30",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160530_153903.png",
+      "source_sha256": "bda504575b7b9e385b7f04de0f9971317cb6e3629bc5fab675126bc9839c7c17",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/615406a35bd20921643841e1e88d893b861094d5f9ae1d9b3f17927a8cedb262.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01139,
+      "e2e_seconds": 0.10439,
+      "cache_key": "615406a35bd20921643841e1e88d893b861094d5f9ae1d9b3f17927a8cedb262"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-07-01",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160701_190322.png",
+      "source_sha256": "5e6b0b3348cebe2bdb7def31d46309682b397323c2ebd6d86d809b47aee263bd",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/22d86e1209446526d0b25c20d3d054074c43d3195275d29955a2cb09ec63f72e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01173,
+      "e2e_seconds": 0.06636,
+      "cache_key": "22d86e1209446526d0b25c20d3d054074c43d3195275d29955a2cb09ec63f72e"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-07-21",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160721_102729.png",
+      "source_sha256": "104940b28eb436a98441a1623aab7bd24184b1fe9544c6db42e261995b89b7a8",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/3932d3ca503c05cc87a4459ce21af5a7712af203557786cc9d18e646eceaa585.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01289,
+      "e2e_seconds": 0.05345,
+      "cache_key": "3932d3ca503c05cc87a4459ce21af5a7712af203557786cc9d18e646eceaa585"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2016-11-30",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20161130_145524.png",
+      "source_sha256": "379d16a0d99d7e8ef0a07e6e790c91866c7c8471ab7b1470e6df427eba99b681",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/f989de76e7f45997930caa35b073d7471f646a8608e61e7cdc0abea8bc60efff.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0147,
+      "e2e_seconds": 0.07735,
+      "cache_key": "f989de76e7f45997930caa35b073d7471f646a8608e61e7cdc0abea8bc60efff"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-03-03",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170303_132859.png",
+      "source_sha256": "503028df93306652f5a622df41c860b402df0e49547a77854a0b47872efd4588",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/cb507e4777c33c0ff1775ce92485350267ceb4b3553760e3c20688fa72b1b9b6.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01792,
+      "e2e_seconds": 0.0554,
+      "cache_key": "cb507e4777c33c0ff1775ce92485350267ceb4b3553760e3c20688fa72b1b9b6"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-03-23",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170323_142928.png",
+      "source_sha256": "cdfcba441bd920a7c36c537226edbbd135ece6b8c3d623346ca88540d549ae83",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/22f5bd75d3d618f2888401c8274edde492ec4c388f00fb9c251e2858792bbd5b.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01682,
+      "e2e_seconds": 0.05577,
+      "cache_key": "22f5bd75d3d618f2888401c8274edde492ec4c388f00fb9c251e2858792bbd5b"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-04-12",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170412_132034.png",
+      "source_sha256": "128937c411f2fa58d014e5d38ff15360143469fa04fd99a3faf121fb99b58e78",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/53d34349fad71dabc88f0c080d5122c6a17b73493313ea23754adefb2822c085.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01273,
+      "e2e_seconds": 0.10341,
+      "cache_key": "53d34349fad71dabc88f0c080d5122c6a17b73493313ea23754adefb2822c085"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-05-05",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170505_151946.png",
+      "source_sha256": "b1504efef1e0d6ccce61baa2b854d1709c8d759855126540e450e8da529b89d2",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/ee254b41d1ea2594bcfc3478f46db7ca3a768b274875a2c2391681e8ee3d2431.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01945,
+      "e2e_seconds": 0.04658,
+      "cache_key": "ee254b41d1ea2594bcfc3478f46db7ca3a768b274875a2c2391681e8ee3d2431"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-05-24",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170524_125912.png",
+      "source_sha256": "9afb0b1f0cbfe4962e6642f1d9fe68c5951fb6f279c9d113d2da6f4d788f775c",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/e259df39e3fc9a2e2d3d1db5eca7b239b615fbe83305be73e9be4d85a48889f4.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0111,
+      "e2e_seconds": 0.04438,
+      "cache_key": "e259df39e3fc9a2e2d3d1db5eca7b239b615fbe83305be73e9be4d85a48889f4"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-06-13",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170613_120824.png",
+      "source_sha256": "49fd18136d56d29cf3ca0dff5c9df07a1a17e0ed51e52443a6895ad11f6e8498",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/4288fe1a8e2f3b911901b1172cfd2b82743a475fd52b0764177ac11a18e11607.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01229,
+      "e2e_seconds": 0.03647,
+      "cache_key": "4288fe1a8e2f3b911901b1172cfd2b82743a475fd52b0764177ac11a18e11607"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-06-26",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170626_101233.png",
+      "source_sha256": "73b0738054652daaf847f47582b70ac9afa114f42a6bf3c98d9be4d0c2bbb492",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/9ceda4d6cb215556491cc257c6d96a82da90a2d101a77ea00078225af7ceba41.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01232,
+      "e2e_seconds": 0.048,
+      "cache_key": "9ceda4d6cb215556491cc257c6d96a82da90a2d101a77ea00078225af7ceba41"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-07-12",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170712_105430.png",
+      "source_sha256": "6b1c07272c43e6dd05718021d1f868d08cbf2f66f500d64502314e929db79829",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/4e81c36810e4a225b00122ee9422c15099fce1bf64f8cbd8de78b87060e8de1d.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01124,
+      "e2e_seconds": 0.05234,
+      "cache_key": "4e81c36810e4a225b00122ee9422c15099fce1bf64f8cbd8de78b87060e8de1d"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-07-19",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170719_113220.png",
+      "source_sha256": "65334f2375d192f1d3870478c0109a9d57323e9a1ee9d4a9469c09eeabbf1455",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/9c055dd46e450aecfc75f5da95529684d28628587ac53e80faecc5bb6362ffc0.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01282,
+      "e2e_seconds": 0.03729,
+      "cache_key": "9c055dd46e450aecfc75f5da95529684d28628587ac53e80faecc5bb6362ffc0"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2017-12-13",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20171213_142334.png",
+      "source_sha256": "7afe38c161ba0d3301490a99de2461ad203ff963eae24415f79d6ea88a7d0595",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/499a69307c116e00fe1729f6ce7bda6e2cae1e75d3b2d3909ccb6db496806c6b.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01147,
+      "e2e_seconds": 0.03138,
+      "cache_key": "499a69307c116e00fe1729f6ce7bda6e2cae1e75d3b2d3909ccb6db496806c6b"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-02-07",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180207_121213.png",
+      "source_sha256": "b8fc0ea4cd88adcccebcc21da924aa37c1fd21516848b963319177b9c8f0cd26",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/07f70756428989255bc80c1c4a19bfd0d080c79a5b872f752d27d3fa9111578a.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01152,
+      "e2e_seconds": 0.034,
+      "cache_key": "07f70756428989255bc80c1c4a19bfd0d080c79a5b872f752d27d3fa9111578a"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-03-23",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180323_143856.png",
+      "source_sha256": "9597a78245e7acdcc5c1c39b932f3d72d71b21f8d271159fbb66334da9a00076",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/e1816fd22bc579d6c2f49f85583dad3411ec8f93535b7f0e909cee18f159c7b1.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.00783,
+      "e2e_seconds": 0.09568,
+      "cache_key": "e1816fd22bc579d6c2f49f85583dad3411ec8f93535b7f0e909cee18f159c7b1"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-04-11",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180411_114743.png",
+      "source_sha256": "e99033d7e666b216dbeab6c603fc02d91fdc96fab78d483e5fe8b729473d6c55",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/bbc01bd490a6591ea2880e869e21b47e1abf52ec487bb11a95e043ab89686dbb.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0118,
+      "e2e_seconds": 0.0527,
+      "cache_key": "bbc01bd490a6591ea2880e869e21b47e1abf52ec487bb11a95e043ab89686dbb"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-05-07",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180507_101308.png",
+      "source_sha256": "6ed1abb732eb705507cdd88db73507d5cc0745057366f5a55c99eeb8ba922fe8",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/9eb28f5e1df66080c67e583c6d94d531b20a4f9f667aa465a2475a127a2e8e47.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01217,
+      "e2e_seconds": 0.10198,
+      "cache_key": "9eb28f5e1df66080c67e583c6d94d531b20a4f9f667aa465a2475a127a2e8e47"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-05-25",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180525_111646.png",
+      "source_sha256": "6222bf3b9a5dd5106cc1a3ca34f2399e0a57a1823743f424c5faebebd5c6b6a6",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/8384f0935f2dba98ee123cc0f82e06ffb99f60fad2f0a829d3a4e4e6208cb958.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01136,
+      "e2e_seconds": 0.07581,
+      "cache_key": "8384f0935f2dba98ee123cc0f82e06ffb99f60fad2f0a829d3a4e4e6208cb958"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-06-04",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180604_102502.png",
+      "source_sha256": "23fdb52f59bc2f37b1c223a19d6fcc68bfdc5527b095fa3c3b54c545cde282fc",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/8a76ad665dcb616c916975e7e7995e3f47cf6ce3906dce049571ac0674ec451e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.00709,
+      "e2e_seconds": 0.03786,
+      "cache_key": "8a76ad665dcb616c916975e7e7995e3f47cf6ce3906dce049571ac0674ec451e"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-06-15",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180615_100307.png",
+      "source_sha256": "a4bb4be5903005f05d4d8719ac86c07ee958668170388803b1d4db99b0ef47eb",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/2427f716bcbb59bfd062f37e4910e2ee9d0bb0d9131291eabc115f8b65189415.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01137,
+      "e2e_seconds": 0.04386,
+      "cache_key": "2427f716bcbb59bfd062f37e4910e2ee9d0bb0d9131291eabc115f8b65189415"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-06-27",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180627_134108.png",
+      "source_sha256": "792d6f48731a6144ca4cdd613ec65b679d4abf9d57a9da6382fc8cecff1e37e4",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/f41590f148c8d3c066260d7d9987552b63495f49ef4a0ce047e64d790daf073d.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01312,
+      "e2e_seconds": 0.04105,
+      "cache_key": "f41590f148c8d3c066260d7d9987552b63495f49ef4a0ce047e64d790daf073d"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-07-02",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180702_121824.png",
+      "source_sha256": "be0cf71ee9e3cc9b40d43d3a0594831fb92f84708d8747192af8f800ac775056",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/5951fea2194102cab9c7ee77cd11f13aa57088fe53cabce50ee15a67caec761e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01237,
+      "e2e_seconds": 0.10526,
+      "cache_key": "5951fea2194102cab9c7ee77cd11f13aa57088fe53cabce50ee15a67caec761e"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2018-10-31",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20181031_143043.png",
+      "source_sha256": "99e3d4831fb1fa5eaba990b7c590ac896c943f7a631158576eae6bdff14e9524",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/eff562625d8f96dd62b86026ab90ecc7984aa7a0b6319f3adf88a7bc6fc0ca5c.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01169,
+      "e2e_seconds": 0.06442,
+      "cache_key": "eff562625d8f96dd62b86026ab90ecc7984aa7a0b6319f3adf88a7bc6fc0ca5c"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-02-13",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190213_164548.png",
+      "source_sha256": "d77e1608ee090981e6b6c5fd83118c3a95f36995f5c617af68cec293e14badb7",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/07f338f488ed8b1e9e22401cd8f10e5c6a7f23460121c3355127b8884b360de1.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01182,
+      "e2e_seconds": 0.04114,
+      "cache_key": "07f338f488ed8b1e9e22401cd8f10e5c6a7f23460121c3355127b8884b360de1"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-02-22",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190222_113625.png",
+      "source_sha256": "7f0667745711940d8c985833e091d766cd083d97f00582d2d76f6ca2132c2992",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/2f4bfd3f362bffd06a460651253bb927f63fd741abb3c5024faa6552d1314b27.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.013,
+      "e2e_seconds": 0.04004,
+      "cache_key": "2f4bfd3f362bffd06a460651253bb927f63fd741abb3c5024faa6552d1314b27"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-03-13",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190313_111612.png",
+      "source_sha256": "c4c811107eecce7b3c06025a46b02cf87befc749ddcafdac20e7dba424b0abcf",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/95adaacb51476f9b645ec6b917d0b883827651e5675d143199764e1333d4f198.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01485,
+      "e2e_seconds": 0.04095,
+      "cache_key": "95adaacb51476f9b645ec6b917d0b883827651e5675d143199764e1333d4f198"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-03-29",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190329_110921.png",
+      "source_sha256": "85c6ec66c3a5a04661f42a3b698605f18c7d4e449143165844ed42a20ad1d34f",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/8710a66b66688846fcd6368c8a5485a1a6380bee423d0c4f726cf322474290b3.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01938,
+      "e2e_seconds": 0.04646,
+      "cache_key": "8710a66b66688846fcd6368c8a5485a1a6380bee423d0c4f726cf322474290b3"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-04-11",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190411_104455.png",
+      "source_sha256": "c6b5560ee2ede39a990060718a5b63b532cff7557bf1bb0e07c3c132b6956e75",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/6318c254bdf3e2c765005bb331f94d899f44184f082ee019bd9643125e80046e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01889,
+      "e2e_seconds": 0.05065,
+      "cache_key": "6318c254bdf3e2c765005bb331f94d899f44184f082ee019bd9643125e80046e"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-05-24",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190524_112918.png",
+      "source_sha256": "df9dfba4a40550f7665e62516576fd3f071685cc6600c316879733ec2bdaddfa",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/f8667a649f751afdb29deac5dc4580a8062a56be4683efa7bd8e5a8c1c02600c.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01709,
+      "e2e_seconds": 0.04568,
+      "cache_key": "f8667a649f751afdb29deac5dc4580a8062a56be4683efa7bd8e5a8c1c02600c"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-05-25",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190525_145529.png",
+      "source_sha256": "6835d1675c625d8f12bf83e71f7ae42e33fdc65b05a1f8f9d79521e44c9b9942",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/84396a9fbd65fc104d92b1dec556b2a0eba910acc4f30d0e520512e7ca2a8d74.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01886,
+      "e2e_seconds": 0.08869,
+      "cache_key": "84396a9fbd65fc104d92b1dec556b2a0eba910acc4f30d0e520512e7ca2a8d74"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-06-18",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190618_141354.png",
+      "source_sha256": "cf99869ca7cbe7453438069296b8ae33ca57a1597275cf3d653a73b50ad1acb1",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/47371724ca06638fd1540cdf35ea84f35625d1cfa50a7a0dd69d01923a7724e6.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.00776,
+      "e2e_seconds": 0.09562,
+      "cache_key": "47371724ca06638fd1540cdf35ea84f35625d1cfa50a7a0dd69d01923a7724e6"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-07-18",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190718_123048.png",
+      "source_sha256": "390da34eba2b393fe8abf9ea6912790984985e8f4ddc1ea68a54aacf1c43b0ff",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/375cde7043fa8d0b105330fbe30463dceabeafd486aecb95b145a8e1685b14ae.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01209,
+      "e2e_seconds": 0.08078,
+      "cache_key": "375cde7043fa8d0b105330fbe30463dceabeafd486aecb95b145a8e1685b14ae"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2020-11-13",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20201113_131044.png",
+      "source_sha256": "35cf29bd46e897e70ae2eff7bc39e1501001c83ca5c0a1aab9167a062be149fd",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/c61aa3d5b42a568e5fbae2a4e7f21592067f0fb8a2fb3bd915d4a7da56bf223b.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01236,
+      "e2e_seconds": 0.08311,
+      "cache_key": "c61aa3d5b42a568e5fbae2a4e7f21592067f0fb8a2fb3bd915d4a7da56bf223b"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-02-26",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210226_104829.png",
+      "source_sha256": "3f3bba06731972043b56fc5b63219921d1098d818f88c5c409905c5cbd5ed2b0",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/4343632381f84f2211d439aa1df0ffa79e89610ab554096490a1cc8d8a035ff7.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0112,
+      "e2e_seconds": 0.05476,
+      "cache_key": "4343632381f84f2211d439aa1df0ffa79e89610ab554096490a1cc8d8a035ff7"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-03-22",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210322_122821.png",
+      "source_sha256": "4059b1e709174d22313cbd9ae6d80be09f7d67e7b1348bbe76e6490951fb0d29",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/36da7cb43044afe01a3d6665e479bfd1376771d0a7948a6bfa123ce884048c32.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.00863,
+      "e2e_seconds": 0.04689,
+      "cache_key": "36da7cb43044afe01a3d6665e479bfd1376771d0a7948a6bfa123ce884048c32"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-04-16",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210416_134153.png",
+      "source_sha256": "10fd03b71554868872f2f34d5d0a7bbba6c764f6d9432f439ccd27b29741c8ea",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/5fc61e95d8285a17716b609c92ed8fba72bbcb5ef6bd5bea788e1c48a6a93ef2.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01152,
+      "e2e_seconds": 0.06869,
+      "cache_key": "5fc61e95d8285a17716b609c92ed8fba72bbcb5ef6bd5bea788e1c48a6a93ef2"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-05-05",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210505_130823.png",
+      "source_sha256": "47a44aa00ef344e27da0d2328be7046a0b88671560c53d777cecbc2ea22e8a01",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/5d48deab851bcc4c4baed695a4ae5c776905b5b97e1e6eb51b325f266634104e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01265,
+      "e2e_seconds": 0.05691,
+      "cache_key": "5d48deab851bcc4c4baed695a4ae5c776905b5b97e1e6eb51b325f266634104e"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-05-20",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210520_125708.png",
+      "source_sha256": "db9f77bcc7b5ea137b1f3a31703ad91f755dc67469172fa7cc32adfc0a348d93",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/954161798cf1ae7fca2320d033960352b8e81d598dc194f2fd5d151403e81979.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01223,
+      "e2e_seconds": 0.09531,
+      "cache_key": "954161798cf1ae7fca2320d033960352b8e81d598dc194f2fd5d151403e81979"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-06-07",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210607_133240.png",
+      "source_sha256": "dbbb2289ede7a361c2869f326a9e7e1ede83cb7854715dac90a772e33ccc6503",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/1174c0ba8962b67861eeffd6d833bfa5a07fae6efe814156ea6591e63acd206c.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01178,
+      "e2e_seconds": 0.06908,
+      "cache_key": "1174c0ba8962b67861eeffd6d833bfa5a07fae6efe814156ea6591e63acd206c"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-06-21",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210621_150327.png",
+      "source_sha256": "1c372cfc720660cbdd63f96d2fe1920503cb81dab60394c182ff65eafffa7bed",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/07dd8bfe5c48a41ad2306f4ad83179605f31baf5ee260ee0e99ec13c682d0eda.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01158,
+      "e2e_seconds": 0.04099,
+      "cache_key": "07dd8bfe5c48a41ad2306f4ad83179605f31baf5ee260ee0e99ec13c682d0eda"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-07-09",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210709_130121.png",
+      "source_sha256": "3c669050f590fa962e629eb6484d244e1808b9e201beea31f97c5cc94a78118b",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/f1d9e77a6e3e2d14c59d2d8732fe458dd2a7d868450bf0389312e47dd963ff12.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01135,
+      "e2e_seconds": 0.05223,
+      "cache_key": "f1d9e77a6e3e2d14c59d2d8732fe458dd2a7d868450bf0389312e47dd963ff12"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-07-26",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210726_112246.png",
+      "source_sha256": "d3b6ec0af810174ce0de4b20abb47c793d9ed6e62630484e14df7e02f9009246",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/068fb120da3632090bdae449453d49244709d595219637121bc5cb083873dc1e.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0129,
+      "e2e_seconds": 0.03582,
+      "cache_key": "068fb120da3632090bdae449453d49244709d595219637121bc5cb083873dc1e"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2021-11-19",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20211119_133627.png",
+      "source_sha256": "8917c754b1ebb2f2c286a6431aa8e70a8e56b92b92501729f056c9dc288c69df",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/4b37d86cc667361ee90c20930ed791166966604c6acab418d7000e40e08bc232.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01076,
+      "e2e_seconds": 0.07131,
+      "cache_key": "4b37d86cc667361ee90c20930ed791166966604c6acab418d7000e40e08bc232"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-01-21",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220121_125710.png",
+      "source_sha256": "7eb359dfc78ae35d4bea94e67c154446d027f7243f91626b8b33470e56bd0f59",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/4aea7197f65c2b8cfd44479212ff80461eff1ebcb5cf220fecae51e5e76166ce.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01098,
+      "e2e_seconds": 0.05039,
+      "cache_key": "4aea7197f65c2b8cfd44479212ff80461eff1ebcb5cf220fecae51e5e76166ce"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-03-01",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220301_154217.png",
+      "source_sha256": "11e0d341ce840a487a83f31f2e196b837d4f8620fddf27caaad6d81b06b550e6",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/95e817fa88c370a99a045072947d496325a90cc0fc53e5c0a48ffb870f0bfb69.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01097,
+      "e2e_seconds": 0.03826,
+      "cache_key": "95e817fa88c370a99a045072947d496325a90cc0fc53e5c0a48ffb870f0bfb69"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-03-25",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220325_135108.png",
+      "source_sha256": "69f8cbf1f3a9065959d6d8207bd43743c53f454e73f8ae8b0024263121d72393",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/ea0d3cf1493aafd5757ea468c31338bdda48d9856efd26ed8bb0aa73c1c71d40.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0131,
+      "e2e_seconds": 0.03917,
+      "cache_key": "ea0d3cf1493aafd5757ea468c31338bdda48d9856efd26ed8bb0aa73c1c71d40"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-04-14",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220414_144159.png",
+      "source_sha256": "1b1ef476c010915a4d283d93f5846611a6b7b63df7ca03746a84317ccf38f5fe",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/ede3379bc21c064d2ec3509b05c085d44f6c4c172e0974b893ff4d955b1ee658.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01834,
+      "e2e_seconds": 0.09063,
+      "cache_key": "ede3379bc21c064d2ec3509b05c085d44f6c4c172e0974b893ff4d955b1ee658"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-05-06",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220506_140039.png",
+      "source_sha256": "3bbb169d85195d05e026cfb72366a8b33504ca95fb94fb5f863a6a15b7277d88",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/ec18a75530cfb780874d3bedea5967cebd253aacace93f838e8d3c8397ed0611.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.0163,
+      "e2e_seconds": 0.05151,
+      "cache_key": "ec18a75530cfb780874d3bedea5967cebd253aacace93f838e8d3c8397ed0611"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-05-23",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220523_124937.png",
+      "source_sha256": "52f755432864a43aff5d204fc125124b36a2c00920248d5318586f7c282895e7",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/904b62e62eb391ef69905f42722ddeb03383d6646d1e6d4c84c8d3bcdbf75c4f.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01594,
+      "e2e_seconds": 0.04651,
+      "cache_key": "904b62e62eb391ef69905f42722ddeb03383d6646d1e6d4c84c8d3bcdbf75c4f"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-06-13",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220613_144118.png",
+      "source_sha256": "517585d0a5be5680ff0763c3265a48fdf36056a9fc8d3318b5c779a12cf91deb",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/a041aeb7b7b719705cbcf96d32246c0b748aeb1bf35898e120ca6908fb7e38c9.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01147,
+      "e2e_seconds": 0.04178,
+      "cache_key": "a041aeb7b7b719705cbcf96d32246c0b748aeb1bf35898e120ca6908fb7e38c9"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-06-29",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220629_155233.png",
+      "source_sha256": "81d209df1c09d2d12f5d6e20538e4bcff45de7ea06ef2e2fd2a9466b2dd17bca",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/0dbd0cc8312559ca46bffdfb032b9049e5cabf97be3ca2179a0c0bab6720cd80.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01718,
+      "e2e_seconds": 0.0397,
+      "cache_key": "0dbd0cc8312559ca46bffdfb032b9049e5cabf97be3ca2179a0c0bab6720cd80"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-07-18",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220718_112610.png",
+      "source_sha256": "2566710c1a182afaf5e9734d23e76e2e9ec3342393ac128b19cea8954ec61d12",
+      "protocol": "upstream196",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        196,
+        196
+      ],
+      "token_shape": [
+        1,
+        196,
+        768
+      ],
+      "n_tokens": 196,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/upstream196_s1-v1/227f7ea738e4784fbbfbad05a5fdb5e72e8b87b76f74d818858ac9ab26d3c450.npy",
+      "cache_bytes": 301184,
+      "forward_seconds": 0.01918,
+      "e2e_seconds": 0.04677,
+      "cache_key": "227f7ea738e4784fbbfbad05a5fdb5e72e8b87b76f74d818858ac9ab26d3c450"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2015-11-09",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20151109_143845.png",
+      "source_sha256": "297d08f92353ad8c33e1b05b5cb0720467bfc249515d7cdd10d38bc1e62df697",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/b1f4b0f177ef95ea189963f18e897551d84031ad2d3211edf96bfdf18a20fc7a.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0168,
+      "e2e_seconds": 0.04463,
+      "cache_key": "b1f4b0f177ef95ea189963f18e897551d84031ad2d3211edf96bfdf18a20fc7a"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2015-11-24",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20151124_143423.png",
+      "source_sha256": "89a1a1a099453e62beb058a18c79fc515ca837c5857bbd12a241d9159b8d97eb",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/57eef2c2d17045f96261ae14f1547098d08ffd1af3aea8742a0909512a5345ac.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01663,
+      "e2e_seconds": 0.04456,
+      "cache_key": "57eef2c2d17045f96261ae14f1547098d08ffd1af3aea8742a0909512a5345ac"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2015-12-07",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20151207_145538.png",
+      "source_sha256": "e77d831d4741a4f5304382ae0def006a67ff934a713569ca779ac19e165294fc",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/2e08618a29cbb98edb9aa6977c04be4371e28e753ed9cff939962f8ef7183934.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01497,
+      "e2e_seconds": 0.04237,
+      "cache_key": "2e08618a29cbb98edb9aa6977c04be4371e28e753ed9cff939962f8ef7183934"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-01-26",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160126_121135.png",
+      "source_sha256": "d697eb38cda2ff4515ababde0d89f8898663073a0dc4118c10e83789a2ccffb8",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/78ba7f8fc600f8e1b47819b2c66cea86d82e35569ad482bca0e81bc1ad619bdd.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01584,
+      "e2e_seconds": 0.04246,
+      "cache_key": "78ba7f8fc600f8e1b47819b2c66cea86d82e35569ad482bca0e81bc1ad619bdd"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-02-16",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160216_125228.png",
+      "source_sha256": "c502ec2f49f44ee7963debf03d08feb2c64d30895d7a27808116898cac918397",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/d620a1ef99e8dc9b9a5bb212933b25b9e2b30a4b285e5ffa06da73ee9d37870a.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0154,
+      "e2e_seconds": 0.04921,
+      "cache_key": "d620a1ef99e8dc9b9a5bb212933b25b9e2b30a4b285e5ffa06da73ee9d37870a"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-03-14",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160314_112234.png",
+      "source_sha256": "73828440ef683e58a523785f25d4aac1ec58556b7d361a974827ad6aaad29fcd",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/909218acdf97c727898eb193e9a9ce86ce1fb09cc954153630ea85a1950dc1c9.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01477,
+      "e2e_seconds": 0.04122,
+      "cache_key": "909218acdf97c727898eb193e9a9ce86ce1fb09cc954153630ea85a1950dc1c9"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-04-06",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160406_115729.png",
+      "source_sha256": "a2d98b04d7893e0bd460fc605489a855495a510be0734aed068f082b3075c0fb",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/c9c5dad0d6bd0a0bc28b9410183060a8dc3681e39d17585e01c8c49c728e96dc.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01514,
+      "e2e_seconds": 0.04324,
+      "cache_key": "c9c5dad0d6bd0a0bc28b9410183060a8dc3681e39d17585e01c8c49c728e96dc"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-05-30",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160530_153903.png",
+      "source_sha256": "bda504575b7b9e385b7f04de0f9971317cb6e3629bc5fab675126bc9839c7c17",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/cc5b5ba1ecddfa31bade93be510fba808bfa926acedca60d4df6eff123f9bdfb.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01701,
+      "e2e_seconds": 0.04712,
+      "cache_key": "cc5b5ba1ecddfa31bade93be510fba808bfa926acedca60d4df6eff123f9bdfb"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-07-01",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160701_190322.png",
+      "source_sha256": "5e6b0b3348cebe2bdb7def31d46309682b397323c2ebd6d86d809b47aee263bd",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/53ccc2234dbdaa0c88d1fffa6f888100314fb33deab6690a0b53ba9028f894f7.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0151,
+      "e2e_seconds": 0.08002,
+      "cache_key": "53ccc2234dbdaa0c88d1fffa6f888100314fb33deab6690a0b53ba9028f894f7"
+    },
+    {
+      "plot_uid": "FPWW0120667",
+      "image_date": "2016-07-21",
+      "source_file": "external_data/fip1_images/FPWW0120667/FPWW0120667_RGB1_20160721_102729.png",
+      "source_sha256": "104940b28eb436a98441a1623aab7bd24184b1fe9544c6db42e261995b89b7a8",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/8bce265f1403e49387e53aec861ad2c95f21028d897a3c448043b3ddf6ac0a5e.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01596,
+      "e2e_seconds": 0.08314,
+      "cache_key": "8bce265f1403e49387e53aec861ad2c95f21028d897a3c448043b3ddf6ac0a5e"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2016-11-30",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20161130_145524.png",
+      "source_sha256": "379d16a0d99d7e8ef0a07e6e790c91866c7c8471ab7b1470e6df427eba99b681",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/023007c7dbb566864cddf1446b9e154498dede3a290432d1fa6809088acf94d9.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01517,
+      "e2e_seconds": 0.05218,
+      "cache_key": "023007c7dbb566864cddf1446b9e154498dede3a290432d1fa6809088acf94d9"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-03-03",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170303_132859.png",
+      "source_sha256": "503028df93306652f5a622df41c860b402df0e49547a77854a0b47872efd4588",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/9f9ab96b22798428b19d1f6ea914f880cb5ee30e6f7eddf9e3ca0be0234bb681.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0152,
+      "e2e_seconds": 0.04511,
+      "cache_key": "9f9ab96b22798428b19d1f6ea914f880cb5ee30e6f7eddf9e3ca0be0234bb681"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-03-23",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170323_142928.png",
+      "source_sha256": "cdfcba441bd920a7c36c537226edbbd135ece6b8c3d623346ca88540d549ae83",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/53c3db8e0402dd8b99e44b5d735e834fdd95ae21daea29cec1453eaccda2cbd2.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01624,
+      "e2e_seconds": 0.06916,
+      "cache_key": "53c3db8e0402dd8b99e44b5d735e834fdd95ae21daea29cec1453eaccda2cbd2"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-04-12",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170412_132034.png",
+      "source_sha256": "128937c411f2fa58d014e5d38ff15360143469fa04fd99a3faf121fb99b58e78",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/b457d442c0df56baffd74968500c30b508ac81182153486f9eee5b5660844f02.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01919,
+      "e2e_seconds": 0.06831,
+      "cache_key": "b457d442c0df56baffd74968500c30b508ac81182153486f9eee5b5660844f02"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-05-05",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170505_151946.png",
+      "source_sha256": "b1504efef1e0d6ccce61baa2b854d1709c8d759855126540e450e8da529b89d2",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/30c44032c5c4238db5e8f37e845d6c51b957e9bd2290c0b2566692895b90bc46.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02293,
+      "e2e_seconds": 0.07414,
+      "cache_key": "30c44032c5c4238db5e8f37e845d6c51b957e9bd2290c0b2566692895b90bc46"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-05-24",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170524_125912.png",
+      "source_sha256": "9afb0b1f0cbfe4962e6642f1d9fe68c5951fb6f279c9d113d2da6f4d788f775c",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/8353839303d3445a8c17b89ee9c6b833aead228da8c2a29ba8060eaeff7150a8.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0239,
+      "e2e_seconds": 0.05693,
+      "cache_key": "8353839303d3445a8c17b89ee9c6b833aead228da8c2a29ba8060eaeff7150a8"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-06-13",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170613_120824.png",
+      "source_sha256": "49fd18136d56d29cf3ca0dff5c9df07a1a17e0ed51e52443a6895ad11f6e8498",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/d58ec0095eab613f7e5165b56bbf9f1ee8848b5f645a29ebe55bb9b58a9355ad.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02296,
+      "e2e_seconds": 0.04869,
+      "cache_key": "d58ec0095eab613f7e5165b56bbf9f1ee8848b5f645a29ebe55bb9b58a9355ad"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-06-26",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170626_101233.png",
+      "source_sha256": "73b0738054652daaf847f47582b70ac9afa114f42a6bf3c98d9be4d0c2bbb492",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/106a0d9a529b6bac49383918c82d1261ce67707a27596ba5540bbd0fcb18e784.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02289,
+      "e2e_seconds": 0.0871,
+      "cache_key": "106a0d9a529b6bac49383918c82d1261ce67707a27596ba5540bbd0fcb18e784"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-07-12",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170712_105430.png",
+      "source_sha256": "6b1c07272c43e6dd05718021d1f868d08cbf2f66f500d64502314e929db79829",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/bc227997cd6b670100ca84da07f5f0b86052fb815d11c358be5f9a493b4b9e2a.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01929,
+      "e2e_seconds": 0.04786,
+      "cache_key": "bc227997cd6b670100ca84da07f5f0b86052fb815d11c358be5f9a493b4b9e2a"
+    },
+    {
+      "plot_uid": "FPWW0180031",
+      "image_date": "2017-07-19",
+      "source_file": "external_data/fip1_images/FPWW0180031/FPWW0180031_RGB1_20170719_113220.png",
+      "source_sha256": "65334f2375d192f1d3870478c0109a9d57323e9a1ee9d4a9469c09eeabbf1455",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/f2bd3c1cbe2e9601dbdd4f7b1650b96720b9b28c95116593e7650c3ee64ac17b.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01619,
+      "e2e_seconds": 0.06822,
+      "cache_key": "f2bd3c1cbe2e9601dbdd4f7b1650b96720b9b28c95116593e7650c3ee64ac17b"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2017-12-13",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20171213_142334.png",
+      "source_sha256": "7afe38c161ba0d3301490a99de2461ad203ff963eae24415f79d6ea88a7d0595",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/efca55f58ceac7d44efca78a048c2f7f7449d0e1dfd30e0ddd527256ad584934.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01648,
+      "e2e_seconds": 0.03535,
+      "cache_key": "efca55f58ceac7d44efca78a048c2f7f7449d0e1dfd30e0ddd527256ad584934"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-02-07",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180207_121213.png",
+      "source_sha256": "b8fc0ea4cd88adcccebcc21da924aa37c1fd21516848b963319177b9c8f0cd26",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/29e842deac6df7aab58d4a9d2a478e41544aa1453f633d42f2ac914a97929cfc.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01646,
+      "e2e_seconds": 0.03815,
+      "cache_key": "29e842deac6df7aab58d4a9d2a478e41544aa1453f633d42f2ac914a97929cfc"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-03-23",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180323_143856.png",
+      "source_sha256": "9597a78245e7acdcc5c1c39b932f3d72d71b21f8d271159fbb66334da9a00076",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/c4e24108491bfc4848fdcdcd32fedba3682723c64e5fd958a4732e3a1eab89a0.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01582,
+      "e2e_seconds": 0.03528,
+      "cache_key": "c4e24108491bfc4848fdcdcd32fedba3682723c64e5fd958a4732e3a1eab89a0"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-04-11",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180411_114743.png",
+      "source_sha256": "e99033d7e666b216dbeab6c603fc02d91fdc96fab78d483e5fe8b729473d6c55",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/7527bc8b5b77e23225afa3aed9cd7eba5ed06410d51ab7ce13a9f8413f6577cf.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01551,
+      "e2e_seconds": 0.04217,
+      "cache_key": "7527bc8b5b77e23225afa3aed9cd7eba5ed06410d51ab7ce13a9f8413f6577cf"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-05-07",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180507_101308.png",
+      "source_sha256": "6ed1abb732eb705507cdd88db73507d5cc0745057366f5a55c99eeb8ba922fe8",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/6289bf3553bad441104f18336fe34cd028c214b936ba37e45621d657c32dcb5e.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01742,
+      "e2e_seconds": 0.04033,
+      "cache_key": "6289bf3553bad441104f18336fe34cd028c214b936ba37e45621d657c32dcb5e"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-05-25",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180525_111646.png",
+      "source_sha256": "6222bf3b9a5dd5106cc1a3ca34f2399e0a57a1823743f424c5faebebd5c6b6a6",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/76a2cb92b359a525fb29f891d2c2c308707b92a89cf7a3c5ea474ef0c7a9e500.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01602,
+      "e2e_seconds": 0.04281,
+      "cache_key": "76a2cb92b359a525fb29f891d2c2c308707b92a89cf7a3c5ea474ef0c7a9e500"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-06-04",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180604_102502.png",
+      "source_sha256": "23fdb52f59bc2f37b1c223a19d6fcc68bfdc5527b095fa3c3b54c545cde282fc",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/18842ff97cc78c4d2c6752d36ec9c99013183bdb3d695f0a1051a833722a87ed.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0173,
+      "e2e_seconds": 0.04307,
+      "cache_key": "18842ff97cc78c4d2c6752d36ec9c99013183bdb3d695f0a1051a833722a87ed"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-06-15",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180615_100307.png",
+      "source_sha256": "a4bb4be5903005f05d4d8719ac86c07ee958668170388803b1d4db99b0ef47eb",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/425da57250ab37258e683e518538281fcc00bc0bfe2d72fc08b475f713583b80.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01523,
+      "e2e_seconds": 0.0403,
+      "cache_key": "425da57250ab37258e683e518538281fcc00bc0bfe2d72fc08b475f713583b80"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-06-27",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180627_134108.png",
+      "source_sha256": "792d6f48731a6144ca4cdd613ec65b679d4abf9d57a9da6382fc8cecff1e37e4",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/1d9536b54e2a089d95949fc0116ce219e4dd3ff2597a984c75642e2f93c9cdb9.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01514,
+      "e2e_seconds": 0.03996,
+      "cache_key": "1d9536b54e2a089d95949fc0116ce219e4dd3ff2597a984c75642e2f93c9cdb9"
+    },
+    {
+      "plot_uid": "FPWW0220073",
+      "image_date": "2018-07-02",
+      "source_file": "external_data/fip1_images/FPWW0220073/FPWW0220073_RGB1_20180702_121824.png",
+      "source_sha256": "be0cf71ee9e3cc9b40d43d3a0594831fb92f84708d8747192af8f800ac775056",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/158c7e4fe507afd56f0fb3a19762871f7d34ff38c69987fd48b132876f174907.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01612,
+      "e2e_seconds": 0.05152,
+      "cache_key": "158c7e4fe507afd56f0fb3a19762871f7d34ff38c69987fd48b132876f174907"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2018-10-31",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20181031_143043.png",
+      "source_sha256": "99e3d4831fb1fa5eaba990b7c590ac896c943f7a631158576eae6bdff14e9524",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/198fe597d080d2e68f002e750ce45b829d9ad87efd9983fb2625dfe5728b1eb3.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01561,
+      "e2e_seconds": 0.04045,
+      "cache_key": "198fe597d080d2e68f002e750ce45b829d9ad87efd9983fb2625dfe5728b1eb3"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-02-13",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190213_164548.png",
+      "source_sha256": "d77e1608ee090981e6b6c5fd83118c3a95f36995f5c617af68cec293e14badb7",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/511fa79b2f1edd17be67f4582edb5a05c2fbf90f774c60e0c63fd4787c11bfd0.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01666,
+      "e2e_seconds": 0.04024,
+      "cache_key": "511fa79b2f1edd17be67f4582edb5a05c2fbf90f774c60e0c63fd4787c11bfd0"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-02-22",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190222_113625.png",
+      "source_sha256": "7f0667745711940d8c985833e091d766cd083d97f00582d2d76f6ca2132c2992",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/2dc219bf5246b6fa5f5a4e4ebec52a5e8092dd401516f00f3f88da74526f7dbb.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01695,
+      "e2e_seconds": 0.04021,
+      "cache_key": "2dc219bf5246b6fa5f5a4e4ebec52a5e8092dd401516f00f3f88da74526f7dbb"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-03-13",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190313_111612.png",
+      "source_sha256": "c4c811107eecce7b3c06025a46b02cf87befc749ddcafdac20e7dba424b0abcf",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/7153f2f45810950d9f7745e95a14b1fc9387f777cf1bda62dd7346b90abbd25e.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01502,
+      "e2e_seconds": 0.04022,
+      "cache_key": "7153f2f45810950d9f7745e95a14b1fc9387f777cf1bda62dd7346b90abbd25e"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-03-29",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190329_110921.png",
+      "source_sha256": "85c6ec66c3a5a04661f42a3b698605f18c7d4e449143165844ed42a20ad1d34f",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/c8b71fe6b91b214da536477f09253d8c4004305037b03551dcb88549ff2a2e7d.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0105,
+      "e2e_seconds": 0.03517,
+      "cache_key": "c8b71fe6b91b214da536477f09253d8c4004305037b03551dcb88549ff2a2e7d"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-04-11",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190411_104455.png",
+      "source_sha256": "c6b5560ee2ede39a990060718a5b63b532cff7557bf1bb0e07c3c132b6956e75",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/6755b9b7c92c6cda76a3d8861a5cb1f775969ecc6ca85a33951055445ee42ead.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02025,
+      "e2e_seconds": 0.08654,
+      "cache_key": "6755b9b7c92c6cda76a3d8861a5cb1f775969ecc6ca85a33951055445ee42ead"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-05-24",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190524_112918.png",
+      "source_sha256": "df9dfba4a40550f7665e62516576fd3f071685cc6600c316879733ec2bdaddfa",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/b5954fd7ab76e14fd9ba47c30a225594173551096cb1456d3c10fa7f385eb675.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0247,
+      "e2e_seconds": 0.09204,
+      "cache_key": "b5954fd7ab76e14fd9ba47c30a225594173551096cb1456d3c10fa7f385eb675"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-05-25",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190525_145529.png",
+      "source_sha256": "6835d1675c625d8f12bf83e71f7ae42e33fdc65b05a1f8f9d79521e44c9b9942",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/f7dc4a82220fab1ba542716e2ad1f5003cb93d178a53510f4b5677c57c376215.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01495,
+      "e2e_seconds": 0.07914,
+      "cache_key": "f7dc4a82220fab1ba542716e2ad1f5003cb93d178a53510f4b5677c57c376215"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-06-18",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190618_141354.png",
+      "source_sha256": "cf99869ca7cbe7453438069296b8ae33ca57a1597275cf3d653a73b50ad1acb1",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/7f7a21a6b51a5ae99c6d4ad028f8313a065847a4cbb8d8905d3c5df0054e58af.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02375,
+      "e2e_seconds": 0.0476,
+      "cache_key": "7f7a21a6b51a5ae99c6d4ad028f8313a065847a4cbb8d8905d3c5df0054e58af"
+    },
+    {
+      "plot_uid": "FPWW0240010",
+      "image_date": "2019-07-18",
+      "source_file": "external_data/fip1_images/FPWW0240010/FPWW0240010_RGB1_20190718_123048.png",
+      "source_sha256": "390da34eba2b393fe8abf9ea6912790984985e8f4ddc1ea68a54aacf1c43b0ff",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/4d24ec9d3336a1f1c9edbf82a72630a1ff8818ab8ada49e04abea683f2e47d34.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02232,
+      "e2e_seconds": 0.04535,
+      "cache_key": "4d24ec9d3336a1f1c9edbf82a72630a1ff8818ab8ada49e04abea683f2e47d34"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2020-11-13",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20201113_131044.png",
+      "source_sha256": "35cf29bd46e897e70ae2eff7bc39e1501001c83ca5c0a1aab9167a062be149fd",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/4704e3dcda124f89dbd4a7d70778290d7134fb0926c3cd52e5bd2140c29073ea.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01717,
+      "e2e_seconds": 0.0438,
+      "cache_key": "4704e3dcda124f89dbd4a7d70778290d7134fb0926c3cd52e5bd2140c29073ea"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-02-26",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210226_104829.png",
+      "source_sha256": "3f3bba06731972043b56fc5b63219921d1098d818f88c5c409905c5cbd5ed2b0",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/e2fdda74dba21c8541032c97a92bcceda4d3ba60214af5f8d6216c4af197bb43.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01557,
+      "e2e_seconds": 0.08149,
+      "cache_key": "e2fdda74dba21c8541032c97a92bcceda4d3ba60214af5f8d6216c4af197bb43"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-03-22",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210322_122821.png",
+      "source_sha256": "4059b1e709174d22313cbd9ae6d80be09f7d67e7b1348bbe76e6490951fb0d29",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/c0363db9b9c915cfb48eca9a1875592bfcf2d58f7b84f06f905e8f2802d91cd6.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01632,
+      "e2e_seconds": 0.07968,
+      "cache_key": "c0363db9b9c915cfb48eca9a1875592bfcf2d58f7b84f06f905e8f2802d91cd6"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-04-16",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210416_134153.png",
+      "source_sha256": "10fd03b71554868872f2f34d5d0a7bbba6c764f6d9432f439ccd27b29741c8ea",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/fe52639446794556b126224c502e9c2f7a7748faa45deeb117cd3351a555434f.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0159,
+      "e2e_seconds": 0.08057,
+      "cache_key": "fe52639446794556b126224c502e9c2f7a7748faa45deeb117cd3351a555434f"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-05-05",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210505_130823.png",
+      "source_sha256": "47a44aa00ef344e27da0d2328be7046a0b88671560c53d777cecbc2ea22e8a01",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/91d72fe38fc1bf12cc270e436ee759e53961272a27320d731de855ab81c2ea6d.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01642,
+      "e2e_seconds": 0.08049,
+      "cache_key": "91d72fe38fc1bf12cc270e436ee759e53961272a27320d731de855ab81c2ea6d"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-05-20",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210520_125708.png",
+      "source_sha256": "db9f77bcc7b5ea137b1f3a31703ad91f755dc67469172fa7cc32adfc0a348d93",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/7c6b2499620a675cbe563027fcaaae3bbef230738bab3cded7ada17c28339c87.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01633,
+      "e2e_seconds": 0.07498,
+      "cache_key": "7c6b2499620a675cbe563027fcaaae3bbef230738bab3cded7ada17c28339c87"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-06-07",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210607_133240.png",
+      "source_sha256": "dbbb2289ede7a361c2869f326a9e7e1ede83cb7854715dac90a772e33ccc6503",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/41f65a696f21370f1722c65075f78ce47d842df6457d333ec46348120dc748e7.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01869,
+      "e2e_seconds": 0.07881,
+      "cache_key": "41f65a696f21370f1722c65075f78ce47d842df6457d333ec46348120dc748e7"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-06-21",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210621_150327.png",
+      "source_sha256": "1c372cfc720660cbdd63f96d2fe1920503cb81dab60394c182ff65eafffa7bed",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/2e36f59cfcbc1746c56089dc82877bcf8893b08a6deaf6a94d51049593cffe14.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01846,
+      "e2e_seconds": 0.04417,
+      "cache_key": "2e36f59cfcbc1746c56089dc82877bcf8893b08a6deaf6a94d51049593cffe14"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-07-09",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210709_130121.png",
+      "source_sha256": "3c669050f590fa962e629eb6484d244e1808b9e201beea31f97c5cc94a78118b",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/8b2b3e9af72035a6dc884246a5d344b4bbf123f4fe1827c50dd9a31102439b69.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02317,
+      "e2e_seconds": 0.06187,
+      "cache_key": "8b2b3e9af72035a6dc884246a5d344b4bbf123f4fe1827c50dd9a31102439b69"
+    },
+    {
+      "plot_uid": "FPWW0320031",
+      "image_date": "2021-07-26",
+      "source_file": "external_data/fip1_images/FPWW0320031/FPWW0320031_RGB1_20210726_112246.png",
+      "source_sha256": "d3b6ec0af810174ce0de4b20abb47c793d9ed6e62630484e14df7e02f9009246",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/61acb516ad37610e27034409bac9d3c735db2b59ec48ed55a3e3e6cc71ef21d0.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0228,
+      "e2e_seconds": 0.06201,
+      "cache_key": "61acb516ad37610e27034409bac9d3c735db2b59ec48ed55a3e3e6cc71ef21d0"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2021-11-19",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20211119_133627.png",
+      "source_sha256": "8917c754b1ebb2f2c286a6431aa8e70a8e56b92b92501729f056c9dc288c69df",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/1bdd8506971a197f3787779cbaa77e3abfceb8b67310fea877d52f30f3cda543.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02575,
+      "e2e_seconds": 0.11053,
+      "cache_key": "1bdd8506971a197f3787779cbaa77e3abfceb8b67310fea877d52f30f3cda543"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-01-21",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220121_125710.png",
+      "source_sha256": "7eb359dfc78ae35d4bea94e67c154446d027f7243f91626b8b33470e56bd0f59",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/be4114b9dc19e98c8c57e9e779105cd81bf85d43d00ba82fdd14631122de4e44.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01542,
+      "e2e_seconds": 0.07937,
+      "cache_key": "be4114b9dc19e98c8c57e9e779105cd81bf85d43d00ba82fdd14631122de4e44"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-03-01",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220301_154217.png",
+      "source_sha256": "11e0d341ce840a487a83f31f2e196b837d4f8620fddf27caaad6d81b06b550e6",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/8d0f8d958f9756564e4e2243be616594e07dc85b45a2b2a972ff3b87d409fd81.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01742,
+      "e2e_seconds": 0.04564,
+      "cache_key": "8d0f8d958f9756564e4e2243be616594e07dc85b45a2b2a972ff3b87d409fd81"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-03-25",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220325_135108.png",
+      "source_sha256": "69f8cbf1f3a9065959d6d8207bd43743c53f454e73f8ae8b0024263121d72393",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/57b498ac6847cdf30f776e3206bcdefb68713c168c6deec8d3ab475228cde77d.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0153,
+      "e2e_seconds": 0.03584,
+      "cache_key": "57b498ac6847cdf30f776e3206bcdefb68713c168c6deec8d3ab475228cde77d"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-04-14",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220414_144159.png",
+      "source_sha256": "1b1ef476c010915a4d283d93f5846611a6b7b63df7ca03746a84317ccf38f5fe",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/54c70902039c2df71bbdba44afd0fc036eb01907b6cf2d90b5e2411fe9e5b22d.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01624,
+      "e2e_seconds": 0.03795,
+      "cache_key": "54c70902039c2df71bbdba44afd0fc036eb01907b6cf2d90b5e2411fe9e5b22d"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-05-06",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220506_140039.png",
+      "source_sha256": "3bbb169d85195d05e026cfb72366a8b33504ca95fb94fb5f863a6a15b7277d88",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/ce45f556f5735ff5c1c2408194d7ee1514ed09b636963cb5b31000e4ffd09104.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0081,
+      "e2e_seconds": 0.08278,
+      "cache_key": "ce45f556f5735ff5c1c2408194d7ee1514ed09b636963cb5b31000e4ffd09104"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-05-23",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220523_124937.png",
+      "source_sha256": "52f755432864a43aff5d204fc125124b36a2c00920248d5318586f7c282895e7",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/db82b543a3a03442148874a56177b784699ba9a124347e5ccb2b0a1f5bcc167f.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01523,
+      "e2e_seconds": 0.07238,
+      "cache_key": "db82b543a3a03442148874a56177b784699ba9a124347e5ccb2b0a1f5bcc167f"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-06-13",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220613_144118.png",
+      "source_sha256": "517585d0a5be5680ff0763c3265a48fdf36056a9fc8d3318b5c779a12cf91deb",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/cea44d96281e709f419c0bacfe9498cd2ded512ac99403c2a06eaf1e96260776.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.01597,
+      "e2e_seconds": 0.06327,
+      "cache_key": "cea44d96281e709f419c0bacfe9498cd2ded512ac99403c2a06eaf1e96260776"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-06-29",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220629_155233.png",
+      "source_sha256": "81d209df1c09d2d12f5d6e20538e4bcff45de7ea06ef2e2fd2a9466b2dd17bca",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/d9ae95e9b0c6fb9dd0657d31bca3c4ba7e60d77fa9cbf015fd77f09327e47366.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.0188,
+      "e2e_seconds": 0.07675,
+      "cache_key": "d9ae95e9b0c6fb9dd0657d31bca3c4ba7e60d77fa9cbf015fd77f09327e47366"
+    },
+    {
+      "plot_uid": "FPWW0330019",
+      "image_date": "2022-07-18",
+      "source_file": "external_data/fip1_images/FPWW0330019/FPWW0330019_RGB1_20220718_112610.png",
+      "source_sha256": "2566710c1a182afaf5e9734d23e76e2e9ec3342393ac128b19cea8954ec61d12",
+      "protocol": "mainline224",
+      "protocol_version": "s1-v1",
+      "input_shape": [
+        3,
+        224,
+        224
+      ],
+      "token_shape": [
+        1,
+        256,
+        768
+      ],
+      "n_tokens": 256,
+      "output_dtype": "torch.float32",
+      "cache_dtype": "float16",
+      "cache_file": "external_data/dino_cache/mainline224_s1-v1/3a38150ff0ef4653ef6af6b0ac7ad2ab87b64471dab82e75f7f02d79229a551a.npy",
+      "cache_bytes": 393344,
+      "forward_seconds": 0.02287,
+      "e2e_seconds": 0.04953,
+      "cache_key": "3a38150ff0ef4653ef6af6b0ac7ad2ab87b64471dab82e75f7f02d79229a551a"
+    }
+  ]
+}

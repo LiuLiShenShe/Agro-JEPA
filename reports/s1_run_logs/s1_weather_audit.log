@@ -1,0 +1,129 @@
+{
+ "2019": {
+  "n_plots": 3,
+  "sensors": {
+   "temperature_air_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   },
+   "precipitation_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   }
+  }
+ },
+ "2016": {
+  "n_plots": 3,
+  "sensors": {
+   "temperature_air_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   },
+   "precipitation_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   }
+  }
+ },
+ "2017": {
+  "n_plots": 3,
+  "sensors": {
+   "temperature_air_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   },
+   "precipitation_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   }
+  }
+ },
+ "2018": {
+  "n_plots": 3,
+  "sensors": {
+   "temperature_air_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   },
+   "precipitation_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   }
+  }
+ },
+ "2021": {
+  "n_plots": 3,
+  "sensors": {
+   "temperature_air_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   },
+   "precipitation_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   }
+  }
+ },
+ "2022": {
+  "n_plots": 3,
+  "sensors": {
+   "temperature_air_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   },
+   "precipitation_200cm": {
+    "n_records": 8760,
+    "n_days": 365,
+    "records_per_day_min": 24,
+    "records_per_day_max": 24,
+    "n_nan": 0,
+    "identical_across_checked_plots": true
+   }
+  }
+ }
+}
+wrote reports/s1_weather_schema.json; daily rows: 2191 across 6 years

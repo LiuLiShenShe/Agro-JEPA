@@ -1,0 +1,105 @@
+{
+  "rule_version": "custom-crossyear-v1",
+  "seed": 42,
+  "id_years": [
+    2016,
+    2017,
+    2019,
+    2021
+  ],
+  "cross_year_years": [
+    2018,
+    2022
+  ],
+  "plot_counts": {
+    "train": 1978,
+    "cross_year_test": 1548,
+    "val": 298,
+    "id_test": 234
+  },
+  "plot_counts_by_year": {
+    "2016": {
+      "train": 536,
+      "val": 108,
+      "id_test": 66
+    },
+    "2017": {
+      "train": 616,
+      "val": 70,
+      "id_test": 70
+    },
+    "2018": {
+      "cross_year_test": 756
+    },
+    "2019": {
+      "train": 202,
+      "id_test": 26,
+      "val": 24
+    },
+    "2021": {
+      "train": 624,
+      "val": 96,
+      "id_test": 72
+    },
+    "2022": {
+      "cross_year_test": 792
+    }
+  },
+  "genotype_counts": {
+    "train": 574,
+    "val": 106,
+    "id_test": 99,
+    "cross_year_test": 645
+  },
+  "genotype_overlap": {
+    "cross_year_test__id_test": {
+      "n_shared": 78,
+      "examples": [
+        "001a12722512bfad99b54e4c286e3a6bf94354cbf29802a404662b6fc3d7bd77",
+        "02371a8c07df348c3028ec73e9dae08c84a244ed7fbcdc3fde75507297c924e3",
+        "065445f6d6d174c30693289d2c069cf4a8351a0a94eddb78f6ca7df4680bdb7b"
+      ]
+    },
+    "cross_year_test__train": {
+      "n_shared": 370,
+      "examples": [
+        "000b70b3d0f72b332e54694473f84823587dcdc111e79430d3430df36938cc21",
+        "01606260c5bd43821b856af9ee728cb1d5e4e8d382b2bc5b301d0673cea56726",
+        "02371a8c07df348c3028ec73e9dae08c84a244ed7fbcdc3fde75507297c924e3"
+      ]
+    },
+    "cross_year_test__val": {
+      "n_shared": 72,
+      "examples": [
+        "000b70b3d0f72b332e54694473f84823587dcdc111e79430d3430df36938cc21",
+        "01606260c5bd43821b856af9ee728cb1d5e4e8d382b2bc5b301d0673cea56726",
+        "0357f15331fb0491374abb1610c0f54967b3115627001243645a3c37421f7f1a"
+      ]
+    },
+    "id_test__train": {
+      "n_shared": 66,
+      "examples": [
+        "02371a8c07df348c3028ec73e9dae08c84a244ed7fbcdc3fde75507297c924e3",
+        "065445f6d6d174c30693289d2c069cf4a8351a0a94eddb78f6ca7df4680bdb7b",
+        "0b17d1a027383f088f5580c1f7e979fb886c9c4ed09584cd1ba985a7be5e5fcb"
+      ]
+    },
+    "id_test__val": {
+      "n_shared": 9,
+      "examples": [
+        "065445f6d6d174c30693289d2c069cf4a8351a0a94eddb78f6ca7df4680bdb7b",
+        "1a6a38bc0caa1fc8654a851f01b352054b3904983d46ae51779f2c27386907e7",
+        "245d5697504489c4eade3a21558e9a039b4b475ea076ed9ccc8ea554bd18a46f"
+      ]
+    },
+    "train__val": {
+      "n_shared": 61,
+      "examples": [
+        "000b70b3d0f72b332e54694473f84823587dcdc111e79430d3430df36938cc21",
+        "01606260c5bd43821b856af9ee728cb1d5e4e8d382b2bc5b301d0673cea56726",
+        "0357f15331fb0491374abb1610c0f54967b3115627001243645a3c37421f7f1a"
+      ]
+    }
+  },
+  "note": "ID-Test is 'seen years, unseen genotypes' by construction; cross_year_test genotypes may also appear in other years (2018/2022 are held out as years, not as genotypes)."
+}

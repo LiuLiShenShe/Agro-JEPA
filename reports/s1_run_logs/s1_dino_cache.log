@@ -1,0 +1,68 @@
+/fj/Agro-JEPA/external_data/third_party/dinov2/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/fj/Agro-JEPA/external_data/third_party/dinov2/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/fj/Agro-JEPA/external_data/third_party/dinov2/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+{
+  "model": {
+    "name": "dinov2_vitb14",
+    "embed_dim": 768,
+    "patch_size": 14,
+    "n_blocks": 12,
+    "n_params": 86580480,
+    "repo_git_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+  },
+  "summary": {
+    "upstream196": {
+      "n_images": 60,
+      "token_shapes": [
+        [
+          1,
+          196,
+          768
+        ]
+      ],
+      "n_tokens": [
+        196
+      ],
+      "dtype": [
+        "torch.float32"
+      ],
+      "cache_dtype": "float16",
+      "mean_forward_seconds": 0.01287,
+      "median_forward_seconds": 0.0122,
+      "mean_e2e_seconds": 0.05919,
+      "throughput_images_per_s": 16.89,
+      "cache_bytes_total": 18071040,
+      "cache_bytes_per_image_mean": 301184.0,
+      "projected_gib_for_153k_images": 42.9
+    },
+    "mainline224": {
+      "n_images": 60,
+      "token_shapes": [
+        [
+          1,
+          256,
+          768
+        ]
+      ],
+      "n_tokens": [
+        256
+      ],
+      "dtype": [
+        "torch.float32"
+      ],
+      "cache_dtype": "float16",
+      "mean_forward_seconds": 0.01743,
+      "median_forward_seconds": 0.01632,
+      "mean_e2e_seconds": 0.05723,
+      "throughput_images_per_s": 17.47,
+      "cache_bytes_total": 23600640,
+      "cache_bytes_per_image_mean": 393344.0,
+      "projected_gib_for_153k_images": 56.1
+    }
+  }
+}
+wrote reports/s1_feature_cache_smoke.json

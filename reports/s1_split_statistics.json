@@ -1,0 +1,939 @@
+{
+  "n_plots": 4058,
+  "n_observations": 153022,
+  "split_sizes": {
+    "train": 2930,
+    "validation": 380,
+    "test_plot": 250,
+    "test_genotype": 246,
+    "test_environment": 190,
+    "test_genotype_environment": 62
+  },
+  "split_year_matrix": {
+    "train": {
+      "2016": 452,
+      "2017": 492,
+      "2018": 520,
+      "2019": 0,
+      "2021": 742,
+      "2022": 724
+    },
+    "validation": {
+      "2016": 119,
+      "2017": 126,
+      "2018": 102,
+      "2019": 0,
+      "2021": 11,
+      "2022": 22
+    },
+    "test_plot": {
+      "2016": 79,
+      "2017": 78,
+      "2018": 74,
+      "2019": 0,
+      "2021": 11,
+      "2022": 8
+    },
+    "test_genotype": {
+      "2016": 60,
+      "2017": 60,
+      "2018": 60,
+      "2019": 0,
+      "2021": 28,
+      "2022": 38
+    },
+    "test_environment": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 190,
+      "2021": 0,
+      "2022": 0
+    },
+    "test_genotype_environment": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 62,
+      "2021": 0,
+      "2022": 0
+    }
+  },
+  "overlap_plot_uid": {
+    "n_unique_per_split": {
+      "train": 2930,
+      "validation": 380,
+      "test_plot": 250,
+      "test_genotype": 246,
+      "test_environment": 190,
+      "test_genotype_environment": 62
+    },
+    "pairwise": {
+      "train__validation": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "train__test_plot": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "train__test_genotype": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "train__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "train__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_plot": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_genotype": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_genotype": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_genotype__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_genotype__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_environment__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      }
+    }
+  },
+  "overlap_genotype_id": {
+    "n_unique_per_split": {
+      "train": 849,
+      "validation": 183,
+      "test_plot": 164,
+      "test_genotype": 30,
+      "test_environment": 48,
+      "test_genotype_environment": 30
+    },
+    "pairwise": {
+      "train__validation": {
+        "n_shared": 162,
+        "examples": [
+          "01606260c5bd43821b856af9ee728cb1d5e4e8d382b2bc5b301d0673cea56726",
+          "02e6474b104898d419cb0fecb54ab7efd9ab4f84ce91b1ce4882ed807824eeb6",
+          "0357f15331fb0491374abb1610c0f54967b3115627001243645a3c37421f7f1a",
+          "03ace38e1e617e469f3bcb4591555f27d9916ad8bd0275802b45f46cbc966507",
+          "03ccd2bbaff872b35015f8b880440a7696462351bda050a87def7dd9e574c6cd"
+        ]
+      },
+      "train__test_plot": {
+        "n_shared": 164,
+        "examples": [
+          "01606260c5bd43821b856af9ee728cb1d5e4e8d382b2bc5b301d0673cea56726",
+          "02e6474b104898d419cb0fecb54ab7efd9ab4f84ce91b1ce4882ed807824eeb6",
+          "0357f15331fb0491374abb1610c0f54967b3115627001243645a3c37421f7f1a",
+          "03ace38e1e617e469f3bcb4591555f27d9916ad8bd0275802b45f46cbc966507",
+          "03ccd2bbaff872b35015f8b880440a7696462351bda050a87def7dd9e574c6cd"
+        ]
+      },
+      "train__test_genotype": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "train__test_environment": {
+        "n_shared": 43,
+        "examples": [
+          "02371a8c07df348c3028ec73e9dae08c84a244ed7fbcdc3fde75507297c924e3",
+          "05e1899ffd666c40083e74c082b1040aa73aa2891b40476e0ca734755ea71dfa",
+          "097e1f54829a31a127d7f5e03ac51e3339ce8e0d4d2e0f7431f6bf59e801be98",
+          "09ec439935cd69496bb7205c48fd92f91e453b264e269d32d21588f63ceba0fd",
+          "0ba0499e688ef07f65b83b297f2297d3e051b9f87fe5513d1bf7e47148906859"
+        ]
+      },
+      "train__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_plot": {
+        "n_shared": 95,
+        "examples": [
+          "01606260c5bd43821b856af9ee728cb1d5e4e8d382b2bc5b301d0673cea56726",
+          "02e6474b104898d419cb0fecb54ab7efd9ab4f84ce91b1ce4882ed807824eeb6",
+          "0357f15331fb0491374abb1610c0f54967b3115627001243645a3c37421f7f1a",
+          "03ace38e1e617e469f3bcb4591555f27d9916ad8bd0275802b45f46cbc966507",
+          "03ccd2bbaff872b35015f8b880440a7696462351bda050a87def7dd9e574c6cd"
+        ]
+      },
+      "validation__test_genotype": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_environment": {
+        "n_shared": 8,
+        "examples": [
+          "1a6a38bc0caa1fc8654a851f01b352054b3904983d46ae51779f2c27386907e7",
+          "22c6cd96a32899712ec78f22d5454df96e1119a0a7340872801e76ac61b8dbd2",
+          "314b0dc3c06fedfd9f2532d93f19cb5d723be4a3bb127c5857f22a1272d05679",
+          "326808d7769e838d4435ec8ecaa02946e0ec00d192b0b32d9bb79e2e38b1c23d",
+          "40e5e4dfe2787c527adc65f1b08f0c7bfd9fbf639d20edaeb2a20bd56a87d9c3"
+        ]
+      },
+      "validation__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_genotype": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_environment": {
+        "n_shared": 9,
+        "examples": [
+          "09ec439935cd69496bb7205c48fd92f91e453b264e269d32d21588f63ceba0fd",
+          "326808d7769e838d4435ec8ecaa02946e0ec00d192b0b32d9bb79e2e38b1c23d",
+          "3fd8490555fce0f8480caf16dc447f3e389f521501779cd7e072e82b37c93b61",
+          "40e5e4dfe2787c527adc65f1b08f0c7bfd9fbf639d20edaeb2a20bd56a87d9c3",
+          "54f72a20a7bdea5297ef105eb407e1db11e7a20495fd4e4e7d31c6bcaf8e529f"
+        ]
+      },
+      "test_plot__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_genotype__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_genotype__test_genotype_environment": {
+        "n_shared": 30,
+        "examples": [
+          "065445f6d6d174c30693289d2c069cf4a8351a0a94eddb78f6ca7df4680bdb7b",
+          "12151596171476a8d476c8e67a72430e613a015f8039c013e18d544fc0e7a404",
+          "12c6e09527d63842e04cdc3613bee3fe4548390c92f44f8a799d240070a4e4ec",
+          "14d2bd9280e8bf2fbd3ae596ffdbe129f830c27ad5f2e8f07a88ae14bd6f8402",
+          "1aa2194f1defda3288ab4e1b1810724456db1be34fe7df1f431adbd65d6c685e"
+        ]
+      },
+      "test_environment__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      }
+    }
+  },
+  "overlap_yearsite_uid": {
+    "n_unique_per_split": {
+      "train": 5,
+      "validation": 5,
+      "test_plot": 5,
+      "test_genotype": 5,
+      "test_environment": 2,
+      "test_genotype_environment": 2
+    },
+    "pairwise": {
+      "train__validation": {
+        "n_shared": 5,
+        "examples": [
+          "FPWW012",
+          "FPWW018",
+          "FPWW022",
+          "FPWW032",
+          "FPWW033"
+        ]
+      },
+      "train__test_plot": {
+        "n_shared": 5,
+        "examples": [
+          "FPWW012",
+          "FPWW018",
+          "FPWW022",
+          "FPWW032",
+          "FPWW033"
+        ]
+      },
+      "train__test_genotype": {
+        "n_shared": 5,
+        "examples": [
+          "FPWW012",
+          "FPWW018",
+          "FPWW022",
+          "FPWW032",
+          "FPWW033"
+        ]
+      },
+      "train__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "train__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_plot": {
+        "n_shared": 5,
+        "examples": [
+          "FPWW012",
+          "FPWW018",
+          "FPWW022",
+          "FPWW032",
+          "FPWW033"
+        ]
+      },
+      "validation__test_genotype": {
+        "n_shared": 5,
+        "examples": [
+          "FPWW012",
+          "FPWW018",
+          "FPWW022",
+          "FPWW032",
+          "FPWW033"
+        ]
+      },
+      "validation__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "validation__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_genotype": {
+        "n_shared": 5,
+        "examples": [
+          "FPWW012",
+          "FPWW018",
+          "FPWW022",
+          "FPWW032",
+          "FPWW033"
+        ]
+      },
+      "test_plot__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_plot__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_genotype__test_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_genotype__test_genotype_environment": {
+        "n_shared": 0,
+        "examples": []
+      },
+      "test_environment__test_genotype_environment": {
+        "n_shared": 2,
+        "examples": [
+          "FPWW024",
+          "FPWW028"
+        ]
+      }
+    }
+  },
+  "label_availability": {
+    "train": {
+      "2016": {
+        "n_plots": 452,
+        "cc_plots_with_any": 452,
+        "cc_observations": 16266,
+        "ph_plots_with_any": 452,
+        "ph_observations": 9944,
+        "whc_plots_with_any": 452,
+        "whc_observations": 4291,
+        "sen_plots_with_any": 448,
+        "sen_observations": 3970,
+        "n_images": 16256
+      },
+      "2017": {
+        "n_plots": 492,
+        "cc_plots_with_any": 492,
+        "cc_observations": 9034,
+        "ph_plots_with_any": 492,
+        "ph_observations": 10332,
+        "whc_plots_with_any": 492,
+        "whc_observations": 4703,
+        "sen_plots_with_any": 492,
+        "sen_observations": 4800,
+        "n_images": 9285
+      },
+      "2018": {
+        "n_plots": 520,
+        "cc_plots_with_any": 520,
+        "cc_observations": 11200,
+        "ph_plots_with_any": 520,
+        "ph_observations": 20674,
+        "whc_plots_with_any": 519,
+        "whc_observations": 5410,
+        "sen_plots_with_any": 520,
+        "sen_observations": 6240,
+        "n_images": 14635
+      },
+      "2021": {
+        "n_plots": 742,
+        "cc_plots_with_any": 742,
+        "cc_observations": 43957,
+        "ph_plots_with_any": 742,
+        "ph_observations": 34556,
+        "whc_plots_with_any": 742,
+        "whc_observations": 25205,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 45244
+      },
+      "2022": {
+        "n_plots": 724,
+        "cc_plots_with_any": 724,
+        "cc_observations": 27857,
+        "ph_plots_with_any": 724,
+        "ph_observations": 30798,
+        "whc_plots_with_any": 724,
+        "whc_observations": 15617,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 33796
+      }
+    },
+    "validation": {
+      "2016": {
+        "n_plots": 119,
+        "cc_plots_with_any": 119,
+        "cc_observations": 4308,
+        "ph_plots_with_any": 119,
+        "ph_observations": 2618,
+        "whc_plots_with_any": 119,
+        "whc_observations": 1152,
+        "sen_plots_with_any": 117,
+        "sen_observations": 1046,
+        "n_images": 4319
+      },
+      "2017": {
+        "n_plots": 126,
+        "cc_plots_with_any": 126,
+        "cc_observations": 2419,
+        "ph_plots_with_any": 126,
+        "ph_observations": 2646,
+        "whc_plots_with_any": 126,
+        "whc_observations": 1329,
+        "sen_plots_with_any": 126,
+        "sen_observations": 1241,
+        "n_images": 2572
+      },
+      "2018": {
+        "n_plots": 102,
+        "cc_plots_with_any": 102,
+        "cc_observations": 2144,
+        "ph_plots_with_any": 102,
+        "ph_observations": 4012,
+        "whc_plots_with_any": 102,
+        "whc_observations": 984,
+        "sen_plots_with_any": 102,
+        "sen_observations": 1224,
+        "n_images": 2868
+      },
+      "2021": {
+        "n_plots": 11,
+        "cc_plots_with_any": 11,
+        "cc_observations": 645,
+        "ph_plots_with_any": 11,
+        "ph_observations": 507,
+        "whc_plots_with_any": 11,
+        "whc_observations": 366,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 664
+      },
+      "2022": {
+        "n_plots": 22,
+        "cc_plots_with_any": 22,
+        "cc_observations": 843,
+        "ph_plots_with_any": 22,
+        "ph_observations": 930,
+        "whc_plots_with_any": 22,
+        "whc_observations": 461,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 1008
+      }
+    },
+    "test_plot": {
+      "2016": {
+        "n_plots": 79,
+        "cc_plots_with_any": 79,
+        "cc_observations": 2844,
+        "ph_plots_with_any": 79,
+        "ph_observations": 1738,
+        "whc_plots_with_any": 79,
+        "whc_observations": 750,
+        "sen_plots_with_any": 78,
+        "sen_observations": 680,
+        "n_images": 2831
+      },
+      "2017": {
+        "n_plots": 78,
+        "cc_plots_with_any": 78,
+        "cc_observations": 1458,
+        "ph_plots_with_any": 78,
+        "ph_observations": 1638,
+        "whc_plots_with_any": 78,
+        "whc_observations": 790,
+        "sen_plots_with_any": 78,
+        "sen_observations": 747,
+        "n_images": 1480
+      },
+      "2018": {
+        "n_plots": 74,
+        "cc_plots_with_any": 74,
+        "cc_observations": 1611,
+        "ph_plots_with_any": 74,
+        "ph_observations": 2950,
+        "whc_plots_with_any": 74,
+        "whc_observations": 796,
+        "sen_plots_with_any": 74,
+        "sen_observations": 888,
+        "n_images": 2072
+      },
+      "2021": {
+        "n_plots": 11,
+        "cc_plots_with_any": 11,
+        "cc_observations": 651,
+        "ph_plots_with_any": 11,
+        "ph_observations": 512,
+        "whc_plots_with_any": 11,
+        "whc_observations": 377,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 673
+      },
+      "2022": {
+        "n_plots": 8,
+        "cc_plots_with_any": 8,
+        "cc_observations": 302,
+        "ph_plots_with_any": 8,
+        "ph_observations": 340,
+        "whc_plots_with_any": 8,
+        "whc_observations": 170,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 359
+      }
+    },
+    "test_genotype": {
+      "2016": {
+        "n_plots": 60,
+        "cc_plots_with_any": 60,
+        "cc_observations": 2149,
+        "ph_plots_with_any": 60,
+        "ph_observations": 1320,
+        "whc_plots_with_any": 60,
+        "whc_observations": 559,
+        "sen_plots_with_any": 60,
+        "sen_observations": 540,
+        "n_images": 2160
+      },
+      "2017": {
+        "n_plots": 60,
+        "cc_plots_with_any": 60,
+        "cc_observations": 1090,
+        "ph_plots_with_any": 60,
+        "ph_observations": 1260,
+        "whc_plots_with_any": 60,
+        "whc_observations": 563,
+        "sen_plots_with_any": 60,
+        "sen_observations": 592,
+        "n_images": 1197
+      },
+      "2018": {
+        "n_plots": 60,
+        "cc_plots_with_any": 60,
+        "cc_observations": 1302,
+        "ph_plots_with_any": 60,
+        "ph_observations": 2386,
+        "whc_plots_with_any": 60,
+        "whc_observations": 635,
+        "sen_plots_with_any": 60,
+        "sen_observations": 720,
+        "n_images": 1691
+      },
+      "2021": {
+        "n_plots": 28,
+        "cc_plots_with_any": 28,
+        "cc_observations": 1645,
+        "ph_plots_with_any": 28,
+        "ph_observations": 1297,
+        "whc_plots_with_any": 28,
+        "whc_observations": 948,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 1704
+      },
+      "2022": {
+        "n_plots": 38,
+        "cc_plots_with_any": 38,
+        "cc_observations": 1459,
+        "ph_plots_with_any": 38,
+        "ph_observations": 1617,
+        "whc_plots_with_any": 38,
+        "whc_observations": 822,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 1763
+      }
+    },
+    "test_environment": {
+      "2019": {
+        "n_plots": 190,
+        "cc_plots_with_any": 190,
+        "cc_observations": 4211,
+        "ph_plots_with_any": 190,
+        "ph_observations": 8500,
+        "whc_plots_with_any": 168,
+        "whc_observations": 674,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 4753
+      }
+    },
+    "test_genotype_environment": {
+      "2019": {
+        "n_plots": 62,
+        "cc_plots_with_any": 62,
+        "cc_observations": 1304,
+        "ph_plots_with_any": 62,
+        "ph_observations": 2726,
+        "whc_plots_with_any": 60,
+        "whc_observations": 227,
+        "sen_plots_with_any": 0,
+        "sen_observations": 0,
+        "n_images": 1692
+      }
+    }
+  },
+  "label_timing": {
+    "cc": {
+      "n_observations": 153022,
+      "n_matched_any": 153022,
+      "n_unmatched": 0,
+      "n_valid_value": 153022,
+      "n_zero_value": 2,
+      "lag_median_days": 0.0,
+      "lag_p90_days": 0.0,
+      "frac_lag_le_3": 0.927768556155324,
+      "frac_lag_le_7": 0.9632797898341415,
+      "value_min": 0.0,
+      "value_max": 0.9673
+    },
+    "ph": {
+      "n_observations": 153022,
+      "n_matched_any": 153022,
+      "n_unmatched": 0,
+      "n_valid_value": 153022,
+      "n_zero_value": 10524,
+      "lag_median_days": 0.0,
+      "lag_p90_days": 76.0,
+      "frac_lag_le_3": 0.7081073309720171,
+      "frac_lag_le_7": 0.7575773418201305,
+      "value_min": -0.0962,
+      "value_max": 1.6074
+    },
+    "whc": {
+      "n_observations": 153022,
+      "n_matched_any": 152454,
+      "n_unmatched": 568,
+      "n_valid_value": 152454,
+      "n_zero_value": 77234,
+      "lag_median_days": 13.0,
+      "lag_p90_days": 137.0,
+      "frac_lag_le_3": 0.4405706369018834,
+      "frac_lag_le_7": 0.4671223745605207,
+      "value_min": 0.0,
+      "value_max": 845.5
+    },
+    "sen": {
+      "n_observations": 153022,
+      "n_matched_any": 61135,
+      "n_unmatched": 91887,
+      "n_valid_value": 61135,
+      "n_zero_value": 21335,
+      "lag_median_days": 70.0,
+      "lag_p90_days": 201.0,
+      "frac_lag_le_3": 0.06927762021147287,
+      "frac_lag_le_7": 0.07162368809713636,
+      "value_min": 0.0,
+      "value_max": 10.0
+    }
+  },
+  "consecutive_pairs": {
+    "n": 148964,
+    "delta_days": {
+      "min": 0,
+      "median": 4.0,
+      "p90": 12.0,
+      "max": 93,
+      "histogram": {
+        "0-3": 31724,
+        "4-7": 77270,
+        "8-14": 29287,
+        "15-21": 5536,
+        "22-28": 1267,
+        "29-35": 1497,
+        "36-45": 697,
+        "46-60": 802,
+        "60+": 884
+      }
+    },
+    "by_split": {
+      "train": 116286,
+      "validation": 11051,
+      "test_plot": 7165,
+      "test_genotype": 8269,
+      "test_environment": 4563,
+      "test_genotype_environment": 1630
+    },
+    "cc_valid_both_le7": 141751,
+    "cc_valid_both_le7_by_split": {
+      "train": 111634,
+      "validation": 10342,
+      "test_plot": 6771,
+      "test_genotype": 7804,
+      "test_environment": 3931,
+      "test_genotype_environment": 1269
+    },
+    "ph_valid_both_le7": 111868,
+    "ph_valid_both_le7_by_split": {
+      "train": 88207,
+      "validation": 7147,
+      "test_plot": 4624,
+      "test_genotype": 5798,
+      "test_environment": 4496,
+      "test_genotype_environment": 1596
+    },
+    "whc_valid_both_le7": 67060,
+    "whc_valid_both_le7_by_split": {
+      "train": 56264,
+      "validation": 4095,
+      "test_plot": 2689,
+      "test_genotype": 3508,
+      "test_environment": 361,
+      "test_genotype_environment": 143
+    },
+    "sen_valid_both_le7": 9145,
+    "sen_valid_both_le7_by_split": {
+      "train": 5948,
+      "validation": 1492,
+      "test_plot": 935,
+      "test_genotype": 770,
+      "test_environment": 0,
+      "test_genotype_environment": 0
+    }
+  },
+  "span_candidates": {
+    "7": {
+      "n_pairs": 117403,
+      "by_split": {
+        "train": 93661,
+        "validation": 7842,
+        "test_plot": 5087,
+        "test_genotype": 6249,
+        "test_environment": 3398,
+        "test_genotype_environment": 1166
+      },
+      "cc_valid_both_le7": 112882,
+      "ph_valid_both_le7": 95647,
+      "cc_valid_both_le7_by_split": {
+        "train": 90653,
+        "validation": 7302,
+        "test_plot": 4790,
+        "test_genotype": 5930,
+        "test_environment": 3184,
+        "test_genotype_environment": 1023
+      },
+      "ph_valid_both_le7_by_split": {
+        "train": 77201,
+        "validation": 5504,
+        "test_plot": 3583,
+        "test_genotype": 4795,
+        "test_environment": 3398,
+        "test_genotype_environment": 1166
+      }
+    },
+    "14": {
+      "n_pairs": 110892,
+      "by_split": {
+        "train": 88846,
+        "validation": 7380,
+        "test_plot": 4798,
+        "test_genotype": 5912,
+        "test_environment": 2944,
+        "test_genotype_environment": 1012
+      },
+      "cc_valid_both_le7": 105373,
+      "ph_valid_both_le7": 88778,
+      "cc_valid_both_le7_by_split": {
+        "train": 85052,
+        "validation": 6704,
+        "test_plot": 4432,
+        "test_genotype": 5521,
+        "test_environment": 2765,
+        "test_genotype_environment": 899
+      },
+      "ph_valid_both_le7_by_split": {
+        "train": 71980,
+        "validation": 5093,
+        "test_plot": 3299,
+        "test_genotype": 4450,
+        "test_environment": 2944,
+        "test_genotype_environment": 1012
+      }
+    },
+    "21": {
+      "n_pairs": 102183,
+      "by_split": {
+        "train": 81971,
+        "validation": 6535,
+        "test_plot": 4204,
+        "test_genotype": 5340,
+        "test_environment": 3065,
+        "test_genotype_environment": 1068
+      },
+      "cc_valid_both_le7": 97238,
+      "ph_valid_both_le7": 81377,
+      "cc_valid_both_le7_by_split": {
+        "train": 78859,
+        "validation": 5866,
+        "test_plot": 3838,
+        "test_genotype": 4965,
+        "test_environment": 2783,
+        "test_genotype_environment": 927
+      },
+      "ph_valid_both_le7_by_split": {
+        "train": 66070,
+        "validation": 4382,
+        "test_plot": 2818,
+        "test_genotype": 3974,
+        "test_environment": 3065,
+        "test_genotype_environment": 1068
+      }
+    },
+    "28": {
+      "n_pairs": 97713,
+      "by_split": {
+        "train": 78711,
+        "validation": 6219,
+        "test_plot": 4045,
+        "test_genotype": 5123,
+        "test_environment": 2687,
+        "test_genotype_environment": 928
+      },
+      "cc_valid_both_le7": 91637,
+      "ph_valid_both_le7": 77592,
+      "cc_valid_both_le7_by_split": {
+        "train": 74390,
+        "validation": 5617,
+        "test_plot": 3708,
+        "test_genotype": 4713,
+        "test_environment": 2406,
+        "test_genotype_environment": 803
+      },
+      "ph_valid_both_le7_by_split": {
+        "train": 63223,
+        "validation": 4207,
+        "test_plot": 2734,
+        "test_genotype": 3814,
+        "test_environment": 2686,
+        "test_genotype_environment": 928
+      }
+    },
+    "35": {
+      "n_pairs": 88869,
+      "by_split": {
+        "train": 72174,
+        "validation": 5381,
+        "test_plot": 3475,
+        "test_genotype": 4582,
+        "test_environment": 2381,
+        "test_genotype_environment": 876
+      },
+      "cc_valid_both_le7": 83563,
+      "ph_valid_both_le7": 71538,
+      "cc_valid_both_le7_by_split": {
+        "train": 68487,
+        "validation": 4917,
+        "test_plot": 3216,
+        "test_genotype": 4236,
+        "test_environment": 2028,
+        "test_genotype_environment": 679
+      },
+      "ph_valid_both_le7_by_split": {
+        "train": 58623,
+        "validation": 3797,
+        "test_plot": 2448,
+        "test_genotype": 3499,
+        "test_environment": 2328,
+        "test_genotype_environment": 843
+      }
+    },
+    "42": {
+      "n_pairs": 84115,
+      "by_split": {
+        "train": 68083,
+        "validation": 5302,
+        "test_plot": 3402,
+        "test_genotype": 4417,
+        "test_environment": 2126,
+        "test_genotype_environment": 785
+      },
+      "cc_valid_both_le7": 80139,
+      "ph_valid_both_le7": 66126,
+      "cc_valid_both_le7_by_split": {
+        "train": 65362,
+        "validation": 4985,
+        "test_plot": 3223,
+        "test_genotype": 4161,
+        "test_environment": 1794,
+        "test_genotype_environment": 614
+      },
+      "ph_valid_both_le7_by_split": {
+        "train": 54258,
+        "validation": 3505,
+        "test_plot": 2223,
+        "test_genotype": 3229,
+        "test_environment": 2126,
+        "test_genotype_environment": 785
+      }
+    }
+  },
+  "image_paths": {
+    "n": 153022,
+    "n_missing_path": 0,
+    "n_without_inner_plot_image_segment": 0,
+    "n_filename_plot_uid_mismatch": 0,
+    "n_filename_date_mismatch": 0,
+    "example": "https://huggingface.co/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW024/0001/FPWW0240001_RGB1_20181031_142555.png"
+  }
+}

@@ -1,0 +1,77 @@
+/fj/Agro-JEPA/tools/s1_dataset_stats.py:51: DtypeWarning: Columns (21) have mixed types. Specify dtype option on import or set low_memory=False.
+  obs = pd.read_csv(obs_path, dtype={"plot_uid": str})
+{
+  "split_sizes": {
+    "train": 2930,
+    "validation": 380,
+    "test_plot": 250,
+    "test_genotype": 246,
+    "test_environment": 190,
+    "test_genotype_environment": 62
+  },
+  "consecutive_pairs": {
+    "n": 148964,
+    "delta_days": {
+      "min": 0,
+      "median": 4.0,
+      "p90": 12.0,
+      "max": 93,
+      "histogram": {
+        "0-3": 31724,
+        "4-7": 77270,
+        "8-14": 29287,
+        "15-21": 5536,
+        "22-28": 1267,
+        "29-35": 1497,
+        "36-45": 697,
+        "46-60": 802,
+        "60+": 884
+      }
+    },
+    "by_split": {
+      "train": 116286,
+      "validation": 11051,
+      "test_plot": 7165,
+      "test_genotype": 8269,
+      "test_environment": 4563,
+      "test_genotype_environment": 1630
+    },
+    "cc_valid_both_le7": 141751,
+    "cc_valid_both_le7_by_split": {
+      "train": 111634,
+      "validation": 10342,
+      "test_plot": 6771,
+      "test_genotype": 7804,
+      "test_environment": 3931,
+      "test_genotype_environment": 1269
+    },
+    "ph_valid_both_le7": 111868,
+    "ph_valid_both_le7_by_split": {
+      "train": 88207,
+      "validation": 7147,
+      "test_plot": 4624,
+      "test_genotype": 5798,
+      "test_environment": 4496,
+      "test_genotype_environment": 1596
+    },
+    "whc_valid_both_le7": 67060,
+    "whc_valid_both_le7_by_split": {
+      "train": 56264,
+      "validation": 4095,
+      "test_plot": 2689,
+      "test_genotype": 3508,
+      "test_environment": 361,
+      "test_genotype_environment": 143
+    },
+    "sen_valid_both_le7": 9145,
+    "sen_valid_both_le7_by_split": {
+      "train": 5948,
+      "validation": 1492,
+      "test_plot": 935,
+      "test_genotype": 770,
+      "test_environment": 0,
+      "test_genotype_environment": 0
+    }
+  }
+}
+wrote reports/s1_split_statistics.json

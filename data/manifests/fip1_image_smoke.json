@@ -1,0 +1,118 @@
+{
+  "hf_endpoint": "https://hf-mirror.com",
+  "n_images": 8,
+  "n_bytes": 7768267,
+  "elapsed_seconds": 189.0,
+  "selection": "evenly spaced observations per plot",
+  "per_plot": 4,
+  "plots": [
+    "FPWW0120001",
+    "FPWW0120002"
+  ],
+  "images": [
+    {
+      "plot_uid": "FPWW0120001",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2015-11-09",
+      "obs_index": 0,
+      "file": "external_data/fip1_images/FPWW0120001/FPWW0120001_RGB1_20151109_155007.png",
+      "bytes": 880271,
+      "sha256": "c167c6134c554d0c325336f0e96e818eeef362cfb0a1c8cce136dae6ebcf7401",
+      "seconds": 5.989,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0001/FPWW0120001_RGB1_20151109_155007.png"
+    },
+    {
+      "plot_uid": "FPWW0120001",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2016-01-28",
+      "obs_index": 11,
+      "file": "external_data/fip1_images/FPWW0120001/FPWW0120001_RGB1_20160128_101419.png",
+      "bytes": 882043,
+      "sha256": "6cc8fa90ad35726ac30694364270e60a80fcaa3351de1c1112b7297b074b28ab",
+      "seconds": 37.596,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0001/FPWW0120001_RGB1_20160128_101419.png"
+    },
+    {
+      "plot_uid": "FPWW0120001",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2016-04-06",
+      "obs_index": 23,
+      "file": "external_data/fip1_images/FPWW0120001/FPWW0120001_RGB1_20160406_121804.png",
+      "bytes": 1092947,
+      "sha256": "a8cd534e302a475fe279858fb36f602f700721429a3249d8dead1006fb7c1145",
+      "seconds": 4.974,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0001/FPWW0120001_RGB1_20160406_121804.png"
+    },
+    {
+      "plot_uid": "FPWW0120001",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2016-07-15",
+      "obs_index": 34,
+      "file": "external_data/fip1_images/FPWW0120001/FPWW0120001_RGB1_20160715_104309.png",
+      "bytes": 941116,
+      "sha256": "2d8abc0b54bda8b569f702e76f8c0977b374f7d31b3beeaa6ca5b6984169c8de",
+      "seconds": 188.962,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0001/FPWW0120001_RGB1_20160715_104309.png"
+    },
+    {
+      "plot_uid": "FPWW0120002",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2015-11-09",
+      "obs_index": 0,
+      "file": "external_data/fip1_images/FPWW0120002/FPWW0120002_RGB1_20151109_155018.png",
+      "bytes": 880029,
+      "sha256": "0ae7970d00a1c1af3d35c0c3453a6a6688ab486c097e04745e2cdd04812bdac1",
+      "seconds": 126.316,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0002/FPWW0120002_RGB1_20151109_155018.png"
+    },
+    {
+      "plot_uid": "FPWW0120002",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2016-01-28",
+      "obs_index": 11,
+      "file": "external_data/fip1_images/FPWW0120002/FPWW0120002_RGB1_20160128_101427.png",
+      "bytes": 922504,
+      "sha256": "a043d2a6b572e7f9944276af5f1435581766e0450c94519f5d87a9cad3f1742b",
+      "seconds": 3.636,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0002/FPWW0120002_RGB1_20160128_101427.png"
+    },
+    {
+      "plot_uid": "FPWW0120002",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2016-04-06",
+      "obs_index": 23,
+      "file": "external_data/fip1_images/FPWW0120002/FPWW0120002_RGB1_20160406_121813.png",
+      "bytes": 1107350,
+      "sha256": "b595083ed470dce67bed5749ba0d18d616c8aa978e4518b98e51f9c046d49e88",
+      "seconds": 127.656,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0002/FPWW0120002_RGB1_20160406_121813.png"
+    },
+    {
+      "plot_uid": "FPWW0120002",
+      "split": "train",
+      "harvest_year": 2016,
+      "image_date": "2016-07-15",
+      "obs_index": 34,
+      "file": "external_data/fip1_images/FPWW0120002/FPWW0120002_RGB1_20160715_104319.png",
+      "bytes": 1062007,
+      "sha256": "b1153836fd7dbbe1fd0a4b8227721fc524e665d302d4a8e9eb764916e377f182",
+      "seconds": 3.414,
+      "status": "downloaded",
+      "source_url": "https://hf-mirror.com/datasets/mikeboss/FIP1/resolve/main/data/inner_plot_image/WW012/0002/FPWW0120002_RGB1_20160715_104319.png"
+    }
+  ]
+}
