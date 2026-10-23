@@ -1,0 +1,110 @@
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+/home/test/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/test/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/test/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+[encoder] dinov2_vits14: emb_dim=384 patch=14 params=22.1M tokens=(2, 196, 384)
+[encoder] dinov2_vitb14: emb_dim=768 patch=14 params=86.6M tokens=(2, 196, 768)
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 10, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 10, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 10, after repeat: 10
+action_dim: 10, after repeat: 10
+emb_dim: 404
+Model emb_dim:  404
+[model vit-s] num_patches=196 predictor_pos=(1, 588, 404) dec_in=384 dec_up_in=384
+[forward vit-s dec=on] {'z_pred': (2, 3, 196, 404), 'visual_pred': (2, 3, 3, 224, 224), 'visual_rec': (2, 4, 3, 224, 224), 'loss': 3.8757171630859375, 'components': {'decoder_recon_loss_pred': 0.342676, 'decoder_vq_loss_pred': 0.0, 'decoder_loss_pred': 0.342676, 'z_loss': 3.533069, 'z_visual_loss': 3.606386, 'z_proprio_loss': 0.717702, 'decoder_recon_loss_reconstructed': 0.342648, 'decoder_vq_loss_reconstructed': 0.0, 'decoder_loss_reconstructed': 0.342648, 'loss': 3.875717}, 'grad_predictor_pos': True, 'grad_decoder': True, 'grad_encoder': False}
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 10, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 10, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 10, after repeat: 10
+action_dim: 10, after repeat: 10
+emb_dim: 788
+Model emb_dim:  788
+[model vit-b] num_patches=196 predictor_pos=(1, 588, 788) dec_in=768 dec_up_in=768
+[forward vit-b dec=on] {'z_pred': (2, 3, 196, 788), 'visual_pred': (2, 3, 3, 224, 224), 'visual_rec': (2, 4, 3, 224, 224), 'loss': 2.080134391784668, 'components': {'decoder_recon_loss_pred': 0.347465, 'decoder_vq_loss_pred': 0.0, 'decoder_loss_pred': 0.347465, 'z_loss': 1.732881, 'z_visual_loss': 1.74739, 'z_proprio_loss': 0.618532, 'decoder_recon_loss_reconstructed': 0.347254, 'decoder_vq_loss_reconstructed': 0.0, 'decoder_loss_reconstructed': 0.347254, 'loss': 2.080134}, 'grad_predictor_pos': True, 'grad_decoder': True, 'grad_encoder': False}
+[rollout vit-b] z_obs.visual=(1, 9, 196, 768) z=(1, 9, 196, 788)
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 10, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 10, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 10, after repeat: 10
+action_dim: 10, after repeat: 10
+emb_dim: 404
+Model emb_dim:  404
+[forward vit-s dec=off] {'z_pred': (2, 3, 196, 404), 'visual_pred': None, 'visual_rec': None, 'loss': 3.605024576187134, 'components': {'z_loss': 3.605025, 'z_visual_loss': 3.682786, 'z_proprio_loss': 0.618999, 'loss': 3.605025}, 'grad_predictor_pos': True, 'grad_decoder': None, 'grad_encoder': False}
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 10, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 10, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 10, after repeat: 10
+action_dim: 10, after repeat: 10
+emb_dim: 384
+Model emb_dim:  384
+[concat0 default emb dims] fails as documented: Sizes of tensors must match except in dimension 2. Expected size 384 but got size 10 for tensor number 1 in the list.
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 384, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 384, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 384, after repeat: 384
+action_dim: 384, after repeat: 384
+emb_dim: 384
+Model emb_dim:  384
+[model concat0/proj] num_patches=198 predictor_pos=(1, 594, 384)
+[forward concat0/proj dec=off] {'z_pred': (2, 3, 198, 384), 'visual_pred': None, 'visual_rec': None, 'loss': 3.656583070755005, 'components': {'z_loss': 3.656583, 'z_visual_loss': 3.669106, 'z_proprio_loss': 1.201981, 'loss': 3.656583}, 'grad_predictor_pos': True, 'grad_decoder': None, 'grad_encoder': False}
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 10, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 10, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 10, after repeat: 10
+action_dim: 10, after repeat: 10
+emb_dim: 404
+Model emb_dim:  404
+[num_pred=2] {'z_pred': (2, 3, 196, 404), 'visual_pred': None, 'visual_rec': None, 'loss': 3.5226471424102783, 'components': {'z_loss': 3.522647, 'z_visual_loss': 3.599305, 'z_proprio_loss': 0.579001, 'loss': 3.522647}, 'grad_predictor_pos': True, 'grad_decoder': None, 'grad_encoder': False}

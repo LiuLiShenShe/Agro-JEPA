@@ -1,0 +1,10 @@
+checkpoint: /tmp/s0_run_dec/outputs/2026-10-23/13-26-54/checkpoints/model_1.pth
+default torch.load: UnpicklingError Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+keys: ['epoch', 'predictor', 'predictor_optimizer', 'decoder', 'decoder_optimizer', 'action_encoder', 'proprio_encoder'] epoch: 1
+predictor.pos_embedding: (1, 588, 404)
+predictor.to_qkv.weight: (3072, 404)
+decoder.dec[0].weight: (384, 384, 3, 3)
+decoder.upsample_b[0].weight: (384, 384, 3, 3)
+action_encoder: ProprioceptiveEmbedding
+proprio_encoder: ProprioceptiveEmbedding
+encoder key present: False

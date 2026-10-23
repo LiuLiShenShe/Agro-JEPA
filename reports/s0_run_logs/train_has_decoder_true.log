@@ -1,0 +1,30 @@
+[2026-10-23 13:26:54,887][__main__][INFO] - Model saved dir: /tmp/s0_run_dec/outputs/2026-10-23/13-26-54
+[2026-10-23 13:26:55,077][__main__][INFO] - rank: 0  model_name: 2026-10-23/13-26-54_point_maze_f5_h3_p1
+[2026-10-23 13:26:55,077][__main__][INFO] - device: cuda   model_name: 2026-10-23/13-26-54_point_maze_f5_h3_p1
+[2026-10-23 13:26:55,192][__main__][INFO] - Loading dataset from /tmp/s0_toy/point_maze ...
+Loaded 4 rollouts
+[[2, 3, 0], [1]]
+[2026-10-23 13:26:55,218][__main__][INFO] - dataloader batch size: 4
+[2026-10-23 13:26:55,218][__main__][INFO] - Train encoder, predictor, decoder:            False            True            True
+Using cache found in /home/test/.cache/torch/hub/facebookresearch_dinov2_main
+[2026-10-23 13:26:55,232][dinov2][INFO] - using MLP layer as FFN
+using 3d prop position use_3d_pos=False
+Proprio encoder type: <class 'models.proprio.ProprioceptiveEmbedding'>
+using 3d prop position use_3d_pos=False
+Action encoder type: <class 'models.proprio.ProprioceptiveEmbedding'>
+num_action_repeat: 1
+num_proprio_repeat: 1
+proprio encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(4, 10, kernel_size=(1,), stride=(1,))
+)
+action encoder: ProprioceptiveEmbedding(
+  (patch_embed): Conv1d(10, 10, kernel_size=(1,), stride=(1,))
+)
+proprio_dim: 10, after repeat: 10
+action_dim: 10, after repeat: 10
+emb_dim: 404
+Model emb_dim:  404
+
+
+[2026-10-23 13:27:35,484][__main__][INFO] - Epoch 1  Training loss: 2.7168                  Validation loss: 2.6180
+[2026-10-23 13:27:36,291][__main__][INFO] - Saved model to /tmp/s0_run_dec/outputs/2026-10-23/13-26-54
