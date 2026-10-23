@@ -5,6 +5,7 @@ Companion to `reports/s1_fip_audit.md`. Every number below is computed by
 parquet shards (revision `11cdd84bc0ba8d5c6641ea7b53550b1658527e1c`).
 Machine-readable output: `reports/s1_split_statistics.json`,
 `reports/s1_custom_split_statistics.json`.
+S1 commit: `0e8ea4093362a30923b89a419c362d1bc71300ff`.
 
 ```bash
 python3 tools/s1_dataset_stats.py \

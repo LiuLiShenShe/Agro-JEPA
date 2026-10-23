@@ -3,7 +3,7 @@
 Model: **DINOv2 ViT-B/14**, run on real inner-plot FIP images. Code and weights
 are pinned, the two candidate preprocessing protocols are compared on the same
 images, and the two caches are written to **separate directories** so they cannot
-be mixed.
+be mixed. S1 commit: `0e8ea4093362a30923b89a419c362d1bc71300ff`.
 
 ```bash
 # images (real PNGs from the dataset, SHA256 recorded per file)

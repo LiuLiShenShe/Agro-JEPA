@@ -4,6 +4,8 @@ Stage: **S1 (data access, audit, manifest freeze, frozen-DINOv2 cache validation
 Date: 2026-10-23.
 Repository: `https://github.com/LiuLiShenShe/Agro-JEPA`, branch `agro-s0-upstream`.
 Base commit before this stage: `91c4671`.
+S1 commit: **`0e8ea4093362a30923b89a419c362d1bc71300ff`** (`s1: FIP 1.0 audit,
+frozen manifests, DINOv2 cache protocol`).
 Dataset: `mikeboss/FIP1` on HuggingFace, revision **`11cdd84bc0ba8d5c6641ea7b53550b1658527e1c`**,
 license **CC-BY-4.0** (verified through the dataset card and Crossref for the paper:
 `https://creativecommons.org/licenses/by/4.0/`).
@@ -135,9 +137,11 @@ Raw value ranges come from `reports/s1_fip_audit.json`.
 | Yield (adjusted) | `yield_adjusted_value/date` | t ha⁻¹ | — | 3,873 / 4,058 | 3,873 |
 | Protein content | `protein_value/date` | % | — | 3,076 / 4,058 | 3,076 |
 
-These totals match the paper (Table 4/5): 4,058 plots; CC/PH measured on all;
-WHC 4,057 plots; Sen on 2,215 plots (2016–2018); yield 3,873; protein 3,076;
-heading 2,805; final height 4,058.
+These totals match the paper's Table 4/5 per-year counts: 4,058 plots;
+CC/PH measured on all; WHC 4,033 plots with at least one measurement (the
+paper's total row prints 4,057, but its per-year counts sum to 4,033, which is
+what the data shows); Sen on 2,215 plots (2016–2018); yield 3,873; protein
+3,076; heading 2,805; final height 4,058.
 
 **Zero vs missing.** Zero is a real observation and is kept:
 

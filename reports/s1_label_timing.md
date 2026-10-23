@@ -1,7 +1,8 @@
 # S1 — Image date vs label measurement date (timing audit)
 
 Source: `data/manifests/fip1_observations.csv.gz` (153,022 inner-plot images,
-revision `11cdd84b…`). Signed lag is defined as
+revision `11cdd84b…`). S1 commit: `0e8ea4093362a30923b89a419c362d1bc71300ff`.
+Signed lag is defined as
 
 ```
 lag_days = label_measurement_date − image_date
