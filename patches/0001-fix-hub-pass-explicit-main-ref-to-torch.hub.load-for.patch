@@ -1,0 +1,35 @@
+From c7417ceb6c9a4591a7d58e31969b1d24e0b637a0 Mon Sep 17 00:00:00 2001
+From: mzb329 <2849112246@qq.com>
+Date: Fri, 23 Oct 2026 13:14:38 +0800
+Subject: [PATCH] fix(hub): pass explicit ':main' ref to torch.hub.load for
+ dinov2
+
+Upstream models/dino.py calls torch.hub.load('facebookresearch/dinov2', name),
+which makes _parse_repo_info() urlopen https://github.com/facebookresearch/dinov2/tree/main/
+on every construction. On networks where the GitHub HTML endpoint is slow/blocked
+this hangs indefinitely even though the repo is already cached. Passing ':main'
+skips that probe and resolves the same ref/cache dir. No semantic change.
+
+Only upstream file changed on this branch.
+---
+ models/dino.py | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/models/dino.py b/models/dino.py
+index b2bc85e..09ff108 100644
+--- a/models/dino.py
++++ b/models/dino.py
+@@ -7,7 +7,9 @@ class DinoV2Encoder(nn.Module):
+     def __init__(self, name, feature_key):
+         super().__init__()
+         self.name = name
+-        self.base_model = torch.hub.load("facebookresearch/dinov2", name)
++        # explicit ":main" ref keeps torch.hub from urlopen-ing
++        # https://github.com/facebookresearch/dinov2/tree/main/ on every load
++        self.base_model = torch.hub.load("facebookresearch/dinov2:main", name)
+         self.feature_key = feature_key
+         self.emb_dim = self.base_model.num_features
+         if feature_key == "x_norm_patchtokens":
+-- 
+2.43.0
+

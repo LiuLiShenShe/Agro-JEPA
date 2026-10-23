@@ -48,7 +48,7 @@ python train.py --config-name train.yaml
       │   │        in_chans=dataset.action_dim, emb_dim=action_emb_dim)
       │   ├─ num_patches = 1 if encoder.latent_ndim==1 else         train.py:244
       │   │        (img_size // 16)**2; +2 if concat_dim==0
-      │   ├─ predictor = instantiate(cfg.predictor,                 train.py:254
+      │   ├─ predictor = instantiate(cfg.predictor,                 train.py:256
       │   │        num_patches, num_frames=num_hist,
       │   │        dim=encoder.emb_dim + (proprio+action)*concat_dim)
       │   ├─ decoder = instantiate(cfg.decoder, emb_dim=encoder.emb_dim)  train.py:285
@@ -181,13 +181,18 @@ The mask is created at construction with module-global `NUM_FRAMES/NUM_PATCHES`
 
 ```
 num_obs_init = obs_0["visual"].shape[1]
-z = encode(obs_0, act[:, :num_obs_init])          # context
-for t in range(len(act) - num_obs_init):
-    z_pred = predict(z[:, -num_hist:])            # (b, num_hist, p, d)
-    z_new  = z_pred[:, -1:]                       # next frame
-    z_new  = replace_actions_from_z(z_new, act[:, num_obs_init+t])   # overwrite action channel
+act_0  = act[:, :num_obs_init]
+action = act[:, num_obs_init:]
+z = encode(obs_0, act_0)                    # context, (b, num_obs_init, p, d)
+t, inc = 0, 1
+while t < action.shape[1]:
+    z_pred = predict(z[:, -num_hist:])       # (b, num_hist, p, d)
+    z_new  = z_pred[:, -inc:]                # next frame
+    z_new  = replace_actions_from_z(z_new, action[:, t:t+inc])
     z = cat([z, z_new], dim=1)
-z_pred = predict(z[:, -num_hist:]); z = cat([z, z_pred[:, -1:]], dim=1)
+    t += inc
+z_pred = predict(z[:, -num_hist:])
+z = cat([z, z_pred[:, -1:]], dim=1)
 return separate_emb(z)
 ```
 

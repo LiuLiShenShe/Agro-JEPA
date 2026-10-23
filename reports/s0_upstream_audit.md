@@ -14,7 +14,7 @@ Date: 2026-10-23.
 | Upstream history | 6 commits, no tags (`5851471` → `0a9492f`) |
 | Local clone | `/fj/Agro-JEPA/dino_wm` (vendored; excluded from the Agro-JEPA repo by `.gitignore`) |
 | Local working branch | `agro-s0-upstream` |
-| Local commit on top of upstream | `c7417ce` — *only* `models/dino.py`, torch.hub explicit `:main` ref (see §6.1) |
+| Local commit on top of upstream | `c7417ce` in this checkout — *only* `models/dino.py`, torch.hub explicit `:main` ref (see §6.1). Re-applying `patches/0001-*.patch` to a fresh clone yields an equivalent commit with a different SHA; compare content with `git diff main`, not the SHA. |
 | Upstream diff on working branch | 1 file, +3/−1 (`models/dino.py`) |
 | DINOv2 code used at runtime | `torch.hub` cache `~/.cache/torch/hub/facebookresearch_dinov2_main` (repo zip, **no git SHA available** — see §6.2) |
 | DINOv2 weights used | `dinov2_vits14_pretrain.pth` (84.2 MB), `dinov2_vitb14_pretrain.pth` (330 MB), downloaded from `dl.fbaipublicfiles.com` |
@@ -37,7 +37,7 @@ conf/                        Hydra configs (env/, encoder/, predictor/, decoder/
 models/
   dino.py                    DinoV2Encoder  (frozen DINOv2 patch-token extractor)
   visual_world_model.py      VWorldModel    (encode → predict → latent loss → decode)
-  vit.py                     ViTPredictor   (causal block-causal ViT over per-frame tokens)
+  vit.py                     ViTPredictor   (block-causal ViT over per-frame tokens)
   proprio.py                 ProprioceptiveEmbedding (Conv1d k=1, used for BOTH proprio and action)
   dummy.py                   DummyModel / DummyRepeatActionEncoder
   vqvae.py                   VQVAE decoder (quantize=False in the shipped config)
@@ -99,7 +99,7 @@ when `has_decoder=True`).
 `pybullet`, `d4rl`, `tensorflow`, `jax`, `flax`, etc. All of these come in through
 `plan.py → env.venv → env/__init__.py` and the simulator wrappers.
 `train.py` imports `plan` lazily and only when `cfg.plan_settings.plan_cfg_path is not None`
-(`train.py:382-406`). The shipped default is `null` (`conf/train.yaml:77`), so **a training run
+(`train.py:382-408`). The shipped default is `null` (`conf/train.yaml:77`), so **a training run
 never imports mujoco/gym**. Do not install them for FIP.
 
 ### 3.3 External model code / weights downloaded at runtime
@@ -170,8 +170,9 @@ Executed and passed:
    `DataLoader` → `VWorldModel.forward` → `accelerator.backward` → optimizer steps →
    `openloop_rollout` → `save_ckpt`.
 
-Artifacts of the runs (not part of the repo): `/tmp/s0_toy`, `/tmp/s0_run`,
-`/tmp/s0_forward_smoke.log`, `/tmp/s0_train_e2e.log`.
+Transcripts are committed under `reports/s0_run_logs/`. Working directories (not part of the
+repo): `/tmp/s0_toy` (synthetic dataset), `/tmp/s0_run_dec` (completed decoder run),
+`/tmp/s0_run` (latent-only run that crashed at checkpoint save).
 
 ## 6. Reproducibility findings and blockers (ordered by impact on Agro-JEPA)
 
@@ -233,12 +234,12 @@ step. Treat the comment as the intended baseline; document any departure.
 
 ### 6.8 `openloop_rollout` can hang forever on short trajectories
 `Trainer.openloop_rollout` (`train.py:632-720`) has a `while not valid_traj` loop with no
-iteration cap. It needs `max_horizon > min_horizon + num_hist`, i.e. roughly
-`T > (num_hist + min_horizon + 1) * frameskip`. With `num_hist=3, frameskip=5, min_horizon=2`,
-a 30-frame trajectory gives `max_horizon == 5 == min_horizon` for every start, and validation
-**never returns** (observed: the E2E run stalled after the train epoch; no error, no timeout).
-A 60-frame trajectory completes. For FIP, either use long windows or cap/disable
-`openloop_rollout`.
+iteration cap. Line 636 rewrites `min_horizon = min_horizon + num_hist`, and line 662 requires
+`max_horizon > min_horizon`, i.e. roughly `T > (num_hist + min_horizon + 1) * frameskip`.
+With `num_hist=3, frameskip=5, min_horizon=2`, a 30-frame trajectory gives
+`max_horizon == 5 == min_horizon` for every start, and validation **never returns** (observed:
+the E2E run stalled after the train epoch; no error, no timeout). A 60-frame trajectory
+completes. For FIP, either use long windows or cap/disable `openloop_rollout`.
 
 ### 6.9 Short-trajectory filter uses the wrong threshold
 `TrajSlicerDataset.__init__` (`traj_dset.py:64-73`) prints "Ignored short sequence" when
@@ -307,14 +308,32 @@ tensor shapes with ViT-S/14:
 `decoder.dec[0].weight (384,384,3,3)`, `decoder.upsample_b[0].weight (384,384,3,3)`.
 For ViT-B/14 the corresponding predictor/decoder dims become 788/768.
 
-### 6.16 `wandb` API compatibility
-`plan.py:436` calls `wandb.run.name = ...`. With wandb 0.31 in disabled mode the run object is
-`NoopRun`; setting the attribute works, but with `WANDB_MODE=disabled` a non-`wandb.init` run
-object may be `RunDisabled` (the `isinstance` check at `plan.py:425` still passes). `train.py`
-requires a *real* wandb run object: `wandb.init(..., mode="disabled")` is the tested working
-combination. Do not rely on `RunDisabled`.
+### 6.16 `wandb` API compatibility (verified with wandb 0.31, disabled mode)
+`train.py` needs, from a run object: `.id`, `.config`, `.log`, `.watch`, and the module-level
+`wandb.run.name` assignment (`train.py:109`). With `WANDB_MODE=disabled`, wandb 0.31 returns
+`wandb.sdk.lib.noop_run.NoopRun`, which satisfies all of the above (verified). Note that
+`plan.py:173` guards against `wandb.sdk.lib.disabled.RunDisabled`, which is **not** the class
+returned by modern wandb; the guard silently misses, but `NoopRun` provides `log` anyway.
+The pinned `wandb==0.13.1` (environment.yaml) was not exercised on this host (latest wandb was
+installed instead) — an exact-environment reproduction should use 0.13.1.
 
 ## 7. Minimal execution command (verified)
+
+### 7.0 Environment used for the verification runs
+
+The pinned `environment.yaml` (Python 3.9 / torch 2.3) was **not** recreated — there is no
+conda on this host. The verification venv inherits the host's torch and installs only the
+missing imports:
+
+```bash
+cd /fj/Agro-JEPA
+python3 -m venv --system-site-packages .venv-s0
+.venv-s0/bin/pip install hydra-core==1.3.2 hydra-submitit-launcher==1.2.0 decord wandb
+# host: torch 2.10.0+cu128 / torchvision 0.25.0 / accelerate 1.15.0
+```
+
+For a paper-grade reproduction, build the `dino_wm` conda env from `environment.yaml` instead;
+the host versions are a compatibility test, not the reference stack.
 
 ### 7.1 Upstream path with the real datasets (reproduction reference)
 
@@ -336,7 +355,11 @@ Notes:
 ### 7.2 Smoke command actually executed here (synthetic data, no science)
 
 ```bash
+# forward/backward/shape probe (ViT-S, ViT-B, decoder on/off, concat_dim 0/1, rollout)
 cd /fj/Agro-JEPA
+.venv-s0/bin/python tools/s0_forward_smoke.py --repo dino_wm --device cuda:0
+
+# end-to-end train.py on a synthetic point_maze-format dataset
 .venv-s0/bin/python tools/make_toy_pointmaze.py --out /tmp/s0_toy \
   --n-traj 4 --traj-len 60 --img 64
 
