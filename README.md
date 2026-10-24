@@ -3,9 +3,16 @@
 Environment-driven latent growth prediction on FIP 1.0 winter-wheat imagery, built as an
 incremental evolution of the official DINO-WM training code.
 
-**Stage 2 status: real FIP 1.0 dataset adapter, pair builder, daily weather
-windows and frozen-DINOv2 batch verification are implemented. No Agro-JEPA
-model has been trained yet (S3).**
+**Stage 3 status: FIP-DINO-WM V0 is trained and evaluated on real FIP 1.0
+winter-wheat imagery — a frozen DINOv2 ViT-B/14 feature predictor conditioned on
+the real `delta_days`, using the upstream DINO-WM `ViTPredictor`. This is a
+Pilot, not a full-FIP baseline (1,000 / 2,930 train plots; all 380 validation
+plots).**
+
+Real measured result on the official validation split (15,175 pairs, 380 plots):
+future-latent MSE **1.13656** vs persistence **2.19515** (48.22% reduction),
+mean cosine **0.7829** vs **0.6279**, and the predicted features beat the
+current feature on both CC and PH linear probes. See `reports/s3_v0_results.md`.
 
 ## Layout
 
@@ -16,9 +23,17 @@ Agro-JEPA/
 │   │   ├── fip_pairs.py         # consecutive + fixed-span pair builder
 │   │   ├── fip_weather.py       # daily weather store, (t_a, t_b] windows
 │   │   ├── fip_dataset.py       # torch Dataset (images or cached features)
+│   │   ├── s3_pairs.py          # S3 frozen pair index + cached-feature Dataset
 │   │   ├── collate.py           # variable-length padding + masks
 │   │   └── provenance.py        # pinned model/dataset/cache identifiers
-│   └── config/s2_dataset.yaml   # one config for the whole data path
+│   ├── models/
+│   │   ├── time_embedding.py    # train-only delta normalisation + time encoder
+│   │   └── fip_dino_wm.py       # frozen DINOv2 encoder + upstream ViTPredictor
+│   ├── train/train_v0.py        # V0 training, AMP, checkpoint/resume
+│   ├── eval/eval_v0.py          # E1 future-latent + E2 CC/PH probes
+│   ├── config/s2_dataset.yaml   # one config for the whole data path
+│   ├── config/s3_v0.yaml        # V0 (span7/span14)
+│   └── config/s3_v0_consecutive.yaml  # V0 + irregular consecutive intervals
 ├── data/manifests/              # frozen S1 manifests (committed)
 ├── reports/
 │   ├── s0_upstream_audit.md     # provenance, license, deps, entry points, blockers, commands
@@ -27,6 +42,9 @@ Agro-JEPA/
 │   ├── s1_*.md / s1_*.json      # FIP audit, splits, label timing, cache protocol
 │   ├── s2_pairs.md              # S2 pair construction and real counts
 │   ├── s2_real_batch.md         # S2 real batch + encoder geometry verification
+│   ├── s3_image_acquisition.md  # real image download, cache, S3 index
+│   ├── s3_training.md           # V0 model, optimisation, curve, checkpoint
+│   ├── s3_v0_results.md         # E1 future-latent + E2 CC/PH probes
 │   └── s*_run_logs/             # transcripts of the actual runs
 ├── tools/
 │   ├── make_toy_pointmaze.py    # synthetic dataset in point_maze on-disk format
@@ -34,7 +52,13 @@ Agro-JEPA/
 │   ├── s1_*.py                  # FIP download, audit, cache, figures
 │   ├── s2_build_pairs.py        # build and report the S2 pair table
 │   ├── s2_inspect_batch.py      # real batch + frozen-encoder verification
-│   └── s2_verify.py             # S2 acceptance checks (74 checks)
+│   ├── s2_verify.py             # S2 acceptance checks (74 checks)
+│   ├── s3_prepare_images.py     # resumable real-image download (train/validation only)
+│   ├── s3_build_features.py     # frozen DINOv2 feature cache
+│   ├── s3_build_index.py        # frozen S3 pair index + train-only time stats
+│   ├── s3_verify.py             # S3 acceptance checks (45 checks)
+│   ├── s3_make_figures.py       # training-curve figure
+│   └── s3_write_reports.py      # reports from the run artifacts
 ├── patches/
 │   └── 0001-...patch            # the only upstream edit (torch.hub ':main' ref)
 └── dino_wm/                     # vendored clone, git-ignored (not a submodule)
@@ -130,9 +154,53 @@ Real numbers: 569,821 pairs (147,092 consecutive + 4 fixed-span families),
 `224×224` inputs. Full detail in `reports/s2_pairs.md` and
 `reports/s2_real_batch.md`.
 
-## Next stage entry point (S3)
+## Reproduce the S3 data + V0 model
 
-`reports/s2_real_batch.md` §7 and §10: the 224×224 → 256-token configuration is
-`img_size: 256` in the trainer config only (no source edit), and the upstream
-VQVAE decoder is **incompatible** with 256 tokens, so S3 must run latent-only
-(`has_decoder=False`, `model.train_decoder=False`).
+```bash
+# 1) real images (resumable; only official train/validation plots)
+python3 tools/s3_prepare_images.py --train-plots-per-year 200 --workers 40
+# 2) frozen DINOv2 features, mainline224_s1-v1 protocol
+CUDA_VISIBLE_DEVICES=1 .venv-s0/bin/python tools/s3_build_features.py
+# 3) frozen S3 pair index (span7/span14; time stats fitted on train only)
+.venv-s0/bin/python tools/s3_build_index.py --config agro_jepa/config/s3_v0.yaml
+# 4) train V0 (frozen encoder, upstream ViTPredictor, AMP, resume-capable)
+CUDA_VISIBLE_DEVICES=1 .venv-s0/bin/python agro_jepa/train/train_v0.py \
+    --config agro_jepa/config/s3_v0.yaml --report reports/s3_training.json
+# 5) E1 + E2 evaluation and acceptance
+CUDA_VISIBLE_DEVICES=1 .venv-s0/bin/python agro_jepa/eval/eval_v0.py \
+    --config agro_jepa/config/s3_v0.yaml \
+    --checkpoint external_data/s3_runs/v0/checkpoints/best.pt \
+    --report reports/s3_v0_results.json \
+    --predictions reports/s3_v0_val_predictions.parquet
+CUDA_VISIBLE_DEVICES=1 .venv-s0/bin/python tools/s3_verify.py   # 45/45
+python3 tools/s3_make_figures.py --config agro_jepa/config/s3_v0.yaml
+python3 tools/s3_write_reports.py --config agro_jepa/config/s3_v0.yaml
+```
+
+The irregular-interval expansion uses `agro_jepa/config/s3_v0_consecutive.yaml`:
+span7 + span14 + true consecutive pairs, 103,368 pairs (81,751 train / 21,617
+validation), realised `delta_days` 1–84.
+
+## What S3 established
+
+- Real imagery: 49,058 PNGs / 53.35 GB / 1,380 plots / 5 harvest years, 0 failed
+  downloads. Validation is complete at plot level (380/380); train is a Pilot
+  (1,000/2,930 plots).
+- Frozen DINOv2 ViT-B/14 `224×224 → [256, 768]` tokens, cached once; cache vs
+  live forward cos ≈ 0.999999.
+- V0 = upstream `ViTPredictor` (6 layers, 16 heads, width 1088) + trainable
+  sinusoidal time projection from the real `delta_days`; 53.88 M trainable
+  parameters; the future image is only a stop-gradient target.
+- Validation E1: MSE **1.13656** vs persistence **2.19515** (−48.22%) and vs
+  train-mean future **1.83567** (−38.08%); cosine **0.7829** vs **0.6279**.
+- E2 linear probes (same readout, 3 seeds): predicted future features beat the
+  current feature on CC (R² 0.8458 vs 0.7978) and PH (0.9541 vs 0.9470).
+- 45/45 S3 acceptance checks pass. Full detail in `reports/s3_v0_results.md`.
+
+## Next stage entry point (S4)
+
+S4 holds the strong-baseline comparisons (weather encoder / GDD forcing,
+physiological phenotype anchoring in the proprio channel, EMA-style target,
+LoRA adaptation, multi-step rollout). V0 deliberately contains none of them.
+The upstream VQVAE decoder is **incompatible** with 256 tokens, so all latent
+stages stay decoder-free (`has_decoder=False`, `model.train_decoder=False`).

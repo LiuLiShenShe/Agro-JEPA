@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-10-24T12:58:03+0800",
+  "protocol": "mainline224_s1-v1",
+  "selection_manifest": "data/manifests/s3_image_selection.json",
+  "selection_manifest_sha256": "b0bac953f33288ce513699e198d72ec720a55302cd5aac20028633fd4da3a63b",
+  "dinov2": {
+    "repo": "/fj/Agro-JEPA/external_data/third_party/dinov2",
+    "repo_git_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "weights_path": "/home/test/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth",
+    "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+    "emb_dim": 768,
+    "patch_size": 14,
+    "n_tokens": 256
+  },
+  "cache": {
+    "dir": "external_data/dino_cache/mainline224_s1-v1",
+    "dtype": "float16",
+    "shape_per_image": [
+      256,
+      768
+    ],
+    "key_rule": "sha256('<image sha256>|mainline224|s1-v1|<weights sha256>')"
+  },
+  "images": {
+    "n_selection_records": 49058,
+    "n_unique_stems": 49058,
+    "n_unique_shas": 49058,
+    "n_plots": 1380,
+    "n_by_split": {
+      "train": 37670,
+      "validation": 11388
+    },
+    "n_by_year": {
+      "2016": 11495,
+      "2017": 6351,
+      "2018": 8485,
+      "2021": 12532,
+      "2022": 10195
+    }
+  },
+  "timing": {
+    "n_unique_source_images": 49058,
+    "n_cached": 13530,
+    "n_computed": 35528,
+    "elapsed_seconds": 373.1,
+    "throughput_images_per_s": 131.48,
+    "peak_gpu_memory_bytes": 1163032576,
+    "batch_size": 96,
+    "model_load_seconds": 1.41
+  },
+  "verification": {
+    "n_checked": 4,
+    "checks": [
+      {
+        "sha256": "f868cbe4af49bed8ca36f37f07e05ebc7524e3c13953cc9c078ae3553c24eac0",
+        "shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.006366729736328125,
+        "mean_abs_diff": 0.00023584395239595324,
+        "cosine": 0.9999989867210388
+      },
+      {
+        "sha256": "678138273e8cd985ad5a0e21453982342b8485aa7b322f0c64a9007469795415",
+        "shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.0038890838623046875,
+        "mean_abs_diff": 0.00024163936905097216,
+        "cosine": 0.9999992251396179
+      },
+      {
+        "sha256": "3696ee635d227fb40bfab84ed9d73c4ab5e053e370fac568f2c5c98e5bc33cdd",
+        "shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.0042095184326171875,
+        "mean_abs_diff": 0.00023088492162059993,
+        "cosine": 0.9999991059303284
+      },
+      {
+        "sha256": "1bb56c052510eb5da876132309d550e7f3a1256b7e399ff1aeacb569e0a4b938",
+        "shape": [
+          256,
+          768
+        ],
+        "max_abs_diff": 0.003910064697265625,
+        "mean_abs_diff": 0.00023299835447687656,
+        "cosine": 0.9999993443489075
+      }
+    ]
+  },
+  "index_file": "external_data/s3_features/index.parquet",
+  "index_sha256": "158b31dafad13f09cce46ca32abb695e51bb6aff30e6d55878443ae01fd12963"
+}

@@ -1,0 +1,197 @@
+{
+  "rule": {
+    "manifest_id": "fip1-s3-v1",
+    "pair_types": [
+      "span7",
+      "span14",
+      "consecutive"
+    ],
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "dedupe_physical_pairs": true,
+    "require_cache": true
+  },
+  "n_pairs": 103368,
+  "train": {
+    "n_pairs": 81751,
+    "n_unique_images": 37670,
+    "n_unique_physical_pairs": 81751,
+    "n_plots": 1000,
+    "n_years": 5,
+    "n_by_pair_type": {
+      "span7": 28792,
+      "span14": 27347,
+      "consecutive": 25612
+    },
+    "n_by_year": {
+      "2016": 13228,
+      "2017": 6141,
+      "2018": 10859,
+      "2021": 31025,
+      "2022": 20498
+    },
+    "delta_days": {
+      "min": 1,
+      "max": 84,
+      "median": 7.0,
+      "mean": 8.68417511712395,
+      "hist_1_3": 16138,
+      "hist_4_7": 30368,
+      "hist_8_14": 27389,
+      "hist_15_21": 6676,
+      "hist_22_28": 417,
+      "hist_29_plus": 763
+    },
+    "delta_by_pair_type": {
+      "consecutive": {
+        "n": 25612,
+        "min": 1,
+        "max": 84,
+        "median": 3.0
+      },
+      "span14": {
+        "n": 27347,
+        "min": 12,
+        "max": 16,
+        "median": 14.0
+      },
+      "span7": {
+        "n": 28792,
+        "min": 5,
+        "max": 9,
+        "median": 7.0
+      }
+    },
+    "labels": {
+      "cc": {
+        "n_valid_b": 79255,
+        "n_valid_a": 79316,
+        "n_valid_both": 78140,
+        "n_negative_b": 0
+      },
+      "ph": {
+        "n_valid_b": 66795,
+        "n_valid_a": 64514,
+        "n_valid_both": 64231,
+        "n_negative_b": 447
+      },
+      "whc": {
+        "n_valid_b": 45242,
+        "n_valid_a": 42150,
+        "n_valid_both": 41430,
+        "n_negative_b": 0
+      },
+      "sen": {
+        "n_valid_b": 6277,
+        "n_valid_a": 4936,
+        "n_valid_both": 4923,
+        "n_negative_b": 0
+      }
+    }
+  },
+  "validation": {
+    "n_pairs": 21617,
+    "n_unique_images": 11388,
+    "n_unique_physical_pairs": 21617,
+    "n_plots": 380,
+    "n_years": 5,
+    "n_by_pair_type": {
+      "span7": 7817,
+      "span14": 7358,
+      "consecutive": 6442
+    },
+    "n_by_year": {
+      "2016": 7992,
+      "2017": 4273,
+      "2018": 5453,
+      "2021": 1709,
+      "2022": 2190
+    },
+    "delta_days": {
+      "min": 1,
+      "max": 84,
+      "median": 7.0,
+      "mean": 9.255493361706066,
+      "hist_1_3": 3110,
+      "hist_4_7": 8083,
+      "hist_8_14": 7705,
+      "hist_15_21": 2254,
+      "hist_22_28": 138,
+      "hist_29_plus": 327
+    },
+    "delta_by_pair_type": {
+      "consecutive": {
+        "n": 6442,
+        "min": 1,
+        "max": 84,
+        "median": 4.0
+      },
+      "span14": {
+        "n": 7358,
+        "min": 12,
+        "max": 16,
+        "median": 14.0
+      },
+      "span7": {
+        "n": 7817,
+        "min": 5,
+        "max": 9,
+        "median": 7.0
+      }
+    },
+    "labels": {
+      "cc": {
+        "n_valid_b": 20313,
+        "n_valid_a": 20476,
+        "n_valid_both": 19907,
+        "n_negative_b": 0
+      },
+      "ph": {
+        "n_valid_b": 15054,
+        "n_valid_a": 14649,
+        "n_valid_both": 14396,
+        "n_negative_b": 123
+      },
+      "whc": {
+        "n_valid_b": 9482,
+        "n_valid_a": 9095,
+        "n_valid_both": 8637,
+        "n_negative_b": 0
+      },
+      "sen": {
+        "n_valid_b": 3719,
+        "n_valid_a": 2976,
+        "n_valid_both": 2973,
+        "n_negative_b": 0
+      }
+    }
+  },
+  "filtering": {
+    "input_rows": 320654,
+    "after_pair_type_and_split": 320654,
+    "rows_before_image_filter": 320654,
+    "rows_after_image_filter": 118992,
+    "rows_before_dedupe": 118992,
+    "rows_after_dedupe": 103368,
+    "final_rows": 103368
+  },
+  "delta_normalization": {
+    "mean": 8.68417511712395,
+    "std": 6.101852613589238,
+    "min": 1.0,
+    "max": 84.0,
+    "n_samples": 81751,
+    "rule": "fitted on train split delta_days only; reused for validation/test"
+  },
+  "index_sha256": "288acac484aae7d91239fe1380c7bac9c6aa5cf05a80e544b722de9650242a65",
+  "manifest_id": "fip1-s3-v0-consecutive-v1",
+  "generated_at": "2026-10-24T13:00:39+0800",
+  "elapsed_seconds": 16.8,
+  "inputs": {
+    "pairs": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+    "selection": "data/manifests/s3_image_selection.json",
+    "feature_index": "external_data/s3_features/index.parquet"
+  }
+}

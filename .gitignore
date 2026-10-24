@@ -4,4 +4,6 @@ __pycache__/
 *.pyc
 /external_data/
 *.npy
+*.npz
 /data/manifests/fip1_observations.csv
+/data/manifests/s3_image_selection.json

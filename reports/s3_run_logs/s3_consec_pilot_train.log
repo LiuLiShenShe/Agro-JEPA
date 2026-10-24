@@ -1,0 +1,157 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"type": "step", "epoch": 0, "step": 20, "loss": 1.940757691860199, "lr": 3.149999999999999e-05, "elapsed": 9.1, "samples_per_s": 211.24}
+{"type": "step", "epoch": 0, "step": 40, "loss": 1.7660156458616256, "lr": 6.149999999999999e-05, "elapsed": 14.4, "samples_per_s": 266.72}
+{"type": "step", "epoch": 0, "step": 60, "loss": 1.6761831263701121, "lr": 9.149999999999999e-05, "elapsed": 19.7, "samples_per_s": 292.14}
+{"type": "step", "epoch": 0, "step": 80, "loss": 1.620051921904087, "lr": 0.0001215, "elapsed": 25.0, "samples_per_s": 306.64}
+{"type": "step", "epoch": 0, "step": 100, "loss": 1.5762302851676941, "lr": 0.0001515, "elapsed": 30.4, "samples_per_s": 315.96}
+{"type": "step", "epoch": 0, "step": 120, "loss": 1.540198893348376, "lr": 0.00018149999999999997, "elapsed": 35.7, "samples_per_s": 322.45}
+{"type": "step", "epoch": 0, "step": 140, "loss": 1.510018973691123, "lr": 0.00021149999999999996, "elapsed": 41.1, "samples_per_s": 327.2}
+{"type": "epoch", "epoch": 0, "train_loss": 1.48821, "val_mse_pred": 1.28903, "val_mse_persist": 2.01384, "val_rel_improvement": 0.3599, "val_cos_pred": 0.75821, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 1, "step": 160, "loss": 1.3091442584991455, "lr": 0.0002415, "elapsed": 61.3, "samples_per_s": 250.46}
+{"type": "step", "epoch": 1, "step": 180, "loss": 1.2949906912716953, "lr": 0.0002715, "elapsed": 66.7, "samples_per_s": 259.08}
+{"type": "step", "epoch": 1, "step": 200, "loss": 1.2844778583163308, "lr": 0.0003, "elapsed": 72.1, "samples_per_s": 266.31}
+{"type": "step", "epoch": 1, "step": 220, "loss": 1.2784686146243927, "lr": 0.0002999662074262154, "elapsed": 77.5, "samples_per_s": 272.44}
+{"type": "step", "epoch": 1, "step": 240, "loss": 1.2727919511678742, "lr": 0.00029986484493070223, "elapsed": 83.0, "samples_per_s": 277.73}
+{"type": "step", "epoch": 1, "step": 260, "loss": 1.2679821767059027, "lr": 0.00029969595818412183, "elapsed": 88.4, "samples_per_s": 282.34}
+{"type": "step", "epoch": 1, "step": 280, "loss": 1.2640112355107167, "lr": 0.00029945962328137895, "elapsed": 93.9, "samples_per_s": 286.37}
+{"type": "step", "epoch": 1, "step": 300, "loss": 1.2594925165176392, "lr": 0.00029915594670733536, "elapsed": 99.3, "samples_per_s": 289.97}
+{"type": "epoch", "epoch": 1, "train_loss": 1.25625, "val_mse_pred": 1.21367, "val_mse_persist": 2.01384, "val_rel_improvement": 0.3973, "val_cos_pred": 0.77329, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 2, "step": 320, "loss": 1.2227050065994263, "lr": 0.0002987850652888315, "elapsed": 118.4, "samples_per_s": 259.38}
+{"type": "step", "epoch": 2, "step": 340, "loss": 1.2131982694069545, "lr": 0.0002983471461330368, "elapsed": 123.8, "samples_per_s": 263.58}
+{"type": "step", "epoch": 2, "step": 360, "loss": 1.2155776836655356, "lr": 0.00029784238655215626, "elapsed": 129.2, "samples_per_s": 267.4}
+{"type": "step", "epoch": 2, "step": 380, "loss": 1.2138915229588747, "lr": 0.00029727101397452834, "elapsed": 134.7, "samples_per_s": 270.86}
+{"type": "step", "epoch": 2, "step": 400, "loss": 1.2121779052984147, "lr": 0.00029663328584215293, "elapsed": 140.1, "samples_per_s": 274.04}
+{"type": "step", "epoch": 2, "step": 420, "loss": 1.2099569107477481, "lr": 0.00029592948949469614, "elapsed": 145.6, "samples_per_s": 276.98}
+{"type": "step", "epoch": 2, "step": 440, "loss": 1.2075747953307243, "lr": 0.00029515994204002484, "elapsed": 151.0, "samples_per_s": 279.71}
+{"type": "step", "epoch": 2, "step": 460, "loss": 1.2059013893206914, "lr": 0.00029432499021132737, "elapsed": 156.5, "samples_per_s": 282.21}
+{"type": "epoch", "epoch": 2, "train_loss": 1.20413, "val_mse_pred": 1.18289, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4126, "val_cos_pred": 0.77882, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 3, "step": 480, "loss": 1.1924021641413372, "lr": 0.0002934250102108876, "elapsed": 175.9, "samples_per_s": 261.92}
+{"type": "step", "epoch": 3, "step": 500, "loss": 1.1848202026807344, "lr": 0.00029246040754057976, "elapsed": 181.3, "samples_per_s": 264.72}
+{"type": "step", "epoch": 3, "step": 520, "loss": 1.1792293709257375, "lr": 0.0002914316168191626, "elapsed": 186.8, "samples_per_s": 267.31}
+{"type": "step", "epoch": 3, "step": 540, "loss": 1.1782320069544243, "lr": 0.0002903391015864543, "elapsed": 192.2, "samples_per_s": 269.75}
+{"type": "step", "epoch": 3, "step": 560, "loss": 1.1767080287600673, "lr": 0.0002891833540944764, "elapsed": 197.6, "samples_per_s": 272.03}
+{"type": "step", "epoch": 3, "step": 580, "loss": 1.1747791204812392, "lr": 0.0002879648950856608, "elapsed": 203.1, "samples_per_s": 274.18}
+{"type": "step", "epoch": 3, "step": 600, "loss": 1.1736748748355441, "lr": 0.00028668427355822034, "elapsed": 208.5, "samples_per_s": 276.21}
+{"type": "step", "epoch": 3, "step": 620, "loss": 1.171748646318096, "lr": 0.00028534206651878777, "elapsed": 214.0, "samples_per_s": 278.14}
+{"type": "epoch", "epoch": 3, "train_loss": 1.17081, "val_mse_pred": 1.16497, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4215, "val_cos_pred": 0.78195, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 4, "step": 640, "loss": 1.1498813331127167, "lr": 0.0002839388787224353, "elapsed": 233.4, "samples_per_s": 263.25}
+{"type": "step", "epoch": 4, "step": 660, "loss": 1.1552208193710871, "lr": 0.0002824753424001914, "elapsed": 238.8, "samples_per_s": 265.33}
+{"type": "step", "epoch": 4, "step": 680, "loss": 1.1553222661217053, "lr": 0.0002809521169741782, "elapsed": 244.2, "samples_per_s": 267.31}
+{"type": "step", "epoch": 4, "step": 700, "loss": 1.1519496791503008, "lr": 0.000279369888760497, "elapsed": 249.6, "samples_per_s": 269.19}
+{"type": "step", "epoch": 4, "step": 720, "loss": 1.1494732282378457, "lr": 0.00027772937065999667, "elapsed": 255.1, "samples_per_s": 270.97}
+{"type": "step", "epoch": 4, "step": 740, "loss": 1.1487927061540109, "lr": 0.00027603130183706314, "elapsed": 260.5, "samples_per_s": 272.67}
+{"type": "step", "epoch": 4, "step": 760, "loss": 1.1485580941662192, "lr": 0.0002742764473865763, "elapsed": 266.0, "samples_per_s": 274.3}
+{"type": "step", "epoch": 4, "step": 780, "loss": 1.148221707827336, "lr": 0.0002724655979891828, "elapsed": 271.5, "samples_per_s": 275.85}
+{"type": "epoch", "epoch": 4, "train_loss": 1.1482, "val_mse_pred": 1.15094, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4285, "val_cos_pred": 0.78461, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 5, "step": 800, "loss": 1.12677743434906, "lr": 0.0002705995695550411, "elapsed": 308.3, "samples_per_s": 249.13}
+{"type": "step", "epoch": 5, "step": 820, "loss": 1.1354731798171998, "lr": 0.0002686792028561983, "elapsed": 313.6, "samples_per_s": 251.0}
+{"type": "step", "epoch": 5, "step": 840, "loss": 1.1336489176750184, "lr": 0.00026670536314776593, "elapsed": 319.0, "samples_per_s": 252.81}
+{"type": "step", "epoch": 5, "step": 860, "loss": 1.1320741823741367, "lr": 0.00026467893977806387, "elapsed": 324.4, "samples_per_s": 254.51}
+{"type": "step", "epoch": 5, "step": 880, "loss": 1.132744344075521, "lr": 0.0002626008457879086, "elapsed": 329.8, "samples_per_s": 256.18}
+{"type": "step", "epoch": 5, "step": 900, "loss": 1.1304398428310047, "lr": 0.0002604720174992268, "elapsed": 335.2, "samples_per_s": 257.77}
+{"type": "step", "epoch": 5, "step": 920, "loss": 1.1287755351800186, "lr": 0.0002582934140931786, "elapsed": 340.6, "samples_per_s": 259.28}
+{"type": "step", "epoch": 5, "step": 940, "loss": 1.1279401191075642, "lr": 0.00025606601717798207, "elapsed": 346.1, "samples_per_s": 260.72}
+{"type": "epoch", "epoch": 5, "train_loss": 1.12729, "val_mse_pred": 1.13716, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4353, "val_cos_pred": 0.78727, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 6, "step": 960, "loss": 1.110105921824773, "lr": 0.00025379083034663194, "elapsed": 382.0, "samples_per_s": 241.24}
+{"type": "step", "epoch": 6, "step": 980, "loss": 1.1102781780064106, "lr": 0.00025146887872471303, "elapsed": 387.4, "samples_per_s": 242.87}
+{"type": "step", "epoch": 6, "step": 1000, "loss": 1.1093364999844477, "lr": 0.00024910120850851216, "elapsed": 392.7, "samples_per_s": 244.44}
+{"type": "step", "epoch": 6, "step": 1020, "loss": 1.107965984278255, "lr": 0.00024668888649363583, "elapsed": 398.1, "samples_per_s": 245.97}
+{"type": "step", "epoch": 6, "step": 1040, "loss": 1.1084114624106365, "lr": 0.00024423299959434636, "elapsed": 403.5, "samples_per_s": 247.44}
+{"type": "step", "epoch": 6, "step": 1060, "loss": 1.1090502579297339, "lr": 0.0002417346543538337, "elapsed": 408.9, "samples_per_s": 248.85}
+{"type": "step", "epoch": 6, "step": 1080, "loss": 1.1089920582193318, "lr": 0.00023919497644564298, "elapsed": 414.4, "samples_per_s": 250.21}
+{"type": "step", "epoch": 6, "step": 1100, "loss": 1.1090704328135441, "lr": 0.0002366151101664822, "elapsed": 419.8, "samples_per_s": 251.52}
+{"type": "epoch", "epoch": 6, "train_loss": 1.10895, "val_mse_pred": 1.13284, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4375, "val_cos_pred": 0.78808, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 7, "step": 1120, "loss": 1.0885305915560042, "lr": 0.00023399621792063928, "elapsed": 439.9, "samples_per_s": 244.4}
+{"type": "step", "epoch": 7, "step": 1140, "loss": 1.0899221897125244, "lr": 0.00023133947969624028, "elapsed": 445.4, "samples_per_s": 245.72}
+{"type": "step", "epoch": 7, "step": 1160, "loss": 1.0904277077427618, "lr": 0.00022864609253358474, "elapsed": 450.8, "samples_per_s": 247.0}
+{"type": "step", "epoch": 7, "step": 1180, "loss": 1.0907700963922449, "lr": 0.00022591726998579843, "elapsed": 456.3, "samples_per_s": 248.25}
+{"type": "step", "epoch": 7, "step": 1200, "loss": 1.0907623945398535, "lr": 0.00022315424157204518, "elapsed": 461.8, "samples_per_s": 249.47}
+{"type": "step", "epoch": 7, "step": 1220, "loss": 1.091133107218826, "lr": 0.00022035825222354552, "elapsed": 467.2, "samples_per_s": 250.66}
+{"type": "step", "epoch": 7, "step": 1240, "loss": 1.090949131481683, "lr": 0.00021753056172265096, "elapsed": 472.7, "samples_per_s": 251.82}
+{"type": "step", "epoch": 7, "step": 1260, "loss": 1.0913031774681885, "lr": 0.00021467244413522673, "elapsed": 478.2, "samples_per_s": 252.94}
+{"type": "epoch", "epoch": 7, "train_loss": 1.09148, "val_mse_pred": 1.12936, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4392, "val_cos_pred": 0.78872, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 8, "step": 1280, "loss": 1.0792171582579613, "lr": 0.0002117851872365989, "elapsed": 497.5, "samples_per_s": 246.99}
+{"type": "step", "epoch": 8, "step": 1300, "loss": 1.0784888631767697, "lr": 0.00020887009193132456, "elapsed": 503.0, "samples_per_s": 248.13}
+{"type": "step", "epoch": 8, "step": 1320, "loss": 1.0781616121530533, "lr": 0.0002059284716670463, "elapsed": 508.4, "samples_per_s": 249.25}
+{"type": "step", "epoch": 8, "step": 1340, "loss": 1.0787538886070251, "lr": 0.0002029616518426951, "elapsed": 513.9, "samples_per_s": 250.34}
+{"type": "step", "epoch": 8, "step": 1360, "loss": 1.0775885147353013, "lr": 0.00019997096921130862, "elapsed": 519.3, "samples_per_s": 251.4}
+{"type": "step", "epoch": 8, "step": 1380, "loss": 1.0771755894710278, "lr": 0.00019695777127773332, "elapsed": 524.8, "samples_per_s": 252.44}
+{"type": "step", "epoch": 8, "step": 1400, "loss": 1.0771805687862284, "lr": 0.00019392341569148252, "elapsed": 530.3, "samples_per_s": 253.45}
+{"type": "step", "epoch": 8, "step": 1420, "loss": 1.07640398083589, "lr": 0.0001908692696350234, "elapsed": 535.8, "samples_per_s": 254.44}
+{"type": "epoch", "epoch": 8, "train_loss": 1.07644, "val_mse_pred": 1.1218, "val_mse_persist": 2.01384, "val_rel_improvement": 0.443, "val_cos_pred": 0.79021, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 9, "step": 1440, "loss": 1.0615869098239474, "lr": 0.00018779670920776877, "elapsed": 555.2, "samples_per_s": 249.01}
+{"type": "step", "epoch": 9, "step": 1460, "loss": 1.064202462372027, "lr": 0.00018470711880605122, "elapsed": 560.6, "samples_per_s": 250.03}
+{"type": "step", "epoch": 9, "step": 1480, "loss": 1.0635901483996162, "lr": 0.00018160189049935892, "elapsed": 566.0, "samples_per_s": 251.01}
+{"type": "step", "epoch": 9, "step": 1500, "loss": 1.0629700682102106, "lr": 0.00017848242340311424, "elapsed": 571.5, "samples_per_s": 251.98}
+{"type": "step", "epoch": 9, "step": 1520, "loss": 1.063382319041661, "lr": 0.00017535012304827736, "elapsed": 576.9, "samples_per_s": 252.92}
+{"type": "step", "epoch": 9, "step": 1540, "loss": 1.0628208043211598, "lr": 0.0001722064007480597, "elapsed": 582.4, "samples_per_s": 253.84}
+{"type": "step", "epoch": 9, "step": 1560, "loss": 1.0609412763429724, "lr": 0.0001690526729620318, "elapsed": 587.9, "samples_per_s": 254.74}
+{"type": "step", "epoch": 9, "step": 1580, "loss": 1.060603319089624, "lr": 0.00016589036065791242, "elapsed": 593.4, "samples_per_s": 255.63}
+{"type": "epoch", "epoch": 9, "train_loss": 1.0606, "val_mse_pred": 1.12135, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4432, "val_cos_pred": 0.79036, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 10, "step": 1600, "loss": 1.0428462326526642, "lr": 0.00016272088867132637, "elapsed": 633.5, "samples_per_s": 242.46}
+{"type": "step", "epoch": 10, "step": 1620, "loss": 1.0430975705385208, "lr": 0.00015954568506381994, "elapsed": 638.9, "samples_per_s": 243.43}
+{"type": "step", "epoch": 10, "step": 1640, "loss": 1.0443069338798523, "lr": 0.00015636618047942222, "elapsed": 644.2, "samples_per_s": 244.39}
+{"type": "step", "epoch": 10, "step": 1660, "loss": 1.0460807546973228, "lr": 0.00015318380750004352, "elapsed": 649.6, "samples_per_s": 245.32}
+{"type": "step", "epoch": 10, "step": 1680, "loss": 1.044989185333252, "lr": 0.00015, "elapsed": 655.0, "samples_per_s": 246.22}
+{"type": "step", "epoch": 10, "step": 1700, "loss": 1.0456538677215577, "lr": 0.00014681619249995646, "elapsed": 660.5, "samples_per_s": 247.09}
+{"type": "step", "epoch": 10, "step": 1720, "loss": 1.0462018966674804, "lr": 0.00014363381952057778, "elapsed": 666.0, "samples_per_s": 247.95}
+{"type": "epoch", "epoch": 10, "train_loss": 1.0468, "val_mse_pred": 1.11915, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4443, "val_cos_pred": 0.79077, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 11, "step": 1740, "loss": 1.043462336063385, "lr": 0.00014045431493618003, "elapsed": 685.3, "samples_per_s": 243.74}
+{"type": "step", "epoch": 11, "step": 1760, "loss": 1.0377764268354936, "lr": 0.00013727911132867365, "elapsed": 690.7, "samples_per_s": 244.61}
+{"type": "step", "epoch": 11, "step": 1780, "loss": 1.034457306067149, "lr": 0.00013410963934208759, "elapsed": 696.2, "samples_per_s": 245.45}
+{"type": "step", "epoch": 11, "step": 1800, "loss": 1.0345229516106267, "lr": 0.00013094732703796818, "elapsed": 701.7, "samples_per_s": 246.28}
+{"type": "step", "epoch": 11, "step": 1820, "loss": 1.0347414256595984, "lr": 0.0001277935992519403, "elapsed": 707.1, "samples_per_s": 247.09}
+{"type": "step", "epoch": 11, "step": 1840, "loss": 1.0337529363585454, "lr": 0.00012464987695172264, "elapsed": 712.6, "samples_per_s": 247.89}
+{"type": "step", "epoch": 11, "step": 1860, "loss": 1.0337430546518231, "lr": 0.00012151757659688571, "elapsed": 718.0, "samples_per_s": 248.68}
+{"type": "step", "epoch": 11, "step": 1880, "loss": 1.0336369737772875, "lr": 0.00011839810950064109, "elapsed": 723.5, "samples_per_s": 249.45}
+{"type": "epoch", "epoch": 11, "train_loss": 1.03409, "val_mse_pred": 1.12191, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4429, "val_cos_pred": 0.79029, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 12, "step": 1900, "loss": 1.0075430274009705, "lr": 0.00011529288119394878, "elapsed": 741.9, "samples_per_s": 245.85}
+{"type": "step", "epoch": 12, "step": 1920, "loss": 1.020803155998389, "lr": 0.00011220329079223123, "elapsed": 747.3, "samples_per_s": 246.64}
+{"type": "step", "epoch": 12, "step": 1940, "loss": 1.022935383699157, "lr": 0.00010913073036497658, "elapsed": 752.8, "samples_per_s": 247.4}
+{"type": "step", "epoch": 12, "step": 1960, "loss": 1.0234406189993024, "lr": 0.00010607658430851744, "elapsed": 758.3, "samples_per_s": 248.15}
+{"type": "step", "epoch": 12, "step": 1980, "loss": 1.0212846199671428, "lr": 0.00010304222872226668, "elapsed": 763.7, "samples_per_s": 248.88}
+{"type": "step", "epoch": 12, "step": 2000, "loss": 1.0222309403694594, "lr": 0.00010002903078869135, "elapsed": 769.2, "samples_per_s": 249.61}
+{"type": "step", "epoch": 12, "step": 2020, "loss": 1.0214003305281363, "lr": 9.703834815730487e-05, "elapsed": 774.7, "samples_per_s": 250.33}
+{"type": "step", "epoch": 12, "step": 2040, "loss": 1.0220935108760993, "lr": 9.407152833295372e-05, "elapsed": 780.2, "samples_per_s": 251.03}
+{"type": "epoch", "epoch": 12, "train_loss": 1.02197, "val_mse_pred": 1.12064, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4435, "val_cos_pred": 0.79053, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 13, "step": 2060, "loss": 1.0133416851361592, "lr": 9.112990806867543e-05, "elapsed": 798.3, "samples_per_s": 247.72}
+{"type": "step", "epoch": 13, "step": 2080, "loss": 1.00896571461971, "lr": 8.821481276340112e-05, "elapsed": 803.8, "samples_per_s": 248.43}
+{"type": "step", "epoch": 13, "step": 2100, "loss": 1.0086798123691394, "lr": 8.532755586477324e-05, "elapsed": 809.2, "samples_per_s": 249.13}
+{"type": "step", "epoch": 13, "step": 2120, "loss": 1.009306735161579, "lr": 8.246943827734897e-05, "elapsed": 814.7, "samples_per_s": 249.81}
+{"type": "step", "epoch": 13, "step": 2140, "loss": 1.0101026421369508, "lr": 7.964174777645448e-05, "elapsed": 820.2, "samples_per_s": 250.49}
+{"type": "step", "epoch": 13, "step": 2160, "loss": 1.011415937599146, "lr": 7.684575842795485e-05, "elapsed": 825.6, "samples_per_s": 251.16}
+{"type": "step", "epoch": 13, "step": 2180, "loss": 1.0108562447721996, "lr": 7.408273001420153e-05, "elapsed": 831.1, "samples_per_s": 251.81}
+{"type": "step", "epoch": 13, "step": 2200, "loss": 1.0112938709454993, "lr": 7.135390746641526e-05, "elapsed": 836.6, "samples_per_s": 252.46}
+{"type": "epoch", "epoch": 13, "train_loss": 1.01181, "val_mse_pred": 1.121, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4434, "val_cos_pred": 0.79048, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 14, "step": 2220, "loss": 1.0043406933546066, "lr": 6.866052030375974e-05, "elapsed": 861.3, "samples_per_s": 247.44}
+{"type": "step", "epoch": 14, "step": 2240, "loss": 1.0048490847860063, "lr": 6.600378207936069e-05, "elapsed": 866.7, "samples_per_s": 248.12}
+{"type": "step", "epoch": 14, "step": 2260, "loss": 1.006057350585858, "lr": 6.338488983351777e-05, "elapsed": 872.0, "samples_per_s": 248.79}
+{"type": "step", "epoch": 14, "step": 2280, "loss": 1.003344797036227, "lr": 6.080502355435701e-05, "elapsed": 877.4, "samples_per_s": 249.45}
+{"type": "step", "epoch": 14, "step": 2300, "loss": 1.003595881164074, "lr": 5.826534564616633e-05, "elapsed": 882.9, "samples_per_s": 250.1}
+{"type": "step", "epoch": 14, "step": 2320, "loss": 1.0040794732394043, "lr": 5.5767000405653636e-05, "elapsed": 888.3, "samples_per_s": 250.73}
+{"type": "step", "epoch": 14, "step": 2340, "loss": 1.0037841484881938, "lr": 5.3311113506364116e-05, "elapsed": 893.7, "samples_per_s": 251.35}
+{"type": "step", "epoch": 14, "step": 2360, "loss": 1.0030411191888757, "lr": 5.089879149148781e-05, "elapsed": 899.2, "samples_per_s": 251.96}
+{"type": "epoch", "epoch": 14, "train_loss": 1.00287, "val_mse_pred": 1.1218, "val_mse_persist": 2.01384, "val_rel_improvement": 0.443, "val_cos_pred": 0.79039, "val_cos_persist": 0.66435}
+{"type": "step", "epoch": 15, "step": 2380, "loss": 0.9923979938030243, "lr": 4.853112127528698e-05, "elapsed": 932.0, "samples_per_s": 245.15}
+{"type": "step", "epoch": 15, "step": 2400, "loss": 1.0001721958319345, "lr": 4.6209169653368086e-05, "elapsed": 937.4, "samples_per_s": 245.79}
+{"type": "step", "epoch": 15, "step": 2420, "loss": 1.0000053882598876, "lr": 4.3933982822017876e-05, "elapsed": 942.7, "samples_per_s": 246.43}
+{"type": "step", "epoch": 15, "step": 2440, "loss": 0.9984730916363852, "lr": 4.1706585906821334e-05, "elapsed": 948.1, "samples_per_s": 247.06}
+{"type": "step", "epoch": 15, "step": 2460, "loss": 0.9971366968419817, "lr": 3.952798250077317e-05, "elapsed": 953.5, "samples_per_s": 247.68}
+{"type": "step", "epoch": 15, "step": 2480, "loss": 0.9963344433090904, "lr": 3.739915421209133e-05, "elapsed": 958.9, "samples_per_s": 248.29}
+{"type": "step", "epoch": 15, "step": 2500, "loss": 0.9962759293042697, "lr": 3.532106022193615e-05, "elapsed": 964.3, "samples_per_s": 248.88}
+{"type": "step", "epoch": 15, "step": 2520, "loss": 0.9958468878269195, "lr": 3.3294636852234105e-05, "elapsed": 969.8, "samples_per_s": 249.45}
+{"type": "epoch", "epoch": 15, "train_loss": 0.99602, "val_mse_pred": 1.12315, "val_mse_persist": 2.01384, "val_rel_improvement": 0.4423, "val_cos_pred": 0.79016, "val_cos_persist": 0.66435}
+early stop at epoch 15 (best epoch 10)
+{
+  "epochs_completed": 16,
+  "global_step": 2528,
+  "train_pairs": 15193,
+  "val_pairs": 9340,
+  "wall_clock_seconds": 984.1,
+  "samples_per_second": 246.6,
+  "peak_gpu_memory_bytes": 10944241152,
+  "best_val_mse": 1.119149509623253,
+  "best_epoch": 10
+}
+wrote /tmp/s3_consec_pilot_run/run_summary.json and /tmp/s3_consec_pilot_training.json

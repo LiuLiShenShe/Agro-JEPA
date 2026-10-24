@@ -1,0 +1,182 @@
+{
+  "rule": {
+    "manifest_id": "fip1-s3-v1",
+    "pair_types": [
+      "span7",
+      "span14"
+    ],
+    "splits": [
+      "train",
+      "validation"
+    ],
+    "dedupe_physical_pairs": true,
+    "require_cache": true
+  },
+  "n_pairs": 71314,
+  "train": {
+    "n_pairs": 56139,
+    "n_unique_images": 36631,
+    "n_unique_physical_pairs": 56139,
+    "n_plots": 1000,
+    "n_years": 5,
+    "n_by_pair_type": {
+      "span7": 28792,
+      "span14": 27347
+    },
+    "n_by_year": {
+      "2016": 8608,
+      "2017": 5078,
+      "2018": 7624,
+      "2021": 20543,
+      "2022": 14286
+    },
+    "delta_days": {
+      "min": 5,
+      "max": 16,
+      "median": 9.0,
+      "mean": 10.252854521811932,
+      "hist_1_3": 0,
+      "hist_4_7": 23661,
+      "hist_8_14": 26133,
+      "hist_15_21": 6345,
+      "hist_22_28": 0,
+      "hist_29_plus": 0
+    },
+    "delta_by_pair_type": {
+      "span14": {
+        "n": 27347,
+        "min": 12,
+        "max": 16,
+        "median": 14.0
+      },
+      "span7": {
+        "n": 28792,
+        "min": 5,
+        "max": 9,
+        "median": 7.0
+      }
+    },
+    "labels": {
+      "cc": {
+        "n_valid_b": 54564,
+        "n_valid_a": 54496,
+        "n_valid_both": 53704,
+        "n_negative_b": 0
+      },
+      "ph": {
+        "n_valid_b": 46462,
+        "n_valid_a": 44717,
+        "n_valid_both": 44452,
+        "n_negative_b": 314
+      },
+      "whc": {
+        "n_valid_b": 31111,
+        "n_valid_a": 28530,
+        "n_valid_both": 27947,
+        "n_negative_b": 0
+      },
+      "sen": {
+        "n_valid_b": 4418,
+        "n_valid_a": 3172,
+        "n_valid_both": 3161,
+        "n_negative_b": 0
+      }
+    }
+  },
+  "validation": {
+    "n_pairs": 15175,
+    "n_unique_images": 10858,
+    "n_unique_physical_pairs": 15175,
+    "n_plots": 380,
+    "n_years": 5,
+    "n_by_pair_type": {
+      "span7": 7817,
+      "span14": 7358
+    },
+    "n_by_year": {
+      "2016": 5201,
+      "2017": 3485,
+      "2018": 3831,
+      "2021": 1131,
+      "2022": 1527
+    },
+    "delta_days": {
+      "min": 5,
+      "max": 16,
+      "median": 9.0,
+      "mean": 10.264052718286656,
+      "hist_1_3": 0,
+      "hist_4_7": 5990,
+      "hist_8_14": 7008,
+      "hist_15_21": 2177,
+      "hist_22_28": 0,
+      "hist_29_plus": 0
+    },
+    "delta_by_pair_type": {
+      "span14": {
+        "n": 7358,
+        "min": 12,
+        "max": 16,
+        "median": 14.0
+      },
+      "span7": {
+        "n": 7817,
+        "min": 5,
+        "max": 9,
+        "median": 7.0
+      }
+    },
+    "labels": {
+      "cc": {
+        "n_valid_b": 14306,
+        "n_valid_a": 14383,
+        "n_valid_both": 13959,
+        "n_negative_b": 0
+      },
+      "ph": {
+        "n_valid_b": 11033,
+        "n_valid_a": 10786,
+        "n_valid_both": 10550,
+        "n_negative_b": 92
+      },
+      "whc": {
+        "n_valid_b": 6676,
+        "n_valid_a": 6379,
+        "n_valid_both": 6012,
+        "n_negative_b": 0
+      },
+      "sen": {
+        "n_valid_b": 2618,
+        "n_valid_a": 1949,
+        "n_valid_both": 1946,
+        "n_negative_b": 0
+      }
+    }
+  },
+  "filtering": {
+    "input_rows": 194998,
+    "after_pair_type_and_split": 194998,
+    "rows_before_image_filter": 194998,
+    "rows_after_image_filter": 71314,
+    "rows_before_dedupe": 71314,
+    "rows_after_dedupe": 71314,
+    "final_rows": 71314
+  },
+  "delta_normalization": {
+    "mean": 10.252854521811932,
+    "std": 3.6747805386218597,
+    "min": 5.0,
+    "max": 16.0,
+    "n_samples": 56139,
+    "rule": "fitted on train split delta_days only; reused for validation/test"
+  },
+  "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+  "manifest_id": "fip1-s3-v0-v1",
+  "generated_at": "2026-10-24T12:58:47+0800",
+  "elapsed_seconds": 6.0,
+  "inputs": {
+    "pairs": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+    "selection": "data/manifests/s3_image_selection.json",
+    "feature_index": "external_data/s3_features/index.parquet"
+  }
+}
