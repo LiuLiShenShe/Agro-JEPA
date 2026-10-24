@@ -1,0 +1,29 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{
+  "reproduction": {
+    "n_matched_pairs": 15175,
+    "mse_pred_max_abs_diff": 0.0,
+    "mse_pred_mean_abs_diff": 0.0
+  },
+  "global_permutation_overall": {
+    "n_seeds": 20,
+    "mse_pred_mean": 1.2668015837669373,
+    "mse_pred_std": 0.001220836228186469,
+    "mse_pred_min": 1.2641996145248413,
+    "mse_pred_max": 1.2685065269470215,
+    "mse_increase_mean": 0.11459504934741345,
+    "mse_increase_min": 0.11230570737550762,
+    "mse_increase_max": 0.11609514316817558,
+    "baseline_mse_pred_original": 1.136557698249817,
+    "mse_persist": 2.195148468017578
+  },
+  "bootstrap_e1_overall": {
+    "relative_improvement_vs_persistence": 0.47974013669902504,
+    "relative_improvement_vs_train_mean": 0.3771019616856505,
+    "mse_pred": 1.1305565823805632,
+    "mse_persist": 2.180409967510652,
+    "mse_train_mean": 1.8296737350921546
+  }
+}
+wrote reports/s3_1_diagnostic_audit.json

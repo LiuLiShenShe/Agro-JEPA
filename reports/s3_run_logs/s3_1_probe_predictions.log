@@ -1,0 +1,7 @@
+cc overall: train=31146 val=8496
+cc span7: train=25128 val=6542
+cc span14: train=24675 val=6322
+ph overall: train=25372 val=6302
+ph span7: train=21143 val=5046
+ph span14: train=21230 val=4972
+wrote reports/s3_1_probe_val_predictions.parquet (226080 rows) and reports/s3_1_probe_reproduction.json

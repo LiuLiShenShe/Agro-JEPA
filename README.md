@@ -58,7 +58,10 @@ Agro-JEPA/
 │   ├── s3_build_index.py        # frozen S3 pair index + train-only time stats
 │   ├── s3_verify.py             # S3 acceptance checks (45 checks)
 │   ├── s3_make_figures.py       # training-curve figure
-│   └── s3_write_reports.py      # reports from the run artifacts
+│   ├── s3_write_reports.py      # reports from the run artifacts
+│   ├── s3_1_diagnostics.py      # S3.1 provenance + global Δt shuffle + bootstrap
+│   ├── s3_1_probe_predictions.py  # per-sample probe predictions for bootstrap
+│   └── s3_1_write_reports.py    # S3.1 reports
 ├── patches/
 │   └── 0001-...patch            # the only upstream edit (torch.hub ':main' ref)
 └── dino_wm/                     # vendored clone, git-ignored (not a submodule)
@@ -196,6 +199,24 @@ validation), realised `delta_days` 1–84.
 - E2 linear probes (same readout, 3 seeds): predicted future features beat the
   current feature on CC (R² 0.8458 vs 0.7978) and PH (0.9541 vs 0.9470).
 - 45/45 S3 acceptance checks pass. Full detail in `reports/s3_v0_results.md`.
+
+### S3.1 diagnostics (corrections, not new training)
+
+- The S3 Δt-shuffle diagnostic was **batch-local**; its 0.41% figure is kept as
+  history only. A true global permutation over all 15,175 validation pairs
+  (20 seeds) raises MSE by **11.46%**, essentially equal to replacing every
+  interval with the train mean (**11.44%**): the time channel matters, but it
+  behaves as a broad growth-level adjustment rather than precise interval
+  resolution.
+- Plot-cluster bootstrap (2,000 resamples over 380 plots): MSE reduction vs
+  persistence **48.23% [47.97%, 48.49%]**, vs train-mean **38.10% [37.71%, 38.48%]**.
+- E2 probes were re-run to save per-sample predictions; the B−A gains remain
+  positive with CIs excluding zero (CC ΔR² +0.046 [0.040, 0.053]; PH +0.0075
+  [0.0058, 0.0092]).
+- Provenance: the checkpoint records `74efcf8` + an uncommitted S3 tree; the
+  committed `c1fdb88` code reproduces the stored predictions exactly
+  (max per-sample diff 0.0). See `reports/s3_1_diagnostic_audit.md` and
+  `reports/s3_1_provenance.md`.
 
 ## Next stage entry point (S4)
 

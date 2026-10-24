@@ -384,8 +384,13 @@ def fit_probe(
     cfg: dict,
     seed: int,
     device: torch.device,
+    return_predictions: bool = False,
 ) -> dict:
-    """Train one linear readout; returns validation metrics in original units."""
+    """Train one linear readout; returns validation metrics in original units.
+
+    ``return_predictions`` additionally returns the per-validation-sample
+    predictions in original units (used by the S3.1 plot-level bootstrap).
+    """
     set_seed(seed)
     ecfg = cfg["eval"]
     # standardise inputs with train statistics only
@@ -462,6 +467,7 @@ def fit_probe(
         "target_std": y_std,
         "pred_mean": float(pred.mean()),
         "pred_std": float(pred.std()),
+        **({"predictions": pred.astype(np.float64)} if return_predictions else {}),
     }
 
 
