@@ -1,0 +1,32 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 0, "train_loss": 1.43818, "dev_mse": 1.28944, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4197, "sec": 150.8}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 1, "train_loss": 1.27324, "dev_mse": 1.23641, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4436, "sec": 144.6}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 2, "train_loss": 1.23273, "dev_mse": 1.21457, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4534, "sec": 145.0}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 3, "train_loss": 1.20535, "dev_mse": 1.19962, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4601, "sec": 145.3}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 4, "train_loss": 1.18312, "dev_mse": 1.19131, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4639, "sec": 144.5}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 5, "train_loss": 1.16276, "dev_mse": 1.18163, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4682, "sec": 144.4}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 6, "train_loss": 1.14399, "dev_mse": 1.17467, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4713, "sec": 144.6}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 7, "train_loss": 1.12624, "dev_mse": 1.17235, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4724, "sec": 144.0}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 8, "train_loss": 1.11005, "dev_mse": 1.16931, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4738, "sec": 145.1}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 9, "train_loss": 1.0952, "dev_mse": 1.1663, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4751, "sec": 146.4}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 10, "train_loss": 1.08249, "dev_mse": 1.1648, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4758, "sec": 145.0}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 11, "train_loss": 1.07216, "dev_mse": 1.16512, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4756, "sec": 144.2}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 12, "train_loss": 1.0645, "dev_mse": 1.16566, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4754, "sec": 144.2}
+{"condition": "b5_delta_weather_P", "seed": 0, "epoch": 13, "train_loss": 1.05925, "dev_mse": 1.16572, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4754, "sec": 144.2}
+early stop at epoch 13 (best 10)
+{
+  "condition": "b5_delta_weather_P",
+  "seed": 0,
+  "epochs_completed": 14,
+  "global_step": 4900,
+  "train_pairs": 44925,
+  "inner_dev_pairs": 11214,
+  "wall_clock_seconds": 2047.9,
+  "samples_per_second": 306.26,
+  "peak_gpu_memory_bytes": 14649892864,
+  "n_trainable_parameters": 53906928,
+  "best_epoch": 10,
+  "best_inner_dev_mse": 1.1647974037754147
+}
+wrote external_data/s4_runs/b5_delta_weather_P/seed0/run_summary.json

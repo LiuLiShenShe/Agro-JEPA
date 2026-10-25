@@ -133,6 +133,7 @@ class DailyWeatherStore:
         channels: Sequence[str] = DEFAULT_WEATHER_CHANNELS,
         add_vpd: bool = False,
         cache_size: int = 8192,
+        require_mainline: bool = True,
     ) -> None:
         csv_path = Path(csv_path)
         if not csv_path.exists():
@@ -144,14 +145,15 @@ class DailyWeatherStore:
         unknown = set(self.channels) - set(AVAILABLE_WEATHER_CHANNELS)
         if unknown:
             raise ValueError(f"unknown weather channels: {sorted(unknown)}")
-        if not {"T_mean_C", "RH_mean_pct", "Rs_sum_MJ_m2_d", "P_sum_raw"} <= set(self.channels):
+        if require_mainline and not {
+            "T_mean_C", "RH_mean_pct", "Rs_sum_MJ_m2_d", "P_sum_raw"
+        } <= set(self.channels):
             raise ValueError(
                 "the S2 mainline weather vector must keep the confirmed "
                 "temperature, humidity, radiation and raw-precipitation channels"
             )
         if any("cum" in c or "water" in c for c in self.channels):
             raise ValueError("cumulative precipitation / water balance is out of scope in S2")
-
         blob = csv_path.read_bytes()
         self.csv_sha256 = hashlib.sha256(blob).hexdigest()
         self.manifest_id = f"s1-weather-daily-v1@{self.csv_sha256[:12]}"

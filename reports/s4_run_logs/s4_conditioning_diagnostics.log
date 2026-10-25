@@ -1,0 +1,31 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[diag] b3_delta within_year: +9.95%
+[diag] b3_delta global: +9.98%
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[diag] b4_delta_gdd_R within_year: +14.78%
+[diag] b4_delta_gdd_R global: +16.66%
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[diag] b4_delta_gdd_P within_year: +7.04%
+[diag] b4_delta_gdd_P global: +7.49%
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[diag] b5_delta_weather_P within_year: +14.60%
+[diag] b5_delta_weather_P global: +16.14%
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[diag] b5_delta_weather_R within_year: +18.01%
+[diag] b5_delta_weather_R global: +23.29%
+wrote reports/s4_conditioning_diagnostics.json

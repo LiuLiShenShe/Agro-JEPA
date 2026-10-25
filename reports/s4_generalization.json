@@ -1,0 +1,422 @@
+{
+  "generated_at": "2026-10-26T03:37:03",
+  "source_predictions": "reports/s4_e1_val_predictions.parquet",
+  "split_used": "official validation (never used for selection)",
+  "genotype_definition": "seen = genotype_id occurs on at least one official-train plot in the S3 pair index; unseen = no training plot has this genotype",
+  "n_train_genotypes": 522,
+  "n_val_genotypes": 183,
+  "n_val_genotypes_unseen": 44,
+  "n_pairs_unseen_genotype": 6987,
+  "groups": {
+    "seen_genotype": {
+      "conditions": {
+        "b2_no_time": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1761311805853916,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.4661810126804874
+        },
+        "b3_delta": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.130152375335861,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.48704973860292156
+        },
+        "b4_delta_gdd_P": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1243789155540318,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.48967017967696236
+        },
+        "b4_delta_gdd_R": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1265395888917669,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.48868949956906493
+        },
+        "b4_delta_gdd_R_tbase5": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1248581999604388,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.4894526434695311
+        },
+        "b4_gdd_R": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1333206085953178,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.4856117501386472
+        },
+        "b5_delta_weather_P": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1284145598636934,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.4878384932170446
+        },
+        "b5_delta_weather_R": {
+          "n_pairs": 8188,
+          "n_plots": 205,
+          "n_genotypes": 139,
+          "mse_pred": 1.1218298543472085,
+          "mse_persist": 2.203239690838177,
+          "relative_improvement_vs_persist": 0.49082714013724416
+        }
+      }
+    },
+    "unseen_genotype": {
+      "conditions": {
+        "b2_no_time": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.1787400275183044,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.46069538540675875
+        },
+        "b3_delta": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.135150356039872,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.4806388084076859
+        },
+        "b4_delta_gdd_P": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.1279665083098314,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.48392560799105366
+        },
+        "b4_delta_gdd_R": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.1307154208425974,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.4826679080916491
+        },
+        "b4_delta_gdd_R_tbase5": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.129567895364536,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.48319293122756884
+        },
+        "b4_gdd_R": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.137190688845595,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.4797053023997928
+        },
+        "b5_delta_weather_P": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.1324966802640724,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.48185293498191967
+        },
+        "b5_delta_weather_R": {
+          "n_pairs": 6987,
+          "n_plots": 175,
+          "n_genotypes": 44,
+          "mse_pred": 1.126794051549048,
+          "mse_persist": 2.185666496488897,
+          "relative_improvement_vs_persist": 0.48446203784559316
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "seen_genotype": {
+      "improvement_vs_persist": {
+        "b2_no_time": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.466168494613905,
+          "std": 0.001687935673019228,
+          "ci95_low": 0.46304145857522544,
+          "ci95_high": 0.4694826031330278,
+          "min": 0.45990806938660544,
+          "max": 0.47234429820316187
+        },
+        "b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.4870281844553807,
+          "std": 0.0018260039308977691,
+          "ci95_low": 0.48358409324955365,
+          "ci95_high": 0.49061645080382493,
+          "min": 0.48006044348822646,
+          "max": 0.49377213418400573
+        },
+        "b4_delta_gdd_P": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.48964379911163136,
+          "std": 0.0018353240840858645,
+          "ci95_low": 0.48610576916576076,
+          "ci95_high": 0.49332857694438836,
+          "min": 0.4832487337975769,
+          "max": 0.4965203799495675
+        },
+        "b4_delta_gdd_R": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.4886571157497581,
+          "std": 0.001848235160967977,
+          "ci95_low": 0.4850833696027282,
+          "ci95_high": 0.4923239005226308,
+          "min": 0.4820095597546585,
+          "max": 0.49542429540625604
+        },
+        "b4_delta_gdd_R_tbase5": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.4894217779025622,
+          "std": 0.001836482379764763,
+          "ci95_low": 0.4858870347760172,
+          "ci95_high": 0.4930402509936806,
+          "min": 0.48259686731978035,
+          "max": 0.4959411653898581
+        },
+        "b4_gdd_R": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.4855814802448733,
+          "std": 0.0018404303822944833,
+          "ci95_low": 0.48205389023759543,
+          "ci95_high": 0.48922957586984767,
+          "min": 0.4783666235253252,
+          "max": 0.4922970488652424
+        },
+        "b5_delta_weather_P": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.4878093100888811,
+          "std": 0.0018311650314579001,
+          "ci95_low": 0.4842602915304007,
+          "ci95_high": 0.49143015961022474,
+          "min": 0.4807719942797547,
+          "max": 0.4944386297350869
+        },
+        "b5_delta_weather_R": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": 0.490797693996151,
+          "std": 0.0018674736657811773,
+          "ci95_low": 0.4871799669210417,
+          "ci95_high": 0.49453750541531416,
+          "min": 0.4836181687568704,
+          "max": 0.497394526938272
+        }
+      },
+      "contrasts": {
+        "b5_delta_weather_P_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": -0.0017210890850310934,
+          "std": 0.0007347586091546834,
+          "ci95_low": -0.003142934374550488,
+          "ci95_high": -0.00032265609872507217,
+          "min": -0.004252600221922975,
+          "max": 0.0007631301471786589
+        },
+        "b5_delta_weather_R_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": -0.00830543081066474,
+          "std": 0.0008681145781135475,
+          "ci95_low": -0.009977662559808115,
+          "ci95_high": -0.006613513004253853,
+          "min": -0.011038856179682366,
+          "max": -0.005409453051508306
+        },
+        "b4_delta_gdd_P_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": -0.005763074685792033,
+          "std": 0.000794380435543884,
+          "ci95_low": -0.0072935099330282745,
+          "ci95_high": -0.004228259216315484,
+          "min": -0.00829722755093898,
+          "max": -0.0029521723347736284
+        },
+        "b4_delta_gdd_R_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": -0.0035885079424783583,
+          "std": 0.0007395407554200704,
+          "ci95_low": -0.005023572788019226,
+          "ci95_high": -0.0021532523792512416,
+          "min": -0.006170758302660895,
+          "max": -0.0013096342827960683
+        },
+        "b3_delta_minus_b2_no_time": {
+          "n_resamples": 2000,
+          "n_plots": 205,
+          "mean": -0.04595418642720191,
+          "std": 0.0010843604573328972,
+          "ci95_low": -0.04802534160041316,
+          "ci95_high": -0.04383528613500718,
+          "min": -0.049747427696225976,
+          "max": -0.041949801629171946
+        }
+      }
+    },
+    "unseen_genotype": {
+      "improvement_vs_persist": {
+        "b2_no_time": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4607242216619858,
+          "std": 0.0017535564470291163,
+          "ci95_low": 0.45737696789026605,
+          "ci95_high": 0.4641556134820873,
+          "min": 0.45491795230622506,
+          "max": 0.46750505730939523
+        },
+        "b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4806525646644751,
+          "std": 0.001830840596810166,
+          "ci95_low": 0.47713290495788424,
+          "ci95_high": 0.4842361049046106,
+          "min": 0.47425486911280096,
+          "max": 0.4879337943221687
+        },
+        "b4_delta_gdd_P": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4839301538762556,
+          "std": 0.0018758673690996513,
+          "ci95_low": 0.4803140612290748,
+          "ci95_high": 0.48756959674397976,
+          "min": 0.4773443671347997,
+          "max": 0.49094694856631677
+        },
+        "b4_delta_gdd_R": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.48268609760200354,
+          "std": 0.0018770948787699615,
+          "ci95_low": 0.4791069094670116,
+          "ci95_high": 0.4863963605423217,
+          "min": 0.47608129431505697,
+          "max": 0.4896501631043872
+        },
+        "b4_delta_gdd_R_tbase5": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4832057130427794,
+          "std": 0.0018812507381194034,
+          "ci95_low": 0.47963410333210293,
+          "ci95_high": 0.48685973518254144,
+          "min": 0.4769733352544327,
+          "max": 0.49024541395440985
+        },
+        "b4_gdd_R": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4797201773932063,
+          "std": 0.001918787125002893,
+          "ci95_low": 0.47613233857636067,
+          "ci95_high": 0.4834496503662277,
+          "min": 0.4732637944703337,
+          "max": 0.4867711449260249
+        },
+        "b5_delta_weather_P": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4818705211569513,
+          "std": 0.0018783531471224795,
+          "ci95_low": 0.4783180656776013,
+          "ci95_high": 0.48554693604423466,
+          "min": 0.47544051667902615,
+          "max": 0.4886712507393943
+        },
+        "b5_delta_weather_R": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": 0.4844773804496929,
+          "std": 0.0019029043715828402,
+          "ci95_low": 0.48087720326915107,
+          "ci95_high": 0.48822022177985,
+          "min": 0.4778332728529069,
+          "max": 0.49127226797598017
+        }
+      },
+      "contrasts": {
+        "b5_delta_weather_P_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": -0.00266250377855411,
+          "std": 0.0006992940092103866,
+          "ci95_low": -0.004074408726745854,
+          "ci95_high": -0.001304119236909185,
+          "min": -0.004836743606565719,
+          "max": -0.00034600264558481975
+        },
+        "b5_delta_weather_R_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": -0.008361425142623013,
+          "std": 0.001014974349482419,
+          "ci95_low": -0.01032743442817215,
+          "ci95_high": -0.006340172785816741,
+          "min": -0.011402374346952238,
+          "max": -0.0053233175742077865
+        },
+        "b4_delta_gdd_P_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": -0.00716525572827706,
+          "std": 0.0008466950580020117,
+          "ci95_low": -0.00881036428861286,
+          "ci95_high": -0.005466142951647496,
+          "min": -0.010013541701194395,
+          "max": -0.004373557462237443
+        },
+        "b4_delta_gdd_R_minus_b3_delta": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": -0.0044448152571530805,
+          "std": 0.0009173949816086084,
+          "ci95_low": -0.006209341734160756,
+          "ci95_high": -0.0026333889553557537,
+          "min": -0.007523537034108019,
+          "max": -0.0014515713980995937
+        },
+        "b3_delta_minus_b2_no_time": {
+          "n_resamples": 2000,
+          "n_plots": 175,
+          "mean": -0.04355929201574903,
+          "std": 0.0011247748628273172,
+          "ci95_low": -0.04578859540042588,
+          "ci95_high": -0.041433538800264486,
+          "min": -0.04827901635826204,
+          "max": -0.04004560718093031
+        }
+      }
+    }
+  }
+}

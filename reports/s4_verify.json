@@ -1,0 +1,88 @@
+{
+  "stage": "S4A",
+  "generated_at": "2026-10-26T04:08:19+0800",
+  "command": "tools/s4_verify.py --config agro_jepa/config/s4_pilot.yaml",
+  "config": "agro_jepa/config/s4_pilot.yaml",
+  "config_sha256": "dc61ea4c6f28f9c155b800db27d15166bf8684444e718c4e3b2fb741a0e06382",
+  "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+  "n_checks": 15,
+  "n_pass": 15,
+  "all_pass": true,
+  "checks": [
+    {
+      "id": "D1_conditioning_row_alignment",
+      "pass": true,
+      "detail": "71314 npz rows vs 71314 index rows"
+    },
+    {
+      "id": "D2_interval_window_full_validity",
+      "pass": true,
+      "detail": "valid-days == delta_days for all rows (max delta 16)"
+    },
+    {
+      "id": "D3_past_window_full_validity",
+      "pass": true,
+      "detail": "every past window has 28 valid days"
+    },
+    {
+      "id": "D4_past_window_strictly_before_t_a",
+      "pass": true,
+      "detail": "past window ends 2018-01-11 .. 2017-02-21, all < t_a"
+    },
+    {
+      "id": "D5_no_official_test_rows",
+      "pass": true,
+      "detail": "splits present: ['train', 'validation']"
+    },
+    {
+      "id": "D6_inner_plot_split_disjoint_and_complete",
+      "pass": true,
+      "detail": "800 inner-train / 200 inner-dev plots, disjoint=True, covers all 1000 train plots"
+    },
+    {
+      "id": "D7_weather_channels_confirmed_units",
+      "pass": true,
+      "detail": "channels=['T_mean_C', 'T_max_C', 'T_min_C', 'RH_mean_pct', 'Rs_sum_MJ_m2_d']"
+    },
+    {
+      "id": "D8_conditioning_sha_recorded",
+      "pass": true,
+      "detail": "npz sha256=ce4f71b688a2010f1637c55c6e56878b986cd2ed6474b83ab53bbeebb3743215"
+    },
+    {
+      "id": "M1_checkpoints_present",
+      "pass": true,
+      "detail": "16 expected, 16 found"
+    },
+    {
+      "id": "M2_checkpoint_matches_config",
+      "pass": true,
+      "detail": "every checkpoint spec equals the config condition"
+    },
+    {
+      "id": "M3_b2_has_no_time_input",
+      "pass": true,
+      "detail": "only b2_no_time is conditioning-free"
+    },
+    {
+      "id": "M4_shared_budget_and_seed_set",
+      "pass": true,
+      "detail": "distinct (epochs, batch, rule) tuples: 1; seeds=[0, 1]"
+    },
+    {
+      "id": "M5_identical_inner_data_size",
+      "pass": true,
+      "detail": "distinct (train, dev) pair counts: {(44925, 11214)}"
+    },
+    {
+      "id": "M6_no_validation_selection",
+      "pass": true,
+      "detail": "no checkpoint reports validation-based selection"
+    },
+    {
+      "id": "M7_same_inner_split",
+      "pass": true,
+      "detail": "split seed 20261025 / fraction 0.8 everywhere"
+    }
+  ]
+}

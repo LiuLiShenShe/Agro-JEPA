@@ -1,0 +1,40 @@
+[B1] train-mean from 44925 inner-train pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b2_no_time: mse_pred=1.17733 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b3_delta: mse_pred=1.13245 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b4_gdd_R: mse_pred=1.13510 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b4_delta_gdd_R: mse_pred=1.12846 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b4_delta_gdd_R_tbase5: mse_pred=1.12703 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b4_delta_gdd_P: mse_pred=1.12603 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b5_delta_weather_P: mse_pred=1.13029 persist=2.19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b5_delta_weather_R: mse_pred=1.12412 persist=2.19515
+wrote reports/s4_pilot_results.json (sections: ['E1', 'E2', 'E2_collect'])

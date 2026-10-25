@@ -1,0 +1,50 @@
+planned runs: 16
+  b2_no_time seed0
+  b2_no_time seed1
+  b3_delta seed0
+  b3_delta seed1
+  b4_gdd_R seed0
+  b4_gdd_R seed1
+  b4_delta_gdd_R seed0
+  b4_delta_gdd_R seed1
+  b4_delta_gdd_R_tbase5 seed0
+  b4_delta_gdd_R_tbase5 seed1
+  b4_delta_gdd_P seed0
+  b4_delta_gdd_P seed1
+  b5_delta_weather_P seed0
+  b5_delta_weather_P seed1
+  b5_delta_weather_R seed0
+  b5_delta_weather_R seed1
+[1/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b2_no_time --seed 0 --output-dir external_data/s4_runs/b2_no_time/seed0 --report external_data/s4_runs/b2_no_time/seed0/run_summary.json
+[1/16] b2_no_time seed0 -> rc=0 (2390.5 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b2_no_time_seed0.log
+[2/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b2_no_time --seed 1 --output-dir external_data/s4_runs/b2_no_time/seed1 --report external_data/s4_runs/b2_no_time/seed1/run_summary.json
+[2/16] b2_no_time seed1 -> rc=0 (2649.5 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b2_no_time_seed1.log
+[3/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b3_delta --seed 0 --output-dir external_data/s4_runs/b3_delta/seed0 --report external_data/s4_runs/b3_delta/seed0/run_summary.json
+[3/16] b3_delta seed0 -> rc=0 (2453.3 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b3_delta_seed0.log
+[4/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b3_delta --seed 1 --output-dir external_data/s4_runs/b3_delta/seed1 --report external_data/s4_runs/b3_delta/seed1/run_summary.json
+[4/16] b3_delta seed1 -> rc=0 (2207.5 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b3_delta_seed1.log
+[5/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_gdd_R --seed 0 --output-dir external_data/s4_runs/b4_gdd_R/seed0 --report external_data/s4_runs/b4_gdd_R/seed0/run_summary.json
+[5/16] b4_gdd_R seed0 -> rc=0 (2357.2 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_gdd_R_seed0.log
+[6/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_gdd_R --seed 1 --output-dir external_data/s4_runs/b4_gdd_R/seed1 --report external_data/s4_runs/b4_gdd_R/seed1/run_summary.json
+[6/16] b4_gdd_R seed1 -> rc=0 (2051.0 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_gdd_R_seed1.log
+[7/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_delta_gdd_R --seed 0 --output-dir external_data/s4_runs/b4_delta_gdd_R/seed0 --report external_data/s4_runs/b4_delta_gdd_R/seed0/run_summary.json
+[7/16] b4_delta_gdd_R seed0 -> rc=0 (2056.1 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_delta_gdd_R_seed0.log
+[8/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_delta_gdd_R --seed 1 --output-dir external_data/s4_runs/b4_delta_gdd_R/seed1 --report external_data/s4_runs/b4_delta_gdd_R/seed1/run_summary.json
+[8/16] b4_delta_gdd_R seed1 -> rc=0 (2235.1 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_delta_gdd_R_seed1.log
+[9/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_delta_gdd_R_tbase5 --seed 0 --output-dir external_data/s4_runs/b4_delta_gdd_R_tbase5/seed0 --report external_data/s4_runs/b4_delta_gdd_R_tbase5/seed0/run_summary.json
+[9/16] b4_delta_gdd_R_tbase5 seed0 -> rc=0 (2178.8 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_delta_gdd_R_tbase5_seed0.log
+[10/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_delta_gdd_R_tbase5 --seed 1 --output-dir external_data/s4_runs/b4_delta_gdd_R_tbase5/seed1 --report external_data/s4_runs/b4_delta_gdd_R_tbase5/seed1/run_summary.json
+[10/16] b4_delta_gdd_R_tbase5 seed1 -> rc=0 (2330.4 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_delta_gdd_R_tbase5_seed1.log
+[11/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_delta_gdd_P --seed 0 --output-dir external_data/s4_runs/b4_delta_gdd_P/seed0 --report external_data/s4_runs/b4_delta_gdd_P/seed0/run_summary.json
+[11/16] b4_delta_gdd_P seed0 -> rc=0 (2037.6 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_delta_gdd_P_seed0.log
+[12/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b4_delta_gdd_P --seed 1 --output-dir external_data/s4_runs/b4_delta_gdd_P/seed1 --report external_data/s4_runs/b4_delta_gdd_P/seed1/run_summary.json
+[12/16] b4_delta_gdd_P seed1 -> rc=0 (2182.3 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b4_delta_gdd_P_seed1.log
+[13/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b5_delta_weather_P --seed 0 --output-dir external_data/s4_runs/b5_delta_weather_P/seed0 --report external_data/s4_runs/b5_delta_weather_P/seed0/run_summary.json
+[13/16] b5_delta_weather_P seed0 -> rc=0 (2060.9 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b5_delta_weather_P_seed0.log
+[14/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b5_delta_weather_P --seed 1 --output-dir external_data/s4_runs/b5_delta_weather_P/seed1 --report external_data/s4_runs/b5_delta_weather_P/seed1/run_summary.json
+[14/16] b5_delta_weather_P seed1 -> rc=0 (2050.4 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b5_delta_weather_P_seed1.log
+[15/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b5_delta_weather_R --seed 0 --output-dir external_data/s4_runs/b5_delta_weather_R/seed0 --report external_data/s4_runs/b5_delta_weather_R/seed0/run_summary.json
+[15/16] b5_delta_weather_R seed0 -> rc=0 (2048.1 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b5_delta_weather_R_seed0.log
+[16/16] /usr/bin/python3 agro_jepa/train/train_s4.py --config agro_jepa/config/s4_pilot.yaml --condition b5_delta_weather_R --seed 1 --output-dir external_data/s4_runs/b5_delta_weather_R/seed1 --report external_data/s4_runs/b5_delta_weather_R/seed1/run_summary.json
+[16/16] b5_delta_weather_R seed1 -> rc=0 (2046.2 s) log=/fj/Agro-JEPA/reports/s4_run_logs/train_b5_delta_weather_R_seed1.log
+all planned runs finished

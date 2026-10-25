@@ -1,0 +1,33 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 0, "train_loss": 1.4378, "dev_mse": 1.28674, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4209, "sec": 148.6}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 1, "train_loss": 1.27428, "dev_mse": 1.2403, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4418, "sec": 143.6}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 2, "train_loss": 1.23224, "dev_mse": 1.21333, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4539, "sec": 143.9}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 3, "train_loss": 1.20335, "dev_mse": 1.19559, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4619, "sec": 143.2}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 4, "train_loss": 1.18063, "dev_mse": 1.18381, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4672, "sec": 144.0}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 5, "train_loss": 1.15966, "dev_mse": 1.17407, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4716, "sec": 143.5}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 6, "train_loss": 1.1406, "dev_mse": 1.16838, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4742, "sec": 145.7}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 7, "train_loss": 1.12299, "dev_mse": 1.16591, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4753, "sec": 143.7}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 8, "train_loss": 1.1063, "dev_mse": 1.16197, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4771, "sec": 143.1}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 9, "train_loss": 1.09141, "dev_mse": 1.16101, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4775, "sec": 143.3}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 10, "train_loss": 1.07878, "dev_mse": 1.16073, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4776, "sec": 142.9}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 11, "train_loss": 1.06811, "dev_mse": 1.15973, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4781, "sec": 143.3}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 12, "train_loss": 1.06044, "dev_mse": 1.16013, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4779, "sec": 144.0}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 13, "train_loss": 1.05517, "dev_mse": 1.1599, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.478, "sec": 143.9}
+{"condition": "b4_delta_gdd_P", "seed": 1, "epoch": 14, "train_loss": 1.05195, "dev_mse": 1.16018, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4779, "sec": 143.7}
+early stop at epoch 14 (best 11)
+{
+  "condition": "b4_delta_gdd_P",
+  "seed": 1,
+  "epochs_completed": 15,
+  "global_step": 5250,
+  "train_pairs": 44925,
+  "inner_dev_pairs": 11214,
+  "wall_clock_seconds": 2170.5,
+  "samples_per_second": 309.61,
+  "peak_gpu_memory_bytes": 14645739008,
+  "n_trainable_parameters": 53908480,
+  "best_epoch": 11,
+  "best_inner_dev_mse": 1.1597335227611167
+}
+wrote external_data/s4_runs/b4_delta_gdd_P/seed1/run_summary.json

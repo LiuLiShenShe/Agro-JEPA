@@ -1,0 +1,32 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 0, "train_loss": 1.43805, "dev_mse": 1.28758, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4205, "sec": 148.1}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 1, "train_loss": 1.27269, "dev_mse": 1.23852, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4426, "sec": 143.7}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 2, "train_loss": 1.23005, "dev_mse": 1.21571, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4529, "sec": 142.9}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 3, "train_loss": 1.20151, "dev_mse": 1.19632, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4616, "sec": 142.9}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 4, "train_loss": 1.17836, "dev_mse": 1.18448, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4669, "sec": 143.4}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 5, "train_loss": 1.158, "dev_mse": 1.17417, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4716, "sec": 143.3}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 6, "train_loss": 1.1391, "dev_mse": 1.16639, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4751, "sec": 143.4}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 7, "train_loss": 1.12174, "dev_mse": 1.16485, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4758, "sec": 143.3}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 8, "train_loss": 1.10572, "dev_mse": 1.16026, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4778, "sec": 143.4}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 9, "train_loss": 1.09132, "dev_mse": 1.1597, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4781, "sec": 143.4}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 10, "train_loss": 1.07872, "dev_mse": 1.1585, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4786, "sec": 143.8}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 11, "train_loss": 1.06854, "dev_mse": 1.15856, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4786, "sec": 143.3}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 12, "train_loss": 1.06087, "dev_mse": 1.15869, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4785, "sec": 143.4}
+{"condition": "b4_delta_gdd_P", "seed": 0, "epoch": 13, "train_loss": 1.05575, "dev_mse": 1.15906, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4784, "sec": 143.4}
+early stop at epoch 13 (best 10)
+{
+  "condition": "b4_delta_gdd_P",
+  "seed": 0,
+  "epochs_completed": 14,
+  "global_step": 4900,
+  "train_pairs": 44925,
+  "inner_dev_pairs": 11214,
+  "wall_clock_seconds": 2025.6,
+  "samples_per_second": 309.63,
+  "peak_gpu_memory_bytes": 14645739008,
+  "n_trainable_parameters": 53908480,
+  "best_epoch": 10,
+  "best_inner_dev_mse": 1.1585043452524642
+}
+wrote external_data/s4_runs/b4_delta_gdd_P/seed0/run_summary.json

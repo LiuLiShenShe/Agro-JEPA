@@ -1,0 +1,20 @@
+[E2] loaded b2_no_time
+[E2] loaded b3_delta
+[E2] loaded b4_gdd_R
+[E2] loaded b4_delta_gdd_R
+[E2] loaded b4_delta_gdd_R_tbase5
+[E2] loaded b4_delta_gdd_P
+[E2] loaded b5_delta_weather_P
+[E2] loaded b5_delta_weather_R
+[E2] primary_lag7|cc|overall done (n_val=8496)
+[E2] primary_lag7|cc|span7 done (n_val=6542)
+[E2] primary_lag7|cc|span14 done (n_val=6322)
+[E2] primary_lag7|ph|overall done (n_val=6302)
+[E2] primary_lag7|ph|span7 done (n_val=5046)
+[E2] primary_lag7|ph|span14 done (n_val=4972)
+[E2] strict_lag3|cc|overall done (n_val=8112)
+[E2] strict_lag3|ph|overall done (n_val=5401)
+[E2] same_day_lag0|cc|overall done (n_val=7890)
+[E2] same_day_lag0|ph|overall done (n_val=2908)
+wrote reports/s4_e2_probe_metrics.json
+wrote reports/s4_pilot_results.json (sections: ['E2', 'E2_collect'])

@@ -1,0 +1,136 @@
+{
+  "stage": "S4A",
+  "generated_at": "2026-10-25T13:16:25+0800",
+  "command": "tools/s4_prepare_weather.py --config agro_jepa/config/s4_pilot.yaml",
+  "inputs": {
+    "index": "external_data/s3_index/fip1_s3_v0_index.parquet",
+    "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+    "weather_csv": "data/manifests/weather_daily_first_plot_per_year.csv",
+    "weather_manifest_id": "s1-weather-daily-v1@19aa4ee2f476",
+    "weather_csv_sha256": "19aa4ee2f476ba13d34793899b74797d99080b813fbaee7c3c851e6236a4b52e",
+    "n_rows": 71314
+  },
+  "weather_vector": {
+    "channels": [
+      "T_mean_C",
+      "T_max_C",
+      "T_min_C",
+      "RH_mean_pct",
+      "Rs_sum_MJ_m2_d"
+    ],
+    "units": {
+      "T_mean_C": "degC",
+      "T_max_C": "degC",
+      "T_min_C": "degC",
+      "RH_mean_pct": "%",
+      "Rs_sum_MJ_m2_d": "MJ m-2 d-1"
+    },
+    "excluded": {
+      "P_sum_raw": "unit unresolved (S1); precipitation integrals forbidden by S2",
+      "VPD_mean_kPa": "derived channel, opt-in only; not used in S4A"
+    },
+    "excluded_reason": "a channel enters the GRU only after its unit, definition and time alignment are confirmed"
+  },
+  "protocol_R": {
+    "definition": "interval (t_a, t_b]; real observed weather",
+    "deployable": false,
+    "label": "retrospective / oracle interval conditioning"
+  },
+  "protocol_P": {
+    "definition": "[t_a-W, ..., t_a-1]; strictly before t_a",
+    "deployable": true,
+    "label": "deployable past-weather conditioning"
+  },
+  "gdd": {
+    "definition": "GDD_d = max(T_mean_d - T_base, 0); T_base in {0, 5} degC",
+    "unit": "degC day",
+    "bases": [
+      0.0,
+      5.0
+    ],
+    "retrospective_features": "sum over (t_a, t_b]",
+    "deployable_features": [
+      "sum over past 7 d",
+      "sum over past 14 d",
+      "sum over past 28 d"
+    ],
+    "physiological_status": "pre-registered temperature baseline; not a genotype-fitted parameter"
+  },
+  "train": {
+    "n_pairs": 56139,
+    "n_plots": 1000,
+    "years": [
+      2016,
+      2017,
+      2018,
+      2021,
+      2022
+    ],
+    "delta_days": {
+      "min": 5,
+      "max": 16,
+      "mean": 10.252854521811932
+    },
+    "interval_valid_days_all_full": true,
+    "past_window_valid_days_all_full": true,
+    "gdd_int_base0": {
+      "mean": 119.87767028808594,
+      "std": 77.47650909423828,
+      "min": 3.745800018310547,
+      "max": 314.0646057128906
+    },
+    "gdd_int_base5": {
+      "mean": 74.78312683105469,
+      "std": 62.60893249511719,
+      "min": 0.0,
+      "max": 236.16468811035156
+    },
+    "gdd_past28_base0": {
+      "mean": 277.0438537597656,
+      "std": 149.5191192626953
+    },
+    "corr_delta_vs_gdd_int_base0": 0.5225232946488323
+  },
+  "validation": {
+    "n_pairs": 15175,
+    "n_plots": 380,
+    "years": [
+      2016,
+      2017,
+      2018,
+      2021,
+      2022
+    ],
+    "delta_days": {
+      "min": 5,
+      "max": 16,
+      "mean": 10.264052718286656
+    },
+    "interval_valid_days_all_full": true,
+    "past_window_valid_days_all_full": true,
+    "gdd_int_base0": {
+      "mean": 116.40108489990234,
+      "std": 76.66997528076172,
+      "min": 3.745800018310547,
+      "max": 334.97381591796875
+    },
+    "gdd_int_base5": {
+      "mean": 71.93666076660156,
+      "std": 61.75859451293945,
+      "min": 0.0,
+      "max": 254.9738006591797
+    },
+    "gdd_past28_base0": {
+      "mean": 269.0315246582031,
+      "std": 149.87562561035156
+    },
+    "corr_delta_vs_gdd_int_base0": 0.49708954844048797
+  },
+  "structural_limit": "S1 verified that all plots of the same harvest_year share one weather series, so weather provides date/year-level environment variation only; there is no plot-level micro-climate signal.",
+  "outputs": {
+    "npz": "external_data/s4_conditioning/s4_pair_conditioning.npz",
+    "npz_sha256": "ce4f71b688a2010f1637c55c6e56878b986cd2ed6474b83ab53bbeebb3743215",
+    "npz_bytes": 6372772
+  },
+  "elapsed_seconds": 11.6
+}

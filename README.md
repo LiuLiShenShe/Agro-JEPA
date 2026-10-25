@@ -262,10 +262,114 @@ python3 tools/s3_2_write_reports.py
 - Reports: `reports/s3_2_delta_diagnostics.md`, `reports/s3_2_probe_protocol.md`,
   `reports/s3_2_probe_results.md`, `reports/s3_2_verify.json`.
 
-## Next stage entry point (S4)
+## S4A: time / GDD / weather baselines (pilot)
 
-S4 holds the strong-baseline comparisons (weather encoder / GDD forcing,
-physiological phenotype anchoring in the proprio channel, EMA-style target,
-LoRA adaptation, multi-step rollout). V0 deliberately contains none of them.
+S4A holds the controlled comparisons. Every trainable condition is trained
+under one fixed protocol (official-train plots only, 80/20 inner split,
+inner-dev early stopping, seeds {0,1}, 16-epoch candidate budget, identical
+visual target). Official validation is read only for the final Pilot
+comparison; official test is never read.
+
+| Condition | Input | Protocol |
+|---|---|---|
+| `b0_persistence` | `Z_a` | — |
+| `b1_train_mean` | inner-train mean `Z_b` | — |
+| `b2_no_time` | `z_a` only (time input removed from the network) | — |
+| `b3_delta` | `z_a + delta_days` (V0 match, retrained) | — |
+| `b4_gdd_R` | `z_a + interval GDD` | R |
+| `b4_delta_gdd_R` | `z_a + delta + interval GDD` | R |
+| `b4_delta_gdd_R_tbase5` | same, `T_base = 5 °C` | R |
+| `b4_delta_gdd_P` | `z_a + delta + past 7/14/28 d GDD` | P |
+| `b5_delta_weather_P` | `z_a + delta + GRU(past 28 d weather)` | P |
+| `b5_delta_weather_R` | `z_a + delta + GRU((t_a, t_b] weather)` | R |
+
+Protocol P is deployable (weather strictly before `t_a`); Protocol R is
+retrospective/oracle interval conditioning and is labelled as such everywhere.
+
+Pilot results (official validation, 15,175 pairs / 380 plots, never used for
+selection; 2,000-resample plot bootstrap):
+
+- Future-latent MSE: persistence 2.19515, train-mean 1.83561, B2 1.17733
+  (46.4% below persistence), B3 1.13245 (48.4%), best B5 weather-R 1.12412
+  (48.8%).
+- Δt beyond the visual state: B3 − B2 = **−0.04486 [−0.04642, −0.04330]**
+  (3.8% of B2); permuting Δt at inference raises MSE by 9.95%.
+- GDD beyond Δt: past-GDD P **−0.00641 [−0.00750, −0.00532]**, interval-GDD R
+  −0.00399 [−0.00513, −0.00287]; `T_base = 5` is 0.00144 better than 0.
+- Weather beyond Δt: past-only P (deployable) **−0.00215 [−0.00308,
+  −0.00116]**, interval R (retrospective) −0.00833 [−0.00957, −0.00710].
+- The P→R gap is not uniform: past GDD beats interval GDD by 0.00242, while
+  interval weather beats past weather by 0.00619 — consistent with past GDD
+  acting as a phenology/stage proxy and interval weather acting as oracle
+  information about the target window.
+- CC readout (S3.2 protocol, lag ≤ 7 d): A 0.79297 → B2 0.82102 → B3 0.84654 →
+  weather-R 0.85370; PH: 0.94419 → 0.95130 → 0.95542 → 0.95777. Weather-P −
+  B3 is +0.00095 [−0.00175, +0.00358] on CC (not significant) but +0.00179
+  [+0.00081, +0.00276] on PH; weather-R − B3 is +0.00697 [+0.00365, +0.01028]
+  on CC.
+- Conditioning permutation at inference (10 permutations, plot bootstrap) gives
+  MSE increases of +9.95% (Δt), +7.04% (past-GDD P), +14.78% (interval-GDD R),
+  +14.60% (past-weather P), +18.01% (interval-weather R) when the input is
+  shuffled within a harvest year; shuffling across years gives
+  +9.98 / +7.49 / +16.66 / +16.14 / +23.29% (Δt nearly unchanged, since it
+  carries no year identity). So the conditioning is genuinely consumed and not
+  just year identity, but the 0.45–5.3 pp gap between the two permutations
+  (largest for interval weather) shows that part of its apparent value is
+  year-level environment; the small gains over B3 mean most of the consumed
+  information is redundant with Δt and the visual state.
+- 44 of 183 validation genotypes (6,987 pairs) have no training plot; the Δt
+  and weather/GDD gains reproduce there (weather-R − B3 = −0.00836 unseen vs
+  −0.00831 seen; GDD-P − B3 = −0.00717 vs −0.00576).
+- 15/15 data/leakage and model checks pass (`tools/s4_verify.py`).
+
+```bash
+# 1) derive per-pair GDD + weather tensors (Protocol P and R side by side)
+python3 tools/s4_prepare_weather.py --config agro_jepa/config/s4_pilot.yaml
+# 2) train every condition / seed under the shared budget (~10 h on one A6000)
+CUDA_VISIBLE_DEVICES=1 python3 tools/s4_train_pilot.py \
+    --config agro_jepa/config/s4_pilot.yaml
+# 3) E1 future-latent baselines + E2 CC/PH probes + plot bootstrap
+CUDA_VISIBLE_DEVICES=1 python3 agro_jepa/eval/eval_s4.py --mode all
+# 4) inference-only conditioning permutation diagnostics
+CUDA_VISIBLE_DEVICES=1 python3 tools/s4_conditioning_diagnostics.py
+# 5) controls and derived analyses (CPU only)
+CUDA_VISIBLE_DEVICES=1 python3 tools/s4_e2_shared_epoch.py
+python3 tools/s4_e2_contrasts.py --config agro_jepa/config/s4_pilot.yaml
+python3 tools/s4_generalization_split.py --config agro_jepa/config/s4_pilot.yaml
+# 6) acceptance checks and reports
+python3 tools/s4_verify.py --config agro_jepa/config/s4_pilot.yaml
+python3 tools/s4_write_reports.py --config agro_jepa/config/s4_pilot.yaml
+```
+
+Results are in `reports/s4_pilot_results.md` / `.json`; the protocol card is
+`reports/s4_data_protocol.md`, and the eight stop-question answers (with the
+explicit "cannot claim" list) are in `reports/s4_stop_questions.md`.
+
+Added for S4A:
+
+```
+agro_jepa/datasets/s4_dataset.py        # conditioning spec + aligned dataset
+agro_jepa/models/s4_conditioning.py     # GDD and masked-weather encoders
+agro_jepa/models/s4_predictor.py        # shared conditional predictor + factory
+agro_jepa/models/gdd_conditioned_predictor.py
+agro_jepa/models/weather_gru_predictor.py
+agro_jepa/train/train_s4.py
+agro_jepa/eval/s4_common.py
+agro_jepa/eval/eval_s4.py
+agro_jepa/config/s4_pilot.yaml
+tools/s4_prepare_weather.py
+tools/s4_train_pilot.py
+tools/s4_conditioning_diagnostics.py
+tools/s4_e2_contrasts.py
+tools/s4_e2_shared_epoch.py
+tools/s4_generalization_split.py
+tools/s4_verify.py
+tools/s4_write_reports.py
+```
+
+## Next stage entry point (S5)
+
+S4A is a controlled pilot. S4B (full 2,930-plot training + official test
+splits) is not started and must not be started without an explicit go-ahead.
 The upstream VQVAE decoder is **incompatible** with 256 tokens, so all latent
 stages stay decoder-free (`has_decoder=False`, `model.train_decoder=False`).

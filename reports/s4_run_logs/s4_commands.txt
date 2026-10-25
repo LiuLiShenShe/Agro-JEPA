@@ -1,0 +1,44 @@
+# S4A actual commands (run from /fj/Agro-JEPA, GPU 1 only)
+
+# 0) git: S3.2 pushed, S4 branch created from the verified commit
+git push -u origin agro-s3-2
+git ls-remote origin                      # agro-s3-2 == 589e40e7a79692dce8cb48f43192626e7d7145c3
+git checkout -b agro-s4 589e40e7a79692dce8cb48f43192626e7d7145c3
+
+# 1) derive per-pair GDD + weather tensors (Protocol P and R side by side)
+python3 tools/s4_prepare_weather.py --config agro_jepa/config/s4_pilot.yaml
+
+# 2) data / leakage checks (before training)
+python3 tools/s4_verify.py --config agro_jepa/config/s4_pilot.yaml --skip-models \
+    --out /tmp/s4_verify_data.json
+
+# 3) train all 8 conditions x 2 seeds under one budget (~10 h on one A6000)
+CUDA_VISIBLE_DEVICES=1 python3 tools/s4_train_pilot.py \
+    --config agro_jepa/config/s4_pilot.yaml
+
+# 4) acceptance checks after training
+python3 tools/s4_verify.py --config agro_jepa/config/s4_pilot.yaml
+
+# 5) E1 future-latent evaluation + plot bootstrap
+CUDA_VISIBLE_DEVICES=1 python3 agro_jepa/eval/eval_s4.py --mode e1
+
+# 6) E2: pooled predicted features, then the S3.2 readout protocol
+CUDA_VISIBLE_DEVICES=1 python3 agro_jepa/eval/eval_s4.py --mode e2-collect
+CUDA_VISIBLE_DEVICES=1 python3 agro_jepa/eval/eval_s4.py --mode e2-probe
+#    (rerun e1 afterwards so the combined results file keeps both sections)
+CUDA_VISIBLE_DEVICES=1 python3 agro_jepa/eval/eval_s4.py --mode e1
+
+# 7) S3.2 shared-epoch control (headline overall scope)
+CUDA_VISIBLE_DEVICES=1 python3 tools/s4_e2_shared_epoch.py \
+    --config agro_jepa/config/s4_pilot.yaml
+
+# 8) inference-only conditioning permutation diagnostics
+CUDA_VISIBLE_DEVICES=1 python3 tools/s4_conditioning_diagnostics.py \
+    --config agro_jepa/config/s4_pilot.yaml
+
+# 9) derived analyses on the stored predictions (CPU only, no new forward)
+python3 tools/s4_e2_contrasts.py --config agro_jepa/config/s4_pilot.yaml
+python3 tools/s4_generalization_split.py --config agro_jepa/config/s4_pilot.yaml
+
+# 10) markdown report
+python3 tools/s4_write_reports.py --config agro_jepa/config/s4_pilot.yaml
