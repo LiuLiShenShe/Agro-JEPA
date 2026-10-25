@@ -1,0 +1,1394 @@
+{
+  "stage": "S3.2",
+  "task": "D -- leakage / integrity verification",
+  "generated_at": "2026-10-25T11:32:02.898992",
+  "config": "agro_jepa/config/s3_2_diagnostics.yaml",
+  "artifacts": {
+    "delta": "reports/s3_2_delta_diagnostics.json",
+    "delta_predictions": "reports/s3_2_delta_interventions.parquet",
+    "permuted_deltas": "reports/s3_2_permuted_deltas.parquet",
+    "probe_protocol": "reports/s3_2_probe_protocol.json",
+    "probe_predictions": "reports/s3_2_probe_val_predictions.parquet",
+    "plot_split": "reports/s3_2_probe_plot_split.csv"
+  },
+  "n_checks": 10,
+  "n_passed": 10,
+  "n_failed": 0,
+  "all_passed": true,
+  "checks": [
+    {
+      "id": "D1_official_train_val_plot_disjoint",
+      "passed": true,
+      "detail": {
+        "n_train_plots": 1000,
+        "n_validation_plots": 380,
+        "n_overlap": 0
+      }
+    },
+    {
+      "id": "D2_probe_split_disjoint_and_covers_train",
+      "passed": true,
+      "detail": {
+        "n_inner_train": 800,
+        "n_inner_dev": 200,
+        "n_union": 1000,
+        "n_official_train": 1000,
+        "n_overlap_train_dev": 0,
+        "n_validation_plots_in_split": 0,
+        "file": "reports/s3_2_probe_plot_split.csv"
+      }
+    },
+    {
+      "id": "D3_normalisation_from_training_rows_only",
+      "passed": true,
+      "detail": {
+        "n_checks": 60,
+        "n_failed": 0,
+        "checks": [
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 24931,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 31146,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 31146,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 24931,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 31146,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 31146,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 20121,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 25128,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 25128,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 20121,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 25128,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 25128,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 19742,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 24675,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 24675,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 19742,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 24675,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 24675,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 20316,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 25372,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 25372,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 20316,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 25372,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 25372,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 16936,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 21143,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 21143,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 16936,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 21143,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 21143,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 16994,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 21230,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 21230,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 16994,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 21230,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 21230,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 23973,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 29948,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 29948,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 23973,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 29948,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 29948,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 19093,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 23851,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 23851,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 19093,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 23851,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 23851,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 23012,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 28751,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 28751,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 23012,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 28751,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 28751,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "inner_train",
+            "n_rows": 13143,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 16423,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "rows": "all_official_train",
+            "n_rows": 16423,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "inner_train",
+            "n_rows": 13143,
+            "hash_matches": true,
+            "inner_dev_stats_differ": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 16423,
+            "protocol": "per_condition_epochs",
+            "hash_matches": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "rows": "all_official_train",
+            "n_rows": 16423,
+            "protocol": "shared_epochs",
+            "hash_matches": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D4_no_validation_early_stopping_in_final_readout",
+      "passed": true,
+      "detail": {
+        "n_checks": 40,
+        "checks": [
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 43,
+            "expected": 43,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 38,
+            "expected": 38,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 39,
+            "expected": 39,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 39,
+            "expected": 39,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 37,
+            "expected": 37,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 110,
+            "expected": 110,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 74,
+            "expected": 74,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span7",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 74,
+            "expected": 74,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 52,
+            "expected": 52,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 97,
+            "expected": 97,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 78,
+            "expected": 78,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "cc",
+            "scope": "span14",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 78,
+            "expected": 78,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 51,
+            "expected": 51,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 85,
+            "expected": 85,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 68,
+            "expected": 68,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 68,
+            "expected": 68,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 35,
+            "expected": 35,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 70,
+            "expected": 70,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 56,
+            "expected": 56,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span7",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 56,
+            "expected": 56,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 44,
+            "expected": 44,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 81,
+            "expected": 81,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 64,
+            "expected": 64,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "primary_lag7",
+            "trait": "ph",
+            "scope": "span14",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 64,
+            "expected": 64,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 66,
+            "expected": 66,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 62,
+            "expected": 62,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 64,
+            "expected": 64,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 64,
+            "expected": 64,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 54,
+            "expected": 54,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 76,
+            "expected": 76,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 68,
+            "expected": 68,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "strict_lag3",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 68,
+            "expected": 68,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 32,
+            "expected": 32,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 67,
+            "expected": 67,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 53,
+            "expected": 53,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "cc",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 53,
+            "expected": 53,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "A_current",
+            "epochs_used": 57,
+            "expected": 57,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "per_condition_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 110,
+            "expected": 110,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "A_current",
+            "epochs_used": 63,
+            "expected": 63,
+            "selection_flags_ok": true
+          },
+          {
+            "variant": "same_day_lag0",
+            "trait": "ph",
+            "scope": "overall",
+            "protocol": "shared_epochs",
+            "condition": "B_predicted",
+            "epochs_used": 63,
+            "expected": 63,
+            "selection_flags_ok": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D5_no_future_image_or_phenotype_in_model_input",
+      "passed": true,
+      "detail": {
+        "predictor_forward_parameters": [
+          "self",
+          "z_a",
+          "delta_days",
+          "return_components"
+        ],
+        "collect_pooled_features_model_calls": [
+          "z_hat = model(z_a, delta)"
+        ],
+        "probe_inputs": {
+          "probe_samples": "reports/s3_probe_samples.parquet",
+          "probe_samples_sha256": "6e5bac5e326a5fe8a8366e159764865125c8f28214a96cd4e09bcec5ef5a2c45",
+          "pooled_features": "reports/s3_probe_pooled.npz",
+          "pooled_features_sha256": "0c1444bfc4688450e91c8df02bcfc34bb3d7d4b87b5950002243ebfe588a7898",
+          "pooled_shape": [
+            64827,
+            768
+          ],
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "checkpoint_sha256": "c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414",
+          "pooling": "mean over the 256 patch tokens (identical for A and B)",
+          "architecture": "single linear layer (PooledReadout, 768 -> 1)"
+        },
+        "note": "B is the V0 prediction from z_a + delta_days; the probe never receives the future feature as an input, only the future label as a target."
+      }
+    },
+    {
+      "id": "D6_z_and_pair_order_unchanged_across_interventions",
+      "passed": true,
+      "detail": {
+        "max_abs_persist_deviation_by_condition": {
+          "A1_global_permutation": 0.0,
+          "A2_within_pair_type_permutation": 0.0,
+          "A3_pair_type_train_mean": 0.0,
+          "A4_within_pair_type_year_permutation": 0.0
+        },
+        "persistence_mse_real": 2.1951484940158084,
+        "pair_id_order_matches_index": true,
+        "note": "Each condition re-uses the same frozen index order and the same DataLoader; only the delta_days tensor passed to the predictor is replaced.  The persistence error depends only on z_a and z_b, so an exactly unchanged persistence column is the runtime evidence that z_a, z_b and pair_id were not touched."
+      }
+    },
+    {
+      "id": "D7_within_group_delta_frequency_preserved",
+      "passed": true,
+      "detail": {
+        "A2_groups_checked": 40,
+        "A4_groups_checked": 200,
+        "n_failed": 0,
+        "group_sizes_A2": {
+          "span14": {
+            "n_samples": 7358,
+            "permuted": true,
+            "n_changed": 5546,
+            "multiset_preserved": true
+          },
+          "span7": {
+            "n_samples": 7817,
+            "permuted": true,
+            "n_changed": 5617,
+            "multiset_preserved": true
+          }
+        },
+        "group_sizes_A4": {
+          "span14|2016": {
+            "n_samples": 2424,
+            "permuted": true,
+            "n_changed": 1833,
+            "multiset_preserved": true
+          },
+          "span14|2017": {
+            "n_samples": 1635,
+            "permuted": true,
+            "n_changed": 1240,
+            "multiset_preserved": true
+          },
+          "span14|2018": {
+            "n_samples": 2003,
+            "permuted": true,
+            "n_changed": 1513,
+            "multiset_preserved": true
+          },
+          "span14|2021": {
+            "n_samples": 553,
+            "permuted": true,
+            "n_changed": 313,
+            "multiset_preserved": true
+          },
+          "span14|2022": {
+            "n_samples": 743,
+            "permuted": true,
+            "n_changed": 516,
+            "multiset_preserved": true
+          },
+          "span7|2016": {
+            "n_samples": 2777,
+            "permuted": true,
+            "n_changed": 1943,
+            "multiset_preserved": true
+          },
+          "span7|2017": {
+            "n_samples": 1850,
+            "permuted": true,
+            "n_changed": 1381,
+            "multiset_preserved": true
+          },
+          "span7|2018": {
+            "n_samples": 1828,
+            "permuted": true,
+            "n_changed": 1236,
+            "multiset_preserved": true
+          },
+          "span7|2021": {
+            "n_samples": 578,
+            "permuted": true,
+            "n_changed": 316,
+            "multiset_preserved": true
+          },
+          "span7|2022": {
+            "n_samples": 784,
+            "permuted": true,
+            "n_changed": 536,
+            "multiset_preserved": true
+          }
+        }
+      }
+    },
+    {
+      "id": "D8_A3_means_from_train_only",
+      "passed": true,
+      "detail": {
+        "train_means_json": {
+          "span14": 13.887080849818993,
+          "span7": 6.801021116976938
+        },
+        "train_means_recomputed": {
+          "span14": 13.887080849818993,
+          "span7": 6.801021116976938
+        },
+        "validation_means_for_reference_only": {
+          "span14": 13.905952704539278,
+          "span7": 6.835998464884226
+        },
+        "a3_vector_uses_its_own_pair_type": true
+      }
+    },
+    {
+      "id": "D9_metrics_recomputable_from_per_sample_artifacts",
+      "passed": true,
+      "detail": {
+        "delta_aggregates": [
+          {
+            "item": "A0_mse",
+            "json": 1.1365577421510435,
+            "recomputed": 1.1365577421510435,
+            "ok": true
+          },
+          {
+            "item": "A1_global_permutation_mse_mean",
+            "json": 1.2668015795315708,
+            "recomputed": 1.2668015795315708,
+            "ok": true
+          },
+          {
+            "item": "A2_within_pair_type_permutation_mse_mean",
+            "json": 1.215076529071005,
+            "recomputed": 1.215076529071005,
+            "ok": true
+          },
+          {
+            "item": "A4_within_pair_type_year_permutation_mse_mean",
+            "json": 1.212186993419437,
+            "recomputed": 1.212186993419437,
+            "ok": true
+          },
+          {
+            "item": "A3_mse",
+            "json": 1.2003531428027585,
+            "recomputed": 1.2003531428027585,
+            "ok": true
+          }
+        ],
+        "probe_aggregates": [
+          {
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "A_current",
+            "reported": 0.08342959696822087,
+            "recomputed": 0.08342959696822087,
+            "ok": true
+          },
+          {
+            "trait": "cc",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "reported": 0.07100498902494586,
+            "recomputed": 0.07100498902494586,
+            "ok": true
+          },
+          {
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "A_current",
+            "reported": 0.08082803200005889,
+            "recomputed": 0.08082803200005889,
+            "ok": true
+          },
+          {
+            "trait": "cc",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "reported": 0.06865440952306828,
+            "recomputed": 0.06865440952306828,
+            "ok": true
+          },
+          {
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "A_current",
+            "reported": 0.08335694800824706,
+            "recomputed": 0.08335694800824706,
+            "ok": true
+          },
+          {
+            "trait": "cc",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "reported": 0.07014657562822713,
+            "recomputed": 0.07014657562822713,
+            "ok": true
+          },
+          {
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "A_current",
+            "reported": 0.06182618700096116,
+            "recomputed": 0.06182618700096116,
+            "ok": true
+          },
+          {
+            "trait": "ph",
+            "scope": "overall",
+            "condition": "B_predicted",
+            "reported": 0.055972381410948534,
+            "recomputed": 0.055972381410948534,
+            "ok": true
+          },
+          {
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "A_current",
+            "reported": 0.06040961753830768,
+            "recomputed": 0.06040961753830768,
+            "ok": true
+          },
+          {
+            "trait": "ph",
+            "scope": "span7",
+            "condition": "B_predicted",
+            "reported": 0.053686606265419455,
+            "recomputed": 0.053686606265419455,
+            "ok": true
+          },
+          {
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "A_current",
+            "reported": 0.06192249631329283,
+            "recomputed": 0.06192249631329283,
+            "ok": true
+          },
+          {
+            "trait": "ph",
+            "scope": "span14",
+            "condition": "B_predicted",
+            "reported": 0.056644835978949086,
+            "recomputed": 0.056644835978949086,
+            "ok": true
+          }
+        ],
+        "bootstrap_ci_ordering_ok": true
+      }
+    },
+    {
+      "id": "D10_original_artifacts_untouched",
+      "passed": true,
+      "detail": {
+        "checkpoint_sha256": "c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414",
+        "checkpoint_expected": "c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414",
+        "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+        "index_expected": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+        "protected_paths": [
+          "external_data/s3_runs/v0/checkpoints/best.pt",
+          "external_data/s3_index/fip1_s3_v0_index.parquet",
+          "reports/s3_training.json",
+          "reports/s3_v0_results.json",
+          "reports/s3_1_diagnostic_audit.json",
+          "reports/s3_1_probe_reproduction.json",
+          "reports/s3_training.md",
+          "reports/s3_v0_results.md",
+          "reports/s3_1_diagnostic_audit.md",
+          "reports/s3_1_provenance.md",
+          "data/manifests/s3_image_selection.json"
+        ],
+        "git_tracked_subset": [
+          "reports/s3_1_diagnostic_audit.json",
+          "reports/s3_1_diagnostic_audit.md",
+          "reports/s3_1_probe_reproduction.json",
+          "reports/s3_1_provenance.md",
+          "reports/s3_training.json",
+          "reports/s3_training.md",
+          "reports/s3_v0_results.json",
+          "reports/s3_v0_results.md"
+        ],
+        "git_status_porcelain_for_protected": [],
+        "file_sha256_now": {
+          "external_data/s3_runs/v0/checkpoints/best.pt": "c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414",
+          "external_data/s3_index/fip1_s3_v0_index.parquet": "4731fbb7635dd0a312357a5cd9abe38b236a4dde42c7c4f5347234751732d1e8",
+          "reports/s3_training.json": "ab26076f94bb2facfa65de22389e5cbf378c3ab21d1e55e4807f37a80906c422",
+          "reports/s3_v0_results.json": "6636cbdb3f479cbe11e92be621113e0696ec05411131991b82aa3349d66f2f79",
+          "reports/s3_1_diagnostic_audit.json": "9e82bc9f8166678277ea4b88d82849ae2e529806600602f327bb876fa5ac36a4",
+          "reports/s3_1_probe_reproduction.json": "741b81b1691ffed17a11c40aa42618cf9bb37f013df439254048d4d0c5eb5ccd",
+          "reports/s3_training.md": "8c7dd9c91d4e227576c2aaeb62e8559e30862a2a95aa3af884a236790f06b948",
+          "reports/s3_v0_results.md": "9cb592ae021aa0bd4bc2157b827171b48892b4b8a21eb62a2c6be8937c5d67ac",
+          "reports/s3_1_diagnostic_audit.md": "71933b714f61038692949c287b76f490ec6db377b9b451418e8da6dafb63f343",
+          "reports/s3_1_provenance.md": "d91541462758f80785d47c354f114947d72ed32e9cacc3d5eb3ae0e7bf2a2e1a",
+          "data/manifests/s3_image_selection.json": "b0bac953f33288ce513699e198d72ec720a55302cd5aac20028633fd4da3a63b"
+        }
+      }
+    }
+  ]
+}

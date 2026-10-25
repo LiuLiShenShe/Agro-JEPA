@@ -1,0 +1,1445 @@
+{
+  "stage": "S3.2",
+  "task": "A/B -- controlled delta_days interventions (no retraining)",
+  "generated_at": "2026-10-25T10:49:47+0800",
+  "command": "tools/s3_2_delta_diagnostics.py --config agro_jepa/config/s3_2_diagnostics.yaml",
+  "config": "agro_jepa/config/s3_2_diagnostics.yaml",
+  "config_sha256": "69bd28009afe77c08c93530de91009f24c2c40af7b73261e97d1c9041c3ac896",
+  "device": "cuda:0",
+  "frozen": {
+    "checkpoint": "external_data/s3_runs/v0/checkpoints/best.pt",
+    "checkpoint_sha256": "c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414",
+    "checkpoint_sha256_expected": "c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414",
+    "checkpoint_matches": true,
+    "index": "external_data/s3_index/fip1_s3_v0_index.parquet",
+    "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+    "index_sha256_expected": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+    "index_matches": true
+  },
+  "source_state": {
+    "head": "54bf2198453c4ebe95fef82d8931cc876e7a71e9",
+    "branch": "agro-s3-2",
+    "status_porcelain": [
+      "M CLAUDE.md",
+      "?? agro_jepa/config/s3_2_diagnostics.yaml",
+      "?? reports/s3_2_probe_plot_split.csv",
+      "?? reports/s3_run_logs/s3_2_delta_diagnostics.log",
+      "?? reports/s3_run_logs/s3_2_probe_eval.log",
+      "?? tools/s3_2_delta_diagnostics.py",
+      "?? tools/s3_2_probe_eval.py",
+      "?? tools/s3_2_verify.py",
+      "?? tools/s3_2_write_reports.py"
+    ],
+    "diff_stat_head": "CLAUDE.md | 4 +++-\n 1 file changed, 3 insertions(+), 1 deletion(-)",
+    "source_files": {
+      "agro_jepa/models/fip_dino_wm.py": {
+        "sha256_working_tree": "1301477d5d67645b7114a2fe2934f45ed0bbcad8490ca3b8b7b4ae361ab58294",
+        "git_blob_sha_head": "2449d20677798c906b8d305a923d42d640c0a5dd",
+        "git_blob_sha_working_tree": "2449d20677798c906b8d305a923d42d640c0a5dd",
+        "matches_head_blob": true
+      },
+      "agro_jepa/models/time_embedding.py": {
+        "sha256_working_tree": "296d4fbac2db630ca7cad1895c1559c68a4b16da1b6e653148b5c733e1bfef27",
+        "git_blob_sha_head": "7666776a8092c2694a6628e42905f942fe598809",
+        "git_blob_sha_working_tree": "7666776a8092c2694a6628e42905f942fe598809",
+        "matches_head_blob": true
+      },
+      "agro_jepa/datasets/s3_pairs.py": {
+        "sha256_working_tree": "d195a00355e1ae2c4bc03c76c3e29345dff06411612b40aa40d7a29c447268ab",
+        "git_blob_sha_head": "3fd89a6275463e095c68b3635fdaa56794c77a9a",
+        "git_blob_sha_working_tree": "3fd89a6275463e095c68b3635fdaa56794c77a9a",
+        "matches_head_blob": true
+      },
+      "agro_jepa/train/train_v0.py": {
+        "sha256_working_tree": "2fea723260d2f6e1b372939dcc6847c38222be189fbca0a4576b122a7670f0eb",
+        "git_blob_sha_head": "8102c6f21de102b0a1a8d5f02b89aa55c59a66e2",
+        "git_blob_sha_working_tree": "8102c6f21de102b0a1a8d5f02b89aa55c59a66e2",
+        "matches_head_blob": true
+      },
+      "agro_jepa/eval/eval_v0.py": {
+        "sha256_working_tree": "3cc063bb1d9f2c60301ebeb664fbcceaa63142d11864b2feab3a4a65b40108aa",
+        "git_blob_sha_head": "d05c657b54d7668e42be7e00aba6a968b742a206",
+        "git_blob_sha_working_tree": "d05c657b54d7668e42be7e00aba6a968b742a206",
+        "matches_head_blob": true
+      },
+      "agro_jepa/config/s3_v0.yaml": {
+        "sha256_working_tree": "36c0c9106e4486584cd89d24762b50d0466b47703295440091a85cb7bafec67f",
+        "git_blob_sha_head": "9613bbd5e4e7c13750c8ec8a7eeca8876e142c12",
+        "git_blob_sha_working_tree": "9613bbd5e4e7c13750c8ec8a7eeca8876e142c12",
+        "matches_head_blob": true
+      }
+    }
+  },
+  "scope": {
+    "split": "validation",
+    "n_samples": 15175,
+    "n_plots": 380,
+    "pair_types": [
+      "span14",
+      "span7"
+    ],
+    "delta_range": [
+      5,
+      16
+    ],
+    "delta_counts": {
+      "5.0": 1118,
+      "6.0": 1362,
+      "7.0": 3510,
+      "8.0": 1338,
+      "9.0": 489,
+      "12.0": 897,
+      "13.0": 1908,
+      "14.0": 2376,
+      "15.0": 1344,
+      "16.0": 833
+    }
+  },
+  "A0_real_delta": {
+    "n_samples": 15175,
+    "n_plots": 380,
+    "mse_real": 1.1365577421510435,
+    "mse_persist": 2.1951484940158084,
+    "cosine_real": 0.7828751693447497,
+    "cosine_persist": 0.6279487460056286,
+    "relative_improvement_vs_persistence": 0.4822410669485858,
+    "elapsed_seconds": 21.3,
+    "matches_s3_1_reference": {
+      "mse_real_diff": 4.3901226653986214e-08,
+      "abs_diff_lt_1e_4": true
+    },
+    "s3_parquet_parity": {
+      "n_matched": 15175,
+      "max_abs_diff_mse": 0.0,
+      "max_abs_diff_persist": 0.0
+    }
+  },
+  "conditions": {
+    "A1_global_permutation": {
+      "n_seeds": 20,
+      "mse_real": 1.1365577421510435,
+      "mse_condition_per_seed": [
+        1.2655724633545224,
+        1.2683373277662613,
+        1.2679601797711908,
+        1.2678028353513564,
+        1.26671615724705,
+        1.2664879675712775,
+        1.2677084230983866,
+        1.2641995467149838,
+        1.267361786931115,
+        1.2666737089793412,
+        1.2669843978504765,
+        1.2657943390778694,
+        1.2667731272290528,
+        1.266129315410061,
+        1.2653221056960167,
+        1.2647339831898987,
+        1.2685065357099845,
+        1.2679643514639463,
+        1.266841543278545,
+        1.2681614949400775
+      ],
+      "mse_condition_mean": 1.2668015795315708,
+      "mse_condition_std": 0.0012208123414919779,
+      "mse_condition_min": 1.2641995467149838,
+      "mse_condition_max": 1.2685065357099845,
+      "relative_increase_mean": 0.1145950025680422,
+      "relative_increase_min": 0.11230560474856825,
+      "relative_increase_max": 0.1160951077674376,
+      "per_sample_worse_fraction": 0.7132553542009885,
+      "paired_diff": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.1302424143648989,
+        "std": 0.0013182975862802218,
+        "ci95_low": 0.12767549290854951,
+        "ci95_high": 0.1328438934871439,
+        "min": 0.1258270533208945,
+        "max": 0.1355334380893507
+      },
+      "relative_increase_bootstrap": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.11460789464985519,
+        "std": 0.0012424741056361504,
+        "ci95_low": 0.11225117459592246,
+        "ci95_high": 0.11693282500916549,
+        "min": 0.11017134641536386,
+        "max": 0.11932059074018904
+      },
+      "by_span": {
+        "span14": {
+          "n_samples": 7358,
+          "mse_real": 1.1661758118509824,
+          "mse_condition_mean": 1.3013347992781357,
+          "mse_condition_std": 0.0015939500642602542,
+          "relative_increase_mean": 0.11589932328696276,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.13515756981536364,
+            "std": 0.0015168142620320014,
+            "ci95_low": 0.13230269320021154,
+            "ci95_high": 0.13811093546844783,
+            "min": 0.12970684683419176,
+            "max": 0.1404365308644513
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.11590889827542361,
+            "std": 0.0013817736472857792,
+            "ci95_low": 0.11322854849124052,
+            "ci95_high": 0.11863641419002373,
+            "min": 0.1110930987397518,
+            "max": 0.12110016580288745
+          }
+        },
+        "span7": {
+          "n_samples": 7817,
+          "mse_real": 1.1086787915495147,
+          "mse_condition_mean": 1.2342960875403688,
+          "mse_condition_std": 0.0015666776315137261,
+          "relative_increase_mean": 0.11330359789356893,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.12561467396641238,
+            "std": 0.0016783958521230011,
+            "ci95_low": 0.12240611724160987,
+            "ci95_high": 0.1288483059187935,
+            "min": 0.12014769913012713,
+            "max": 0.1322084835792645
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.11331911131588,
+            "std": 0.001589847010257948,
+            "ci95_low": 0.11015730200760263,
+            "ci95_high": 0.11640107716899743,
+            "min": 0.10730805572018719,
+            "max": 0.1194143994402365
+          }
+        }
+      },
+      "by_year": {
+        "2017": {
+          "n_samples": 3485,
+          "mse_real": 1.1335015539630413,
+          "mse_condition_mean": 1.2967371119941493,
+          "mse_condition_std": 0.0032992515379053023,
+          "relative_increase_mean": 0.14400999933382572
+        },
+        "2018": {
+          "n_samples": 3831,
+          "mse_real": 1.1549790455074604,
+          "mse_condition_mean": 1.2711694025901552,
+          "mse_condition_std": 0.0019265484135397191,
+          "relative_increase_mean": 0.10059953687873573
+        },
+        "2021": {
+          "n_samples": 1131,
+          "mse_real": 1.2107899927334065,
+          "mse_condition_mean": 1.3421927809926075,
+          "mse_condition_std": 0.0038801120828701923,
+          "relative_increase_mean": 0.10852649018229332
+        },
+        "2022": {
+          "n_samples": 1527,
+          "mse_real": 1.1293652642764682,
+          "mse_condition_mean": 1.2491827484120246,
+          "mse_condition_std": 0.003406395325588965,
+          "relative_increase_mean": 0.10609276549010728
+        },
+        "2016": {
+          "n_samples": 5201,
+          "mse_real": 1.1110059330725162,
+          "mse_condition_mean": 1.2323039916633893,
+          "mse_condition_std": 0.0017730561164990522,
+          "relative_increase_mean": 0.10917858760251639
+        }
+      },
+      "by_delta": {
+        "12": {
+          "n_samples": 897,
+          "mse_real": 1.1698246651402817,
+          "mse_condition_mean": 1.2861103621048806,
+          "mse_condition_std": 0.007088361211957545,
+          "relative_increase_mean": 0.09940438121182398
+        },
+        "13": {
+          "n_samples": 1908,
+          "mse_real": 1.119718313873189,
+          "mse_condition_mean": 1.2304616365964431,
+          "mse_condition_std": 0.0033265068057573626,
+          "relative_increase_mean": 0.09890284132281874
+        },
+        "14": {
+          "n_samples": 2376,
+          "mse_real": 1.2091122031312198,
+          "mse_condition_mean": 1.351651582638623,
+          "mse_condition_std": 0.0022733162670361073,
+          "relative_increase_mean": 0.11788763618320215
+        },
+        "15": {
+          "n_samples": 1344,
+          "mse_real": 1.121360029271316,
+          "mse_condition_mean": 1.2939854508487598,
+          "mse_condition_std": 0.003868264486433766,
+          "relative_increase_mean": 0.153942905999262
+        },
+        "16": {
+          "n_samples": 833,
+          "mse_real": 1.218496857284784,
+          "mse_condition_mean": 1.3484022201252441,
+          "mse_condition_std": 0.0037079223363060145,
+          "relative_increase_mean": 0.10661115953136915
+        },
+        "5": {
+          "n_samples": 1118,
+          "mse_real": 1.0929136355682434,
+          "mse_condition_mean": 1.304689472756467,
+          "mse_condition_std": 0.004867795689854176,
+          "relative_increase_mean": 0.19377179522342966
+        },
+        "6": {
+          "n_samples": 1362,
+          "mse_real": 1.113104686950622,
+          "mse_condition_mean": 1.2392272165036937,
+          "mse_condition_std": 0.0032408889862645582,
+          "relative_increase_mean": 0.1133069791472961
+        },
+        "7": {
+          "n_samples": 3510,
+          "mse_real": 1.110357984993872,
+          "mse_condition_mean": 1.2149646571066302,
+          "mse_condition_std": 0.001906502845710803,
+          "relative_increase_mean": 0.09420986161803971
+        },
+        "8": {
+          "n_samples": 1338,
+          "mse_real": 1.1047082632913718,
+          "mse_condition_mean": 1.2108439860255729,
+          "mse_condition_std": 0.0037555137413448386,
+          "relative_increase_mean": 0.09607579327593682
+        },
+        "9": {
+          "n_samples": 489,
+          "mse_real": 1.131206343022836,
+          "mse_condition_mean": 1.2625501372940946,
+          "mse_condition_std": 0.004002704438748925,
+          "relative_increase_mean": 0.11610949238516341
+        }
+      },
+      "description": "one permutation of the real delta_days over the whole validation set",
+      "method": "numpy.random.default_rng(seed).permutation(n)",
+      "seeds": [
+        10000,
+        10001,
+        10002,
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011,
+        10012,
+        10013,
+        10014,
+        10015,
+        10016,
+        10017,
+        10018,
+        10019
+      ],
+      "n_changed_per_seed": [
+        13231,
+        13257,
+        13224,
+        13174,
+        13214,
+        13191,
+        13186,
+        13084,
+        13262,
+        13198,
+        13170,
+        13142,
+        13181,
+        13188,
+        13162,
+        13218,
+        13200,
+        13137,
+        13107,
+        13273
+      ],
+      "elapsed_seconds": 407.9
+    },
+    "A2_within_pair_type_permutation": {
+      "n_seeds": 20,
+      "mse_real": 1.1365577421510435,
+      "mse_condition_per_seed": [
+        1.217298264024285,
+        1.2141840408897087,
+        1.214921088737161,
+        1.215708321279906,
+        1.2155358498728845,
+        1.215484952141072,
+        1.2144406178362877,
+        1.2139531312664416,
+        1.216458062182934,
+        1.2148502906857448,
+        1.2157253365029612,
+        1.2142772334568583,
+        1.2144058455941704,
+        1.2153250691603985,
+        1.2147723944143958,
+        1.2144636225936047,
+        1.215257522282137,
+        1.21535424541995,
+        1.2145743152101507,
+        1.2145403778690482
+      ],
+      "mse_condition_mean": 1.215076529071005,
+      "mse_condition_std": 0.0008223554044929425,
+      "mse_condition_min": 1.2139531312664416,
+      "mse_condition_max": 1.217298264024285,
+      "relative_increase_mean": 0.06908473191283464,
+      "relative_increase_min": 0.06809631068010664,
+      "relative_increase_max": 0.07103952476750758,
+      "per_sample_worse_fraction": 0.5701449752883032,
+      "paired_diff": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.07851512110659381,
+        "std": 0.0011642944402606525,
+        "ci95_low": 0.07624143499628312,
+        "ci95_high": 0.08084925033791326,
+        "min": 0.07452078664615547,
+        "max": 0.08337939628690783
+      },
+      "relative_increase_bootstrap": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.06909020187698821,
+        "std": 0.0010701508770953484,
+        "ci95_low": 0.06705267794151534,
+        "ci95_high": 0.07127252993337177,
+        "min": 0.06560861608061319,
+        "max": 0.07340534528427846
+      },
+      "by_span": {
+        "span14": {
+          "n_samples": 7358,
+          "mse_real": 1.1661758118509824,
+          "mse_condition_mean": 1.2438184213463332,
+          "mse_condition_std": 0.001101970038895521,
+          "relative_increase_mean": 0.06657882002552824,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.07765566142829496,
+            "std": 0.0010568533277455232,
+            "ci95_low": 0.07555021227874856,
+            "ci95_high": 0.07983430097587156,
+            "min": 0.07348508043131918,
+            "max": 0.08166024671178773
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.06659631557538102,
+            "std": 0.0009523668558044201,
+            "ci95_low": 0.06469376650428227,
+            "ci95_high": 0.06847895278364687,
+            "min": 0.06293950932822409,
+            "max": 0.07041664555105732
+          }
+        },
+        "span7": {
+          "n_samples": 7817,
+          "mse_real": 1.1086787915495147,
+          "mse_condition_mean": 1.1880223083518207,
+          "mse_condition_std": 0.0014168820725684991,
+          "relative_increase_mean": 0.07156582899129305,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.07932264902792054,
+            "std": 0.0017838929083924075,
+            "ci95_low": 0.07592580980186658,
+            "ci95_high": 0.08297276141232864,
+            "min": 0.07370693234272063,
+            "max": 0.08671143579634943
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.07155844078138592,
+            "std": 0.0016446024626676529,
+            "ci95_low": 0.06843776664996921,
+            "ci95_high": 0.0748956120385207,
+            "min": 0.06634670913612623,
+            "max": 0.07832572584858105
+          }
+        }
+      },
+      "by_year": {
+        "2017": {
+          "n_samples": 3485,
+          "mse_real": 1.1335015539630413,
+          "mse_condition_mean": 1.2400048737401086,
+          "mse_condition_std": 0.0026636511811949128,
+          "relative_increase_mean": 0.09395957103428895
+        },
+        "2018": {
+          "n_samples": 3831,
+          "mse_real": 1.1549790455074604,
+          "mse_condition_mean": 1.211885841900672,
+          "mse_condition_std": 0.0010060921083447187,
+          "relative_increase_mean": 0.04927084747949561
+        },
+        "2021": {
+          "n_samples": 1131,
+          "mse_real": 1.2107899927334065,
+          "mse_condition_mean": 1.2919472863461252,
+          "mse_condition_std": 0.003195102523084917,
+          "relative_increase_mean": 0.06702838155236393
+        },
+        "2022": {
+          "n_samples": 1527,
+          "mse_real": 1.1293652642764682,
+          "mse_condition_mean": 1.1964733774648744,
+          "mse_condition_std": 0.0019263262791923853,
+          "relative_increase_mean": 0.059421088385783846
+        },
+        "2016": {
+          "n_samples": 5201,
+          "mse_real": 1.1110059330725162,
+          "mse_condition_mean": 1.1894688435109437,
+          "mse_condition_std": 0.0015532080973625019,
+          "relative_increase_mean": 0.07062330461317728
+        }
+      },
+      "by_delta": {
+        "12": {
+          "n_samples": 897,
+          "mse_real": 1.1698246651402817,
+          "mse_condition_mean": 1.2442228763298844,
+          "mse_condition_std": 0.0024643018120237307,
+          "relative_increase_mean": 0.06359774537723656
+        },
+        "13": {
+          "n_samples": 1908,
+          "mse_real": 1.119718313873189,
+          "mse_condition_mean": 1.200045574051904,
+          "mse_condition_std": 0.0018234592803733232,
+          "relative_increase_mean": 0.07173881072004358
+        },
+        "14": {
+          "n_samples": 2376,
+          "mse_real": 1.2091122031312198,
+          "mse_condition_mean": 1.2770198778497046,
+          "mse_condition_std": 0.002803196356273427,
+          "relative_increase_mean": 0.056163253122932105
+        },
+        "15": {
+          "n_samples": 1344,
+          "mse_real": 1.121360029271316,
+          "mse_condition_mean": 1.2112234101475525,
+          "mse_condition_std": 0.0017833657187595455,
+          "relative_increase_mean": 0.0801378491568241
+        },
+        "16": {
+          "n_samples": 833,
+          "mse_real": 1.218496857284784,
+          "mse_condition_mean": 1.3015337045596285,
+          "mse_condition_std": 0.002690309019221802,
+          "relative_increase_mean": 0.06814695235232537
+        },
+        "5": {
+          "n_samples": 1118,
+          "mse_real": 1.0929136355682434,
+          "mse_condition_mean": 1.2405109209190115,
+          "mse_condition_std": 0.004917626048355918,
+          "relative_increase_mean": 0.13504935847380767
+        },
+        "6": {
+          "n_samples": 1362,
+          "mse_real": 1.113104686950622,
+          "mse_condition_mean": 1.192646482573732,
+          "mse_condition_std": 0.002944657807276184,
+          "relative_increase_mean": 0.07145940229666686
+        },
+        "7": {
+          "n_samples": 3510,
+          "mse_real": 1.110357984993872,
+          "mse_condition_mean": 1.1654696084155658,
+          "mse_condition_std": 0.0020872374188273574,
+          "relative_increase_mean": 0.04963410374537712
+        },
+        "8": {
+          "n_samples": 1338,
+          "mse_real": 1.1047082632913718,
+          "mse_condition_mean": 1.1807553904183954,
+          "mse_condition_std": 0.003225144994012312,
+          "relative_increase_mean": 0.06883910409110951
+        },
+        "9": {
+          "n_samples": 489,
+          "mse_real": 1.131206343022836,
+          "mse_condition_mean": 1.2369031239567603,
+          "mse_condition_std": 0.0057269864172717405,
+          "relative_increase_mean": 0.09343722441608557
+        }
+      },
+      "description": "permutation restricted to each pair_type; span7/span14 kept separate, the short/long class of every sample is preserved",
+      "seeds": [
+        10000,
+        10001,
+        10002,
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011,
+        10012,
+        10013,
+        10014,
+        10015,
+        10016,
+        10017,
+        10018,
+        10019
+      ],
+      "rng": "numpy.random.default_rng([within_group_seed_base + seed, 1, group_ordinal]); one independent stream per group per seed",
+      "groups": {
+        "span14": {
+          "n_samples": 7358,
+          "permuted": true,
+          "n_changed": 5546,
+          "multiset_preserved": true
+        },
+        "span7": {
+          "n_samples": 7817,
+          "permuted": true,
+          "n_changed": 5617,
+          "multiset_preserved": true
+        }
+      },
+      "multiset_preserved_all_seeds": true,
+      "elapsed_seconds": 382.5
+    },
+    "A3_pair_type_train_mean": {
+      "n_seeds": 1,
+      "mse_real": 1.1365577421510435,
+      "mse_condition_per_seed": [
+        1.2003531428027585
+      ],
+      "mse_condition_mean": 1.2003531428027585,
+      "mse_condition_std": 0.0,
+      "mse_condition_min": 1.2003531428027585,
+      "mse_condition_max": 1.2003531428027585,
+      "relative_increase_mean": 0.05613036477229578,
+      "relative_increase_min": 0.05613036477229578,
+      "relative_increase_max": 0.05613036477229578,
+      "per_sample_worse_fraction": 0.6823064250411862,
+      "paired_diff": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.06380608522993365,
+        "std": 0.0012502285896054527,
+        "ci95_low": 0.06138258949119353,
+        "ci95_high": 0.06632421797472561,
+        "min": 0.059637278223882095,
+        "max": 0.06843811875931283
+      },
+      "relative_increase_bootstrap": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.0561468782526931,
+        "std": 0.0011308597944734062,
+        "ci95_low": 0.05400902302682905,
+        "ci95_high": 0.05843632271783102,
+        "min": 0.05250507230502043,
+        "max": 0.06069620553924465
+      },
+      "by_span": {
+        "span14": {
+          "n_samples": 7358,
+          "mse_real": 1.1661758118509824,
+          "mse_condition_mean": 1.2289159571097317,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.0537999027429377,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.06277323582080971,
+            "std": 0.001389477169123389,
+            "ci95_low": 0.0600114299717935,
+            "ci95_high": 0.0654419438092213,
+            "min": 0.05810946280998519,
+            "max": 0.06782889759984023
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.053833456799594843,
+            "std": 0.0012186499601840584,
+            "ci95_low": 0.0514021666872416,
+            "ci95_high": 0.05624370132342927,
+            "min": 0.04963459109683702,
+            "max": 0.05824743366300288
+          }
+        },
+        "span7": {
+          "n_samples": 7817,
+          "mse_real": 1.1086787915495147,
+          "mse_condition_mean": 1.1734674849198483,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.05843774938617118,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.06477653289204344,
+            "std": 0.0019467311787510452,
+            "ci95_low": 0.061066289537562254,
+            "ci95_high": 0.06858875773668502,
+            "min": 0.05785736931573893,
+            "max": 0.07205558947619806
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.058436145936151304,
+            "std": 0.0017788846738261213,
+            "ci95_low": 0.05505788640518884,
+            "ci95_high": 0.06195530089157588,
+            "min": 0.05207985099045943,
+            "max": 0.06503949749893861
+          }
+        }
+      },
+      "by_year": {
+        "2017": {
+          "n_samples": 3485,
+          "mse_real": 1.1335015539630413,
+          "mse_condition_mean": 1.2255862463495482,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.08123914084153902
+        },
+        "2018": {
+          "n_samples": 3831,
+          "mse_real": 1.1549790455074604,
+          "mse_condition_mean": 1.1999916525460883,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.03897266120429984
+        },
+        "2021": {
+          "n_samples": 1131,
+          "mse_real": 1.2107899927334065,
+          "mse_condition_mean": 1.2707648439601287,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.04953365289328712
+        },
+        "2022": {
+          "n_samples": 1527,
+          "mse_real": 1.1293652642764682,
+          "mse_condition_mean": 1.1714139412490854,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.03723213233369258
+        },
+        "2016": {
+          "n_samples": 5201,
+          "mse_real": 1.1110059330725162,
+          "mse_condition_mean": 1.1768965056322556,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.05930712933054938
+        }
+      },
+      "by_delta": {
+        "12": {
+          "n_samples": 897,
+          "mse_real": 1.1698246651402817,
+          "mse_condition_mean": 1.2533179178019962,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.07137245020534956
+        },
+        "13": {
+          "n_samples": 1908,
+          "mse_real": 1.119718313873189,
+          "mse_condition_mean": 1.215306160616175,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.08536776219399374
+        },
+        "14": {
+          "n_samples": 2376,
+          "mse_real": 1.2091122031312198,
+          "mse_condition_mean": 1.209667503482565,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.0004592628789182331
+        },
+        "15": {
+          "n_samples": 1344,
+          "mse_real": 1.121360029271316,
+          "mse_condition_mean": 1.2090240894772468,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.07817655161375502
+        },
+        "16": {
+          "n_samples": 833,
+          "mse_real": 1.218496857284784,
+          "mse_condition_mean": 1.3208102294806243,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.08396687409094221
+        },
+        "5": {
+          "n_samples": 1118,
+          "mse_real": 1.0929136355682434,
+          "mse_condition_mean": 1.2822049375830056,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.17319877422550697
+        },
+        "6": {
+          "n_samples": 1362,
+          "mse_real": 1.113104686950622,
+          "mse_condition_mean": 1.1939200109059591,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.0726035249898486
+        },
+        "7": {
+          "n_samples": 3510,
+          "mse_real": 1.110357984993872,
+          "mse_condition_mean": 1.1119636731100218,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.0014460994902995691
+        },
+        "8": {
+          "n_samples": 1338,
+          "mse_real": 1.1047082632913718,
+          "mse_condition_mean": 1.1970398574399306,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.08358007015668159
+        },
+        "9": {
+          "n_samples": 489,
+          "mse_real": 1.131206343022836,
+          "mse_condition_mean": 1.2448657109937298,
+          "mse_condition_std": 0.0,
+          "relative_increase_mean": 0.10047624703656673
+        }
+      },
+      "description": "each sample receives the train-split mean delta_days of its own pair_type",
+      "train_means": {
+        "span14": 13.887080849818993,
+        "span7": 6.801021116976938
+      },
+      "validation_means_for_reference_only": {
+        "span14": 13.905952704539278,
+        "span7": 6.835998464884226
+      },
+      "rule": "means fitted on the official train split only; validation never re-estimates them",
+      "n_distinct_values_used": 2,
+      "elapsed_seconds": 19.9
+    },
+    "A4_within_pair_type_year_permutation": {
+      "n_seeds": 20,
+      "mse_real": 1.1365577421510435,
+      "mse_condition_per_seed": [
+        1.2127975147285022,
+        1.212312206137907,
+        1.211674268724891,
+        1.2124456590286392,
+        1.2117902287148565,
+        1.2112923633207795,
+        1.2120478139127893,
+        1.213273361542276,
+        1.2115767409538318,
+        1.2103407525584176,
+        1.2129682677188856,
+        1.2134644903264682,
+        1.2126702524566964,
+        1.2118711698585523,
+        1.2128724842487881,
+        1.2113525055542809,
+        1.211924398597422,
+        1.211535240806504,
+        1.2125154369981128,
+        1.2130147122001333
+      ],
+      "mse_condition_mean": 1.212186993419437,
+      "mse_condition_std": 0.0007842275688263911,
+      "mse_condition_min": 1.2103407525584176,
+      "mse_condition_max": 1.2134644903264682,
+      "relative_increase_mean": 0.06654237480733496,
+      "relative_increase_min": 0.06491796032090076,
+      "relative_increase_max": 0.0676663800907038,
+      "per_sample_worse_fraction": 0.5462438220757826,
+      "paired_diff": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.07563687698562072,
+        "std": 0.0011725104482611468,
+        "ci95_low": 0.07336918480588765,
+        "ci95_high": 0.07799943647866629,
+        "min": 0.071763828695812,
+        "max": 0.08040290826335661
+      },
+      "relative_increase_bootstrap": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.06655750673598439,
+        "std": 0.0010767141691733388,
+        "ci95_low": 0.06450328487616493,
+        "ci95_high": 0.06871986323254943,
+        "min": 0.06305931239364877,
+        "max": 0.07091227936039785
+      },
+      "by_span": {
+        "span14": {
+          "n_samples": 7358,
+          "mse_real": 1.1661758118509824,
+          "mse_condition_mean": 1.2387982835678766,
+          "mse_condition_std": 0.0009341560544364459,
+          "relative_increase_mean": 0.06227403362244843,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.07265035236132841,
+            "std": 0.0010458633660682484,
+            "ci95_low": 0.07062820962885755,
+            "ci95_high": 0.07468735745806476,
+            "min": 0.06877308671238591,
+            "max": 0.07616586379384715
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.06230386101745764,
+            "std": 0.0009391759334367102,
+            "ci95_low": 0.06047601591396428,
+            "ci95_high": 0.0640902619883238,
+            "min": 0.0588095679355384,
+            "max": 0.06552724137750704
+          }
+        },
+        "span7": {
+          "n_samples": 7817,
+          "mse_real": 1.1086787915495147,
+          "mse_condition_mean": 1.1871382697515052,
+          "mse_condition_std": 0.0011396992319804235,
+          "relative_increase_mean": 0.07076844871573106,
+          "paired_diff": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.07844692472048533,
+            "std": 0.0017488560811370563,
+            "ci95_low": 0.0750629825000833,
+            "ci95_high": 0.08197425667245434,
+            "min": 0.07288309527647052,
+            "max": 0.08538217996176378
+          },
+          "relative_increase": {
+            "n_resamples": 2000,
+            "n_plots": 380,
+            "mean": 0.07076846776279495,
+            "std": 0.0016144600429362458,
+            "ci95_low": 0.06767612297068477,
+            "ci95_high": 0.07402947212360515,
+            "min": 0.06554970626934271,
+            "max": 0.07774950975517986
+          }
+        }
+      },
+      "by_year": {
+        "2017": {
+          "n_samples": 3485,
+          "mse_real": 1.1335015539630413,
+          "mse_condition_mean": 1.2396854963210255,
+          "mse_condition_std": 0.0020777498140460452,
+          "relative_increase_mean": 0.09367780925110795
+        },
+        "2018": {
+          "n_samples": 3831,
+          "mse_real": 1.1549790455074604,
+          "mse_condition_mean": 1.2114266951458785,
+          "mse_condition_std": 0.001358275484335938,
+          "relative_increase_mean": 0.04887331060938583
+        },
+        "2021": {
+          "n_samples": 1131,
+          "mse_real": 1.2107899927334065,
+          "mse_condition_mean": 1.2847228260508268,
+          "mse_condition_std": 0.0037830531969176035,
+          "relative_increase_mean": 0.06106164880873683
+        },
+        "2022": {
+          "n_samples": 1527,
+          "mse_real": 1.1293652642764682,
+          "mse_condition_mean": 1.1891049013859163,
+          "mse_condition_std": 0.0015515702033429015,
+          "relative_increase_mean": 0.052896648231624585
+        },
+        "2016": {
+          "n_samples": 5201,
+          "mse_real": 1.1110059330725162,
+          "mse_condition_mean": 1.1853246107820685,
+          "mse_condition_std": 0.001474397130493601,
+          "relative_increase_mean": 0.06689314205912664
+        }
+      },
+      "by_delta": {
+        "12": {
+          "n_samples": 897,
+          "mse_real": 1.1698246651402817,
+          "mse_condition_mean": 1.2377332151866411,
+          "mse_condition_std": 0.002736877217362799,
+          "relative_increase_mean": 0.05805019510185832
+        },
+        "13": {
+          "n_samples": 1908,
+          "mse_real": 1.119718313873189,
+          "mse_condition_mean": 1.1942860997541644,
+          "mse_condition_std": 0.0025525197885842613,
+          "relative_increase_mean": 0.06659512929018722
+        },
+        "14": {
+          "n_samples": 2376,
+          "mse_real": 1.2091122031312198,
+          "mse_condition_mean": 1.2731475400490693,
+          "mse_condition_std": 0.002181028489173127,
+          "relative_increase_mean": 0.05296062412737056
+        },
+        "15": {
+          "n_samples": 1344,
+          "mse_real": 1.121360029271316,
+          "mse_condition_mean": 1.211581147076296,
+          "mse_condition_std": 0.0027095817932220904,
+          "relative_increase_mean": 0.08045686973844407
+        },
+        "16": {
+          "n_samples": 833,
+          "mse_real": 1.218496857284784,
+          "mse_condition_mean": 1.2878386330275404,
+          "mse_condition_std": 0.0032830301494568715,
+          "relative_increase_mean": 0.056907636099507775
+        },
+        "5": {
+          "n_samples": 1118,
+          "mse_real": 1.0929136355682434,
+          "mse_condition_mean": 1.2336644675362731,
+          "mse_condition_std": 0.004827992590059855,
+          "relative_increase_mean": 0.12878495371214627
+        },
+        "6": {
+          "n_samples": 1362,
+          "mse_real": 1.113104686950622,
+          "mse_condition_mean": 1.19436515584785,
+          "mse_condition_std": 0.003019928763363586,
+          "relative_increase_mean": 0.07300343790649477
+        },
+        "7": {
+          "n_samples": 3510,
+          "mse_real": 1.110357984993872,
+          "mse_condition_mean": 1.1660120033581034,
+          "mse_condition_std": 0.001911062959624415,
+          "relative_increase_mean": 0.05012259029644254
+        },
+        "8": {
+          "n_samples": 1338,
+          "mse_real": 1.1047082632913718,
+          "mse_condition_mean": 1.1798695385099705,
+          "mse_condition_std": 0.002688008355116878,
+          "relative_increase_mean": 0.06803721644541956
+        },
+        "9": {
+          "n_samples": 489,
+          "mse_real": 1.131206343022836,
+          "mse_condition_mean": 1.2321678187401017,
+          "mse_condition_std": 0.005225599126432963,
+          "relative_increase_mean": 0.08925115770432655
+        }
+      },
+      "description": "permutation inside each (pair_type, harvest_year) stratum",
+      "seeds": [
+        10000,
+        10001,
+        10002,
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011,
+        10012,
+        10013,
+        10014,
+        10015,
+        10016,
+        10017,
+        10018,
+        10019
+      ],
+      "rng": "numpy.random.default_rng([within_group_seed_base + seed, 2, group_ordinal])",
+      "groups": {
+        "span14|2016": {
+          "n_samples": 2424,
+          "permuted": true,
+          "n_changed": 1833,
+          "multiset_preserved": true
+        },
+        "span14|2017": {
+          "n_samples": 1635,
+          "permuted": true,
+          "n_changed": 1240,
+          "multiset_preserved": true
+        },
+        "span14|2018": {
+          "n_samples": 2003,
+          "permuted": true,
+          "n_changed": 1513,
+          "multiset_preserved": true
+        },
+        "span14|2021": {
+          "n_samples": 553,
+          "permuted": true,
+          "n_changed": 313,
+          "multiset_preserved": true
+        },
+        "span14|2022": {
+          "n_samples": 743,
+          "permuted": true,
+          "n_changed": 516,
+          "multiset_preserved": true
+        },
+        "span7|2016": {
+          "n_samples": 2777,
+          "permuted": true,
+          "n_changed": 1943,
+          "multiset_preserved": true
+        },
+        "span7|2017": {
+          "n_samples": 1850,
+          "permuted": true,
+          "n_changed": 1381,
+          "multiset_preserved": true
+        },
+        "span7|2018": {
+          "n_samples": 1828,
+          "permuted": true,
+          "n_changed": 1236,
+          "multiset_preserved": true
+        },
+        "span7|2021": {
+          "n_samples": 578,
+          "permuted": true,
+          "n_changed": 316,
+          "multiset_preserved": true
+        },
+        "span7|2022": {
+          "n_samples": 784,
+          "permuted": true,
+          "n_changed": 536,
+          "multiset_preserved": true
+        }
+      },
+      "multiset_preserved_all_seeds": true,
+      "elapsed_seconds": 464.4
+    }
+  },
+  "A5_by_real_delta": {
+    "5": {
+      "n_samples": 1118,
+      "n_plots": 318,
+      "mse_real": 1.0929136355682434,
+      "mse_persist": 1.9606474399673277,
+      "cosine_real": 0.788639840638275,
+      "cosine_persist": 0.6619473504092485,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.3046894727564669,
+          "relative_increase": 0.19377179522342944
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.2405109209190115,
+          "relative_increase": 0.13504935847380767
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.2822049375830056,
+          "relative_increase": 0.17319877422550697
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.233664467536273,
+          "relative_increase": 0.12878495371214607
+        }
+      }
+    },
+    "6": {
+      "n_samples": 1362,
+      "n_plots": 340,
+      "mse_real": 1.113104686950622,
+      "mse_persist": 1.997541752024369,
+      "cosine_real": 0.7893724226654013,
+      "cosine_persist": 0.6629761705577111,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2392272165036937,
+          "relative_increase": 0.1133069791472961
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.192646482573732,
+          "relative_increase": 0.07145940229666686
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.1939200109059591,
+          "relative_increase": 0.0726035249898486
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.1943651558478499,
+          "relative_increase": 0.07300343790649458
+        }
+      }
+    },
+    "7": {
+      "n_samples": 3510,
+      "n_plots": 380,
+      "mse_real": 1.110357984993872,
+      "mse_persist": 2.1040608562295593,
+      "cosine_real": 0.7879329631471227,
+      "cosine_persist": 0.6420560013789397,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2149646571066304,
+          "relative_increase": 0.0942098616180399
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.1654696084155656,
+          "relative_increase": 0.04963410374537692
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.1119636731100218,
+          "relative_increase": 0.0014460994902995691
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.1660120033581032,
+          "relative_increase": 0.05012259029644234
+        }
+      }
+    },
+    "8": {
+      "n_samples": 1338,
+      "n_plots": 380,
+      "mse_real": 1.1047082632913718,
+      "mse_persist": 2.057097016517713,
+      "cosine_real": 0.793158546602423,
+      "cosine_persist": 0.6556214468138813,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2108439860255729,
+          "relative_increase": 0.09607579327593682
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.1807553904183956,
+          "relative_increase": 0.0688391040911097
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.1970398574399306,
+          "relative_increase": 0.08358007015668159
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.1798695385099705,
+          "relative_increase": 0.06803721644541956
+        }
+      }
+    },
+    "9": {
+      "n_samples": 489,
+      "n_plots": 321,
+      "mse_real": 1.131206343022836,
+      "mse_persist": 2.0752920560797787,
+      "cosine_real": 0.785737513033159,
+      "cosine_persist": 0.6519190354581259,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2625501372940946,
+          "relative_increase": 0.11610949238516341
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.2369031239567603,
+          "relative_increase": 0.09343722441608557
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.2448657109937298,
+          "relative_increase": 0.10047624703656673
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.2321678187401017,
+          "relative_increase": 0.08925115770432655
+        }
+      }
+    },
+    "12": {
+      "n_samples": 897,
+      "n_plots": 312,
+      "mse_real": 1.1698246651402817,
+      "mse_persist": 2.4231547674074885,
+      "cosine_real": 0.7715653042197892,
+      "cosine_persist": 0.5827137320203791,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2861103621048806,
+          "relative_increase": 0.09940438121182398
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.2442228763298844,
+          "relative_increase": 0.06359774537723656
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.2533179178019962,
+          "relative_increase": 0.07137245020534956
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.2377332151866411,
+          "relative_increase": 0.05805019510185832
+        }
+      }
+    },
+    "13": {
+      "n_samples": 1908,
+      "n_plots": 380,
+      "mse_real": 1.119718313873189,
+      "mse_persist": 2.1704781956392765,
+      "cosine_real": 0.7868349774578582,
+      "cosine_persist": 0.6330181386641986,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2304616365964434,
+          "relative_increase": 0.09890284132281893
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.200045574051904,
+          "relative_increase": 0.07173881072004358
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.215306160616175,
+          "relative_increase": 0.08536776219399374
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.1942860997541644,
+          "relative_increase": 0.06659512929018722
+        }
+      }
+    },
+    "14": {
+      "n_samples": 2376,
+      "n_plots": 380,
+      "mse_real": 1.2091122031312198,
+      "mse_persist": 2.4143362564320117,
+      "cosine_real": 0.7667565928514959,
+      "cosine_persist": 0.5903423296331557,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.3516515826386233,
+          "relative_increase": 0.11788763618320233
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.2770198778497048,
+          "relative_increase": 0.05616325312293229
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.209667503482565,
+          "relative_increase": 0.0004592628789182331
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.2731475400490693,
+          "relative_increase": 0.05296062412737056
+        }
+      }
+    },
+    "15": {
+      "n_samples": 1344,
+      "n_plots": 380,
+      "mse_real": 1.121360029271316,
+      "mse_persist": 2.3754242503394685,
+      "cosine_real": 0.7878757420306405,
+      "cosine_persist": 0.6014671628806918,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.2939854508487596,
+          "relative_increase": 0.1539429059992618
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.2112234101475527,
+          "relative_increase": 0.0801378491568243
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.2090240894772468,
+          "relative_increase": 0.07817655161375502
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.211581147076296,
+          "relative_increase": 0.08045686973844407
+        }
+      }
+    },
+    "16": {
+      "n_samples": 833,
+      "n_plots": 251,
+      "mse_real": 1.218496857284784,
+      "mse_persist": 2.4038176497920793,
+      "cosine_real": 0.7660213165065678,
+      "cosine_persist": 0.5941740711267685,
+      "diagnostics": {
+        "A1_global_permutation": {
+          "mse_mean_over_seeds": 1.3484022201252441,
+          "relative_increase": 0.10661115953136915
+        },
+        "A2_within_pair_type_permutation": {
+          "mse_mean_over_seeds": 1.3015337045596285,
+          "relative_increase": 0.06814695235232537
+        },
+        "A3_pair_type_train_mean": {
+          "mse_mean_over_seeds": 1.3208102294806243,
+          "relative_increase": 0.08396687409094221
+        },
+        "A4_within_pair_type_year_permutation": {
+          "mse_mean_over_seeds": 1.2878386330275404,
+          "relative_increase": 0.056907636099507775
+        }
+      }
+    }
+  },
+  "A5_note": "Groups are reported separately.  Sample counts differ substantially between interval values, so no unweighted average across delta groups is taken.",
+  "invariants": {
+    "persistence_mse_real": 2.1951484940158084,
+    "max_abs_persist_deviation_by_condition": {
+      "A1_global_permutation": 0.0,
+      "A2_within_pair_type_permutation": 0.0,
+      "A3_pair_type_train_mean": 0.0,
+      "A4_within_pair_type_year_permutation": 0.0
+    },
+    "z_and_pair_order_unchanged": true,
+    "note": "Each condition re-uses the same frozen index order and the same DataLoader; only the delta_days tensor passed to the predictor is replaced.  The persistence error depends only on z_a and z_b, so an exactly unchanged persistence column is the runtime evidence that z_a, z_b and pair_id were not touched."
+  },
+  "artifacts": {
+    "per_sample_mse": "reports/s3_2_delta_interventions.parquet",
+    "permuted_deltas": "reports/s3_2_permuted_deltas.parquet",
+    "n_rows_per_sample_mse": 15175,
+    "n_rows_permuted_deltas": 15175
+  },
+  "elapsed_seconds": 1327.2,
+  "git_head": "54bf2198453c4ebe95fef82d8931cc876e7a71e9"
+}

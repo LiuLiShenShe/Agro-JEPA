@@ -1,0 +1,33 @@
+S3.2 command transcript (2026-10-25, branch agro-s3-2)
+
+Every command below was executed on this machine (GPU 1 only); each log next to
+a command is the actual captured stdout/stderr of that run.
+
+1. CUDA_VISIBLE_DEVICES=1 python3 tools/s3_2_delta_diagnostics.py \
+       --config agro_jepa/config/s3_2_diagnostics.yaml
+   log: reports/s3_run_logs/s3_2_delta_diagnostics.log
+   wall clock: 1327 s
+
+2. CUDA_VISIBLE_DEVICES=1 python3 tools/s3_2_probe_eval.py \
+       --config agro_jepa/config/s3_2_diagnostics.yaml
+   log: reports/s3_run_logs/s3_2_probe_eval.log
+   wall clock: 2305 s
+
+3. python3 tools/s3_2_verify.py --config agro_jepa/config/s3_2_diagnostics.yaml
+   log: reports/s3_run_logs/s3_2_verify.log
+   result: 10/10 checks passed
+
+4. python3 tools/s3_2_write_reports.py
+   log: reports/s3_run_logs/s3_2_write_reports.log
+   writes reports/s3_2_*.md from reports/s3_2_*.json
+
+Environment: .venv-s0/bin/python (torch 2.10.0+cu128), CUDA_VISIBLE_DEVICES=1
+(NVIDIA RTX A6000); the config maps cuda:0 to that device.  V0 was not
+retrained; the frozen S3 checkpoint and index were verified by SHA256 before any
+experiment ran.
+
+Note on an aborted first attempt (kept for honesty): the first delta-diagnostics
+launch completed all forward passes but crashed in the reporting stage on a
+stale function signature (grouped_summary).  The bug was fixed, the whole
+pipeline was re-run from scratch, and every number in the reports comes from the
+second, complete run.

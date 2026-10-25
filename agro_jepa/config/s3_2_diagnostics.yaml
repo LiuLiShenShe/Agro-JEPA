@@ -1,0 +1,87 @@
+# Agro-JEPA S3.2 configuration: time-conditioning diagnostics + corrected E2 probe.
+#
+# Nothing here retrains V0.  The frozen V0 checkpoint is used read-only; the
+# delta experiments only replace the model's *input* interval at inference.
+# The probe protocol trains only the small linear readout, with model selection
+# confined to the official train split.
+#
+# Paths are relative to the repository root.
+
+stage: S3.2
+manifest_id: fip1-s3-v0-v1
+
+frozen:
+  # Abort if either identifier does not match the S3/S3.1 record.
+  checkpoint: external_data/s3_runs/v0/checkpoints/best.pt
+  checkpoint_sha256: c337fca506e6a7e31fb90fca1f9197033992c2f8054287d76ec69b4c37426414
+  config: agro_jepa/config/s3_v0.yaml
+  index: external_data/s3_index/fip1_s3_v0_index.parquet
+  index_sha256: f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933
+
+delta_diagnostics:
+  # Frozen input to every intervention pass.
+  eval_batch_size: 256
+  device: cuda:0
+  # S3.1 used seeds 10000..10019 for the global permutation; reuse them so the
+  # A1 condition is a literal reproduction of the S3.1 number.
+  seed_base: 10000
+  n_seeds: 20
+  # Independent RNG streams for the within-group permutations.
+  within_group_seed_base: 20000
+  delta_values: [5, 6, 7, 8, 9, 12, 13, 14, 15, 16]
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20261024
+  # S3.1 reference values, recomputed and compared (never copied into results).
+  reference_s3_1:
+    mse_real: 1.136557698249817
+    mse_global_permutation_mean: 1.2668015837669373
+    mse_constant_train_mean: 1.2665350437164307
+    relative_increase_global: 0.11459504934741345
+    relative_increase_constant: 0.11436053365468979
+
+probe:
+  device: cuda:0
+  # Official train split is split by plot, stratified by harvest_year.
+  plot_split_seed: 20261025
+  inner_train_fraction: 0.8
+  strata: harvest_year
+  # Candidate training budget.  The cosine schedule is anchored to this budget
+  # in *both* the inner selection runs and the final refits, so stopping a final
+  # refit at the selected epoch reproduces the same optimisation trajectory.
+  candidate_epochs: 150
+  patience: 20
+  batch_size: 256
+  lr: 1.0e-3
+  weight_decay: 0.01
+  seeds: [0, 1, 2]
+  # Primary label mask (|lag| <= 7 d, the S1/S2 primary mask) and sensitivities.
+  lag_variants:
+    primary: 7
+    strict_lag3: 3
+    same_day: 0
+  # Scope in which the time-sensitivity variants are evaluated.
+  sensitivity_scopes: [overall]
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20261024
+  # Reference values from the S3/S3.1 probe protocol (validation early stopping).
+  reference_s3_1:
+    cc:
+      overall:
+        A_current: {mae: 0.08206, rmse: 0.10750, r2: 0.79780}
+        B_predicted: {mae: 0.06923, rmse: 0.09390, r2: 0.84580}
+      span7:
+        A_current: {mae: 0.07945, rmse: 0.10370, r2: 0.81650}
+        B_predicted: {mae: 0.06877, rmse: 0.09320, r2: 0.85170}
+      span14:
+        A_current: {mae: 0.08215, rmse: 0.10670, r2: 0.81080}
+        B_predicted: {mae: 0.06972, rmse: 0.09540, r2: 0.84870}
+    ph:
+      overall:
+        A_current: {mae: 0.06030, rmse: 0.08160, r2: 0.94700}
+        B_predicted: {mae: 0.05576, rmse: 0.07600, r2: 0.95410}
+      span7:
+        A_current: {mae: 0.05908, rmse: 0.07950, r2: 0.94770}
+        B_predicted: {mae: 0.05303, rmse: 0.07290, r2: 0.95600}
+      span14:
+        A_current: {mae: 0.06097, rmse: 0.08190, r2: 0.94620}
+        B_predicted: {mae: 0.05617, rmse: 0.07680, r2: 0.95260}

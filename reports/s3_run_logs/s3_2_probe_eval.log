@@ -1,0 +1,81 @@
+[primary_lag7|cc|overall] {'lag_max_abs_days': 7, 'n_train': 31146, 'n_train_plots': 1000, 'n_inner_train': 24931, 'n_inner_train_plots': 800, 'n_inner_dev': 6215, 'n_inner_dev_plots': 200, 'n_val': 8496, 'n_val_plots': 380}
+[primary_lag7|cc|span7] {'lag_max_abs_days': 7, 'n_train': 25128, 'n_train_plots': 1000, 'n_inner_train': 20121, 'n_inner_train_plots': 800, 'n_inner_dev': 5007, 'n_inner_dev_plots': 200, 'n_val': 6542, 'n_val_plots': 380}
+[primary_lag7|cc|span14] {'lag_max_abs_days': 7, 'n_train': 24675, 'n_train_plots': 1000, 'n_inner_train': 19742, 'n_inner_train_plots': 800, 'n_inner_dev': 4933, 'n_inner_dev_plots': 200, 'n_val': 6322, 'n_val_plots': 380}
+[primary_lag7|ph|overall] {'lag_max_abs_days': 7, 'n_train': 25372, 'n_train_plots': 1000, 'n_inner_train': 20316, 'n_inner_train_plots': 800, 'n_inner_dev': 5056, 'n_inner_dev_plots': 200, 'n_val': 6302, 'n_val_plots': 380}
+[primary_lag7|ph|span7] {'lag_max_abs_days': 7, 'n_train': 21143, 'n_train_plots': 1000, 'n_inner_train': 16936, 'n_inner_train_plots': 800, 'n_inner_dev': 4207, 'n_inner_dev_plots': 200, 'n_val': 5046, 'n_val_plots': 380}
+[primary_lag7|ph|span14] {'lag_max_abs_days': 7, 'n_train': 21230, 'n_train_plots': 1000, 'n_inner_train': 16994, 'n_inner_train_plots': 800, 'n_inner_dev': 4236, 'n_inner_dev_plots': 200, 'n_val': 4972, 'n_val_plots': 380}
+[strict_lag3|cc|overall] {'lag_max_abs_days': 3, 'n_train': 29948, 'n_train_plots': 1000, 'n_inner_train': 23973, 'n_inner_train_plots': 800, 'n_inner_dev': 5975, 'n_inner_dev_plots': 200, 'n_val': 8112, 'n_val_plots': 380}
+[strict_lag3|ph|overall] {'lag_max_abs_days': 3, 'n_train': 23851, 'n_train_plots': 1000, 'n_inner_train': 19093, 'n_inner_train_plots': 800, 'n_inner_dev': 4758, 'n_inner_dev_plots': 200, 'n_val': 5401, 'n_val_plots': 380}
+[same_day_lag0|cc|overall] {'lag_max_abs_days': 0, 'n_train': 28751, 'n_train_plots': 1000, 'n_inner_train': 23012, 'n_inner_train_plots': 800, 'n_inner_dev': 5739, 'n_inner_dev_plots': 200, 'n_val': 7890, 'n_val_plots': 380}
+[same_day_lag0|ph|overall] {'lag_max_abs_days': 0, 'n_train': 16423, 'n_train_plots': 999, 'n_inner_train': 13143, 'n_inner_train_plots': 800, 'n_inner_dev': 3280, 'n_inner_dev_plots': 199, 'n_val': 2908, 'n_val_plots': 374}
+{
+  "primary_lag7": {
+    "cc": {
+      "overall": {
+        "A": 43,
+        "B": 38,
+        "shared": 39
+      },
+      "span7": {
+        "A": 37,
+        "B": 110,
+        "shared": 74
+      },
+      "span14": {
+        "A": 52,
+        "B": 97,
+        "shared": 78
+      }
+    },
+    "ph": {
+      "overall": {
+        "A": 51,
+        "B": 85,
+        "shared": 68
+      },
+      "span7": {
+        "A": 35,
+        "B": 70,
+        "shared": 56
+      },
+      "span14": {
+        "A": 44,
+        "B": 81,
+        "shared": 64
+      }
+    }
+  },
+  "strict_lag3": {
+    "cc": {
+      "overall": {
+        "A": 66,
+        "B": 62,
+        "shared": 64
+      }
+    },
+    "ph": {
+      "overall": {
+        "A": 54,
+        "B": 76,
+        "shared": 68
+      }
+    }
+  },
+  "same_day_lag0": {
+    "cc": {
+      "overall": {
+        "A": 32,
+        "B": 67,
+        "shared": 53
+      }
+    },
+    "ph": {
+      "overall": {
+        "A": 57,
+        "B": 110,
+        "shared": 63
+      }
+    }
+  }
+}
+wrote reports/s3_2_probe_results.json, reports/s3_2_probe_protocol.json, reports/s3_2_probe_val_predictions.parquet

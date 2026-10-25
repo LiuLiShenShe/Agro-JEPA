@@ -1,0 +1,40 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{
+  "A0_mse_real": 1.1365577421510435,
+  "conditions": {
+    "A1_global_permutation": {
+      "mse_mean": 1.2668015795315708,
+      "relative_increase_mean": 0.1145950025680422,
+      "ci95": [
+        0.11225117459592246,
+        0.11693282500916549
+      ]
+    },
+    "A2_within_pair_type_permutation": {
+      "mse_mean": 1.215076529071005,
+      "relative_increase_mean": 0.06908473191283464,
+      "ci95": [
+        0.06705267794151534,
+        0.07127252993337177
+      ]
+    },
+    "A3_pair_type_train_mean": {
+      "mse_mean": 1.2003531428027585,
+      "relative_increase_mean": 0.05613036477229578,
+      "ci95": [
+        0.05400902302682905,
+        0.05843632271783102
+      ]
+    },
+    "A4_within_pair_type_year_permutation": {
+      "mse_mean": 1.212186993419437,
+      "relative_increase_mean": 0.06654237480733496,
+      "ci95": [
+        0.06450328487616493,
+        0.06871986323254943
+      ]
+    }
+  }
+}
+wrote reports/s3_2_delta_diagnostics.json, reports/s3_2_delta_interventions.parquet, reports/s3_2_permuted_deltas.parquet

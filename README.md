@@ -61,6 +61,10 @@ Agro-JEPA/
 │   ├── s3_write_reports.py      # reports from the run artifacts
 │   ├── s3_1_diagnostics.py      # S3.1 provenance + global Δt shuffle + bootstrap
 │   ├── s3_1_probe_predictions.py  # per-sample probe predictions for bootstrap
+│   ├── s3_2_delta_diagnostics.py  # S3.2 A0–A5 controlled Δt interventions
+│   ├── s3_2_probe_eval.py        # S3.2 corrected E2 probe protocol (C1–C6)
+│   ├── s3_2_verify.py            # S3.2 leakage/integrity checks (D1–D10)
+│   ├── s3_2_write_reports.py    # S3.2 reports
 │   └── s3_1_write_reports.py    # S3.1 reports
 ├── patches/
 │   └── 0001-...patch            # the only upstream edit (torch.hub ':main' ref)
@@ -184,6 +188,21 @@ The irregular-interval expansion uses `agro_jepa/config/s3_v0_consecutive.yaml`:
 span7 + span14 + true consecutive pairs, 103,368 pairs (81,751 train / 21,617
 validation), realised `delta_days` 1–84.
 
+### Reproduce the S3.2 diagnostics (frozen V0, no retraining)
+
+```bash
+# 1) A0–A5 controlled Δt interventions + plot-level bootstrap (~22 min)
+CUDA_VISIBLE_DEVICES=1 python3 tools/s3_2_delta_diagnostics.py \
+    --config agro_jepa/config/s3_2_diagnostics.yaml
+# 2) corrected E2 probe protocol: inner split, selection, refit, bootstrap (~38 min)
+CUDA_VISIBLE_DEVICES=1 python3 tools/s3_2_probe_eval.py \
+    --config agro_jepa/config/s3_2_diagnostics.yaml
+# 3) leakage / integrity checks (10 checks, all recomputed from the artifacts)
+python3 tools/s3_2_verify.py --config agro_jepa/config/s3_2_diagnostics.yaml
+# 4) markdown reports from the JSON artifacts
+python3 tools/s3_2_write_reports.py
+```
+
 ## What S3 established
 
 - Real imagery: 49,058 PNGs / 53.35 GB / 1,380 plots / 5 harvest years, 0 failed
@@ -217,6 +236,31 @@ validation), realised `delta_days` 1–84.
   committed `c1fdb88` code reproduces the stored predictions exactly
   (max per-sample diff 0.0). See `reports/s3_1_diagnostic_audit.md` and
   `reports/s3_1_provenance.md`.
+
+### S3.2 controlled time diagnostics + corrected E2 protocol (no retraining)
+
+- **Same-pair_type permutation** (span7/span14 kept separate, 20 seeds) raises
+  MSE by **+6.91% [6.71, 7.13]**, versus **+5.61%** for the per-pair_type train
+  mean and **+6.65%** for the pair_type × harvest_year permutation. The global
+  permutation remains **+11.46%**. So roughly **6 points of the global 11.5
+  points** survive when the short/long class is preserved: the model does use
+  within-span interval information, but most of the time-channel effect comes
+  from the coarse span/growth level, and the precise interval is a modest
+  refinement.
+- Per-interval breakdown: the model is most sensitive at Δt=5 (A2 +13.5%,
+  A3 +17.3%) and least at Δt=7 (A3 +0.1%), i.e. the sensitivity is not uniform
+  across the realised interval.
+- **E2 protocol fixed**: the S3 `fit_probe` selected its best epoch on official
+  validation. S3.2 selects on an inner 200-plot dev set carved from the official
+  train plots (80/20 by plot, stratified by year), then refits on all 1,000
+  train plots and evaluates once on validation. B still beats A everywhere:
+  overall CC ΔR² **+0.047 [+0.037, +0.049]**, PH ΔR² **+0.010 [+0.0066, +0.010]**;
+  the shared-epoch control gives the same ordering. Absolute R² drops slightly
+  (CC A 0.7978 → 0.7930, B 0.8458 → 0.8400), consistent with removing
+  selection bias.
+- 10/10 leakage/integrity checks pass (`tools/s3_2_verify.py`).
+- Reports: `reports/s3_2_delta_diagnostics.md`, `reports/s3_2_probe_protocol.md`,
+  `reports/s3_2_probe_results.md`, `reports/s3_2_verify.json`.
 
 ## Next stage entry point (S4)
 
