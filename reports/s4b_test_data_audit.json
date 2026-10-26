@@ -1,0 +1,534 @@
+{
+  "stage": "S4B",
+  "task": "official FIP 1.0 split audit and test pair preparation",
+  "generated_at": "2026-10-26T12:22:19+0800",
+  "command": "tools/s4b_prepare_test_data.py --config agro_jepa/config/s4a1_matched_control.yaml",
+  "config": "agro_jepa/config/s4a1_matched_control.yaml",
+  "config_sha256": "166c466539ce81b159798c1dc2781511ca3ed38456b930536ba0a47e763da0b2",
+  "inputs": {
+    "plots": "data/manifests/fip1_plots.csv",
+    "plots_sha256": "67a73d2affe72cfac6d909323e07fe5bbf85f42dcc201e98f2f23862b9eab59f",
+    "observations": "data/manifests/fip1_observations.csv.gz",
+    "observations_sha256": "82b68b64d799636e8d1bce3d9571b581128d4fe94e90e56a8873f119de9f0a60",
+    "s2_pairs": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+    "s2_pairs_sha256": "08e80a057b22273d55b6f64c64090f56a119f61988cfe14ad392f9ec39ae923e",
+    "images_root": "external_data/fip1_images",
+    "feature_index": "external_data/s3_features/index.parquet",
+    "feature_index_sha256": "158b31dafad13f09cce46ca32abb695e51bb6aff30e6d55878443ae01fd12963",
+    "weather_daily": "data/manifests/weather_daily_first_plot_per_year.csv",
+    "weather_daily_sha256": "19aa4ee2f476ba13d34793899b74797d99080b813fbaee7c3c851e6236a4b52e"
+  },
+  "dedupe": {
+    "n_observation_rows_in_manifest": 153022,
+    "n_duplicate_rows_removed": 1872,
+    "n_unique_plot_image_pairs": 151150,
+    "n_plots": 4058,
+    "n_plots_with_duplicates": 1362
+  },
+  "official_split_definitions": {
+    "source_url": "https://doi.org/10.1093/gigascience/giaf051",
+    "quote": "Test (P): Unseen plots with seen genotypes and seen environments (all years except 2019); Test (G): Unseen genotypes with seen environments; Test (E): Unseen environment (2019) with seen genotypes; Test (G and E): Unseen genotypes and unseen environment (2019). Splitting uses the R package STPGA with the D-opt algorithm.",
+    "column_mapping": {
+      "test_plot": "Test (P)",
+      "test_genotype": "Test (G)",
+      "test_environment": "Test (E)",
+      "test_genotype_environment": "Test (G and E)"
+    }
+  },
+  "pair_rule": {
+    "pair_types": [
+      "span7",
+      "span14"
+    ],
+    "span_tolerance_days": 2,
+    "min_delta_days": 1,
+    "max_delta_days": 16,
+    "dedupe_physical_pairs": true,
+    "note": "same rule as the frozen S3/S4A index; a pair's two images always belong to one plot and the split is inherited from that plot"
+  },
+  "splits": {
+    "train": {
+      "role": "official training split",
+      "paper_label": null,
+      "n_plots": 2930,
+      "n_images": 117578,
+      "n_image_dates": 213,
+      "n_inner_plot_images": 117578,
+      "image_date_range": [
+        "2015-11-09",
+        "2022-07-18"
+      ],
+      "harvest_years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "yearsites": [
+        "FPWW012",
+        "FPWW018",
+        "FPWW022",
+        "FPWW032",
+        "FPWW033"
+      ],
+      "n_yearsites": 5,
+      "genotypes": 849,
+      "genotypes_seen_in_train": 849,
+      "genotypes_unseen_in_train": 0,
+      "yearsites_seen_in_train": 5,
+      "yearsites_unseen_in_train": 0,
+      "sowing_dates": [
+        "2015-10-13",
+        "2016-11-01",
+        "2017-10-17",
+        "2020-10-21",
+        "2021-10-25"
+      ],
+      "harvest_dates": [
+        "2016-07-27",
+        "2017-07-18",
+        "2018-07-13",
+        "2021-07-29",
+        "2022-07-19"
+      ],
+      "weather_years_available": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "weather_years_missing": [],
+      "env_records_per_plot": 8784,
+      "n_images_with_cached_feature": 37670
+    },
+    "validation": {
+      "role": "official model-selection split",
+      "paper_label": null,
+      "n_plots": 380,
+      "n_images": 11388,
+      "n_image_dates": 212,
+      "n_inner_plot_images": 11388,
+      "image_date_range": [
+        "2015-11-09",
+        "2022-07-18"
+      ],
+      "harvest_years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "yearsites": [
+        "FPWW012",
+        "FPWW018",
+        "FPWW022",
+        "FPWW032",
+        "FPWW033"
+      ],
+      "n_yearsites": 5,
+      "genotypes": 183,
+      "genotypes_seen_in_train": 162,
+      "genotypes_unseen_in_train": 21,
+      "yearsites_seen_in_train": 5,
+      "yearsites_unseen_in_train": 0,
+      "sowing_dates": [
+        "2015-10-13",
+        "2016-11-01",
+        "2017-10-17",
+        "2020-10-21",
+        "2021-10-25"
+      ],
+      "harvest_dates": [
+        "2016-07-27",
+        "2017-07-18",
+        "2018-07-13",
+        "2021-07-29",
+        "2022-07-19"
+      ],
+      "weather_years_available": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "weather_years_missing": [],
+      "env_records_per_plot": 8784,
+      "n_images_with_cached_feature": 11388
+    },
+    "test_plot": {
+      "role": "official test",
+      "paper_label": "Test (P)",
+      "n_plots": 250,
+      "n_images": 7381,
+      "n_image_dates": 212,
+      "n_inner_plot_images": 7381,
+      "image_date_range": [
+        "2015-11-09",
+        "2022-07-18"
+      ],
+      "harvest_years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "yearsites": [
+        "FPWW012",
+        "FPWW018",
+        "FPWW022",
+        "FPWW032",
+        "FPWW033"
+      ],
+      "n_yearsites": 5,
+      "genotypes": 164,
+      "genotypes_seen_in_train": 164,
+      "genotypes_unseen_in_train": 0,
+      "yearsites_seen_in_train": 5,
+      "yearsites_unseen_in_train": 0,
+      "sowing_dates": [
+        "2015-10-13",
+        "2016-11-01",
+        "2017-10-17",
+        "2020-10-21",
+        "2021-10-25"
+      ],
+      "harvest_dates": [
+        "2016-07-27",
+        "2017-07-18",
+        "2018-07-13",
+        "2021-07-29",
+        "2022-07-19"
+      ],
+      "weather_years_available": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "weather_years_missing": [],
+      "env_records_per_plot": 8784,
+      "n_images_with_cached_feature": 0,
+      "pairs": {
+        "n_pairs": 9851,
+        "n_plots_with_pairs": 250,
+        "by_pair_type": {
+          "span7": 5067,
+          "span14": 4784
+        },
+        "n_unique_images": 7050,
+        "delta_days": {
+          "min": 5,
+          "max": 16,
+          "median": 9.0
+        },
+        "n_feature_ready": 0,
+        "n_weather_interval_ready": 9851,
+        "n_weather_past_ready": 9851,
+        "n_weather_year_missing": 0,
+        "index_file": "external_data/s4b_index/test_plot_test_pairs.parquet",
+        "index_sha256": "76ef410784562e0b744ceef0e3af2c8345cee4902202e878ff8586f7853bafb8",
+        "index_bytes": 718480
+      }
+    },
+    "test_genotype": {
+      "role": "official test",
+      "paper_label": "Test (G)",
+      "n_plots": 246,
+      "n_images": 8441,
+      "n_image_dates": 212,
+      "n_inner_plot_images": 8441,
+      "image_date_range": [
+        "2015-11-09",
+        "2022-07-18"
+      ],
+      "harvest_years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "yearsites": [
+        "FPWW012",
+        "FPWW018",
+        "FPWW022",
+        "FPWW032",
+        "FPWW033"
+      ],
+      "n_yearsites": 5,
+      "genotypes": 30,
+      "genotypes_seen_in_train": 0,
+      "genotypes_unseen_in_train": 30,
+      "yearsites_seen_in_train": 5,
+      "yearsites_unseen_in_train": 0,
+      "sowing_dates": [
+        "2015-10-13",
+        "2016-11-01",
+        "2017-10-17",
+        "2020-10-21",
+        "2021-10-25"
+      ],
+      "harvest_dates": [
+        "2016-07-27",
+        "2017-07-18",
+        "2018-07-13",
+        "2021-07-29",
+        "2022-07-19"
+      ],
+      "weather_years_available": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "weather_years_missing": [],
+      "env_records_per_plot": 8784,
+      "n_images_with_cached_feature": 0,
+      "pairs": {
+        "n_pairs": 12059,
+        "n_plots_with_pairs": 246,
+        "by_pair_type": {
+          "span7": 6191,
+          "span14": 5868
+        },
+        "n_unique_images": 8149,
+        "delta_days": {
+          "min": 5,
+          "max": 16,
+          "median": 9.0
+        },
+        "n_feature_ready": 0,
+        "n_weather_interval_ready": 12059,
+        "n_weather_past_ready": 12059,
+        "n_weather_year_missing": 0,
+        "index_file": "external_data/s4b_index/test_genotype_test_pairs.parquet",
+        "index_sha256": "f260423ff94f95bf9d43e77ae0bb94284a5c78871ea3a0d5b3c84576dda6cf5e",
+        "index_bytes": 854631
+      }
+    },
+    "test_environment": {
+      "role": "official test",
+      "paper_label": "Test (E)",
+      "n_plots": 190,
+      "n_images": 4701,
+      "n_image_dates": 32,
+      "n_inner_plot_images": 4701,
+      "image_date_range": [
+        "2018-10-31",
+        "2019-07-18"
+      ],
+      "harvest_years": [
+        2019
+      ],
+      "yearsites": [
+        "FPWW024",
+        "FPWW028"
+      ],
+      "n_yearsites": 2,
+      "genotypes": 48,
+      "genotypes_seen_in_train": 43,
+      "genotypes_unseen_in_train": 5,
+      "yearsites_seen_in_train": 0,
+      "yearsites_unseen_in_train": 2,
+      "sowing_dates": [
+        "2018-10-17"
+      ],
+      "harvest_dates": [
+        "2019-07-23"
+      ],
+      "weather_years_available": [
+        2019
+      ],
+      "weather_years_missing": [],
+      "env_records_per_plot": 8760,
+      "n_images_with_cached_feature": 0,
+      "pairs": {
+        "n_pairs": 6300,
+        "n_plots_with_pairs": 190,
+        "by_pair_type": {
+          "span7": 3356,
+          "span14": 2944
+        },
+        "n_unique_images": 4281,
+        "delta_days": {
+          "min": 5,
+          "max": 16,
+          "median": 8.0
+        },
+        "n_feature_ready": 0,
+        "n_weather_interval_ready": 6300,
+        "n_weather_past_ready": 6300,
+        "n_weather_year_missing": 0,
+        "index_file": "external_data/s4b_index/test_environment_test_pairs.parquet",
+        "index_sha256": "66dcd5c4f531dab0d1f82559cf68661df491e2b926362a5e4d44b7e75bbf11b2",
+        "index_bytes": 393697
+      }
+    },
+    "test_genotype_environment": {
+      "role": "official test",
+      "paper_label": "Test (G and E)",
+      "n_plots": 62,
+      "n_images": 1661,
+      "n_image_dates": 31,
+      "n_inner_plot_images": 1661,
+      "image_date_range": [
+        "2018-10-31",
+        "2019-07-18"
+      ],
+      "harvest_years": [
+        2019
+      ],
+      "yearsites": [
+        "FPWW024",
+        "FPWW028"
+      ],
+      "n_yearsites": 2,
+      "genotypes": 30,
+      "genotypes_seen_in_train": 0,
+      "genotypes_unseen_in_train": 30,
+      "yearsites_seen_in_train": 0,
+      "yearsites_unseen_in_train": 2,
+      "sowing_dates": [
+        "2018-10-17"
+      ],
+      "harvest_dates": [
+        "2019-07-23"
+      ],
+      "weather_years_available": [
+        2019
+      ],
+      "weather_years_missing": [],
+      "env_records_per_plot": 8760,
+      "n_images_with_cached_feature": 0,
+      "pairs": {
+        "n_pairs": 2147,
+        "n_plots_with_pairs": 62,
+        "by_pair_type": {
+          "span7": 1135,
+          "span14": 1012
+        },
+        "n_unique_images": 1479,
+        "delta_days": {
+          "min": 5,
+          "max": 16,
+          "median": 8.0
+        },
+        "n_feature_ready": 0,
+        "n_weather_interval_ready": 2147,
+        "n_weather_past_ready": 2147,
+        "n_weather_year_missing": 0,
+        "index_file": "external_data/s4b_index/test_genotype_environment_test_pairs.parquet",
+        "index_sha256": "0df8e0cfa59768a1a7c31f62a032e23908da34595c4732382f6eccae9ad97373",
+        "index_bytes": 136065
+      }
+    }
+  },
+  "verification": {
+    "n_checks": 4,
+    "n_pass": 4,
+    "all_pass": true,
+    "checks": [
+      {
+        "id": "T1_pairs_inherit_official_split",
+        "pass": true,
+        "detail": "every test pair's plot keeps its official split attribution"
+      },
+      {
+        "id": "T2_both_images_same_plot",
+        "pass": true,
+        "detail": "image stems are prefixed with their own plot_uid"
+      },
+      {
+        "id": "T3_test_pair_sets_disjoint",
+        "pass": true,
+        "detail": "no pair_id appears in two official test splits"
+      },
+      {
+        "id": "T4_no_overlap_with_s3_index",
+        "pass": true,
+        "detail": "0 test pair_ids also occur in the frozen S3 index"
+      }
+    ]
+  },
+  "weather": {
+    "channels": [
+      "T_mean_C",
+      "T_max_C",
+      "T_min_C",
+      "RH_mean_pct",
+      "Rs_sum_MJ_m2_d"
+    ],
+    "units": {
+      "T_mean_C": "degC",
+      "T_max_C": "degC",
+      "T_min_C": "degC",
+      "RH_mean_pct": "%",
+      "Rs_sum_MJ_m2_d": "MJ m-2 d-1"
+    },
+    "excluded": {
+      "P_sum_raw": "unit unresolved (S1); precipitation integrals forbidden by S2",
+      "VPD_mean_kPa": "derived channel, opt-in only"
+    },
+    "years_available": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022
+    ],
+    "year_day_counts": {
+      "2016": {
+        "n_days": 366,
+        "start": "2015-09-01",
+        "end": "2016-08-31"
+      },
+      "2017": {
+        "n_days": 365,
+        "start": "2016-09-01",
+        "end": "2017-08-31"
+      },
+      "2018": {
+        "n_days": 365,
+        "start": "2017-09-01",
+        "end": "2018-08-31"
+      },
+      "2019": {
+        "n_days": 365,
+        "start": "2018-09-01",
+        "end": "2019-08-31"
+      },
+      "2021": {
+        "n_days": 365,
+        "start": "2020-09-01",
+        "end": "2021-08-31"
+      },
+      "2022": {
+        "n_days": 365,
+        "start": "2021-09-01",
+        "end": "2022-08-31"
+      }
+    },
+    "past_window_rule": "[t_a-28, ..., t_a-1] (strictly before t_a)",
+    "interval_window_rule": "(t_a, t_b]",
+    "gdd_definition": "GDD_d = max(T_mean_d - T_base, 0), T_base in {0,5} degC",
+    "protocol_P_deployable": true,
+    "protocol_R_deployable": false,
+    "protocol_R_label": "retrospective / oracle interval conditioning",
+    "structural_limit": "S1 verified that all plots of one harvest_year share one weather series, so weather provides date/year-level environment variation only."
+  },
+  "scope_limits": [
+    "No official test phenotype label is used for model selection, hyper-parameter choice or architecture change in this stage.",
+    "No test metric is computed here; evaluation of a frozen model on these indexes is a separate, explicitly named S4B step.",
+    "Protocol R (interval weather) is a retrospective diagnostic only and can never be reported as deployable forecasting ability.",
+    "2019 (test_environment / test_genotype_environment) is an environment the training years never see; its weather is readable but that fact alone does not license any model change."
+  ],
+  "elapsed_seconds": 6.8
+}

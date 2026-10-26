@@ -1,0 +1,122 @@
+{
+  "stage": "S4B",
+  "task": "conditioning tensors for the official test pair indexes (inputs only)",
+  "generated_at": "2026-10-26T10:52:35+0800",
+  "command": "tools/s4b_prepare_test_conditioning.py --config agro_jepa/config/s4a1_matched_control.yaml",
+  "config": "agro_jepa/config/s4a1_matched_control.yaml",
+  "config_sha256": "166c466539ce81b159798c1dc2781511ca3ed38456b930536ba0a47e763da0b2",
+  "definitions": {
+    "interval": "(t_a, t_b] -- Protocol R, retrospective / oracle",
+    "past": "[t_a-28, ..., t_a-1] -- Protocol P, deployable",
+    "gdd": "GDD_d = max(T_mean_d - T_base, 0); T_base in {0, 5} degC",
+    "channels": [
+      "T_mean_C",
+      "T_max_C",
+      "T_min_C",
+      "RH_mean_pct",
+      "Rs_sum_MJ_m2_d"
+    ],
+    "units": {
+      "T_mean_C": "degC",
+      "T_max_C": "degC",
+      "T_min_C": "degC",
+      "RH_mean_pct": "%",
+      "Rs_sum_MJ_m2_d": "MJ m-2 d-1"
+    },
+    "normalisation": "raw arrays only; the frozen checkpoint's inner-train statistics must be applied by the evaluator",
+    "phenotype_labels_read": false
+  },
+  "weather_manifest_id": "s1-weather-daily-v1@19aa4ee2f476",
+  "weather_csv_sha256": "19aa4ee2f476ba13d34793899b74797d99080b813fbaee7c3c851e6236a4b52e",
+  "splits": {
+    "test_plot": {
+      "n_pairs": 9851,
+      "n_plots": 250,
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 10.264744695969952
+      },
+      "npz": "external_data/s4b_conditioning/test_plot_conditioning.npz",
+      "npz_sha256": "9744ec89103343c4d812f21137586aa0f22dd919d1933fc74fa60b39508606ad",
+      "npz_bytes": 1238034,
+      "interval_valid_days_all_full": true,
+      "past_window_valid_days_all_full": true,
+      "gdd_int_base0": {
+        "mean": 115.33821105957031,
+        "min": 3.745800018310547,
+        "max": 314.0646057128906
+      },
+      "gdd_past28_base0": {
+        "mean": 266.88812255859375
+      }
+    },
+    "test_genotype": {
+      "n_pairs": 12059,
+      "n_plots": 246,
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 10.260386433369268
+      },
+      "npz": "external_data/s4b_conditioning/test_genotype_conditioning.npz",
+      "npz_sha256": "b7fc22f79666a1df01701289abf0458d6204e365332b6fb3fcdb4d12b6cf5468",
+      "npz_bytes": 1337164,
+      "interval_valid_days_all_full": true,
+      "past_window_valid_days_all_full": true,
+      "gdd_int_base0": {
+        "mean": 119.17399597167969,
+        "min": 3.745800018310547,
+        "max": 311.1646728515625
+      },
+      "gdd_past28_base0": {
+        "mean": 275.5412902832031
+      }
+    },
+    "test_environment": {
+      "n_pairs": 6300,
+      "n_plots": 190,
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 9.917619047619048
+      },
+      "npz": "external_data/s4b_conditioning/test_environment_conditioning.npz",
+      "npz_sha256": "19db51177498cb511898148f7ca92148defb148845ca8679095f30dbeb46a76a",
+      "npz_bytes": 351379,
+      "interval_valid_days_all_full": true,
+      "past_window_valid_days_all_full": true,
+      "gdd_int_base0": {
+        "mean": 78.1833724975586,
+        "min": 24.52869987487793,
+        "max": 291.95941162109375
+      },
+      "gdd_past28_base0": {
+        "mean": 155.0970001220703
+      }
+    },
+    "test_genotype_environment": {
+      "n_pairs": 2147,
+      "n_plots": 62,
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 9.96599906846763
+      },
+      "npz": "external_data/s4b_conditioning/test_genotype_environment_conditioning.npz",
+      "npz_sha256": "21d6197e2682eda56439e602759edf1a591c1c73acde5968df968fa4228db62d",
+      "npz_bytes": 120324,
+      "interval_valid_days_all_full": true,
+      "past_window_valid_days_all_full": true,
+      "gdd_int_base0": {
+        "mean": 83.76573181152344,
+        "min": 24.52869987487793,
+        "max": 291.95941162109375
+      },
+      "gdd_past28_base0": {
+        "mean": 168.54812622070312
+      }
+    }
+  },
+  "elapsed_seconds": 4.0
+}

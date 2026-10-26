@@ -19,6 +19,7 @@ from ..models.s4_predictor import (
     S4ModelConfig,
     build_s4_predictor,
     conditioning_spec,
+    has_fixed_delta,
 )
 from ..models.time_embedding import DeltaNormStats
 
@@ -39,6 +40,8 @@ def load_s4_model(ckpt_path: str, device: torch.device):
     model_cfg = S4ModelConfig.from_dict(ckpt["model_config"])
     spec = conditioning_spec({
         "use_delta": ckpt["conditioning_spec"]["use_delta"],
+        "delta_mode": ckpt["conditioning_spec"].get("delta_mode", "sample"),
+        "fixed_delta_days": ckpt["conditioning_spec"].get("fixed_delta_days"),
         "gdd_mode": ckpt["conditioning_spec"]["gdd_mode"],
         "gdd_base": ckpt["conditioning_spec"]["gdd_base"],
         "weather_mode": ckpt["conditioning_spec"]["weather_mode"],
@@ -54,7 +57,18 @@ def load_s4_model(ckpt_path: str, device: torch.device):
         gdd_norm=_vector_norm(ckpt.get("gdd_norm")),
         weather_norm=_vector_norm(ckpt.get("weather_norm")),
     )
-    model.load_state_dict(ckpt["model"])
+    state = dict(ckpt["model"])
+    if "fixed_delta_days" not in state:
+        # Checkpoints written before S4A.1 do not carry the (empty) buffer that
+        # the constant-interval arm uses.  A *constant* arm without it would
+        # silently lose its fixed interval, so that combination is refused.
+        if spec.delta_mode == "constant":
+            raise ValueError(
+                f"{ckpt_path}: delta_mode='constant' but the checkpoint has no "
+                "fixed_delta_days buffer"
+            )
+        state["fixed_delta_days"] = torch.zeros(0, dtype=torch.float32)
+    model.load_state_dict(state)
     model.to(device)
     move_attention_masks(model.predictor, device)
     model.eval()
@@ -64,7 +78,7 @@ def load_s4_model(ckpt_path: str, device: torch.device):
 def forward_batch(model, batch: dict, device: torch.device) -> torch.Tensor:
     parts = getattr(model, "parts", [])
     kwargs = {}
-    if "delta" in parts:
+    if "delta" in parts and not has_fixed_delta(model):
         kwargs["delta_days"] = batch["delta_days"].to(device, non_blocking=True)
     if "gdd" in parts:
         kwargs["gdd"] = batch["gdd"].to(device, non_blocking=True)

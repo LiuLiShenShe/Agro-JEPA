@@ -1,0 +1,32 @@
+using 3d prop position use_3d_pos=False
+{"condition": "b2_no_time", "seed": 2, "epoch": 0, "train_loss": 1.46138, "dev_mse": 1.31852, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4066, "sec": 268.6}
+{"condition": "b2_no_time", "seed": 2, "epoch": 1, "train_loss": 1.3016, "dev_mse": 1.2699, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4285, "sec": 264.5}
+{"condition": "b2_no_time", "seed": 2, "epoch": 2, "train_loss": 1.26581, "dev_mse": 1.25102, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.437, "sec": 265.9}
+{"condition": "b2_no_time", "seed": 2, "epoch": 3, "train_loss": 1.2449, "dev_mse": 1.23568, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4439, "sec": 267.7}
+{"condition": "b2_no_time", "seed": 2, "epoch": 4, "train_loss": 1.22828, "dev_mse": 1.22972, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4466, "sec": 267.7}
+{"condition": "b2_no_time", "seed": 2, "epoch": 5, "train_loss": 1.2152, "dev_mse": 1.223, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4496, "sec": 265.7}
+{"condition": "b2_no_time", "seed": 2, "epoch": 6, "train_loss": 1.20331, "dev_mse": 1.2197, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4511, "sec": 263.7}
+{"condition": "b2_no_time", "seed": 2, "epoch": 7, "train_loss": 1.19167, "dev_mse": 1.21552, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.453, "sec": 263.9}
+{"condition": "b2_no_time", "seed": 2, "epoch": 8, "train_loss": 1.18098, "dev_mse": 1.21232, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4544, "sec": 264.3}
+{"condition": "b2_no_time", "seed": 2, "epoch": 9, "train_loss": 1.17128, "dev_mse": 1.2115, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4548, "sec": 263.4}
+{"condition": "b2_no_time", "seed": 2, "epoch": 10, "train_loss": 1.16232, "dev_mse": 1.2078, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4564, "sec": 263.3}
+{"condition": "b2_no_time", "seed": 2, "epoch": 11, "train_loss": 1.15429, "dev_mse": 1.20778, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4564, "sec": 261.8}
+{"condition": "b2_no_time", "seed": 2, "epoch": 12, "train_loss": 1.14749, "dev_mse": 1.20658, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.457, "sec": 266.1}
+{"condition": "b2_no_time", "seed": 2, "epoch": 13, "train_loss": 1.14231, "dev_mse": 1.20653, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.457, "sec": 264.3}
+{"condition": "b2_no_time", "seed": 2, "epoch": 14, "train_loss": 1.13881, "dev_mse": 1.20645, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.457, "sec": 203.4}
+{"condition": "b2_no_time", "seed": 2, "epoch": 15, "train_loss": 1.13695, "dev_mse": 1.20645, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.457, "sec": 132.5}
+{
+  "condition": "b2_no_time",
+  "seed": 2,
+  "epochs_completed": 16,
+  "global_step": 5600,
+  "train_pairs": 44925,
+  "inner_dev_pairs": 11214,
+  "wall_clock_seconds": 4085.1,
+  "samples_per_second": 175.47,
+  "peak_gpu_memory_bytes": 14010606080,
+  "n_trainable_parameters": 45898196,
+  "best_epoch": 15,
+  "best_inner_dev_mse": 1.2064467583702745
+}
+wrote external_data/s4a1_runs/b2_no_time/seed2/run_summary.json

@@ -1,0 +1,35 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E2 collect] b2_no_time: 64827 rows
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E2 collect] b2_no_time_constant_delta: 64827 rows
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E2 collect] b3_delta: 64827 rows
+[E2] cc done (n_val=8496)
+[E2] ph done (n_val=6302)
+wrote reports/s4a1_e2_probe_metrics.json
+  cc A_current                          R2=0.79297 MAE=0.08343 RMSE=0.10876 epoch=43
+  cc B_b2_no_time                       R2=0.82156 MAE=0.07468 RMSE=0.10097 epoch=40
+  cc B_b2_no_time_constant_delta        R2=0.82379 MAE=0.07424 RMSE=0.10034 epoch=40
+  cc B_b3_delta                         R2=0.84757 MAE=0.06872 RMSE=0.09332 epoch=123
+  cc B_b3_delta_minus_B_b2_no_time_constant_delta         dR2 +0.01898 [+0.01514,+0.02290]
+  cc B_b3_delta_minus_B_b2_no_time                        dR2 +0.02220 [+0.01830,+0.02637]
+  cc B_b2_no_time_constant_delta_minus_B_b2_no_time       dR2 +0.00322 [+0.00099,+0.00539]
+  ph A_current                          R2=0.94419 MAE=0.06183 RMSE=0.08373 epoch=51
+  ph B_b2_no_time                       R2=0.95209 MAE=0.05601 RMSE=0.07758 epoch=67
+  ph B_b2_no_time_constant_delta        R2=0.95218 MAE=0.05607 RMSE=0.07750 epoch=67
+  ph B_b3_delta                         R2=0.95631 MAE=0.05361 RMSE=0.07408 epoch=117
+  ph B_b3_delta_minus_B_b2_no_time_constant_delta         dR2 +0.00340 [+0.00225,+0.00457]
+  ph B_b3_delta_minus_B_b2_no_time                        dR2 +0.00350 [+0.00223,+0.00476]
+  ph B_b2_no_time_constant_delta_minus_B_b2_no_time       dR2 +0.00010 [-0.00082,+0.00107]

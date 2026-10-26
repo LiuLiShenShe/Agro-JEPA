@@ -1,0 +1,151 @@
+{
+  "stage": "S4A.1",
+  "generated_at": "2026-10-26T13:48:11+0800",
+  "command": "tools/s4a1_verify.py --config agro_jepa/config/s4a1_matched_control.yaml",
+  "config": "agro_jepa/config/s4a1_matched_control.yaml",
+  "config_sha256": "166c466539ce81b159798c1dc2781511ca3ed38456b930536ba0a47e763da0b2",
+  "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+  "conditioning_sha256": "ce4f71b688a2010f1637c55c6e56878b986cd2ed6474b83ab53bbeebb3743215",
+  "control_condition": "b2_no_time_constant_delta",
+  "matched_condition": "b3_delta",
+  "n_checks": 27,
+  "n_pass": 27,
+  "all_pass": true,
+  "checks": [
+    {
+      "id": "D1_conditioning_row_alignment",
+      "pass": true,
+      "detail": "71314 npz rows vs 71314 index rows"
+    },
+    {
+      "id": "D2_interval_window_full_validity",
+      "pass": true,
+      "detail": "valid-days == delta_days for all rows (max delta 16)"
+    },
+    {
+      "id": "D3_past_window_full_validity",
+      "pass": true,
+      "detail": "every past window has 28 valid days"
+    },
+    {
+      "id": "D4_past_window_strictly_before_t_a",
+      "pass": true,
+      "detail": "past window ends 2018-01-11 .. 2017-02-21, all < t_a"
+    },
+    {
+      "id": "D5_no_official_test_rows",
+      "pass": true,
+      "detail": "splits present: ['train', 'validation']"
+    },
+    {
+      "id": "D6_inner_plot_split_disjoint_and_complete",
+      "pass": true,
+      "detail": "800 inner-train / 200 inner-dev plots, disjoint=True, covers all 1000 train plots"
+    },
+    {
+      "id": "D7_weather_channels_confirmed_units",
+      "pass": true,
+      "detail": "channels=['T_mean_C', 'T_max_C', 'T_min_C', 'RH_mean_pct', 'Rs_sum_MJ_m2_d']"
+    },
+    {
+      "id": "D8_conditioning_sha_recorded",
+      "pass": true,
+      "detail": "npz sha256=ce4f71b688a2010f1637c55c6e56878b986cd2ed6474b83ab53bbeebb3743215"
+    },
+    {
+      "id": "D9_frozen_index_digest",
+      "pass": true,
+      "detail": "index_sha256=f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933"
+    },
+    {
+      "id": "M1_checkpoints_present",
+      "pass": true,
+      "detail": "9 expected, 9 found"
+    },
+    {
+      "id": "M2_checkpoint_matches_config",
+      "pass": true,
+      "detail": "every checkpoint spec equals the config condition"
+    },
+    {
+      "id": "M3_b2_no_time_has_no_input",
+      "pass": true,
+      "detail": "only b2_no_time is conditioning-free"
+    },
+    {
+      "id": "M4_control_keeps_delta_encoder",
+      "pass": true,
+      "detail": "the control keeps the full DeltaTimeEncoder and its statistics"
+    },
+    {
+      "id": "M5_fixed_delta_from_inner_train_only",
+      "pass": true,
+      "detail": "fixed interval = 9.0 d, recomputed from this model's inner-train rows"
+    },
+    {
+      "id": "M6_same_delta_normalisation",
+      "pass": true,
+      "detail": "seed0: mean=10.251753, std=3.675335; seed1: mean=10.251753, std=3.675335; seed2: mean=10.251753, std=3.675335"
+    },
+    {
+      "id": "M7_shared_budget_and_seed_set",
+      "pass": true,
+      "detail": "distinct (epochs, batch, rule) tuples: 1; seeds=[0, 1, 2]"
+    },
+    {
+      "id": "M8_identical_inner_data_size",
+      "pass": true,
+      "detail": "distinct (train, dev) pair counts: {(44925, 11214)}"
+    },
+    {
+      "id": "M9_no_validation_selection",
+      "pass": true,
+      "detail": "no checkpoint reports validation-based selection"
+    },
+    {
+      "id": "M10_same_inner_split",
+      "pass": true,
+      "detail": "split seed 20261025 / fraction 0.8 everywhere"
+    },
+    {
+      "id": "P1_identical_predictor_input_dim",
+      "pass": true,
+      "detail": "B2-C 1088 vs B3 1088"
+    },
+    {
+      "id": "P2_identical_parameter_counts",
+      "pass": true,
+      "detail": "B2-C 53,882,396 vs B3 53,882,396"
+    },
+    {
+      "id": "P3_identical_condition_parameters",
+      "pass": true,
+      "detail": "B2-C 72,730 vs B3 72,730"
+    },
+    {
+      "id": "P4_fixed_interval_stored_in_checkpoint",
+      "pass": true,
+      "detail": "every B2-C checkpoint carries a fixed_delta_days buffer"
+    },
+    {
+      "id": "P5_control_ignores_batch_delta",
+      "pass": true,
+      "detail": "B2-C output identical for delta 7 and 14: True"
+    },
+    {
+      "id": "P6_matched_arm_responds_to_delta",
+      "pass": true,
+      "detail": "B3 output changes when delta changes: True"
+    },
+    {
+      "id": "T1_s4b_audit_all_pass",
+      "pass": true,
+      "detail": "4/4 S4B checks pass"
+    },
+    {
+      "id": "T5_test_assets_present",
+      "pass": true,
+      "detail": "pair index + conditioning npz exist for every official test split"
+    }
+  ]
+}

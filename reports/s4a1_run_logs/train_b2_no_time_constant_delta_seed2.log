@@ -1,0 +1,35 @@
+[fixed delta] {'fixed_delta_rule': 'inner_train_median', 'fixed_delta_days': 9.0, 'fixed_delta_source': "inner_train rows of this model's split only", 'fixed_delta_n_source_rows': 44925, 'fixed_delta_inner_train_mean': 10.251752921535893, 'fixed_delta_inner_train_median': 9.0, 'fixed_delta_inner_train_min': 5.0, 'fixed_delta_inner_train_max': 16.0, 'fixed_delta_config_expected': 9.0, 'fixed_delta_normalised_value': -0.3405820357976272}
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 0, "train_loss": 1.44501, "dev_mse": 1.29887, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4154, "sec": 147.6}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 1, "train_loss": 1.29023, "dev_mse": 1.26337, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4314, "sec": 142.5}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 2, "train_loss": 1.25952, "dev_mse": 1.2436, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4403, "sec": 142.5}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 3, "train_loss": 1.24003, "dev_mse": 1.23277, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4452, "sec": 142.3}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 4, "train_loss": 1.22495, "dev_mse": 1.22504, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4487, "sec": 142.5}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 5, "train_loss": 1.21103, "dev_mse": 1.22299, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4496, "sec": 142.3}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 6, "train_loss": 1.19865, "dev_mse": 1.2185, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4516, "sec": 142.0}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 7, "train_loss": 1.18708, "dev_mse": 1.21252, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4543, "sec": 142.7}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 8, "train_loss": 1.17684, "dev_mse": 1.21099, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.455, "sec": 142.9}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 9, "train_loss": 1.16638, "dev_mse": 1.2098, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4555, "sec": 142.6}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 10, "train_loss": 1.1572, "dev_mse": 1.20867, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.456, "sec": 142.7}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 11, "train_loss": 1.14874, "dev_mse": 1.20606, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4572, "sec": 142.8}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 12, "train_loss": 1.14148, "dev_mse": 1.2052, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4576, "sec": 142.7}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 13, "train_loss": 1.13594, "dev_mse": 1.20618, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4572, "sec": 142.6}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 14, "train_loss": 1.13212, "dev_mse": 1.20598, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4572, "sec": 142.4}
+{"condition": "b2_no_time_constant_delta", "seed": 2, "epoch": 15, "train_loss": 1.13022, "dev_mse": 1.206, "dev_mse_persist": 2.22198, "dev_rel_impr": 0.4572, "sec": 142.0}
+early stop at epoch 15 (best 12)
+{
+  "condition": "b2_no_time_constant_delta",
+  "seed": 2,
+  "epochs_completed": 16,
+  "global_step": 5600,
+  "train_pairs": 44925,
+  "inner_dev_pairs": 11214,
+  "wall_clock_seconds": 2332.0,
+  "samples_per_second": 307.38,
+  "peak_gpu_memory_bytes": 14645078528,
+  "n_trainable_parameters": 53882396,
+  "best_epoch": 12,
+  "best_inner_dev_mse": 1.2051974562414831
+}
+wrote external_data/s4a1_runs/b2_no_time_constant_delta/seed2/run_summary.json

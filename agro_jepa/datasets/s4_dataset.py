@@ -22,12 +22,43 @@ from torch.utils.data import Dataset
 
 @dataclass(frozen=True)
 class ConditioningSpec:
-    """Which conditioning arrays a condition actually consumes."""
+    """Which conditioning arrays a condition actually consumes.
+
+    ``delta_mode`` distinguishes the two time arms that share one architecture:
+
+    * ``"sample"``  -- the real per-pair ``delta_days`` (B3 and every other
+      time-conditioned arm);
+    * ``"constant"`` -- one fixed interval for train, inner-dev and official
+      validation alike (S4A.1 ``b2_no_time_constant_delta``).  The fixed value
+      is computed from the model's own inner-train rows only and still passes
+      through the identical ``DeltaNormStats`` normalisation and
+      ``DeltaTimeEncoder`` path, so the parameter count matches B3 exactly.
+
+    ``fixed_delta_days`` is the resolved constant for ``delta_mode="constant"``
+    (``None`` for every other arm).
+    """
 
     use_delta: bool
     gdd_mode: str          # none | interval | past
     gdd_base: float
     weather_mode: str      # none | interval | past
+    delta_mode: str = "sample"       # sample | constant
+    fixed_delta_days: float | None = None
+
+    def __post_init__(self) -> None:
+        if self.delta_mode not in {"sample", "constant"}:
+            raise ValueError(f"unknown delta_mode {self.delta_mode!r}")
+        if self.delta_mode == "constant":
+            if not self.use_delta:
+                raise ValueError("delta_mode='constant' needs use_delta=True")
+            if self.fixed_delta_days is None or not (
+                float(self.fixed_delta_days) > 0.0
+            ):
+                raise ValueError(
+                    "delta_mode='constant' needs a positive fixed_delta_days"
+                )
+        elif self.fixed_delta_days is not None:
+            raise ValueError("fixed_delta_days is only valid with delta_mode='constant'")
 
     def gdd_keys(self) -> tuple[str, ...]:
         if self.gdd_mode == "none":
@@ -51,6 +82,11 @@ class ConditioningSpec:
     def as_dict(self) -> dict:
         return {
             "use_delta": self.use_delta,
+            "delta_mode": self.delta_mode,
+            "fixed_delta_days": (
+                float(self.fixed_delta_days)
+                if self.fixed_delta_days is not None else None
+            ),
             "gdd_mode": self.gdd_mode,
             "gdd_base": self.gdd_base,
             "weather_mode": self.weather_mode,

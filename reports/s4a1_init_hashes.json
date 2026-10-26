@@ -1,0 +1,96 @@
+{
+  "stage": "S4A.1",
+  "purpose": "re-derive the init state digest under the stated rule and compare it with each run's recorded value",
+  "rule": "set_seed(seed) immediately before build_s4_predictor, move_attention_masks, state_sha256; no weight loaded",
+  "device": "cuda:0",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "conditions": {
+    "b2_no_time": {
+      "0": {
+        "recomputed_sha256": "ad5c4c78d84a529723e368dfad4fcc3684da84a33c2e15dc5f476e6ea603a0cc",
+        "rerun_sha256": "ad5c4c78d84a529723e368dfad4fcc3684da84a33c2e15dc5f476e6ea603a0cc",
+        "deterministic": true,
+        "recorded_sha256": null,
+        "recorded_source": null,
+        "matches_recorded": null
+      },
+      "1": {
+        "recomputed_sha256": "548faec646b27e5e9c2bfa3033edb42fd0ecfca2a7261808f94394977f8c54e9",
+        "rerun_sha256": "548faec646b27e5e9c2bfa3033edb42fd0ecfca2a7261808f94394977f8c54e9",
+        "deterministic": true,
+        "recorded_sha256": null,
+        "recorded_source": null,
+        "matches_recorded": null
+      },
+      "2": {
+        "recomputed_sha256": "cbc4661d0e79c1bd2437d600aeb8bb631626ebd3eab61b94ccc5fdd5258f6a67",
+        "rerun_sha256": "cbc4661d0e79c1bd2437d600aeb8bb631626ebd3eab61b94ccc5fdd5258f6a67",
+        "deterministic": true,
+        "recorded_sha256": "cbc4661d0e79c1bd2437d600aeb8bb631626ebd3eab61b94ccc5fdd5258f6a67",
+        "recorded_source": "run_summary",
+        "matches_recorded": true
+      }
+    },
+    "b2_no_time_constant_delta": {
+      "0": {
+        "recomputed_sha256": "c432b6e5bc1581afbc7789e7ce7f5d9a81d4f193f97e56da502baf8fce626b04",
+        "rerun_sha256": "c432b6e5bc1581afbc7789e7ce7f5d9a81d4f193f97e56da502baf8fce626b04",
+        "deterministic": true,
+        "recorded_sha256": null,
+        "recorded_source": null,
+        "matches_recorded": null
+      },
+      "1": {
+        "recomputed_sha256": "a229571efed4297e805d3dc24ef89278a82fb67ffe0f79d587c57a23bc56b1e3",
+        "rerun_sha256": "a229571efed4297e805d3dc24ef89278a82fb67ffe0f79d587c57a23bc56b1e3",
+        "deterministic": true,
+        "recorded_sha256": "a229571efed4297e805d3dc24ef89278a82fb67ffe0f79d587c57a23bc56b1e3",
+        "recorded_source": "run_summary",
+        "matches_recorded": true
+      },
+      "2": {
+        "recomputed_sha256": "265ace5bef56c6f9555c17d811b45aec005add8440f7528a96c35296d298833e",
+        "rerun_sha256": "265ace5bef56c6f9555c17d811b45aec005add8440f7528a96c35296d298833e",
+        "deterministic": true,
+        "recorded_sha256": "265ace5bef56c6f9555c17d811b45aec005add8440f7528a96c35296d298833e",
+        "recorded_source": "run_summary",
+        "matches_recorded": true
+      }
+    },
+    "b3_delta": {
+      "0": {
+        "recomputed_sha256": "eaf346fe0220081fc500cfe72230dede6b5cd678f42feeb5b06307c7bd56c537",
+        "rerun_sha256": "eaf346fe0220081fc500cfe72230dede6b5cd678f42feeb5b06307c7bd56c537",
+        "deterministic": true,
+        "recorded_sha256": null,
+        "recorded_source": null,
+        "matches_recorded": null
+      },
+      "1": {
+        "recomputed_sha256": "70e85406961bcc5c5505a09cf44a907c728785627dec0db3ccfea5ecc78da15c",
+        "rerun_sha256": "70e85406961bcc5c5505a09cf44a907c728785627dec0db3ccfea5ecc78da15c",
+        "deterministic": true,
+        "recorded_sha256": null,
+        "recorded_source": null,
+        "matches_recorded": null
+      },
+      "2": {
+        "recomputed_sha256": "ae45772340865b7dcce0916c2674409ec655d387ec5e2936ee7e3f824f1da4e5",
+        "rerun_sha256": "ae45772340865b7dcce0916c2674409ec655d387ec5e2936ee7e3f824f1da4e5",
+        "deterministic": true,
+        "recorded_sha256": null,
+        "recorded_source": null,
+        "matches_recorded": null
+      }
+    }
+  },
+  "n_recorded": 3,
+  "n_matched": 3,
+  "mismatches": [],
+  "all_recorded_match": true,
+  "all_deterministic": true
+}

@@ -25,6 +25,7 @@ import math
 import random
 import sys
 import time
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -49,6 +50,7 @@ from agro_jepa.models.s4_predictor import (  # noqa: E402
     S4ModelConfig,
     build_s4_predictor,
     conditioning_spec,
+    has_fixed_delta,
 )
 from agro_jepa.models.time_embedding import DeltaNormStats  # noqa: E402
 
@@ -102,11 +104,13 @@ def forward_batch(model, batch: dict, device: torch.device) -> torch.Tensor:
 
     ``delta_days`` is present in every sample as metadata, but it is forwarded
     only when the conditioning spec includes the delta channel -- so
-    ``b2_no_time`` genuinely never receives it.
+    ``b2_no_time`` genuinely never receives it.  For ``delta_mode="constant"``
+    the model supplies its own fixed interval and the batch value is not even
+    handed over.
     """
     parts = getattr(model, "parts", [])
     kwargs = {}
-    if "delta" in parts:
+    if "delta" in parts and not has_fixed_delta(model):
         kwargs["delta_days"] = batch["delta_days"].to(device, non_blocking=True)
     if "gdd" in parts:
         kwargs["gdd"] = batch["gdd"].to(device, non_blocking=True)
@@ -114,6 +118,16 @@ def forward_batch(model, batch: dict, device: torch.device) -> torch.Tensor:
         kwargs["weather"] = batch["weather"].to(device, non_blocking=True)
         kwargs["weather_mask"] = batch["weather_mask"].to(device, non_blocking=True)
     return model(batch["z_a"].to(device, non_blocking=True), **kwargs)
+
+
+def state_sha256(model) -> str:
+    """Digest of a state dict (sorted keys, CPU bytes) for initialization audit."""
+    h = hashlib.sha256()
+    for k, v in sorted(model.state_dict().items()):
+        h.update(k.encode())
+        h.update(np.ascontiguousarray(
+            v.detach().cpu().numpy()).tobytes())
+    return h.hexdigest()
 
 
 # --------------------------------------------------------------------------
@@ -181,7 +195,12 @@ def evaluate(model, loader: DataLoader, device: torch.device, ctx) -> dict:
 
 # --------------------------------------------------------------------------
 def fit_norms(condition: dict, index: pd.DataFrame, cond: dict, role_map: dict):
-    """Fit every normalisation statistic on inner-train rows only."""
+    """Fit every normalisation statistic on inner-train rows only.
+
+    For ``delta_mode="constant"`` the fixed interval is also derived here, from
+    the *same* inner-train rows, and must equal the value pre-registered in the
+    config.  Nothing from the inner-dev or official-validation rows is used.
+    """
     inner_plots = np.array(
         [p for p, r in role_map.items() if r == "inner_train"], dtype=object
     )
@@ -205,11 +224,46 @@ def fit_norms(condition: dict, index: pd.DataFrame, cond: dict, role_map: dict):
         w = cond[w_key][inner_rows]
         m = cond[m_key][inner_rows]
         weather_norm = VectorNormStats.fit(w[m])
-    return delta_norm, gdd_norm, weather_norm, spec, int(len(inner_rows))
+
+    fixed = None
+    if spec.delta_mode == "constant":
+        rule = str(condition.get("fixed_delta_rule", "inner_train_median"))
+        vals = index.loc[inner_rows, "delta_days"].to_numpy(np.float64)
+        if rule == "inner_train_median":
+            value = float(np.median(vals))
+        elif rule == "inner_train_mean":
+            value = float(vals.mean())
+        else:
+            raise SystemExit(f"unknown fixed_delta_rule {rule!r}")
+        requested = condition.get("fixed_delta_days")
+        if requested is not None and abs(float(requested) - value) > 1e-9:
+            raise SystemExit(
+                f"config fixed_delta_days={requested} but the inner-train {rule} "
+                f"is {value}; refusing to train a mis-specified control"
+            )
+        spec = replace(spec, fixed_delta_days=value)
+        fixed = {
+            "fixed_delta_rule": rule,
+            "fixed_delta_days": value,
+            "fixed_delta_source": "inner_train rows of this model's split only",
+            "fixed_delta_n_source_rows": int(len(inner_rows)),
+            "fixed_delta_inner_train_mean": float(vals.mean()),
+            "fixed_delta_inner_train_median": float(np.median(vals)),
+            "fixed_delta_inner_train_min": float(vals.min()),
+            "fixed_delta_inner_train_max": float(vals.max()),
+            "fixed_delta_config_expected": (
+                float(requested) if requested is not None else None
+            ),
+            "fixed_delta_normalised_value": float(
+                (value - delta_norm.mean) / delta_norm.std
+            ),
+        }
+    return delta_norm, gdd_norm, weather_norm, spec, int(len(inner_rows)), fixed
 
 
 def save_checkpoint(path: Path, model, optimizer, scheduler, scaler, epoch, step,
-                    cfg, condition_name, seed, spec, norms, metrics) -> None:
+                    cfg, condition_name, seed, spec, norms, metrics,
+                    extra: dict | None = None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     delta_norm, gdd_norm, weather_norm = norms
     payload = {
@@ -230,6 +284,7 @@ def save_checkpoint(path: Path, model, optimizer, scheduler, scaler, epoch, step
         "delta_norm": delta_norm.as_dict() if delta_norm else None,
         "gdd_norm": gdd_norm.as_dict() if gdd_norm else None,
         "weather_norm": weather_norm.as_dict() if weather_norm else None,
+        "fixed_delta": extra,
         "n_trainable_parameters": int(model.n_trainable_parameters()),
         "n_condition_parameters": int(model.n_condition_parameters()),
         "predictor_input_dim": int(model.config.predictor_dim(model.has_condition)),
@@ -288,9 +343,11 @@ def main() -> int:
     role_map, split_stats = build_role_map(
         index, int(cfg["split"]["seed"]), float(cfg["split"]["inner_train_fraction"])
     )
-    delta_norm, gdd_norm, weather_norm, spec, n_inner = fit_norms(
+    delta_norm, gdd_norm, weather_norm, spec, n_inner, fixed_delta = fit_norms(
         condition, index, cond, role_map
     )
+    if fixed_delta is not None:
+        print(f"[fixed delta] {fixed_delta}", flush=True)
 
     train_df = split_rows(index, role_map, "inner_train")
     dev_df = split_rows(index, role_map, "inner_dev")
@@ -326,6 +383,7 @@ def main() -> int:
     from agro_jepa.models.fip_dino_wm import move_attention_masks
 
     move_attention_masks(model.predictor, device)
+    init_state_sha = state_sha256(model)
 
     optimizer = torch.optim.AdamW(
         [p for p in model.parameters() if p.requires_grad],
@@ -426,7 +484,9 @@ def main() -> int:
                             scheduler, scaler, epoch, global_step, cfg, args.condition,
                             args.seed, spec, (delta_norm, gdd_norm, weather_norm),
                             {"history": history, "best_dev_mse": best_dev,
-                             "best_epoch": best_epoch})
+                             "best_epoch": best_epoch,
+                             "init_state_sha256": init_state_sha},
+                            extra=fixed_delta)
         if args.max_steps and global_step >= args.max_steps:
             break
         if epoch - best_epoch >= patience:
@@ -482,6 +542,13 @@ def main() -> int:
         "feature_index_sha256": feat_sha,
         "best_inner_dev_mse": best_dev,
         "best_epoch": best_epoch,
+        "init_state_sha256": init_state_sha,
+        "init_rule": (
+            "torch.manual_seed(seed) (set_seed) immediately before "
+            "build_s4_predictor; upstream ViTPredictor default initialisation; "
+            "no weight is loaded from any earlier run"
+        ),
+        "fixed_delta": fixed_delta,
         "history": history,
         "checkpoint_best": str(out_dir / "checkpoints" / "best.pt"),
     }

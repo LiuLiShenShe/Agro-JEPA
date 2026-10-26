@@ -1,0 +1,230 @@
+{
+  "stage": "S4A.1",
+  "config": "agro_jepa/config/s4a1_matched_control.yaml",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "verdicts": {
+    "e1": {
+      "verdict": "B3 \u4f18\u4e8e B2-C\uff1aplot bootstrap \u7684 95% CI \u5b8c\u5168\u4f4e\u4e8e 0\uff0c\u4e14\u6bcf\u4e2a\u8bad\u7ec3 seed \u7684\u914d\u5bf9 \u0394MSE \u90fd\u4e3a\u8d1f\u3002\u6837\u672c\u7ea7 \u0394t \u5728\u79fb\u9664\u5168\u5c40\u65f6\u95f4\u5148\u9a8c\u540e\u4ecd\u6709\u7a33\u5b9a\u589e\u76ca\u3002",
+      "bootstrap": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": -0.045588310997486864,
+        "std": 0.0007723742236693501,
+        "ci95_low": -0.04704891993745871,
+        "ci95_high": -0.04405572374332355,
+        "min": -0.048362144443250044,
+        "max": -0.04283603694273719
+      },
+      "per_seed": {
+        "mean": -0.03762142888665657,
+        "std": 0.0007946499550231883,
+        "min": -0.03814469304469704,
+        "max": -0.036707022331495455,
+        "n_seeds": 3,
+        "all_same_sign": true,
+        "note": "standard deviation across training seeds; not a plot bootstrap interval"
+      },
+      "control_vs_no_time": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": -0.0018113862038943887,
+        "std": 0.00031770657029536314,
+        "ci95_low": -0.002448220553564651,
+        "ci95_high": -0.001189853551480835,
+        "min": -0.0028435428598760915,
+        "max": -0.000722996128451836
+      }
+    },
+    "e2": {
+      "cc": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.01897884438116482,
+        "std": 0.0019444229551062848,
+        "ci95_low": 0.015139913812412824,
+        "ci95_high": 0.02290367450426264,
+        "min": 0.013148310695684035,
+        "max": 0.026550597345459677
+      },
+      "ph": {
+        "n_resamples": 2000,
+        "n_plots": 380,
+        "mean": 0.0034036550227769208,
+        "std": 0.0005772944954795805,
+        "ci95_low": 0.002250034799624164,
+        "ci95_high": 0.004565559571323988,
+        "min": 0.0014693219840904695,
+        "max": 0.005225021202561312
+      }
+    },
+    "acceptance_questions": {
+      "Q1": "\u662f\u3002B2-C \u4e0e B3 \u7684\u53ef\u8bad\u7ec3\u53c2\u6570\u5747\u4e3a 53,882,396\uff0c\u6761\u4ef6\u53c2\u6570\u5747\u4e3a 72,730\uff0cpredictor \u8f93\u5165\u7ef4\u5747\u4e3a 1088\uff1bB2-C \u4fdd\u7559\u5b8c\u6574 DeltaTimeEncoder\uff0c\u53ea\u628a\u6837\u672c\u7ea7\u95f4\u9694\u66ff\u6362\u4e3a\u56fa\u5b9a\u503c\u3002",
+      "Q2": "B3 \u4f18\u4e8e B2-C\uff1aplot bootstrap \u7684 95% CI \u5b8c\u5168\u4f4e\u4e8e 0\uff0c\u4e14\u6bcf\u4e2a\u8bad\u7ec3 seed \u7684\u914d\u5bf9 \u0394MSE \u90fd\u4e3a\u8d1f\u3002\u6837\u672c\u7ea7 \u0394t \u5728\u79fb\u9664\u5168\u5c40\u65f6\u95f4\u5148\u9a8c\u540e\u4ecd\u6709\u7a33\u5b9a\u589e\u76ca\u3002",
+      "Q4": "3 \u4e2a\u914d\u5bf9 seed \u7684\u9010 seed \u914d\u5bf9 \u0394MSE \u4e3a -0.03762 \u00b1 0.00079\uff0c\u8303\u56f4 [-0.03814, -0.03671]\uff0c\u5168\u90e8\u540c\u53f7=True\u3002\u5728 seed \u96c6\u5408\u5185\u7ed3\u8bba\u65b9\u5411\u4e0d\u56e0\u8bad\u7ec3\u968f\u673a\u6027\u7ffb\u8f6c\u3002",
+      "Q3": "E2 \u4e0e E1 \u65b9\u5411\u4e00\u81f4\uff08\u4e24\u8005\u90fd\u6307\u5411 B3 \u66f4\u597d\uff09\u3002\uff08CC \u0394R\u00b2 +0.01898 [+0.01514, +0.02290]\uff1bPH \u0394R\u00b2 +0.00340 [+0.00225, +0.00457]\uff09",
+      "Q5": "\u662f\u3002\u5df2\u6309\u8bba\u6587\u5b9a\u4e49\u9010\u4e00\u6838\u5230\u672c\u5730\u5b98\u65b9\u5212\u5206 4 \u4e2a test split\uff08test_plot, test_genotype, test_environment, test_genotype_environment\uff09\uff0c\u5171 30,357 \u5bf9\u9884\u6ce8\u518c\u914d\u5bf9\u3002",
+      "Q6": "\u662f\u3002\u6bcf\u4e2a\u914d\u5bf9\u90fd\u7ee7\u627f\u5176 plot \u7684\u5b98\u65b9 split\uff0c\u914d\u5bf9\u4e24\u7aef\u540c\u4e00 plot\uff0c\u5404 test split \u7684\u914d\u5bf9\u96c6\u5408\u4e92\u4e0d\u76f8\u4ea4\uff0c\u4e14\u4e0e\u51bb\u7ed3 S3 \u7d22\u5f15\u96f6\u91cd\u53e0\u3002",
+      "Q7": "\u5929\u6c14\uff1a\u662f\uff0c\u56db\u4e2a test split \u7684\u533a\u95f4\u7a97\u53e3\u4e0e\u8fc7\u53bb\u7a97\u53e3\u5168\u90e8\u8986\u76d6\u4e14 GDD \u53ef\u8ba1\u7b97\u3002\u89c6\u89c9\u7279\u5f81\uff1a\u5426\uff0c\u5f53\u524d\u5c31\u7eea 0 \u5bf9\uff08\u6d4b\u8bd5\u56fe\u50cf\u5c1a\u672a\u4e0b\u8f7d\u4e0e\u7f16\u7801\uff09\u3002",
+      "Q8": "\u89c6\u89c9\u7279\u5f81\u7f13\u5b58\u4e3a 0\u3001test \u6807\u7b7e\u5c1a\u672a\u6309\u9884\u6ce8\u518c\u6d41\u7a0b\u9644\u52a0\u3001test_environment \u53ea\u6709\u5355\u4e00\u672a\u89c1\u73af\u5883\uff082019\uff09\u4e14\u542b 5 \u4e2a\u8bad\u7ec3\u672a\u89c1\u57fa\u56e0\u578b\u3002\u8fd9\u4e09\u9879\u5fc5\u987b\u5728\u6b63\u5f0f S4B \u8bad\u7ec3/\u8bc4\u4ef7\u524d\u89e3\u51b3\uff0c\u672c\u9636\u6bb5\u4e0d\u8d8a\u754c\u6267\u884c\u3002"
+    }
+  },
+  "run_inventory": {
+    "b2_no_time": {
+      "0": {
+        "n_trainable_parameters": 45898196,
+        "n_condition_parameters": 0,
+        "predictor_input_dim": 928,
+        "epochs_completed": 16,
+        "best_epoch": 13,
+        "wall_clock_seconds": 2377.8,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": null
+      },
+      "1": {
+        "n_trainable_parameters": 45898196,
+        "n_condition_parameters": 0,
+        "predictor_input_dim": 928,
+        "epochs_completed": 16,
+        "best_epoch": 13,
+        "wall_clock_seconds": 2633.5,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": null
+      },
+      "2": {
+        "n_trainable_parameters": 45898196,
+        "n_condition_parameters": 0,
+        "predictor_input_dim": 928,
+        "epochs_completed": 16,
+        "best_epoch": 15,
+        "wall_clock_seconds": 4085.1,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": null
+      }
+    },
+    "b2_no_time_constant_delta": {
+      "0": {
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "epochs_completed": 16,
+        "best_epoch": 12,
+        "wall_clock_seconds": 4457.0,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": {
+          "fixed_delta_rule": "inner_train_median",
+          "fixed_delta_days": 9.0,
+          "fixed_delta_source": "inner_train rows of this model's split only",
+          "fixed_delta_n_source_rows": 44925,
+          "fixed_delta_inner_train_mean": 10.251752921535893,
+          "fixed_delta_inner_train_median": 9.0,
+          "fixed_delta_inner_train_min": 5.0,
+          "fixed_delta_inner_train_max": 16.0,
+          "fixed_delta_config_expected": 9.0,
+          "fixed_delta_normalised_value": -0.3405820357976272
+        }
+      },
+      "1": {
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "epochs_completed": 16,
+        "best_epoch": 12,
+        "wall_clock_seconds": 4221.9,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": {
+          "fixed_delta_rule": "inner_train_median",
+          "fixed_delta_days": 9.0,
+          "fixed_delta_source": "inner_train rows of this model's split only",
+          "fixed_delta_n_source_rows": 44925,
+          "fixed_delta_inner_train_mean": 10.251752921535893,
+          "fixed_delta_inner_train_median": 9.0,
+          "fixed_delta_inner_train_min": 5.0,
+          "fixed_delta_inner_train_max": 16.0,
+          "fixed_delta_config_expected": 9.0,
+          "fixed_delta_normalised_value": -0.3405820357976272
+        }
+      },
+      "2": {
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "epochs_completed": 16,
+        "best_epoch": 12,
+        "wall_clock_seconds": 2332.0,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": {
+          "fixed_delta_rule": "inner_train_median",
+          "fixed_delta_days": 9.0,
+          "fixed_delta_source": "inner_train rows of this model's split only",
+          "fixed_delta_n_source_rows": 44925,
+          "fixed_delta_inner_train_mean": 10.251752921535893,
+          "fixed_delta_inner_train_median": 9.0,
+          "fixed_delta_inner_train_min": 5.0,
+          "fixed_delta_inner_train_max": 16.0,
+          "fixed_delta_config_expected": 9.0,
+          "fixed_delta_normalised_value": -0.3405820357976272
+        }
+      }
+    },
+    "b3_delta": {
+      "0": {
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "epochs_completed": 15,
+        "best_epoch": 11,
+        "wall_clock_seconds": 2439.1,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": null
+      },
+      "1": {
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "epochs_completed": 15,
+        "best_epoch": 11,
+        "wall_clock_seconds": 2195.2,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": null
+      },
+      "2": {
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "epochs_completed": 15,
+        "best_epoch": 11,
+        "wall_clock_seconds": 4316.8,
+        "train_pairs": 44925,
+        "inner_dev_pairs": 11214,
+        "fixed_delta": null
+      }
+    }
+  },
+  "artifacts": {
+    "e1_results": "reports/s4a1_e1_results.json",
+    "e1_bootstrap": "reports/s4a1_e1_bootstrap.json",
+    "e1_predictions": "reports/s4a1_e1_val_predictions.parquet",
+    "e2_metrics": "reports/s4a1_e2_probe_metrics.json",
+    "e2_predictions": "reports/s4a1_e2_probe_val_predictions.parquet",
+    "verify": "reports/s4a1_verify.json",
+    "s4b_audit": "reports/s4b_test_data_audit.json",
+    "s4b_conditioning": "reports/s4b_test_conditioning.json"
+  },
+  "notes": [
+    "B2-C keeps the full DeltaTimeEncoder and a single fixed interval; it is not a model without any time prior.",
+    "Plot bootstrap intervals describe plot sampling, not training seeds.",
+    "No official test label was read or evaluated in this stage."
+  ]
+}

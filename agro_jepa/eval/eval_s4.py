@@ -70,7 +70,21 @@ def sha256_file_local(path: str | Path) -> str:
 
 
 def run_dir(cfg: dict, condition: str, seed: int) -> Path:
-    return Path(cfg["training"]["output_root"]) / condition / f"seed{seed}"
+    """Directory of one (condition, seed) run.
+
+    ``training.checkpoint_roots`` is optional and defaults to
+    ``[training.output_root]``.  When it is present, roots are searched in order
+    so a stage can add new seeds without rewriting frozen checkpoints of an
+    earlier stage.  The resolved path is always reported alongside its SHA.
+    """
+    roots = cfg["training"].get("checkpoint_roots") or [
+        cfg["training"]["output_root"]
+    ]
+    for root in roots:
+        cand = Path(root) / condition / f"seed{seed}"
+        if (cand / "checkpoints" / "best.pt").exists():
+            return cand
+    return Path(roots[0]) / condition / f"seed{seed}"
 
 
 def load_condition_models(cfg: dict, condition: str, device: torch.device):
@@ -209,6 +223,9 @@ def bootstrap_e1(wide: pd.DataFrame, conditions: list[str], n: int, seed: int) -
 
     pairs = [
         ("b2_no_time", "b3_delta"),
+        # S4A.1 parameter-matched control: the headline contrast of that stage.
+        ("b2_no_time_constant_delta", "b3_delta"),
+        ("b2_no_time", "b2_no_time_constant_delta"),
         ("b3_delta", "b4_delta_gdd_R"),
         ("b3_delta", "b4_delta_gdd_P"),
         ("b3_delta", "b5_delta_weather_P"),

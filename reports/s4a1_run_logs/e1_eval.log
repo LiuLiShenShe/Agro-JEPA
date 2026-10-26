@@ -1,0 +1,32 @@
+[B1] inner-train mean future feature from 44925 pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b2_no_time seed0: mse=1.18851
+[E1] b2_no_time seed1: mse=1.18830
+[E1] b2_no_time seed2: mse=1.18876
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b2_no_time_constant_delta seed0: mse=1.18768
+[E1] b2_no_time_constant_delta seed1: mse=1.18734
+[E1] b2_no_time_constant_delta seed2: mse=1.18675
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b3_delta seed0: mse=1.15098
+[E1] b3_delta seed1: mse=1.14920
+[E1] b3_delta seed2: mse=1.14873
+wrote reports/s4a1_e1_results.json and reports/s4a1_e1_bootstrap.json
+  b2_no_time                       MSE=1.17370 cos=0.7748 vs persist=46.53%
+  b2_no_time_constant_delta        MSE=1.17189 cos=0.7751 vs persist=46.61%
+  b3_delta                         MSE=1.12628 cos=0.7848 vs persist=48.69%
+  b3_delta_minus_b2_no_time_constant_delta: per-seed dMSE -0.03762 ± 0.00079 (all same sign=True)
+  b3_delta_minus_b2_no_time: per-seed dMSE -0.03889 ± 0.00126 (all same sign=True)
+  b2_no_time_constant_delta_minus_b2_no_time: per-seed dMSE -0.00126 ± 0.00065 (all same sign=True)

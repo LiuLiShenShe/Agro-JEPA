@@ -142,10 +142,21 @@ class S4LatentPredictor(nn.Module):
 
         # delta channel (identical to V0 when it is the only part)
         self.delta_encoder = None
+        # Always registered so the attribute exists for every arm; it is a
+        # zero-length tensor unless this is the constant-interval control.
+        self.register_buffer("fixed_delta_days", torch.zeros(0, dtype=torch.float32))
         if spec.use_delta:
             if cfg.delta.output_dim != cfg.action_emb_dim:
                 raise ValueError("delta.output_dim must equal action_emb_dim")
             self.delta_encoder = DeltaTimeEncoder(config=cfg.delta, norm_stats=delta_norm)
+            if self.spec.delta_mode == "constant":
+                # Parameter-matched no-sample-time control: the *same* encoder
+                # receives one interval for every sample.  Stored as a buffer so
+                # the value travels with the checkpoint and cannot be swapped
+                # silently at evaluation time.
+                self.fixed_delta_days = torch.tensor(
+                    float(spec.fixed_delta_days), dtype=torch.float32
+                )
 
         self.gdd_encoder = None
         if spec.gdd_mode != "none":
@@ -210,7 +221,13 @@ class S4LatentPredictor(nn.Module):
             return None
         out = []
         if "delta" in self.parts:
-            if delta_days is None:
+            if self.spec.delta_mode == "constant":
+                if self.fixed_delta_days.numel() == 0:
+                    raise RuntimeError(
+                        "delta_mode='constant' but the model carries no fixed interval"
+                    )
+                delta_days = self.fixed_delta_days.expand(int(batch_size))
+            elif delta_days is None:
                 raise ValueError("condition needs delta_days but none was passed")
             out.append(self.delta_encoder(delta_days.to(device).reshape(batch_size)))
         if "gdd" in self.parts:
@@ -286,6 +303,12 @@ class S4LatentPredictor(nn.Module):
         return out
 
 
+def has_fixed_delta(model) -> bool:
+    """True for the constant-interval control (a non-empty ``fixed_delta_days``)."""
+    buf = getattr(model, "fixed_delta_days", None)
+    return torch.is_tensor(buf) and buf.numel() > 0
+
+
 def conditioning_spec(condition: dict) -> ConditioningSpec:
     """Build the spec from one entry of ``config["conditions"]``."""
     return ConditioningSpec(
@@ -293,6 +316,11 @@ def conditioning_spec(condition: dict) -> ConditioningSpec:
         gdd_mode=str(condition.get("gdd_mode", "none")),
         gdd_base=float(condition.get("gdd_base", 0.0)),
         weather_mode=str(condition.get("weather_mode", "none")),
+        delta_mode=str(condition.get("delta_mode", "sample")),
+        fixed_delta_days=(
+            float(condition["fixed_delta_days"])
+            if condition.get("fixed_delta_days") is not None else None
+        ),
     )
 
 
