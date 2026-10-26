@@ -1,0 +1,171 @@
+{
+  "rule": {
+    "manifest_id": "fip1-s4b1-v1",
+    "pair_types": [
+      "span7",
+      "span14"
+    ],
+    "splits": [
+      "train"
+    ],
+    "dedupe_physical_pairs": true,
+    "require_cache": false,
+    "require_image_cache": false,
+    "source_pair_table": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+    "source_pair_manifest_id": "fip1-s2-v1"
+  },
+  "n_pairs": 179823,
+  "train": {
+    "n_pairs": 179823,
+    "n_unique_images": 114791,
+    "n_unique_physical_pairs": 179823,
+    "n_plots": 2930,
+    "n_years": 5,
+    "n_by_pair_type": {
+      "span7": 92136,
+      "span14": 87687
+    },
+    "n_by_year": {
+      "2016": 19537,
+      "2017": 12529,
+      "2018": 19515,
+      "2021": 76246,
+      "2022": 51996
+    },
+    "delta_days": {
+      "min": 5,
+      "max": 16,
+      "median": 9.0,
+      "mean": 10.253921912102456,
+      "hist_1_3": 0,
+      "hist_4_7": 76600,
+      "hist_8_14": 83978,
+      "hist_15_21": 19245,
+      "hist_22_28": 0,
+      "hist_29_plus": 0
+    },
+    "delta_by_pair_type": {
+      "span14": {
+        "n": 87687,
+        "min": 12,
+        "max": 16,
+        "median": 14.0
+      },
+      "span7": {
+        "n": 92136,
+        "min": 5,
+        "max": 9,
+        "median": 7.0
+      }
+    },
+    "labels": {
+      "cc": {
+        "n_valid_b": 175542,
+        "n_valid_a": 175190,
+        "n_valid_both": 173021,
+        "n_negative_b": 0
+      },
+      "ph": {
+        "n_valid_b": 153026,
+        "n_valid_a": 147135,
+        "n_valid_both": 146497,
+        "n_negative_b": 1185
+      },
+      "whc": {
+        "n_valid_b": 103968,
+        "n_valid_a": 94721,
+        "n_valid_both": 93212,
+        "n_negative_b": 0
+      },
+      "sen": {
+        "n_valid_b": 10770,
+        "n_valid_a": 7684,
+        "n_valid_both": 7655,
+        "n_negative_b": 0
+      }
+    }
+  },
+  "pairing_note": "span7/span14 rows taken verbatim from the frozen S2 table; the same table S3 filtered.  Span7 delta_days lies in 5-9 d, span14 in 12-16 d, so the S3 max_delta=16 bound excludes nothing for these families.",
+  "dedupe": {
+    "rows_before_dedupe": 179823,
+    "rows_after_dedupe": 179823
+  },
+  "n_s2_span_train_rows": 179823,
+  "coverage": {
+    "official_train_plots": 2930,
+    "plots_in_index": 2930,
+    "missing_train_plots": [],
+    "extra_non_train_plots": [],
+    "covers_all_2930": true,
+    "n_unique_endpoints": 114791,
+    "n_by_pair_type": {
+      "span7": 92136,
+      "span14": 87687
+    },
+    "n_plots_by_year": {
+      "2016": 452,
+      "2017": 492,
+      "2018": 520,
+      "2021": 742,
+      "2022": 724
+    },
+    "n_plots_by_genotype": 849
+  },
+  "index_sha256": "643865330cb4840432a0e88f0618a6bafed555bcd1b947460c9451cf30f92726",
+  "generated_at": "2026-10-26T15:37:50+0800",
+  "elapsed_seconds": 8.2,
+  "inputs": {
+    "plots": "data/manifests/fip1_plots.csv",
+    "plots_sha256": "67a73d2affe72cfac6d909323e07fe5bbf85f42dcc201e98f2f23862b9eab59f",
+    "observations": "data/manifests/fip1_observations.csv.gz",
+    "observations_sha256": "82b68b64d799636e8d1bce3d9571b581128d4fe94e90e56a8873f119de9f0a60",
+    "s2_pairs": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+    "s2_pairs_sha256": "08e80a057b22273d55b6f64c64090f56a119f61988cfe14ad392f9ec39ae923e"
+  },
+  "test_splits": {
+    "test_plot": {
+      "index_file": "external_data/s4b_index/test_plot_test_pairs.parquet",
+      "index_sha256": "76ef410784562e0b744ceef0e3af2c8345cee4902202e878ff8586f7853bafb8",
+      "n_pairs": 9851,
+      "n_unique_endpoints": 7050
+    },
+    "test_genotype": {
+      "index_file": "external_data/s4b_index/test_genotype_test_pairs.parquet",
+      "index_sha256": "f260423ff94f95bf9d43e77ae0bb94284a5c78871ea3a0d5b3c84576dda6cf5e",
+      "n_pairs": 12059,
+      "n_unique_endpoints": 8149
+    },
+    "test_environment": {
+      "index_file": "external_data/s4b_index/test_environment_test_pairs.parquet",
+      "index_sha256": "66dcd5c4f531dab0d1f82559cf68661df491e2b926362a5e4d44b7e75bbf11b2",
+      "n_pairs": 6300,
+      "n_unique_endpoints": 4281
+    },
+    "test_genotype_environment": {
+      "index_file": "external_data/s4b_index/test_genotype_environment_test_pairs.parquet",
+      "index_sha256": "0df8e0cfa59768a1a7c31f62a032e23908da34595c4732382f6eccae9ad97373",
+      "n_pairs": 2147,
+      "n_unique_endpoints": 1479
+    }
+  },
+  "desired_endpoints": {
+    "total": 135750,
+    "by_split": {
+      "train": 114791,
+      "test_genotype": 8149,
+      "test_plot": 7050,
+      "test_environment": 4281,
+      "test_genotype_environment": 1479
+    },
+    "by_year": {
+      "2016": 20369,
+      "2017": 10886,
+      "2018": 17606,
+      "2019": 5760,
+      "2021": 45622,
+      "2022": 35507
+    },
+    "endpoints_file": "external_data/s4b_index/s4b1_desired_endpoints.parquet",
+    "endpoints_sha256": "a1a1f44b21eb57dbcc40382344abc1367ca23b1514efc9535fee27c581c2313c"
+  }
+}

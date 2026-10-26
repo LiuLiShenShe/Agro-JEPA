@@ -1,0 +1,71 @@
+# Agro-JEPA S4B.1 data + feature cache configuration.
+#
+# Pure data/feature preparation for the FULL official train set and the four
+# official test splits.  No training, no test phenotype labels, no test metrics.
+#
+# Frozen provenance (must match S1/S3; do not infer or re-pin):
+#   DINOv2 ViT-B/14, code commit 7764ea0f912e53c92e82eb78a2a1631e92725fc8
+#   weights sha256 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
+#   protocol mainline224 / s1-v1, 224x224, 256 patch tokens x 768 dim, float16
+#
+# New S4B assets live under independent paths and never overwrite S1/S2/S3/S4A.
+
+manifest_id: fip1-s4b1-v1
+
+data:
+  plots: data/manifests/fip1_plots.csv
+  observations: data/manifests/fip1_observations.csv.gz
+  s2_pairs: external_data/pairs_cache/fip1_pairs_s2.parquet
+  s3_feature_index: external_data/s3_features/index.parquet
+  dinov2_repo: external_data/third_party/dinov2
+  weights_path: ~/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth
+
+pair_rule:
+  # identical to frozen S3/S4A rule
+  pair_types: [span7, span14]
+  span_tolerance_days: 2
+  min_delta_days: 1
+  max_delta_days: 16
+  dedupe_physical_pairs: true
+  train_split_only: true
+
+index:
+  full_train_out: external_data/s4b_index/full_train_pairs.parquet
+  full_train_sample_csv: reports/s4b1_full_train_sample.csv
+  full_train_stats: reports/s4b1_full_train_stats.json
+  endpoints_out: external_data/s4b_index/s4b1_desired_endpoints.parquet
+  test_index_dir: external_data/s4b_index
+  test_splits: [test_plot, test_genotype, test_environment, test_genotype_environment]
+
+images:
+  out_dir: external_data/s4b_images
+  manifest: external_data/s4b_images_manifest.json
+  report: external_data/s4b1_image_download.json
+  workers: 32
+  retries: 6
+
+features:
+  out_dir: external_data/s4b_features
+  cache_subdir: mainline224_s1-v1
+  s4b_feature_index: external_data/s4b_features/index.parquet
+  report: reports/s4b1_feature_cache.json
+  batch_size: 48
+  # project rule: only GPU1 may be used
+  device: cuda:1
+
+verify:
+  out_json: reports/s4b1_verify.json
+
+reports:
+  audit_md: reports/s4b1_data_cache_audit.md
+  audit_json: reports/s4b1_data_cache_audit.json
+  coverage_json: reports/s4b1_feature_coverage.json
+  run_logs_dir: reports/s4b1_run_logs
+
+# reuse rule: a desired endpoint is satisfied by an existing S3 feature iff
+# its image_filename_stem appears in s3_feature_index with a cache_file whose
+# protocol/version/weights provenance matches mainline224_s1-v1.
+reuse:
+  cache_protocol: mainline224
+  cache_protocol_version: s1-v1
+  dinov2_weights_sha256: 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
