@@ -1,0 +1,41 @@
+{
+  "stage": "S4B.1",
+  "task": "DINOv2 mainline224 feature cache for full train + 4 test splits",
+  "generated_at": "2026-10-26T20:50:41+0800",
+  "protocol": "mainline224_s1-v1",
+  "dinov2": {
+    "repo_git_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+    "emb_dim": 768,
+    "n_tokens": 256
+  },
+  "device": "cuda:1",
+  "endpoints_total": 135750,
+  "reuse_s3": 36631,
+  "s4b_cached": 60186,
+  "s4b_computed": 38933,
+  "missing_image_or_failed": 0,
+  "coverage": {
+    "covered": 135750,
+    "coverage_fraction": 1.0,
+    "by_split": {
+      "train": 114791,
+      "test_genotype": 8149,
+      "test_plot": 7050,
+      "test_environment": 4281,
+      "test_genotype_environment": 1479
+    }
+  },
+  "timing": {
+    "n_unique_source_images": 38933,
+    "n_cached": 0,
+    "n_computed": 38933,
+    "elapsed_seconds": 435.6,
+    "throughput_images_per_s": 89.38,
+    "peak_gpu_memory_bytes": 840295424,
+    "batch_size": 48,
+    "model_load_seconds": 1.51
+  },
+  "index_file": "external_data/s4b_features/index.parquet",
+  "index_sha256": "3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d"
+}

@@ -92,6 +92,8 @@ def download_png(url: str, dest: Path, retries: int = 6) -> tuple[int, str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="agro_jepa/config/s4b1_data_cache.yaml")
+    ap.add_argument("--workers", type=int, default=0,
+                    help="override images.workers (lower it to avoid HTTP 429)")
     args = ap.parse_args()
     with open(args.config) as fh:
         cfg = yaml.safe_load(fh)
@@ -157,7 +159,7 @@ def main() -> int:
                 "status": "downloaded", "seconds": round(time.time() - t1, 3),
                 "source_url": rewrite(t["inner_plot_image"])}
 
-    workers = int(cfg["images"]["workers"])
+    workers = int(args.workers) if args.workers else int(cfg["images"]["workers"])
     with ThreadPoolExecutor(max_workers=workers) as ex:
         futs = {ex.submit(work, t): t for t in tasks}
         done = 0

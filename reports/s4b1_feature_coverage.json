@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-10-26T21:04:53+0800",
+  "total_desired_endpoints": 135750,
+  "feature_index_sha256": "3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d",
+  "splits": {
+    "train_full": {
+      "n_pairs": 179823,
+      "n_plots": 2930,
+      "n_endpoints": 114791,
+      "missing_endpoints": 0,
+      "coverage_fraction": 1.0,
+      "fully_covered": true
+    },
+    "test_plot": {
+      "n_pairs": 9851,
+      "n_plots": 250,
+      "n_endpoints": 7050,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    },
+    "test_genotype": {
+      "n_pairs": 12059,
+      "n_plots": 246,
+      "n_endpoints": 8149,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    },
+    "test_environment": {
+      "n_pairs": 6300,
+      "n_plots": 190,
+      "n_endpoints": 4281,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    },
+    "test_genotype_environment": {
+      "n_pairs": 2147,
+      "n_plots": 62,
+      "n_endpoints": 1479,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    }
+  },
+  "by_feature_source": {
+    "reuse_s3": 36631,
+    "s4b_computed": 38933,
+    "missing": 0
+  }
+}

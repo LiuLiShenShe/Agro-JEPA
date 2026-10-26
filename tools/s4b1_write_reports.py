@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -74,23 +75,56 @@ def main() -> int:
     if Path(dl_path).exists():
         dl_report = load(dl_path)
 
-    # ---- frozen asset current hashes; compare to any prior record ----------
+    # ---- frozen asset current hashes + mtime vs stage start ---------------
+    full_stats_start = pd.Timestamp(full_stats["generated_at"])
+    stage_start_epoch = full_stats_start.timestamp()
     frozen_now = {}
+    mtimes_ok = True
     for name, rel in FROZEN_ASSETS.items():
         if Path(rel).exists():
-            frozen_now[name] = {"path": rel, "sha256": sha256_file(rel)}
-    # a prior frozen snapshot is not available in this stage; we instead assert
-    # these files were NOT modified by checking git: they are committed at the
-    # frozen parent commit 4e01ec0, so any change would show in git status.
+            mt = os.path.getmtime(rel)
+            before = mt < stage_start_epoch
+            mtimes_ok = mtimes_ok and before
+            frozen_now[name] = {
+                "path": rel, "sha256": sha256_file(rel),
+                "mtime": time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(mt)),
+                "mtime_before_stage_start": bool(before),
+            }
+    # tracked manifests/configs: any modification shows in git status
     import subprocess
     changed = subprocess.check_output(
         ["git", "status", "--porcelain", *FROZEN_ASSETS.values()]
     ).decode().strip().splitlines()
-    frozen_modified = [c for c in changed if c and not c.startswith("??")]
+    frozen_modified = [c.strip() for c in changed if c and not c.startswith("??")]
+
+    # cumulative new downloads = every desired endpoint that was not already on
+    # disk before this stage (independent of how many runs it took to fetch them)
+    images_newly_downloaded = (
+        dl_report["endpoints_total"] - dl_report["reused_already_on_disk"]
+        if dl_report else None
+    )
+    images_reused_from_disk = (
+        dl_report["reused_already_on_disk"] if dl_report else None
+    )
 
     cov = verify["coverage"]
     train_cov = cov["train_full"]
     test_cov = {s: cov[s] for s in cfg["index"]["test_splits"]}
+
+    # ---- per-split feature manifests (independent SHA256 per split) --------
+    fidx = pd.read_parquet(cfg["features"]["s4b_feature_index"])
+    manifest_dir = Path(cfg["features"]["out_dir"]) / "manifests"
+    manifest_dir.mkdir(parents=True, exist_ok=True)
+    split_manifests = {}
+    for split in ["train"] + list(cfg["index"]["test_splits"]):
+        sub = fidx[fidx.split == split].reset_index(drop=True)
+        p = manifest_dir / f"{split}_features.parquet"
+        sub.to_parquet(p, index=False)
+        split_manifests[split] = {
+            "file": str(p),
+            "n_endpoints": int(len(sub)),
+            "sha256": sha256_file(p),
+        }
 
     audit = {
         "stage": "S4B.1",
@@ -116,8 +150,9 @@ def main() -> int:
         "image_download": dl_report and {
             "endpoints_total": dl_report["endpoints_total"],
             "reused_already_on_disk": dl_report["reused_already_on_disk"],
-            "n_downloaded": dl_report["n_downloaded"],
-            "n_cached_skip": dl_report["n_cached_skip"],
+            "cumulative_new_downloads": images_newly_downloaded,
+            "n_downloaded_last_run": dl_report["n_downloaded"],
+            "n_cached_skip_last_run": dl_report["n_cached_skip"],
             "n_failed": dl_report["n_failed"],
             "n_bytes_gb": round(dl_report["n_bytes"] / 1e9, 2),
             "elapsed_seconds": dl_report["elapsed_seconds"],
@@ -125,14 +160,17 @@ def main() -> int:
         "feature_build": {
             "endpoints_total": feat_report["endpoints_total"],
             "reuse_s3": feat_report["reuse_s3"],
+            "s4b_cached": feat_report.get("s4b_cached"),
             "s4b_computed": feat_report["s4b_computed"],
             "missing_image_or_failed": feat_report["missing_image_or_failed"],
             "coverage_fraction": feat_report["coverage"]["coverage_fraction"],
             "index_sha256": feat_report["index_sha256"],
         },
         "coverage": cov,
+        "split_feature_manifests": split_manifests,
         "cache_integrity": verify["cache_integrity"],
         "frozen_assets_current_sha256": frozen_now,
+        "frozen_assets_mtime_before_stage": mtimes_ok,
         "frozen_assets_modified_in_stage": [c.strip() for c in frozen_modified],
         "test_phenotype_labels_read": False,
     }
@@ -144,16 +182,17 @@ def main() -> int:
         "Q1_full_train_covers_2930_plots":
             full_stats["coverage"]["covers_all_2930"],
         "Q2_pairing_rule_consistent_with_S3":
-            full_stats["rule"]["manifest_id"] == "fip1-s2-v1"
-            and full_stats["rule"]["dedupe_physical_pairs"] is True,
+            full_stats["rule"].get("source_pair_manifest_id") == "fip1-s2-v1"
+            and full_stats["rule"]["dedupe_physical_pairs"] is True
+            and list(full_stats["rule"]["pair_types"]) == ["span7", "span14"]
+            and list(full_stats["rule"]["splits"]) == ["train"],
         "Q3_unique_train_pair_endpoints": full_stats["coverage"]["n_unique_endpoints"],
         "Q4_reuse_vs_new_download": {
             "reused_s3_features": feat_report["reuse_s3"],
+            "s4b_cached_features": feat_report.get("s4b_cached"),
             "s4b_computed_features": feat_report["s4b_computed"],
-            "images_reused_from_disk": (dl_report["reused_already_on_disk"]
-                                        if dl_report else None),
-            "images_newly_downloaded": (dl_report["n_downloaded"]
-                                        if dl_report else None),
+            "images_reused_from_disk": images_reused_from_disk,
+            "images_newly_downloaded": images_newly_downloaded,
         },
         "Q5_train_pair_endpoint_coverage":
             train_cov["fully_covered"],
@@ -163,10 +202,10 @@ def main() -> int:
             verify["cache_integrity"]["ok"],
         "Q8_test_phenotype_labels_read": False,
         "Q9_frozen_assets_unchanged":
-            len(frozen_modified) == 0,
+            len(frozen_modified) == 0 and mtimes_ok,
         "Q10_ready_for_full_training_and_one_shot_test_eval":
             train_cov["fully_covered"] and verify["all_test_pairs_covered"]
-            and len(frozen_modified) == 0,
+            and len(frozen_modified) == 0 and mtimes_ok,
     }
 
     out_md = Path(R["audit_md"])
@@ -217,7 +256,8 @@ def main() -> int:
               f"**{A['Q3_unique_train_pair_endpoints']:,}**")
     Q4 = A["Q4_reuse_vs_new_download"]
     md.append(f"4. Reused vs new: S3 features reused = **{Q4['reused_s3_features']:,}**, "
-              f"S4B computed = **{Q4['s4b_computed_features']:,}**; "
+              f"S4B cache recovered = **{Q4['s4b_cached_features']:,}**, "
+              f"S4B newly computed = **{Q4['s4b_computed_features']:,}**; "
               f"images reused from disk = **{Q4['images_reused_from_disk']:,}**, "
               f"newly downloaded = **{Q4['images_newly_downloaded']:,}**")
     md.append(f"5. Train pair endpoint feature coverage (100%): "

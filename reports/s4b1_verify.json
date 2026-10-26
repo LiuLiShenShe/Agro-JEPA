@@ -1,0 +1,109 @@
+{
+  "stage": "S4B.1",
+  "task": "feature coverage + frozen-asset integrity verification",
+  "generated_at": "2026-10-26T20:56:57+0800",
+  "feature_index": "external_data/s4b_features/index.parquet",
+  "feature_index_sha256": "3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d",
+  "n_feature_rows": 135750,
+  "by_split": {
+    "train": 114791,
+    "test_genotype": 8149,
+    "test_plot": 7050,
+    "test_environment": 4281,
+    "test_genotype_environment": 1479
+  },
+  "cache_integrity": {
+    "missing_files": 0,
+    "bad_shape": 0,
+    "ok": true
+  },
+  "coverage": {
+    "train_full": {
+      "n_pairs": 179823,
+      "n_plots": 2930,
+      "n_endpoints": 114791,
+      "missing_endpoints": 0,
+      "coverage_fraction": 1.0,
+      "fully_covered": true
+    },
+    "test_plot": {
+      "n_pairs": 9851,
+      "n_plots": 250,
+      "n_endpoints": 7050,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    },
+    "test_genotype": {
+      "n_pairs": 12059,
+      "n_plots": 246,
+      "n_endpoints": 8149,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    },
+    "test_environment": {
+      "n_pairs": 6300,
+      "n_plots": 190,
+      "n_endpoints": 4281,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    },
+    "test_genotype_environment": {
+      "n_pairs": 2147,
+      "n_plots": 62,
+      "n_endpoints": 1479,
+      "missing_endpoints": 0,
+      "fully_covered": true
+    }
+  },
+  "all_train_pairs_covered": true,
+  "all_test_pairs_covered": true,
+  "frozen_assets": {
+    "s1_plots": {
+      "path": "data/manifests/fip1_plots.csv",
+      "sha256": "67a73d2affe72cfac6d909323e07fe5bbf85f42dcc201e98f2f23862b9eab59f",
+      "present": true
+    },
+    "s1_observations": {
+      "path": "data/manifests/fip1_observations.csv.gz",
+      "sha256": "82b68b64d799636e8d1bce3d9571b581128d4fe94e90e56a8873f119de9f0a60",
+      "present": true
+    },
+    "s2_pairs": {
+      "path": "external_data/pairs_cache/fip1_pairs_s2.parquet",
+      "sha256": "08e80a057b22273d55b6f64c64090f56a119f61988cfe14ad392f9ec39ae923e",
+      "present": true
+    },
+    "s3_feature_index": {
+      "path": "external_data/s3_features/index.parquet",
+      "sha256": "158b31dafad13f09cce46ca32abb695e51bb6aff30e6d55878443ae01fd12963",
+      "present": true
+    },
+    "s3_train_selection": {
+      "path": "data/manifests/s3_image_selection.json",
+      "sha256": "b0bac953f33288ce513699e198d72ec720a55302cd5aac20028633fd4da3a63b",
+      "present": true
+    },
+    "s4b_test_plot_index": {
+      "path": "external_data/s4b_index/test_plot_test_pairs.parquet",
+      "sha256": "76ef410784562e0b744ceef0e3af2c8345cee4902202e878ff8586f7853bafb8",
+      "present": true
+    },
+    "s4b_test_genotype_index": {
+      "path": "external_data/s4b_index/test_genotype_test_pairs.parquet",
+      "sha256": "f260423ff94f95bf9d43e77ae0bb94284a5c78871ea3a0d5b3c84576dda6cf5e",
+      "present": true
+    },
+    "s4b_test_environment_index": {
+      "path": "external_data/s4b_index/test_environment_test_pairs.parquet",
+      "sha256": "66dcd5c4f531dab0d1f82559cf68661df491e2b926362a5e4d44b7e75bbf11b2",
+      "present": true
+    },
+    "s4b_test_ge_index": {
+      "path": "external_data/s4b_index/test_genotype_environment_test_pairs.parquet",
+      "sha256": "0df8e0cfa59768a1a7c31f62a032e23908da34595c4732382f6eccae9ad97373",
+      "present": true
+    }
+  },
+  "test_phenotype_labels_read": false,
+  "elapsed_seconds": 325.2
+}

@@ -189,11 +189,27 @@ def main() -> int:
         "image_filename_stem").set_index("image_filename_stem")
 
     reuse_rows: list[dict] = []
+    cached_rows: list[dict] = []
     compute_records: list[dict] = []
     not_found: list[str] = []
 
     s3_root = Path("external_data/fip1_images")
     new_img_root = Path(cfg["images"]["out_dir"])
+    cache_root = Path(feat_cfg["out_dir"]) / CACHE_PROTOCOL / CACHE_PROTOCOL_VERSION
+
+    # download manifest: stem -> (dest, sha256).  The SHA is authoritative even
+    # after source images are pruned, so an already-encoded endpoint is still
+    # recovered from its cache key instead of being re-downloaded.
+    dl_map: dict[str, tuple[str | None, str | None]] = {}
+    manifest_path = Path(cfg["images"]["manifest"])
+    if manifest_path.exists():
+        with open(manifest_path) as fh:
+            mj = json.load(fh)
+        for rec in mj.get("images", []):
+            stem = str(rec.get("image_filename_stem", "")).upper()
+            if stem:
+                dl_map[stem] = (rec.get("dest"), rec.get("sha256"))
+
     for stem, r in ep_meta.iterrows():
         if stem in s3_valid.index:
             srow = s3_valid.loc[stem]
@@ -206,23 +222,58 @@ def main() -> int:
                 "source_path": str(srow.source_path), "feature_source": "reuse_s3",
             })
             continue
-        fname = str(r.inner_plot_image).rsplit("/", 1)[-1]
-        dest = s3_root / str(r.plot_uid) / fname
-        if not dest.exists():
-            dest = new_img_root / str(r.plot_uid) / fname
-        if not dest.exists() or dest.stat().st_size == 0:
+        # resolve sha + source path (manifest first, then disk)
+        sha = None
+        src = None
+        if stem in dl_map:
+            d_path, d_sha = dl_map[stem]
+            sha = d_sha
+            if d_path and Path(d_path).exists():
+                src = d_path
+        if sha is None:
+            fname = str(r.inner_plot_image).rsplit("/", 1)[-1]
+            cand = s3_root / str(r.plot_uid) / fname
+            if not cand.exists():
+                cand = new_img_root / str(r.plot_uid) / fname
+            if cand.exists() and cand.stat().st_size > 0:
+                src = str(cand)
+                sha = sha256_file(cand)
+        if sha is None:
+            not_found.append(stem)
+            continue
+        key = cache_key_for_image(sha)
+        npy = cache_root / f"{key}.npy"
+        if npy.exists():
+            ok = False
+            try:
+                # full load (not mmap): a truncated file from an interrupted
+                # write must be detected, not accepted on its intact header.
+                ok = np.load(npy).shape == (MAINLINE_N_TOKENS, DINOV2_EMBED_DIM)
+            except Exception:  # noqa: BLE001 - rebuild a bad/truncated cache file
+                ok = False
+            if ok:
+                cached_rows.append({
+                    "image_filename_stem": stem, "plot_uid": str(r.plot_uid),
+                    "split": str(r.split), "harvest_year": int(r.harvest_year),
+                    "image_date": str(r.image_date), "sha256": sha,
+                    "cache_key": key, "cache_file": str(npy),
+                    "n_tokens": MAINLINE_N_TOKENS, "emb_dim": DINOV2_EMBED_DIM,
+                    "source_path": src or (dl_map.get(stem, (None, None))[0] or ""),
+                    "feature_source": "s4b_cached",
+                })
+                continue
+        if src is None or not Path(src).exists() or Path(src).stat().st_size == 0:
             not_found.append(stem)
             continue
         compute_records.append({
             "image_filename_stem": stem, "plot_uid": str(r.plot_uid),
             "split": str(r.split), "harvest_year": int(r.harvest_year),
-            "image_date": str(r.image_date),
-            "sha256": sha256_file(dest), "dest": str(dest),
+            "image_date": str(r.image_date), "sha256": sha, "dest": src,
         })
 
     print(f"endpoints={len(ep_meta)} reuse_s3={len(reuse_rows)} "
-          f"to_encode={len(compute_records)} missing_image={len(not_found)}",
-          flush=True)
+          f"s4b_cached={len(cached_rows)} to_encode={len(compute_records)} "
+          f"missing_image={len(not_found)}", flush=True)
     if not_found:
         with open("reports/s4b1_run_logs/missing_images.txt", "w") as fh:
             fh.write("\n".join(not_found))
@@ -258,7 +309,7 @@ def main() -> int:
         timing = {"note": "no new endpoints to encode"}
 
     # ---- merge index ----------------------------------------------------
-    index_df = pd.DataFrame(reuse_rows + computed_rows).sort_values(
+    index_df = pd.DataFrame(reuse_rows + cached_rows + computed_rows).sort_values(
         ["split", "plot_uid", "image_date", "image_filename_stem"], kind="mergesort"
     ).reset_index(drop=True)
     Path(feat_cfg["s4b_feature_index"]).parent.mkdir(parents=True, exist_ok=True)
@@ -278,6 +329,7 @@ def main() -> int:
         "device": feat_cfg["device"],
         "endpoints_total": int(len(ep_meta)),
         "reuse_s3": int(len(reuse_rows)),
+        "s4b_cached": int(len(cached_rows)),
         "s4b_computed": int(len(computed_rows)),
         "missing_image_or_failed": int(len(not_found)),
         "coverage": {
@@ -295,6 +347,7 @@ def main() -> int:
     print(json.dumps({
         "endpoints_total": report["endpoints_total"],
         "reuse_s3": report["reuse_s3"],
+        "s4b_cached": report["s4b_cached"],
         "s4b_computed": report["s4b_computed"],
         "missing": report["missing_image_or_failed"],
         "coverage_fraction": report["coverage"]["coverage_fraction"],

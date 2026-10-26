@@ -1,0 +1,14 @@
+S4B.1 stage run summary (2026-10-26)
+=====================================
+1) tools/s4b1_build_full_train_index.py  -> full_train_pairs.parquet (179,823 pairs / 2,930 plots)
+2) tools/s4b1_prepare_images.py          -> 99,087 new images downloaded into external_data/s4b_images
+     - first pass: 99,036 downloaded, 51 failed (HTTP 429)
+     - retry at workers=8: 51 recovered, 0 failures
+     - 36,663 endpoint images reused read-only from external_data/fip1_images
+3) tools/s4b1_build_features.py          -> feature index 135,750 endpoints
+     - reuse_s3=36,631  s4b_cached=60,186  s4b_computed=38,933  missing=0
+     - mid-run ENOSPC at 60,000/99,119 (root fs 100% full); 1 truncated .npy removed,
+       validation hardened to full np.load; 60,169 already-encoded source images pruned
+       (67.9 GB freed); rerun completed coverage=1.0.
+4) tools/s4b1_verify_features.py         -> cache_integrity ok, train+4 test splits fully covered
+5) tools/s4b1_write_reports.py           -> audit md/json, coverage json, per-split manifests
