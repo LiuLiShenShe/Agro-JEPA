@@ -1,0 +1,27 @@
+using 3d prop position use_3d_pos=False
+{"condition": "b2_no_time", "seed": 0, "epoch": 0, "train_loss": 1.32363, "sec": 504.2}
+{"condition": "b2_no_time", "seed": 0, "epoch": 1, "train_loss": 1.23341, "sec": 480.7}
+{"condition": "b2_no_time", "seed": 0, "epoch": 2, "train_loss": 1.21023, "sec": 493.1}
+{"condition": "b2_no_time", "seed": 0, "epoch": 3, "train_loss": 1.19394, "sec": 478.8}
+{"condition": "b2_no_time", "seed": 0, "epoch": 4, "train_loss": 1.18116, "sec": 477.3}
+{"condition": "b2_no_time", "seed": 0, "epoch": 5, "train_loss": 1.17028, "sec": 476.1}
+{"condition": "b2_no_time", "seed": 0, "epoch": 6, "train_loss": 1.16005, "sec": 483.7}
+{"condition": "b2_no_time", "seed": 0, "epoch": 7, "train_loss": 1.1505, "sec": 478.9}
+{"condition": "b2_no_time", "seed": 0, "epoch": 8, "train_loss": 1.14178, "sec": 479.2}
+{"condition": "b2_no_time", "seed": 0, "epoch": 9, "train_loss": 1.13368, "sec": 477.0}
+{"condition": "b2_no_time", "seed": 0, "epoch": 10, "train_loss": 1.12663, "sec": 475.9}
+{"condition": "b2_no_time", "seed": 0, "epoch": 11, "train_loss": 1.12089, "sec": 475.2}
+{"condition": "b2_no_time", "seed": 0, "epoch": 12, "train_loss": 1.11685, "sec": 475.1}
+{"condition": "b2_no_time", "seed": 0, "epoch": 13, "train_loss": 1.11483, "sec": 475.5}
+{
+  "condition": "b2_no_time",
+  "seed": 0,
+  "epochs_completed": 14,
+  "global_step": 19656,
+  "train_pairs": 179823,
+  "wall_clock_seconds": 6787.5,
+  "peak_gpu_memory_bytes": 13824965632,
+  "n_trainable_parameters": 45898196,
+  "checkpoint_final_sha256": "08c9dafc450a70a2c24a47216f30c0350c600b858e5eb5ef8847c6dbb3f34b04"
+}
+wrote external_data/s4b2_runs/b2_no_time/seed0/run_summary.json

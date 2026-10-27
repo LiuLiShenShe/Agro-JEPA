@@ -1,0 +1,16 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"condition": "b3_delta", "seed": 0, "epoch": 0, "train_loss": 1.55445, "sec": 106.3}
+smoke: stopping after max-steps
+{
+  "condition": "b3_delta",
+  "seed": 0,
+  "epochs_completed": 1,
+  "global_step": 200,
+  "train_pairs": 60000,
+  "wall_clock_seconds": 108.5,
+  "peak_gpu_memory_bytes": 14428027904,
+  "n_trainable_parameters": 53882396,
+  "checkpoint_final_sha256": "25e37ddb4cfeeb6cef4c718d77b4739002271d7367ee651d2777dfb8f5b526ae"
+}
+wrote external_data/s4b2_smoke/throughput/run_summary.json

@@ -1,0 +1,30 @@
+[E1] validation: 15175 pairs, 380 plots, years [2016, 2017, 2018, 2021, 2022]
+[B1] mean future feature over 179823 official-train pairs (cached -> external_data/s4b2_runs/e1_train_mean.pt)
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b2_no_time seed0: mse=1.141825 cos=0.7817
+[E1] b2_no_time seed1: mse=1.142137 cos=0.7816
+[E1] b2_no_time seed2: mse=1.141797 cos=0.7817
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b2_no_time_constant_delta seed0: mse=1.141331 cos=0.7818
+[E1] b2_no_time_constant_delta seed1: mse=1.141212 cos=0.7818
+[E1] b2_no_time_constant_delta seed2: mse=1.142318 cos=0.7815
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[E1] b3_delta seed0: mse=1.092671 cos=0.7922
+[E1] b3_delta seed1: mse=1.092718 cos=0.7921
+[E1] b3_delta seed2: mse=1.092799 cos=0.7921
+wrote reports/s4b2_validation_e1.json and reports/s4b2_validation_e1.md
+  b2_no_time                       MSE=1.129680 cos=0.7842 vs persist=48.54%
+  b2_no_time_constant_delta        MSE=1.129654 cos=0.7842 vs persist=48.54%
+  b3_delta                         MSE=1.075503 cos=0.7957 vs persist=51.01%

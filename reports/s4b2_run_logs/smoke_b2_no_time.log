@@ -1,0 +1,14 @@
+using 3d prop position use_3d_pos=False
+{"condition": "b2_no_time", "seed": 0, "epoch": 0, "train_loss": 2.33178, "sec": 4.4}
+{
+  "condition": "b2_no_time",
+  "seed": 0,
+  "epochs_completed": 1,
+  "global_step": 2,
+  "train_pairs": 256,
+  "wall_clock_seconds": 5.1,
+  "peak_gpu_memory_bytes": 13824965632,
+  "n_trainable_parameters": 45898196,
+  "checkpoint_final_sha256": "939cd12d1190cfb0481246677c39591fafc971e56c7aa8088d4c4d833536cd1f"
+}
+wrote external_data/s4b2_smoke/b2_no_time/run_summary.json

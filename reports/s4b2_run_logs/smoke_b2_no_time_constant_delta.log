@@ -1,0 +1,15 @@
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 0, "train_loss": 2.34155, "sec": 4.3}
+{
+  "condition": "b2_no_time_constant_delta",
+  "seed": 0,
+  "epochs_completed": 1,
+  "global_step": 2,
+  "train_pairs": 256,
+  "wall_clock_seconds": 4.9,
+  "peak_gpu_memory_bytes": 14426061824,
+  "n_trainable_parameters": 53882396,
+  "checkpoint_final_sha256": "50ad6af741256086241174a8f4b72cc0da971a3189089877abc58ea86d4c245c"
+}
+wrote external_data/s4b2_smoke/b2_no_time_constant_delta/run_summary.json

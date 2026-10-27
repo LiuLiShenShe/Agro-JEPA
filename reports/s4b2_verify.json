@@ -1,0 +1,784 @@
+{
+  "stage": "S4B.2",
+  "task": "acceptance verification over the nine frozen full-train runs",
+  "generated_at": "2026-10-28T03:31:00+0800",
+  "git_head": "fd2a993236ce776fc0f2f67afeddc3e2a4448884",
+  "branch": "agro-s4b2-full-train",
+  "config": "agro_jepa/config/s4b2_full_train.yaml",
+  "config_sha256": "45e641f02150040b2914a4b8ccf42aa5a9a48940b578dacdd7a5cb20f200fd39",
+  "expected": {
+    "b2_no_time": {
+      "input_dim": 928,
+      "trainable": 45898196,
+      "cond": 0,
+      "epochs": 14
+    },
+    "b2_no_time_constant_delta": {
+      "input_dim": 1088,
+      "trainable": 53882396,
+      "cond": 72730,
+      "epochs": 13
+    },
+    "b3_delta": {
+      "input_dim": 1088,
+      "trainable": 53882396,
+      "cond": 72730,
+      "epochs": 12
+    }
+  },
+  "steps_per_epoch": 1404,
+  "total_steps_all_runs": 164268,
+  "checks": {
+    "train_index": {
+      "n_pairs": 179823,
+      "n_plots": 2930,
+      "split_values": [
+        "train"
+      ],
+      "train_only": true,
+      "label_columns_present": [],
+      "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+      "matches_data_audit": true
+    },
+    "feature_index": {
+      "sha256": "3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d",
+      "matches_config": true
+    },
+    "runs": {
+      "all_present": true,
+      "conditions": {
+        "b2_no_time/seed0": {
+          "dir": "external_data/s4b2_runs/b2_no_time/seed0",
+          "present": true,
+          "epochs_completed": 14,
+          "epochs_expected": 14,
+          "epochs_ok": true,
+          "global_step": 19656,
+          "steps_expected": 19656,
+          "steps_ok": true,
+          "n_epoch_records": 14,
+          "first_train_loss": 1.3236289483699364,
+          "last_train_loss": 1.1148253866919764,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": false,
+            "delta_mode": "sample",
+            "fixed_delta_days": null,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": null,
+          "final_sha": "08c9dafc450a70a2c24a47216f30c0350c600b858e5eb5ef8847c6dbb3f34b04",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "ad5c4c78d84a529723e368dfad4fcc3684da84a33c2e15dc5f476e6ea603a0cc",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6787.5,
+          "peak_gpu_memory_bytes": 13824965632,
+          "samples_per_second": 370.68,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b2_no_time/seed1": {
+          "dir": "external_data/s4b2_runs/b2_no_time/seed1",
+          "present": true,
+          "epochs_completed": 14,
+          "epochs_expected": 14,
+          "epochs_ok": true,
+          "global_step": 19656,
+          "steps_expected": 19656,
+          "steps_ok": true,
+          "n_epoch_records": 14,
+          "first_train_loss": 1.3235481826328483,
+          "last_train_loss": 1.1136641690873692,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": false,
+            "delta_mode": "sample",
+            "fixed_delta_days": null,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": null,
+          "final_sha": "7b1b3827c5e6a6d84322dda1b397b0cde9ea4a6ce239f6494a8bf615a5b31503",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "548faec646b27e5e9c2bfa3033edb42fd0ecfca2a7261808f94394977f8c54e9",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6684.2,
+          "peak_gpu_memory_bytes": 13824965632,
+          "samples_per_second": 376.4,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b2_no_time/seed2": {
+          "dir": "external_data/s4b2_runs/b2_no_time/seed2",
+          "present": true,
+          "epochs_completed": 14,
+          "epochs_expected": 14,
+          "epochs_ok": true,
+          "global_step": 19656,
+          "steps_expected": 19656,
+          "steps_ok": true,
+          "n_epoch_records": 14,
+          "first_train_loss": 1.3235575669681245,
+          "last_train_loss": 1.1131954271229583,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": false,
+            "delta_mode": "sample",
+            "fixed_delta_days": null,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": null,
+          "final_sha": "540bbb96dbb350ffb80cb0fab715e33ce2f36550843b04b14f11cab5e50a57df",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "cbc4661d0e79c1bd2437d600aeb8bb631626ebd3eab61b94ccc5fdd5258f6a67",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6695.6,
+          "peak_gpu_memory_bytes": 13824965632,
+          "samples_per_second": 375.76,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b2_no_time_constant_delta/seed0": {
+          "dir": "external_data/s4b2_runs/b2_no_time_constant_delta/seed0",
+          "present": true,
+          "epochs_completed": 13,
+          "epochs_expected": 13,
+          "epochs_ok": true,
+          "global_step": 18252,
+          "steps_expected": 18252,
+          "steps_ok": true,
+          "n_epoch_records": 13,
+          "first_train_loss": 1.3138819644254158,
+          "last_train_loss": 1.1126024165214636,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": true,
+            "delta_mode": "constant",
+            "fixed_delta_days": 9.0,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": {
+            "fixed_delta_rule": "frozen_s4a1_constant",
+            "fixed_delta_days": 9.0,
+            "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+            "shared_delta_norm_mean": 10.253921912102456,
+            "shared_delta_norm_std": 3.6668246506160105,
+            "fixed_delta_normalised_value": -0.3419639692592888
+          },
+          "final_sha": "d8cebf42d2f97ebe27dbf2cfeb231669cbf4f6ff5e60e330649399a3cf292757",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "c432b6e5bc1581afbc7789e7ce7f5d9a81d4f193f97e56da502baf8fce626b04",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6709.5,
+          "peak_gpu_memory_bytes": 14428027904,
+          "samples_per_second": 348.2,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b2_no_time_constant_delta/seed1": {
+          "dir": "external_data/s4b2_runs/b2_no_time_constant_delta/seed1",
+          "present": true,
+          "epochs_completed": 13,
+          "epochs_expected": 13,
+          "epochs_ok": true,
+          "global_step": 18252,
+          "steps_expected": 18252,
+          "steps_ok": true,
+          "n_epoch_records": 13,
+          "first_train_loss": 1.314626313937016,
+          "last_train_loss": 1.1119949663975979,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": true,
+            "delta_mode": "constant",
+            "fixed_delta_days": 9.0,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": {
+            "fixed_delta_rule": "frozen_s4a1_constant",
+            "fixed_delta_days": 9.0,
+            "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+            "shared_delta_norm_mean": 10.253921912102456,
+            "shared_delta_norm_std": 3.6668246506160105,
+            "fixed_delta_normalised_value": -0.3419639692592888
+          },
+          "final_sha": "61a0d962309d3361a5bc1291e13af6b3908f40caf6201c7b9f543d1e823d9d20",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "a229571efed4297e805d3dc24ef89278a82fb67ffe0f79d587c57a23bc56b1e3",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6722.2,
+          "peak_gpu_memory_bytes": 14428027904,
+          "samples_per_second": 347.54,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b2_no_time_constant_delta/seed2": {
+          "dir": "external_data/s4b2_runs/b2_no_time_constant_delta/seed2",
+          "present": true,
+          "epochs_completed": 13,
+          "epochs_expected": 13,
+          "epochs_ok": true,
+          "global_step": 18252,
+          "steps_expected": 18252,
+          "steps_ok": true,
+          "n_epoch_records": 13,
+          "first_train_loss": 1.3144404569752195,
+          "last_train_loss": 1.1133404762996228,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": true,
+            "delta_mode": "constant",
+            "fixed_delta_days": 9.0,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": {
+            "fixed_delta_rule": "frozen_s4a1_constant",
+            "fixed_delta_days": 9.0,
+            "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+            "shared_delta_norm_mean": 10.253921912102456,
+            "shared_delta_norm_std": 3.6668246506160105,
+            "fixed_delta_normalised_value": -0.3419639692592888
+          },
+          "final_sha": "9391faa54f26c6760a11d86601bed7e94225b7a5e2d3c4b35cd1c593a1316230",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "265ace5bef56c6f9555c17d811b45aec005add8440f7528a96c35296d298833e",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6736.1,
+          "peak_gpu_memory_bytes": 14428027904,
+          "samples_per_second": 346.83,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b3_delta/seed0": {
+          "dir": "external_data/s4b2_runs/b3_delta/seed0",
+          "present": true,
+          "epochs_completed": 12,
+          "epochs_expected": 12,
+          "epochs_ok": true,
+          "global_step": 16848,
+          "steps_expected": 16848,
+          "steps_ok": true,
+          "n_epoch_records": 12,
+          "first_train_loss": 1.2957659153177528,
+          "last_train_loss": 1.0388045232010703,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": true,
+            "delta_mode": "sample",
+            "fixed_delta_days": null,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": null,
+          "final_sha": "f433164646886c691eb2a5d795924167c0f114c0b95f5d261722df565e8a0b5a",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "eaf346fe0220081fc500cfe72230dede6b5cd678f42feeb5b06307c7bd56c537",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6193.9,
+          "peak_gpu_memory_bytes": 14428027904,
+          "samples_per_second": 348.17,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b3_delta/seed1": {
+          "dir": "external_data/s4b2_runs/b3_delta/seed1",
+          "present": true,
+          "epochs_completed": 12,
+          "epochs_expected": 12,
+          "epochs_ok": true,
+          "global_step": 16848,
+          "steps_expected": 16848,
+          "steps_ok": true,
+          "n_epoch_records": 12,
+          "first_train_loss": 1.296472908085228,
+          "last_train_loss": 1.0383581911396778,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": true,
+            "delta_mode": "sample",
+            "fixed_delta_days": null,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": null,
+          "final_sha": "64ee70f8e4574ba7bff47b2206e6d19a1fed03c34a0e9b59fcc63463afe9ab7f",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "70e85406961bcc5c5505a09cf44a907c728785627dec0db3ccfea5ecc78da15c",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6175.1,
+          "peak_gpu_memory_bytes": 14428027904,
+          "samples_per_second": 349.23,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        },
+        "b3_delta/seed2": {
+          "dir": "external_data/s4b2_runs/b3_delta/seed2",
+          "present": true,
+          "epochs_completed": 12,
+          "epochs_expected": 12,
+          "epochs_ok": true,
+          "global_step": 16848,
+          "steps_expected": 16848,
+          "steps_ok": true,
+          "n_epoch_records": 12,
+          "first_train_loss": 1.2967079680869382,
+          "last_train_loss": 1.0374382645995528,
+          "loss_decreased": true,
+          "losses_finite": true,
+          "early_stopping": false,
+          "official_validation_used_for_selection": false,
+          "train_pairs": 179823,
+          "train_plots": 2930,
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "params_ok": true,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8",
+          "index_ok": true,
+          "feature_index_ok": true,
+          "conditioning_spec": {
+            "use_delta": true,
+            "delta_mode": "sample",
+            "fixed_delta_days": null,
+            "gdd_mode": "none",
+            "gdd_base": 0.0,
+            "weather_mode": "none",
+            "gdd_features": [],
+            "weather_features": []
+          },
+          "fixed_delta": null,
+          "final_sha": "37ca926d05f7ac959710027efc57997173fb4275e2ed67ae5d277e2c55d33e21",
+          "final_sha_ok": true,
+          "last_sha_ok": true,
+          "init_state_sha256": "ae45772340865b7dcce0916c2674409ec655d387ec5e2936ee7e3f824f1da4e5",
+          "git_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+          "wall_clock_seconds": 6121.3,
+          "peak_gpu_memory_bytes": 14428027904,
+          "samples_per_second": 352.3,
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823,
+            "rule": "fitted on train split delta_days only; reused for validation/test"
+          }
+        }
+      }
+    },
+    "all_runs_present": true,
+    "core_run_checks_pass": true,
+    "delta_norm_shared_across_runs": {
+      "ok": true,
+      "value": {
+        "mean": 10.253921912102456,
+        "std": 3.6668246506160105,
+        "min": 5.0,
+        "max": 16.0,
+        "n_samples": 179823,
+        "rule": "fitted on train split delta_days only; reused for validation/test"
+      }
+    },
+    "b2c_fixed_delta_9_0": {
+      "ok": true,
+      "records": [
+        {
+          "fixed_delta_rule": "frozen_s4a1_constant",
+          "fixed_delta_days": 9.0,
+          "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+          "shared_delta_norm_mean": 10.253921912102456,
+          "shared_delta_norm_std": 3.6668246506160105,
+          "fixed_delta_normalised_value": -0.3419639692592888
+        }
+      ]
+    },
+    "checkpoint_reload_forward": {
+      "ok": true,
+      "per_run": {
+        "b2_no_time/seed0": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b2_no_time/seed1": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b2_no_time/seed2": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b2_no_time_constant_delta/seed0": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b2_no_time_constant_delta/seed1": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b2_no_time_constant_delta/seed2": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b3_delta/seed0": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b3_delta/seed1": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        },
+        "b3_delta/seed2": {
+          "ok": true,
+          "shape": [
+            1,
+            256,
+            768
+          ],
+          "finite": true
+        }
+      }
+    },
+    "fresh_init_reproduced": {
+      "ok": true,
+      "per_run": {
+        "b2_no_time/seed0": {
+          "recorded": "ad5c4c78d84a529723e368dfad4fcc3684da84a33c2e15dc5f476e6ea603a0cc",
+          "recomputed": "ad5c4c78d84a529723e368dfad4fcc3684da84a33c2e15dc5f476e6ea603a0cc",
+          "match": true
+        },
+        "b2_no_time/seed1": {
+          "recorded": "548faec646b27e5e9c2bfa3033edb42fd0ecfca2a7261808f94394977f8c54e9",
+          "recomputed": "548faec646b27e5e9c2bfa3033edb42fd0ecfca2a7261808f94394977f8c54e9",
+          "match": true
+        },
+        "b2_no_time/seed2": {
+          "recorded": "cbc4661d0e79c1bd2437d600aeb8bb631626ebd3eab61b94ccc5fdd5258f6a67",
+          "recomputed": "cbc4661d0e79c1bd2437d600aeb8bb631626ebd3eab61b94ccc5fdd5258f6a67",
+          "match": true
+        },
+        "b2_no_time_constant_delta/seed0": {
+          "recorded": "c432b6e5bc1581afbc7789e7ce7f5d9a81d4f193f97e56da502baf8fce626b04",
+          "recomputed": "c432b6e5bc1581afbc7789e7ce7f5d9a81d4f193f97e56da502baf8fce626b04",
+          "match": true
+        },
+        "b2_no_time_constant_delta/seed1": {
+          "recorded": "a229571efed4297e805d3dc24ef89278a82fb67ffe0f79d587c57a23bc56b1e3",
+          "recomputed": "a229571efed4297e805d3dc24ef89278a82fb67ffe0f79d587c57a23bc56b1e3",
+          "match": true
+        },
+        "b2_no_time_constant_delta/seed2": {
+          "recorded": "265ace5bef56c6f9555c17d811b45aec005add8440f7528a96c35296d298833e",
+          "recomputed": "265ace5bef56c6f9555c17d811b45aec005add8440f7528a96c35296d298833e",
+          "match": true
+        },
+        "b3_delta/seed0": {
+          "recorded": "eaf346fe0220081fc500cfe72230dede6b5cd678f42feeb5b06307c7bd56c537",
+          "recomputed": "eaf346fe0220081fc500cfe72230dede6b5cd678f42feeb5b06307c7bd56c537",
+          "match": true
+        },
+        "b3_delta/seed1": {
+          "recorded": "70e85406961bcc5c5505a09cf44a907c728785627dec0db3ccfea5ecc78da15c",
+          "recomputed": "70e85406961bcc5c5505a09cf44a907c728785627dec0db3ccfea5ecc78da15c",
+          "match": true
+        },
+        "b3_delta/seed2": {
+          "recorded": "ae45772340865b7dcce0916c2674409ec655d387ec5e2936ee7e3f824f1da4e5",
+          "recomputed": "ae45772340865b7dcce0916c2674409ec655d387ec5e2936ee7e3f824f1da4e5",
+          "match": true
+        }
+      }
+    },
+    "frozen_source_checkpoints_unchanged": {
+      "ok": true,
+      "per_source": {
+        "b2_no_time/seed0": {
+          "path": "external_data/s4_runs/b2_no_time/seed0/checkpoints/best.pt",
+          "expected": "9b9ae4ee557cc46c1edf75b67244fe939851eb97c52dddc76a2e034c87987006",
+          "now": "9b9ae4ee557cc46c1edf75b67244fe939851eb97c52dddc76a2e034c87987006",
+          "ok": true
+        },
+        "b2_no_time/seed1": {
+          "path": "external_data/s4_runs/b2_no_time/seed1/checkpoints/best.pt",
+          "expected": "2354a7b72a9574a30995b76b878fe9646d5c1a5b732ce788e732b546f3e49d40",
+          "now": "2354a7b72a9574a30995b76b878fe9646d5c1a5b732ce788e732b546f3e49d40",
+          "ok": true
+        },
+        "b2_no_time/seed2": {
+          "path": "external_data/s4a1_runs/b2_no_time/seed2/checkpoints/best.pt",
+          "expected": "108fb502662dae9f912af9fba6b8310db73831e17f3a4129773f769f4ebe5b7f",
+          "now": "108fb502662dae9f912af9fba6b8310db73831e17f3a4129773f769f4ebe5b7f",
+          "ok": true
+        },
+        "b2_no_time_constant_delta/seed0": {
+          "path": "external_data/s4a1_runs/b2_no_time_constant_delta/seed0/checkpoints/best.pt",
+          "expected": "135bad41d4e463ce0e67b2f72084259278c603f8c55a1acaeb12ab6af7a70e36",
+          "now": "135bad41d4e463ce0e67b2f72084259278c603f8c55a1acaeb12ab6af7a70e36",
+          "ok": true
+        },
+        "b2_no_time_constant_delta/seed1": {
+          "path": "external_data/s4a1_runs/b2_no_time_constant_delta/seed1/checkpoints/best.pt",
+          "expected": "fbae6262a1626be2f36f6be5c349208f86b1ddba51da5ee79e594a55a69f8b71",
+          "now": "fbae6262a1626be2f36f6be5c349208f86b1ddba51da5ee79e594a55a69f8b71",
+          "ok": true
+        },
+        "b2_no_time_constant_delta/seed2": {
+          "path": "external_data/s4a1_runs/b2_no_time_constant_delta/seed2/checkpoints/best.pt",
+          "expected": "bbccf990afa4cf19885fcc88ef307446ec07b4d28f77f7466b2c4634b5b4c422",
+          "now": "bbccf990afa4cf19885fcc88ef307446ec07b4d28f77f7466b2c4634b5b4c422",
+          "ok": true
+        },
+        "b3_delta/seed0": {
+          "path": "external_data/s4_runs/b3_delta/seed0/checkpoints/best.pt",
+          "expected": "e068b6f8653c424feec6ba2af33dcf39e4112743af574b23389cecab2e6ad9e0",
+          "now": "e068b6f8653c424feec6ba2af33dcf39e4112743af574b23389cecab2e6ad9e0",
+          "ok": true
+        },
+        "b3_delta/seed1": {
+          "path": "external_data/s4_runs/b3_delta/seed1/checkpoints/best.pt",
+          "expected": "aa264c8aebc0df1e1557c715387cf7be9e4ce6f6a9d6d8c700317e271a4c52e6",
+          "now": "aa264c8aebc0df1e1557c715387cf7be9e4ce6f6a9d6d8c700317e271a4c52e6",
+          "ok": true
+        },
+        "b3_delta/seed2": {
+          "path": "external_data/s4a1_runs/b3_delta/seed2/checkpoints/best.pt",
+          "expected": "4d248312333d006b1b5fa4fc8584c318f205dac3bd3005a3a7a425d6885af082",
+          "now": "4d248312333d006b1b5fa4fc8584c318f205dac3bd3005a3a7a425d6885af082",
+          "ok": true
+        }
+      }
+    },
+    "claude_md_untouched": {
+      "ok": true,
+      "staged": false,
+      "in_implementation_commit": false,
+      "implementation_commit": "8d616150fdc675a77d9b1fa6c3313f7ba8e4dc35",
+      "worktree_status": "M CLAUDE.md"
+    }
+  },
+  "warnings": [
+    "CLAUDE.md has a pre-existing worktree modification; it was not staged or committed by this stage"
+  ],
+  "all_pass": true,
+  "elapsed_seconds": 70.1
+}
