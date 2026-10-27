@@ -328,8 +328,6 @@ def main() -> int:
             n_seen += z_a.shape[0]
             ep_loss += float(loss.detach())
             ep_batches += 1
-            if args.max_steps and global_step >= args.max_steps:
-                break
             if global_step % int(tcfg["log_every"]) == 0:
                 rec = {"type": "step", "condition": args.condition, "seed": args.seed,
                        "epoch": epoch, "step": global_step,
@@ -339,6 +337,8 @@ def main() -> int:
                        "samples_per_s": round(n_seen / max(time.time() - t0, 1e-9), 2)}
                 log_fh.write(json.dumps(rec) + "\n")
                 log_fh.flush()
+            if args.max_steps and global_step >= args.max_steps:
+                break
 
         epoch_rec = {"type": "epoch", "condition": args.condition, "seed": args.seed,
                      "epoch": epoch, "train_loss": ep_loss / max(ep_batches, 1),

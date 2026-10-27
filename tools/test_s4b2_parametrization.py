@@ -130,7 +130,7 @@ if __name__ == "__main__":
     test_b2_no_time_shapes()
     test_b2c_and_b3_matched_dims()
     test_b2c_fixed_delta_value()
-    test_b2_rejects_delta()
+    test_b2_ignores_delta()
     test_b3_accepts_sample_delta()
     test_b2c_b3_init_match_up_to_fixed_buffer()
     print("all S4B.2 parametrization checks passed")
