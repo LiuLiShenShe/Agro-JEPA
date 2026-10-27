@@ -1,0 +1,196 @@
+{
+  "stage": "S4B.2",
+  "task": "frozen fixed-epoch plan for full official-train runs",
+  "generated_at": "2026-10-27T10:00:14+0800",
+  "config": "agro_jepa/config/s4b2_full_train.yaml",
+  "config_sha256": "45e641f02150040b2914a4b8ccf42aa5a9a48940b578dacdd7a5cb20f200fd39",
+  "rule": "median over seeds 0,1,2 of (best_epoch + 1); best_epoch is 0-based",
+  "checkpoint_roots": [
+    "external_data/s4a1_runs",
+    "external_data/s4_runs"
+  ],
+  "conditions": {
+    "b2_no_time": {
+      "seeds": {
+        "0": {
+          "run_summary": "external_data/s4_runs/b2_no_time/seed0/run_summary.json",
+          "run_summary_sha256": "7c23eabe8ea7c387b69e47ffa5128577741b8b21912135f72a0e171d704aa393",
+          "best_epoch": 13,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 16,
+          "checkpoint_best": "external_data/s4_runs/b2_no_time/seed0/checkpoints/best.pt",
+          "checkpoint_best_sha256": "9b9ae4ee557cc46c1edf75b67244fe939851eb97c52dddc76a2e034c87987006",
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        },
+        "1": {
+          "run_summary": "external_data/s4_runs/b2_no_time/seed1/run_summary.json",
+          "run_summary_sha256": "f86afde2c2f68fe7d81b6058cf662801ad0cfd2d69c52991263c0a6957b67142",
+          "best_epoch": 13,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 16,
+          "checkpoint_best": "external_data/s4_runs/b2_no_time/seed1/checkpoints/best.pt",
+          "checkpoint_best_sha256": "2354a7b72a9574a30995b76b878fe9646d5c1a5b732ce788e732b546f3e49d40",
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        },
+        "2": {
+          "run_summary": "external_data/s4a1_runs/b2_no_time/seed2/run_summary.json",
+          "run_summary_sha256": "3f4eb34c2e3b1673865b320ea3d8662c6c225e38659743538648184abb4dd5e9",
+          "best_epoch": 15,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 16,
+          "checkpoint_best": "external_data/s4a1_runs/b2_no_time/seed2/checkpoints/best.pt",
+          "checkpoint_best_sha256": "108fb502662dae9f912af9fba6b8310db73831e17f3a4129773f769f4ebe5b7f",
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        }
+      },
+      "best_epoch_plus_one": [
+        14,
+        14,
+        16
+      ],
+      "fixed_epochs": 14,
+      "config_fixed_epochs": 14,
+      "config_best_epochs": [
+        13,
+        13,
+        15
+      ],
+      "matches_config": true,
+      "all_best_epochs_match_config": false
+    },
+    "b2_no_time_constant_delta": {
+      "seeds": {
+        "0": {
+          "run_summary": "external_data/s4a1_runs/b2_no_time_constant_delta/seed0/run_summary.json",
+          "run_summary_sha256": "0c3ba7efa2584d151e4590ddfbe7087daeb5d7ffc16eb8bd015cbc956846e0b4",
+          "best_epoch": 12,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 16,
+          "checkpoint_best": "external_data/s4a1_runs/b2_no_time_constant_delta/seed0/checkpoints/best.pt",
+          "checkpoint_best_sha256": "135bad41d4e463ce0e67b2f72084259278c603f8c55a1acaeb12ab6af7a70e36",
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        },
+        "1": {
+          "run_summary": "external_data/s4a1_runs/b2_no_time_constant_delta/seed1/run_summary.json",
+          "run_summary_sha256": "9545b579a11286bdcb621c670bd909ec2a1683ccac56aff04ae4d84f35265555",
+          "best_epoch": 12,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 16,
+          "checkpoint_best": "external_data/s4a1_runs/b2_no_time_constant_delta/seed1/checkpoints/best.pt",
+          "checkpoint_best_sha256": "fbae6262a1626be2f36f6be5c349208f86b1ddba51da5ee79e594a55a69f8b71",
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        },
+        "2": {
+          "run_summary": "external_data/s4a1_runs/b2_no_time_constant_delta/seed2/run_summary.json",
+          "run_summary_sha256": "b559afe9727c9f7ed27d86dab615567821dfea004750b94c20da4e8aa8d57165",
+          "best_epoch": 12,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 16,
+          "checkpoint_best": "external_data/s4a1_runs/b2_no_time_constant_delta/seed2/checkpoints/best.pt",
+          "checkpoint_best_sha256": "bbccf990afa4cf19885fcc88ef307446ec07b4d28f77f7466b2c4634b5b4c422",
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        }
+      },
+      "best_epoch_plus_one": [
+        13,
+        13,
+        13
+      ],
+      "fixed_epochs": 13,
+      "config_fixed_epochs": 13,
+      "config_best_epochs": [
+        12,
+        12,
+        12
+      ],
+      "matches_config": true,
+      "all_best_epochs_match_config": false
+    },
+    "b3_delta": {
+      "seeds": {
+        "0": {
+          "run_summary": "external_data/s4_runs/b3_delta/seed0/run_summary.json",
+          "run_summary_sha256": "8212c7b8cf718890b5ea66e58c8eaf1f0ff5d00d3b47e04af1c6207428e21277",
+          "best_epoch": 11,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 15,
+          "checkpoint_best": "external_data/s4_runs/b3_delta/seed0/checkpoints/best.pt",
+          "checkpoint_best_sha256": "e068b6f8653c424feec6ba2af33dcf39e4112743af574b23389cecab2e6ad9e0",
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        },
+        "1": {
+          "run_summary": "external_data/s4_runs/b3_delta/seed1/run_summary.json",
+          "run_summary_sha256": "7606024b9607fa22685e4630c4689d117da253cfe8c12bb912189cf1b26d5d7a",
+          "best_epoch": 11,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 15,
+          "checkpoint_best": "external_data/s4_runs/b3_delta/seed1/checkpoints/best.pt",
+          "checkpoint_best_sha256": "aa264c8aebc0df1e1557c715387cf7be9e4ce6f6a9d6d8c700317e271a4c52e6",
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        },
+        "2": {
+          "run_summary": "external_data/s4a1_runs/b3_delta/seed2/run_summary.json",
+          "run_summary_sha256": "f97eba481869974baef617cb797618699f6b3d5529371fbf7cfc9c6b4d9a472a",
+          "best_epoch": 11,
+          "best_epoch_zero_based": true,
+          "epochs_completed": 15,
+          "checkpoint_best": "external_data/s4a1_runs/b3_delta/seed2/checkpoints/best.pt",
+          "checkpoint_best_sha256": "4d248312333d006b1b5fa4fc8584c318f205dac3bd3005a3a7a425d6885af082",
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "index_sha256": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+          "selected_on": "inner_dev_mse_pred"
+        }
+      },
+      "best_epoch_plus_one": [
+        12,
+        12,
+        12
+      ],
+      "fixed_epochs": 12,
+      "config_fixed_epochs": 12,
+      "config_best_epochs": [
+        11,
+        11,
+        11
+      ],
+      "matches_config": true,
+      "all_best_epochs_match_config": false
+    }
+  },
+  "missing": [],
+  "all_complete": true
+}

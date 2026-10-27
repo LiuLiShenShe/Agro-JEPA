@@ -1,0 +1,149 @@
+# Agro-JEPA S4B.2 -- full official-train final training (frozen protocol)
+#
+# Three conditions only: b2_no_time, b2_no_time_constant_delta (B2-C), b3_delta.
+# Fixed epoch budget is taken from the S4A.1 inner-dev selection records; the
+# official validation split is never used for selection here, and no official
+# test index or test label is read.
+#
+# Frozen visual encoder: DINOv2 ViT-B/14, mainline224_s1-v1, [256, 768] float16.
+
+stage: S4B.2
+manifest_id: fip1-s4b2-full-train-v1
+
+data:
+  full_train_pairs: external_data/s4b_index/full_train_pairs.parquet
+  full_train_pairs_sha256: a49b546f57d688818db8f7c5b94504498572dfc39749c33e0e6608886d26e3c6
+  feature_index: external_data/s4b_features/index.parquet
+  feature_index_sha256: 3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d
+  train_index: external_data/s4b2/train_index.parquet
+  s3_index: external_data/s3_index/fip1_s3_v0_index.parquet
+  s3_feature_index: external_data/s3_features/index.parquet
+  s4a1_config: agro_jepa/config/s4a1_matched_control.yaml
+
+frozen:
+  visual_encoder: dinov2_vitb14
+  visual_encoder_commit: 7764ea0f912e53c92e82eb78a2a1631e92725fc8
+  visual_weights_sha256: 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
+  upstream_dino_wm_commit: 0a9492fa12044b852ae9e001cc74604b79c8bb0c
+  feature_cache_version: mainline224_s1-v1
+  feature_shape: [256, 768]
+  feature_dtype_on_disk: float16
+
+# ---- fixed epoch budget, derived from real S4A.1 / S4A run_summary best_epoch
+# For each condition fixed_epochs = median(best_epoch + 1) over seeds {0,1,2}.
+# (The trainer's best_epoch is 0-based.)
+epoch_policy:
+  rule: "median over seeds 0,1,2 of (best_epoch + 1); best_epoch is 0-based"
+  conditions:
+    b2_no_time:
+      best_epochs: [13, 13, 15]
+      fixed_epochs: 14
+    b2_no_time_constant_delta:
+      best_epochs: [12, 12, 12]
+      fixed_epochs: 13
+    b3_delta:
+      best_epochs: [11, 11, 11]
+      fixed_epochs: 12
+
+conditions:
+  b2_no_time:
+    mode: trained
+    use_delta: false
+    gdd_mode: none
+    weather_mode: none
+    description: "z_a only; action channel and every time input removed"
+  b2_no_time_constant_delta:
+    mode: trained
+    use_delta: true
+    delta_mode: constant
+    fixed_delta_days: 9.0
+    gdd_mode: none
+    weather_mode: none
+    description: >-
+      Parameter-matched no-sample-time control: identical predictor width and the
+      full DeltaTimeEncoder, every sample receives the S4A.1 frozen 9.0-day
+      interval.  DeltaNormStats are fitted on the full train deltas.
+  b3_delta:
+    mode: trained
+    use_delta: true
+    gdd_mode: none
+    weather_mode: none
+    description: "z_a + real per-pair delta_days"
+
+training:
+  seeds: [0, 1, 2]
+  batch_size: 128
+  num_workers: 8
+  lr: 3.0e-4
+  weight_decay: 0.05
+  warmup_steps: 200
+  grad_clip: 1.0
+  amp: bf16
+  log_every: 50
+  drop_last: true
+  shuffle: true
+  device: cuda:0                # run with CUDA_VISIBLE_DEVICES=1 -> physical GPU1
+  output_root: external_data/s4b2_runs
+  # fixed budget; no early stopping and no epoch re-selection on full train
+  early_stop: false
+  selection_metric: "frozen_s4a1_best_epoch"
+  official_validation_used_for_selection: false
+
+model:
+  num_patches: 256
+  visual_dim: 768
+  depth: 6
+  heads: 16
+  mlp_dim: 2048
+  dropout: 0.1
+  emb_dropout: 0.0
+  pool: mean
+  action_emb_dim: 10
+  num_action_repeat: 16
+  proprio_emb_dim: 10
+  num_proprio_repeat: 16
+  delta:
+    n_frequencies: 8
+    base_frequency: 2.0
+    hidden_dim: 256
+    output_dim: 10
+    dropout: 0.0
+    use_learned_scale: true
+  gdd:
+    n_frequencies: 8
+    base_frequency: 2.0
+    hidden_dim: 128
+    output_dim: 10
+    dropout: 0.0
+    use_learned_scale: false
+  weather:
+    n_channels: 5
+    hidden_dim: 64
+    output_dim: 10
+    dropout: 0.0
+    pooling: masked_mean
+
+expected:
+  n_trainable_parameters_conditioned: 53882396
+  n_condition_parameters: 72730
+  predictor_input_dim_conditioned: 1088
+  predictor_input_dim_b2: 928
+
+validation_e1:
+  # official validation pairs from the frozen S3 index (diagnostic only)
+  s3_index: external_data/s3_index/fip1_s3_v0_index.parquet
+  split: validation
+  split_s3_index_sha256: f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933
+
+reports:
+  training_plan_md: reports/s4b2_training_plan.md
+  training_plan_json: reports/s4b2_training_plan.json
+  data_audit_md: reports/s4b2_data_audit.md
+  data_audit_json: reports/s4b2_data_audit.json
+  training_results_md: reports/s4b2_training_results.md
+  training_results_json: reports/s4b2_training_results.json
+  verify_json: reports/s4b2_verify.json
+  provenance_md: reports/s4b2_provenance.md
+  validation_e1_md: reports/s4b2_validation_e1.md
+  validation_e1_json: reports/s4b2_validation_e1.json
+  run_logs_dir: reports/s4b2_run_logs
