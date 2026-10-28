@@ -1,0 +1,25 @@
+[E2] cc/primary_lag7/A_current: epoch=32 plot=0.0814 geno=0.0754 envi=0.0960 geno=0.0840
+[E2] cc/primary_lag7/B2: epoch=24 plot=0.0677 geno=0.0615 envi=0.1060 geno=0.0960
+[E2] cc/primary_lag7/B2-C: epoch=32 plot=0.0680 geno=0.0614 envi=0.1041 geno=0.0932
+[E2] cc/primary_lag7/B3: epoch=57 plot=0.0641 geno=0.0558 envi=0.0922 geno=0.0814
+[E2] cc/strict_lag3/A_current: epoch=34 plot=0.0781 geno=0.0739 envi=0.0910 geno=0.0813
+[E2] cc/strict_lag3/B2: epoch=113 plot=0.0653 geno=0.0598 envi=0.1045 geno=0.0994
+[E2] cc/strict_lag3/B2-C: epoch=139 plot=0.0655 geno=0.0600 envi=0.1047 geno=0.0973
+[E2] cc/strict_lag3/B3: epoch=28 plot=0.0619 geno=0.0546 envi=0.0913 geno=0.0809
+[E2] cc/same_day_lag0/A_current: epoch=45 plot=0.0777 geno=0.0740 envi=0.0933 geno=0.0841
+[E2] cc/same_day_lag0/B2: epoch=85 plot=0.0642 geno=0.0597 envi=0.1036 geno=0.0977
+[E2] cc/same_day_lag0/B2-C: epoch=130 plot=0.0645 geno=0.0599 envi=0.1053 geno=0.0975
+[E2] cc/same_day_lag0/B3: epoch=27 plot=0.0612 geno=0.0551 envi=0.0927 geno=0.0838
+[E2] ph/primary_lag7/A_current: epoch=19 plot=0.0592 geno=0.0606 envi=0.0441 geno=0.0429
+[E2] ph/primary_lag7/B2: epoch=63 plot=0.0474 geno=0.0498 envi=0.0447 geno=0.0443
+[E2] ph/primary_lag7/B2-C: epoch=117 plot=0.0470 geno=0.0500 envi=0.0401 geno=0.0390
+[E2] ph/primary_lag7/B3: epoch=46 plot=0.0467 geno=0.0496 envi=0.0432 geno=0.0437
+[E2] ph/strict_lag3/A_current: epoch=26 plot=0.0555 geno=0.0587 envi=0.0501 geno=0.0469
+[E2] ph/strict_lag3/B2: epoch=60 plot=0.0483 geno=0.0510 envi=0.0363 geno=0.0363
+[E2] ph/strict_lag3/B2-C: epoch=17 plot=0.0477 geno=0.0506 envi=0.0369 geno=0.0354
+[E2] ph/strict_lag3/B3: epoch=54 plot=0.0469 geno=0.0499 envi=0.0453 geno=0.0454
+[E2] ph/same_day_lag0/A_current: epoch=54 plot=0.0522 geno=0.0562 envi=0.0399 geno=0.0361
+[E2] ph/same_day_lag0/B2: epoch=35 plot=0.0453 geno=0.0493 envi=0.0453 geno=0.0431
+[E2] ph/same_day_lag0/B2-C: epoch=35 plot=0.0449 geno=0.0503 envi=0.0397 geno=0.0361
+[E2] ph/same_day_lag0/B3: epoch=61 plot=0.0437 geno=0.0491 envi=0.0503 geno=0.0481
+wrote /fj/Agro-JEPA/reports/s4b3_test_e2.json and reports/s4b3_test_e2.md

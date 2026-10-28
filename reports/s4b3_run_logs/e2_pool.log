@@ -1,0 +1,23 @@
+[data] train 179823 pairs / 2930 plots
+[data] test_plot 9851 pairs
+[data] test_genotype 12059 pairs
+[data] test_environment 6300 pairs
+[data] test_genotype_environment 2147 pairs
+[data] combined 210180 rows
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[pool] wrote 210180 rows; A_current+3 conditions
+elapsed 5824.7 s
