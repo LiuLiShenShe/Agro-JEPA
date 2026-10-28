@@ -1,0 +1,142 @@
+{
+  "stage": "S4B.3",
+  "task": "E2 CC/PH phenotype readout protocol (frozen before test labels)",
+  "generated_at": "2026-10-28T10:42:24+0800",
+  "command": "tools/s4b3_e2_protocol.py --config agro_jepa/config/s4b3_official_test.yaml",
+  "config": "agro_jepa/config/s4b3_official_test.yaml",
+  "config_sha256": "34ec856035ae66e5dbd2ed94c02d91f12a7829242be6bbe23501cf4ca0fa66ec",
+  "git_head": "a2856f81cbd529a9ee0fc6c1c9b900c0ef62789f",
+  "branch": "agro-s4b3-official-test",
+  "train_scope": {
+    "source": "external_data/s4b_index/full_train_pairs.parquet",
+    "source_sha256": "a49b546f57d688818db8f7c5b94504498572dfc39749c33e0e6608886d26e3c6",
+    "n_plots": 2930,
+    "n_pairs": 179823,
+    "note": "all 2,930 official-train plots (NOT the S3.2 1,000-plot pilot); official validation and test plots excluded"
+  },
+  "inner_split": {
+    "seed": 20261025,
+    "inner_train_fraction": 0.8,
+    "strata": "harvest_year",
+    "n_plots": 2930,
+    "n_inner_train_plots": 2345,
+    "n_inner_dev_plots": 585,
+    "by_year": {
+      "2016": {
+        "plots": 452,
+        "inner_train": 362,
+        "inner_dev": 90
+      },
+      "2017": {
+        "plots": 492,
+        "inner_train": 394,
+        "inner_dev": 98
+      },
+      "2018": {
+        "plots": 520,
+        "inner_train": 416,
+        "inner_dev": 104
+      },
+      "2021": {
+        "plots": 742,
+        "inner_train": 594,
+        "inner_dev": 148
+      },
+      "2022": {
+        "plots": 724,
+        "inner_train": 579,
+        "inner_dev": 145
+      }
+    },
+    "rule": "80/20 by plot_uid, stratified by harvest_year, numpy.default_rng(seed) inside each year",
+    "file": "reports/s4b3_e2_plot_split.csv",
+    "sha256": "42e8cf9aa32ca2d19cd8f37d4d2b883e9790dd7608f76aae3bb6b99f14744889"
+  },
+  "conditions": {
+    "A_current": "mean(z_a) current frozen DINOv2 feature",
+    "B2": "mean(z_hat_b) from b2_no_time",
+    "B2-C": "mean(z_hat_b) from b2_no_time_constant_delta",
+    "B3": "mean(z_hat_b) from b3_delta (real delta_days)"
+  },
+  "label_matching": {
+    "source": "frozen S2 span7/span14 pair table joined on pair_id",
+    "value_column": "{trait}_b",
+    "lag_column": "{trait}_b_lag",
+    "date_column": "{trait}_b_date",
+    "validity": "value finite AND date finite AND |label_lag_days| <= lag_max_abs_days; a missing label is INVALID and is never filled with 0",
+    "primary_lag_max_abs_days": 7,
+    "sensitivity_variants": {
+      "strict_lag3": 3,
+      "same_day_lag0": 0
+    },
+    "scope": "overall (one row per plot_uid, image_stem_b)"
+  },
+  "readout": {
+    "architecture": "single linear layer (PooledReadout, 768 -> 1)",
+    "pooling": "mean over 256 patch tokens",
+    "input_dim": 768,
+    "normalisation": "x standardised by inner-train mean/std; y by inner-train mean/std",
+    "optimiser": "AdamW + cosine annealing anchored to the candidate budget",
+    "candidate_epochs": 150,
+    "patience": 20,
+    "batch_size": 256,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection": "minimum inner-dev MSE over the candidate budget; median selected epoch across probe seeds",
+    "final_refit": "refit on all rows of the full official-train set at the selected epoch; evaluated once per test split",
+    "official_validation_used_for_selection": false,
+    "test_labels_used_for_training_or_selection": false
+  },
+  "metrics": [
+    "mae",
+    "rmse",
+    "r2",
+    "effective_n",
+    "effective_plots"
+  ],
+  "bootstrap": {
+    "unit": "plot_uid",
+    "n_resamples": 2000,
+    "seed": 20261024,
+    "interval": "95% percentile"
+  },
+  "test_splits": [
+    "test_plot",
+    "test_genotype",
+    "test_environment",
+    "test_genotype_environment"
+  ],
+  "verification": {
+    "n_checks": 4,
+    "n_pass": 4,
+    "all_pass": true,
+    "checks": [
+      {
+        "id": "E1_all_2930_train_plots",
+        "pass": true,
+        "detail": "2930 train plots -> 2345 inner-train / 585 inner-dev"
+      },
+      {
+        "id": "E2_disjoint_and_complete",
+        "pass": true,
+        "detail": "inner-train and inner-dev are disjoint and jointly cover all train plots"
+      },
+      {
+        "id": "E3_no_validation_or_test_plot",
+        "pass": true,
+        "detail": "official validation and every test plot are excluded"
+      },
+      {
+        "id": "E4_seed_and_fraction",
+        "pass": true,
+        "detail": "seed 20261025, inner-train fraction 0.8"
+      }
+    ]
+  },
+  "elapsed_seconds": 0.3
+}

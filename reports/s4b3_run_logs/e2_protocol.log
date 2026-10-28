@@ -1,0 +1,6 @@
+PASS  E1_all_2930_train_plots: 2930 train plots -> 2345 inner-train / 585 inner-dev
+PASS  E2_disjoint_and_complete: inner-train and inner-dev are disjoint and jointly cover all train plots
+PASS  E3_no_validation_or_test_plot: official validation and every test plot are excluded
+PASS  E4_seed_and_fraction: seed 20261025, inner-train fraction 0.8
+wrote reports/s4b3_e2_protocol.json
+wrote reports/s4b3_e2_protocol.md
