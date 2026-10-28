@@ -147,7 +147,7 @@ e2:
   pooling: "mean over 256 patch tokens"
 
 device:
-  cuda: cuda:1   # physical GPU1
+  cuda: cuda:0   # logical device; physical GPU1 is selected by CUDA_VISIBLE_DEVICES=1
 
 artifacts:
   protocol_md: reports/s4b3_test_protocol.md

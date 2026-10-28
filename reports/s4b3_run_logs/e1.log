@@ -1,0 +1,106 @@
+[B1] loaded frozen train-mean feature /fj/Agro-JEPA/external_data/s4b2_runs/e1_train_mean.pt
+[test_plot] 9851 pairs, 250 plots, years [2016, 2017, 2018, 2021, 2022]
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_plot] b2_no_time seed0: mse=1.138843 cos=0.7826
+[test_plot] b2_no_time seed1: mse=1.138820 cos=0.7826
+[test_plot] b2_no_time seed2: mse=1.137684 cos=0.7829
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_plot] b2_no_time_constant_delta seed0: mse=1.137044 cos=0.7830
+[test_plot] b2_no_time_constant_delta seed1: mse=1.137674 cos=0.7828
+[test_plot] b2_no_time_constant_delta seed2: mse=1.137425 cos=0.7829
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_plot] b3_delta seed0: mse=1.091728 cos=0.7926
+[test_plot] b3_delta seed1: mse=1.089681 cos=0.7931
+[test_plot] b3_delta seed2: mse=1.090419 cos=0.7929
+[test_plot] B3 vs B2-C dMSE = -0.052152
+[test_genotype] 12059 pairs, 246 plots, years [2016, 2017, 2018, 2021, 2022]
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_genotype] b2_no_time seed0: mse=1.150441 cos=0.7794
+[test_genotype] b2_no_time seed1: mse=1.149323 cos=0.7796
+[test_genotype] b2_no_time seed2: mse=1.149802 cos=0.7795
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_genotype] b2_no_time_constant_delta seed0: mse=1.149242 cos=0.7797
+[test_genotype] b2_no_time_constant_delta seed1: mse=1.149611 cos=0.7796
+[test_genotype] b2_no_time_constant_delta seed2: mse=1.149653 cos=0.7796
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_genotype] b3_delta seed0: mse=1.100279 cos=0.7901
+[test_genotype] b3_delta seed1: mse=1.099618 cos=0.7903
+[test_genotype] b3_delta seed2: mse=1.098900 cos=0.7904
+[test_genotype] B3 vs B2-C dMSE = -0.055499
+[test_environment] 6300 pairs, 190 plots, years [2019]
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_environment] b2_no_time seed0: mse=1.285575 cos=0.7585
+[test_environment] b2_no_time seed1: mse=1.288108 cos=0.7580
+[test_environment] b2_no_time seed2: mse=1.283179 cos=0.7591
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_environment] b2_no_time_constant_delta seed0: mse=1.285393 cos=0.7587
+[test_environment] b2_no_time_constant_delta seed1: mse=1.283266 cos=0.7590
+[test_environment] b2_no_time_constant_delta seed2: mse=1.285005 cos=0.7586
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_environment] b3_delta seed0: mse=1.310716 cos=0.7549
+[test_environment] b3_delta seed1: mse=1.299196 cos=0.7571
+[test_environment] b3_delta seed2: mse=1.306949 cos=0.7555
+[test_environment] B3 vs B2-C dMSE = +0.007259
+[test_genotype_environment] 2147 pairs, 62 plots, years [2019]
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_genotype_environment] b2_no_time seed0: mse=1.275619 cos=0.7620
+[test_genotype_environment] b2_no_time seed1: mse=1.276534 cos=0.7618
+[test_genotype_environment] b2_no_time seed2: mse=1.277767 cos=0.7616
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_genotype_environment] b2_no_time_constant_delta seed0: mse=1.275164 cos=0.7622
+[test_genotype_environment] b2_no_time_constant_delta seed1: mse=1.271373 cos=0.7628
+[test_genotype_environment] b2_no_time_constant_delta seed2: mse=1.279321 cos=0.7612
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[test_genotype_environment] b3_delta seed0: mse=1.297622 cos=0.7591
+[test_genotype_environment] b3_delta seed1: mse=1.285712 cos=0.7612
+[test_genotype_environment] b3_delta seed2: mse=1.289491 cos=0.7605
+[test_genotype_environment] B3 vs B2-C dMSE = +0.004024
+wrote reports/s4b3_test_e1.json and reports/s4b3_test_e1.md
