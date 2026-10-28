@@ -1,0 +1,142 @@
+{
+  "stage": "S4B.3",
+  "task": "final acceptance verification",
+  "generated_at": "2026-10-28T15:32:37+0800",
+  "git_head": "c9fa6973a20d35bda5c6ffbad8ce938a68d034c0",
+  "branch": "agro-s4b3-official-test",
+  "config": "agro_jepa/config/s4b3_official_test.yaml",
+  "config_sha256": "34ec856035ae66e5dbd2ed94c02d91f12a7829242be6bbe23501cf4ca0fa66ec",
+  "protocol_all_pass": true,
+  "e2_protocol_all_pass": true,
+  "test_counts": {
+    "test_plot": {
+      "n_pairs": 9851,
+      "n_plots": 250
+    },
+    "test_genotype": {
+      "n_pairs": 12059,
+      "n_plots": 246
+    },
+    "test_environment": {
+      "n_pairs": 6300,
+      "n_plots": 190
+    },
+    "test_genotype_environment": {
+      "n_pairs": 2147,
+      "n_plots": 62
+    }
+  },
+  "e1_seed_averaged_mse": {
+    "test_plot": {
+      "b2_no_time": 1.1261416302938871,
+      "b2_no_time_constant_delta": 1.1251914877720186,
+      "b3_delta": 1.0730374344423113
+    },
+    "test_genotype": {
+      "b2_no_time": 1.1377038903641299,
+      "b2_no_time_constant_delta": 1.137633313141372,
+      "b3_delta": 1.082086153548989
+    },
+    "test_environment": {
+      "b2_no_time": 1.2650487482074708,
+      "b2_no_time_constant_delta": 1.2647724699501008,
+      "b3_delta": 1.272026983669826
+    },
+    "test_genotype_environment": {
+      "b2_no_time": 1.2560118411272472,
+      "b2_no_time_constant_delta": 1.2556769018901688,
+      "b3_delta": 1.2596894511245937
+    }
+  },
+  "bootstrap_recompute": {
+    "mean": -0.052152398375386926,
+    "recorded": -0.052152398375386926,
+    "reproducible": true
+  },
+  "checks": [
+    {
+      "id": "V1_nine_checkpoints_match_protocol",
+      "pass": true,
+      "detail": "nine final.pt SHA256 match the frozen S4B.3 protocol"
+    },
+    {
+      "id": "V2_test_indexes_sha",
+      "pass": true,
+      "detail": "four test index SHA256 unchanged"
+    },
+    {
+      "id": "V3_conditioning_npz_sha",
+      "pass": true,
+      "detail": "four conditioning npz SHA256 unchanged"
+    },
+    {
+      "id": "V4_test_counts",
+      "pass": true,
+      "detail": "30357 pairs / 748 plots"
+    },
+    {
+      "id": "V5_e1_four_splits",
+      "pass": true,
+      "detail": "E1 covers ['test_environment', 'test_genotype', 'test_genotype_environment', 'test_plot']"
+    },
+    {
+      "id": "V6_e1_five_arms_and_counts",
+      "pass": true,
+      "detail": "E1 reports B0/B1/B2/B2-C/B3 on every split with matching pair counts"
+    },
+    {
+      "id": "V7_e1_prediction_files",
+      "pass": true,
+      "detail": "E1 per-sample files carry 3 seeds + ensemble for every split"
+    },
+    {
+      "id": "V8_e1_reads_no_test_label",
+      "pass": true,
+      "detail": "the four test pair indexes carry no phenotype label column"
+    },
+    {
+      "id": "V9_b2c_vs_b3_distinct",
+      "pass": true,
+      "detail": "B3 delta_days span 5-16 d; B2-C uses one fixed 9.0 d"
+    },
+    {
+      "id": "V10_e2_trait_condition_split_coverage",
+      "pass": true,
+      "detail": "E2 covers cc/ph x four conditions x four splits x three lag variants"
+    },
+    {
+      "id": "V11_e2_prediction_file",
+      "pass": true,
+      "detail": "E2 per-sample file has 984,864 rows"
+    },
+    {
+      "id": "V12_e2_no_test_label_training",
+      "pass": true,
+      "detail": "E2 declares and evidences no test-label training/selection"
+    },
+    {
+      "id": "V13_e2_no_validation_in_train",
+      "pass": true,
+      "detail": "official validation excluded from E2 training and selection"
+    },
+    {
+      "id": "V14_bootstrap_reproducible",
+      "pass": true,
+      "detail": "recomputed dMSE -0.052152398 == recorded -0.052152398"
+    },
+    {
+      "id": "V15_no_frozen_asset_modified",
+      "pass": true,
+      "detail": "changed paths: ['CLAUDE.md', 'reports/s4b3_verify.json', 'tools/s4b3_verify.py']"
+    },
+    {
+      "id": "V16_claude_md_untouched_by_stage",
+      "pass": true,
+      "detail": "pre-existing CLAUDE.md worktree change was not staged/committed"
+    }
+  ],
+  "n_checks": 16,
+  "n_pass": 16,
+  "all_pass": true,
+  "elapsed_seconds": 14.3
+}
