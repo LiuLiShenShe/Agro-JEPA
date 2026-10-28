@@ -1,0 +1,239 @@
+# Agro-JEPA S4B.4A -- training-set-internal, year-held-out diagnostic
+#
+# Scope (frozen before any evaluation number exists):
+#   * data = the FULL official-train index (2,930 plots, 179,823 pairs, years
+#     2016/2017/2018/2021/2022).  Official validation and every test split are
+#     NOT read for training, selection or evaluation in this stage.
+#   * five folds; each fold holds out ONE whole harvest year (all its plots).
+#   * the other four years are split 80/20 by plot (stratified by year) into a
+#     fold-train and a fold-dev set; the fold-dev set selects the epoch.
+#   * every fold refits DeltaNormStats / GDD / weather VectorNormStats on its
+#     own fold-train rows only.
+#
+# This is an internal diagnostic to decide whether environment conditioning is
+# worth a future full run.  It is NOT an independent 2019 generalisation test.
+
+stage: S4B.4A
+manifest_id: fip1-s4b4a-year-heldout-v1
+
+data:
+  full_train_pairs: external_data/s4b_index/full_train_pairs.parquet
+  full_train_pairs_sha256: a49b546f57d688818db8f7c5b94504498572dfc39749c33e0e6608886d26e3c6
+  train_index: external_data/s4b2/train_index.parquet
+  train_index_sha256: 9741352b3c0bdb0c4416a9437da6ad0ce3c6862c1ab642f3f800422368023ea0
+  s3_index: external_data/s3_index/fip1_s3_v0_index.parquet
+  feature_index: external_data/s4b_features/index.parquet
+  feature_index_sha256: 3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d
+  # New S4B.4A asset: full-train GDD/weather conditioning, aligned row-for-row to
+  # full_train_pairs.parquet.  Built by tools/s4_prepare_weather.py.
+  conditioning_npz: external_data/s4b4a_conditioning/full_train_conditioning.npz
+  conditioning_npz_sha256: daf732cd723a132164bd74aaac501ff245d34fedd63b871bcd4ed7a5c92910e7
+  weather_daily: data/manifests/weather_daily_first_plot_per_year.csv
+  weather_channels: [T_mean_C, T_max_C, T_min_C, RH_mean_pct, Rs_sum_MJ_m2_d]
+  interval_window: "(t_a, t_b]"
+  past_window_days: 28
+  gdd_bases: [0.0, 5.0]
+  gdd_past_windows: [7, 14, 28]
+  traits: [cc, ph]
+  label_max_lag_days: 7
+  test_indexes:
+    test_plot: external_data/s4b_index/test_plot_test_pairs.parquet
+    test_genotype: external_data/s4b_index/test_genotype_test_pairs.parquet
+    test_environment: external_data/s4b_index/test_environment_test_pairs.parquet
+    test_genotype_environment: external_data/s4b_index/test_genotype_environment_test_pairs.parquet
+
+frozen:
+  visual_encoder: dinov2_vitb14
+  visual_encoder_commit: 7764ea0f912e53c92e82eb78a2a1631e92725fc8
+  visual_weights_sha256: 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
+  upstream_dino_wm_commit: 0a9492fa12044b852ae9e001cc74604b79c8bb0c
+  feature_cache_version: mainline224_s1-v1
+  feature_shape: [256, 768]
+  feature_dtype_on_disk: float16
+  s4b2_checkpoints:
+    b2_no_time:
+      seed0: external_data/s4b2_runs/b2_no_time/seed0/checkpoints/final.pt
+      seed1: external_data/s4b2_runs/b2_no_time/seed1/checkpoints/final.pt
+      seed2: external_data/s4b2_runs/b2_no_time/seed2/checkpoints/final.pt
+    b2_no_time_constant_delta:
+      seed0: external_data/s4b2_runs/b2_no_time_constant_delta/seed0/checkpoints/final.pt
+      seed1: external_data/s4b2_runs/b2_no_time_constant_delta/seed1/checkpoints/final.pt
+      seed2: external_data/s4b2_runs/b2_no_time_constant_delta/seed2/checkpoints/final.pt
+    b3_delta:
+      seed0: external_data/s4b2_runs/b3_delta/seed0/checkpoints/final.pt
+      seed1: external_data/s4b2_runs/b3_delta/seed1/checkpoints/final.pt
+      seed2: external_data/s4b2_runs/b3_delta/seed2/checkpoints/final.pt
+  s4b2_checkpoint_sha256:
+    b2_no_time:
+      seed0: 08c9dafc450a70a2c24a47216f30c0350c600b858e5eb5ef8847c6dbb3f34b04
+      seed1: 7b1b3827c5e6a6d84322dda1b397b0cde9ea4a6ce239f6494a8bf615a5b31503
+      seed2: 540bbb96dbb350ffb80cb0fab715e33ce2f36550843b04b14f11cab5e50a57df
+    b2_no_time_constant_delta:
+      seed0: d8cebf42d2f97ebe27dbf2cfeb231669cbf4f6ff5e60e330649399a3cf292757
+      seed1: 61a0d962309d3361a5bc1291e13af6b3908f40caf6201c7b9f543d1e823d9d20
+      seed2: 9391faa54f26c6760a11d86601bed7e94225b7a5e2d3c4b35cdc1a593a1316230
+    b3_delta:
+      seed0: f433164646886c691eb2a5d795924167c0f114c0b95f5d261722df565e8a0b5a
+      seed1: 64ee70f8e4574ba7bff47b2206e6d19a1fed03c34a0e9b59fcc63463afe9ab7f
+      seed2: 37ca926d05f7ac959710027efc57997173fb4275e2ed67ae5d2772e55f33e21
+
+# ---- five-fold year-held-out design (frozen) ----------------------------
+folds:
+  years: [2016, 2017, 2018, 2021, 2022]
+  heldout_year_per_fold: [2016, 2017, 2018, 2021, 2022]
+  inner_split_seed: 20261025      # same rule as S3.2 / S4A / S4A.1
+  inner_train_fraction: 0.80
+  strata: harvest_year
+  rule: >-
+    For each fold the held-out year's plots are entirely excluded from training
+    and inner-dev. The remaining four years' plots are split 80/20 by plot,
+    stratified by harvest_year, using numpy.default_rng(inner_split_seed). Every
+    plot of a year is in exactly one of {fold_train, fold_dev, heldout}; the
+    three sets are disjoint and their union is all 2,930 official-train plots.
+
+model:
+  num_patches: 256
+  visual_dim: 768
+  depth: 6
+  heads: 16
+  mlp_dim: 2048
+  dropout: 0.1
+  emb_dropout: 0.0
+  pool: mean
+  action_emb_dim: 10
+  num_action_repeat: 16
+  proprio_emb_dim: 10
+  num_proprio_repeat: 16
+  delta:
+    n_frequencies: 8
+    base_frequency: 2.0
+    hidden_dim: 256
+    output_dim: 10
+    dropout: 0.0
+    use_learned_scale: true
+  gdd:
+    n_frequencies: 8
+    base_frequency: 2.0
+    hidden_dim: 128
+    output_dim: 10
+    dropout: 0.0
+    use_learned_scale: false
+  weather:
+    n_channels: 5
+    hidden_dim: 64
+    output_dim: 10
+    dropout: 0.0
+    pooling: masked_mean
+
+training:
+  seeds: [0, 1, 2]
+  candidate_epochs: 12          # uniform budget; early stop on fold-dev, patience 3
+  early_stop_patience: 3
+  batch_size: 128
+  num_workers: 8
+  lr: 3.0e-4
+  weight_decay: 0.05
+  warmup_steps: 200
+  grad_clip: 1.0
+  amp: bf16
+  log_every: 50
+  drop_last: true
+  shuffle: true
+  device: cuda:0                # CUDA_VISIBLE_DEVICES=1 -> physical GPU1
+  output_root: external_data/s4b4a_runs
+  selection_metric: fold_dev_mse_pred
+  selection_rule: minimum fold-dev future-latent MSE over the candidate budget
+  official_validation_used_for_selection: false
+  test_used_for_selection: false
+
+eval:
+  batch_size: 512
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20261024
+  device: cuda:0
+
+e2:
+  # Linear readout on the fold-train years; epoch chosen on fold-dev; the whole
+  # held-out year is evaluated once.
+  seeds: [0, 1, 2]
+  lr: 1.0e-3
+  weight_decay: 0.01
+  batch_size: 256
+  candidate_epochs: 150
+  patience: 20
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20261024
+  lag_variants:
+    primary_lag7: 7
+    strict_lag3: 3
+    same_day_lag0: 0
+
+# ---- frozen comparison conditions ---------------------------------------
+# B2 is the auxiliary no-time baseline.  B2-C is the S4A.1 matched control
+# (fixed 9.0 d, identical parameter count to B3).  GDD-P and Weather-P are the
+# audited deployable (Protocol P) environment arms.
+conditions:
+  b2_no_time:
+    mode: trained
+    protocol: none
+    use_delta: false
+    gdd_mode: none
+    weather_mode: none
+    description: "z_a only; action channel and every time/environment input removed"
+  b2_no_time_constant_delta:
+    mode: trained
+    protocol: none
+    use_delta: true
+    delta_mode: constant
+    fixed_delta_days: 9.0
+    gdd_mode: none
+    weather_mode: none
+    description: >-
+      S4A.1 matched control: full DeltaTimeEncoder, identical width and parameter
+      count to b3_delta, every sample receives the fixed 9.0-day interval.
+  b3_delta:
+    mode: trained
+    protocol: none
+    use_delta: true
+    gdd_mode: none
+    weather_mode: none
+    description: "z_a + real per-pair delta_days"
+  gdd_p:
+    mode: trained
+    protocol: P
+    use_delta: true
+    gdd_mode: past
+    gdd_base: 0.0
+    weather_mode: none
+    description: "z_a + delta_days + past 7/14/28-d GDD (T_base 0); deployable"
+  weather_p:
+    mode: trained
+    protocol: P
+    use_delta: true
+    gdd_mode: none
+    weather_mode: past
+    description: "z_a + delta_days + masked GRU over the past 28 d; deployable"
+
+# E1 arms and contrasts (paired, same sample set)
+e1_conditions: [b2_no_time, b2_no_time_constant_delta, b3_delta, gdd_p, weather_p]
+e1_contrasts:
+  - [b2_no_time_constant_delta, b3_delta, "b3_delta_minus_b2_no_time_constant_delta"]
+  - [b3_delta, gdd_p, "gdd_p_minus_b3_delta"]
+  - [b3_delta, weather_p, "weather_p_minus_b3_delta"]
+
+# E2 arms: current feature + each predicted future latent
+e2_conditions: [A_current, b2_no_time, b2_no_time_constant_delta, b3_delta, gdd_p, weather_p]
+
+artifacts:
+  protocol_json: reports/s4b4a_protocol.json
+  protocol_md: reports/s4b4a_protocol.md
+  fold_dir: external_data/s4b4a_folds
+  runs_dir: external_data/s4b4a_runs
+  e1_json: reports/s4b4a_e1.json
+  e1_md: reports/s4b4a_e1.md
+  e2_json: reports/s4b4a_e2.json
+  e2_md: reports/s4b4a_e2.md
+  results_json: reports/s4b4a_results.json
+  results_md: reports/s4b4a_results.md
+  verify_json: reports/s4b4a_verify.json
+  run_logs_dir: reports/s4b4a_run_logs

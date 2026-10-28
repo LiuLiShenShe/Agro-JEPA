@@ -1,0 +1,512 @@
+{
+  "stage": "S4B.4A",
+  "task": "five-fold year-held-out protocol (frozen before any evaluation)",
+  "generated_at": "2026-10-28T17:40:48+0800",
+  "command": "tools/s4b4a_protocol.py --config agro_jepa/config/s4b4a_year_heldout.yaml",
+  "config": "agro_jepa/config/s4b4a_year_heldout.yaml",
+  "config_sha256": "f46f03e8790a46ab70cb2fdb717773c88e539561186d6fad9db8ccab596a38aa",
+  "data_scope": {
+    "index": "external_data/s4b_index/full_train_pairs.parquet",
+    "index_sha256": "a49b546f57d688818db8f7c5b94504498572dfc39749c33e0e6608886d26e3c6",
+    "pairs": 179823,
+    "plots": 2930,
+    "years": [
+      2016,
+      2017,
+      2018,
+      2021,
+      2022
+    ],
+    "official_validation_read": false,
+    "official_test_read": false,
+    "note": "training-set-internal diagnostic; does not use or confirm 2019 unseen-environment performance"
+  },
+  "fold_rule": {
+    "heldout": "one whole harvest year (all its plots)",
+    "inner_split": "80/20 by plot, stratified by harvest_year",
+    "inner_split_seed": 20261025,
+    "inner_train_fraction": 0.8,
+    "strata": "harvest_year",
+    "disjoint_rule": "same plot never spans train/dev/heldout",
+    "norm_stats": "DeltaNormStats and GDD/weather VectorNormStats are fitted on each fold's fold_train rows only; dev/heldout are transformed with those training statistics",
+    "selection": "epoch = minimum fold-dev future-latent MSE; heldout year is evaluated once and never used for selection"
+  },
+  "folds": [
+    {
+      "fold_year": 2016,
+      "roles": {
+        "fold_train": {
+          "path": "external_data/s4b4a_folds/fold2016_fold_train.parquet",
+          "pairs": 128147,
+          "plots": 1983,
+          "images": 79325,
+          "years": [
+            2017,
+            2018,
+            2021,
+            2022
+          ],
+          "span7": 65292,
+          "span14": 62855,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.23032923127346,
+            "median": 9.0,
+            "std": 3.6498722725289583
+          },
+          "file_sha256": "c52588d79a0501b46a0083beafb6b80b2830c1717de19d57f038330b963fe8e6",
+          "frame_sha256": "f972e8cce6760a217c1e9931ae635ab1cdcaa248f4b776b0ec683fbc2f6942e8",
+          "orig_rows_sha256": "23fdcbec37d853a7d7ddcc0f207f8eaf1aa2d6a5573afb2e5033ce61895ae371"
+        },
+        "fold_dev": {
+          "path": "external_data/s4b4a_folds/fold2016_fold_dev.parquet",
+          "pairs": 32139,
+          "plots": 495,
+          "images": 19881,
+          "years": [
+            2017,
+            2018,
+            2021,
+            2022
+          ],
+          "span7": 16388,
+          "span14": 15751,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.224431376209589,
+            "median": 9.0,
+            "std": 3.64971726771776
+          },
+          "file_sha256": "60b8e13533d8f686dfbc8aefd5220c228e4a578eeb09f487e1bbdf964b6df710",
+          "frame_sha256": "d7b5304d3197fd4f252afc7ae2f960fccdb9fbec6cb285fb08e0bc56fe24847d",
+          "orig_rows_sha256": "19949529bd03324d02d8ee5524d5d93bc41cfba7c9a917209afafb030f311293"
+        },
+        "heldout": {
+          "path": "external_data/s4b4a_folds/fold2016_heldout.parquet",
+          "pairs": 19537,
+          "plots": 452,
+          "images": 15585,
+          "years": [
+            2016
+          ],
+          "span7": 10456,
+          "span14": 9081,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.457183805087782,
+            "median": 9.0,
+            "std": 3.797470723930216
+          },
+          "file_sha256": "72bed68945b5db6195cb0d23e33bc5fae68ad0b38aedc94ad5c7c7c0071ccba5",
+          "frame_sha256": "41831ab4e8cf06fff6f0283a535a7ec231a26e659121f0b1a37e242873100c9b",
+          "orig_rows_sha256": "beb5b17cf8531b7738c5a40c950894bf7bdae790b3283f42bf06d0d13a835088"
+        }
+      },
+      "disjoint_plots": true,
+      "covers_all_plots": true
+    },
+    {
+      "fold_year": 2017,
+      "roles": {
+        "fold_train": {
+          "path": "external_data/s4b4a_folds/fold2017_fold_train.parquet",
+          "pairs": 133863,
+          "plots": 1951,
+          "images": 85092,
+          "years": [
+            2016,
+            2018,
+            2021,
+            2022
+          ],
+          "span7": 68381,
+          "span14": 65482,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.27073201706222,
+            "median": 9.0,
+            "std": 3.668537701552471
+          },
+          "file_sha256": "64694904920a00fbdae0d60c34c5ac2df320cf65a715bcd9e646b157a4acb3b5",
+          "frame_sha256": "f7ca74314624e624213098f51bee0cb0fb3d2c615bc61b643103d77636716467",
+          "orig_rows_sha256": "43a3c7df7c47b9b62337fcab8a2e988bb9c160f031263df8167d5dd9d8b5361a"
+        },
+        "fold_dev": {
+          "path": "external_data/s4b4a_folds/fold2017_fold_dev.parquet",
+          "pairs": 33431,
+          "plots": 487,
+          "images": 21251,
+          "years": [
+            2016,
+            2018,
+            2021,
+            2022
+          ],
+          "span7": 17084,
+          "span14": 16347,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.26930094822171,
+            "median": 9.0,
+            "std": 3.669491180922347
+          },
+          "file_sha256": "71c2bff8255ed835ba5fca43fb8a6b3e96635bf8bcb41f2afcbd984f1b207e56",
+          "frame_sha256": "a8d0988fe0d37edd5ff988e2b62526f7c1dfb4615559706d5d4f5654216a5063",
+          "orig_rows_sha256": "382ae3994c740d751f46d2f45e4bd4dcf1b506bb1c7bd8030a4af342370e7b6c"
+        },
+        "heldout": {
+          "path": "external_data/s4b4a_folds/fold2017_heldout.parquet",
+          "pairs": 12529,
+          "plots": 492,
+          "images": 8448,
+          "years": [
+            2017
+          ],
+          "span7": 6671,
+          "span14": 5858,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.033282783941257,
+            "median": 9.0,
+            "std": 3.634559016335118
+          },
+          "file_sha256": "8b0fba5ab35d6d6870dee6690ed5be01ef250a15aae297f79e109ad87c1995ec",
+          "frame_sha256": "5cb99fb3a377080d7ba11c1c1a7f3f5bba9f20686175ebd30973f17bc9416113",
+          "orig_rows_sha256": "22e4b98d891af1b01cd2010f4b0adc5e4e3a3b9c111aa53142f631e2edcae03d"
+        }
+      },
+      "disjoint_plots": true,
+      "covers_all_plots": true
+    },
+    {
+      "fold_year": 2018,
+      "roles": {
+        "fold_train": {
+          "path": "external_data/s4b4a_folds/fold2018_fold_train.parquet",
+          "pairs": 128205,
+          "plots": 1929,
+          "images": 80625,
+          "years": [
+            2016,
+            2017,
+            2021,
+            2022
+          ],
+          "span7": 66212,
+          "span14": 61993,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.265730665730667,
+            "median": 9.0,
+            "std": 3.6674404214591516
+          },
+          "file_sha256": "7010a6158c0304e24fff9a656fd637fcf82d3d4c62914218f382c60776fc8086",
+          "frame_sha256": "7f820bb5817f0d0825b1c6bb733734c7759f2857d15a0f0d6923e5d5a3365f20",
+          "orig_rows_sha256": "b10da7030a7d26db8929742287a0f1ea1b42524b13acc378c2438df5fc9b06ea"
+        },
+        "fold_dev": {
+          "path": "external_data/s4b4a_folds/fold2018_fold_dev.parquet",
+          "pairs": 32103,
+          "plots": 481,
+          "images": 20159,
+          "years": [
+            2016,
+            2017,
+            2021,
+            2022
+          ],
+          "span7": 16576,
+          "span14": 15527,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.264461265302309,
+            "median": 9.0,
+            "std": 3.6669944493576674
+          },
+          "file_sha256": "8457087cf39cd54bb839f23076810053b992c6a2c777efe9b5d22e1f087a1abb",
+          "frame_sha256": "2440c2065f246729e2171eb116dececbd5a34b9f010e51ed4f60c0acd929f4b4",
+          "orig_rows_sha256": "7e9ca8d52b11436499c622003c92190912ddf132b11ada853ab093fa5b5d8eab"
+        },
+        "heldout": {
+          "path": "external_data/s4b4a_folds/fold2018_heldout.parquet",
+          "pairs": 19515,
+          "plots": 520,
+          "images": 14007,
+          "years": [
+            2018
+          ],
+          "span7": 9348,
+          "span14": 10167,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.159005892902895,
+            "median": 12.0,
+            "std": 3.6613989404605185
+          },
+          "file_sha256": "0266a52ed1e15fd2b8aa4be484927a82199d8e33e219867ed0293aaaf1457055",
+          "frame_sha256": "d6d6951c3975be565dd5677783190d60e8599d58ffecd7af5a9fa310000c99c2",
+          "orig_rows_sha256": "8b43ac97b81ddf677ed1f9aba39f556c9c98ee143824f7b26532f45b89ffb186"
+        }
+      },
+      "disjoint_plots": true,
+      "covers_all_plots": true
+    },
+    {
+      "fold_year": 2021,
+      "roles": {
+        "fold_train": {
+          "path": "external_data/s4b4a_folds/fold2021_fold_train.parquet",
+          "pairs": 82796,
+          "plots": 1751,
+          "images": 57131,
+          "years": [
+            2016,
+            2017,
+            2018,
+            2022
+          ],
+          "span7": 42493,
+          "span14": 40303,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.26440890864293,
+            "median": 9.0,
+            "std": 3.706998651472225
+          },
+          "file_sha256": "86268f4ae5af38cc36f506312268303e76af2ca38ab1367c2f7ccbe6dc77947c",
+          "frame_sha256": "2a9ad1c81fcbb3f09116460f1126f65b9250c6756212c396beb0d9cf65f9c70a",
+          "orig_rows_sha256": "f7233b407995b916e270ae77995da279256ac89ba30008f8e97d5e2d2211ea4b"
+        },
+        "fold_dev": {
+          "path": "external_data/s4b4a_folds/fold2021_fold_dev.parquet",
+          "pairs": 20781,
+          "plots": 437,
+          "images": 14322,
+          "years": [
+            2016,
+            2017,
+            2018,
+            2022
+          ],
+          "span7": 10654,
+          "span14": 10127,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.261200134738463,
+            "median": 9.0,
+            "std": 3.7055105913322444
+          },
+          "file_sha256": "c17a8f00fd7ac1125b2ef258eddf68431ca4d3e88abdb984ebf2e46bd41cd04c",
+          "frame_sha256": "34aafd4a44df344b3f0e63db9f87544891da79fc8f8cb145e0f1443703744a39",
+          "orig_rows_sha256": "5adcad3576927d7839d15030a340b8d9a2b9716381e4209646c126811fbe5727"
+        },
+        "heldout": {
+          "path": "external_data/s4b4a_folds/fold2021_heldout.parquet",
+          "pairs": 76246,
+          "plots": 742,
+          "images": 43338,
+          "years": [
+            2021
+          ],
+          "span7": 38989,
+          "span14": 37257,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.240550323951421,
+            "median": 8.0,
+            "std": 3.6119806083534116
+          },
+          "file_sha256": "42ffa6fb64c6e3f8ff391bfca7baf2f8896666736d71216bae2cfc22f1cb40ba",
+          "frame_sha256": "e2f1347d9d6973fa2923e4906f5aed245b5af065b8f9ab1353ed965b770a7d85",
+          "orig_rows_sha256": "666e81dd33c2ec47e0998550a5d3f298435b1bdcf407e52f0ad3c8243ff8f6ab"
+        }
+      },
+      "disjoint_plots": true,
+      "covers_all_plots": true
+    },
+    {
+      "fold_year": 2022,
+      "roles": {
+        "fold_train": {
+          "path": "external_data/s4b4a_folds/fold2022_fold_train.parquet",
+          "pairs": 102284,
+          "plots": 1766,
+          "images": 65111,
+          "years": [
+            2016,
+            2017,
+            2018,
+            2021
+          ],
+          "span7": 52380,
+          "span14": 49904,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.24113253294748,
+            "median": 9.0,
+            "std": 3.6525135652804335
+          },
+          "file_sha256": "04bb5aa2221ff9aa8972fa8b504542299606ca1248c1ccd28c8457ba38636c84",
+          "frame_sha256": "a9d53fe2f488f8be55bb87a524428a7cd069a0fc7d287e36f3b83ea5b1d202be",
+          "orig_rows_sha256": "e8c3f804c6c289b3b742d31c0fe3ceeb53e3dd59c7be5fa09e52aba750f7be41"
+        },
+        "fold_dev": {
+          "path": "external_data/s4b4a_folds/fold2022_fold_dev.parquet",
+          "pairs": 25543,
+          "plots": 440,
+          "images": 16267,
+          "years": [
+            2016,
+            2017,
+            2018,
+            2021
+          ],
+          "span7": 13084,
+          "span14": 12459,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.239948322436675,
+            "median": 9.0,
+            "std": 3.6516250123831173
+          },
+          "file_sha256": "62a1b7e4a25818dd942b59b68a9ea7da62930c7978b6add92dff4d1dbf44e005",
+          "frame_sha256": "c57a4f316b4cc0155379f7a8973e751fc94939d5ce56905c0bf94c114f1a6b20",
+          "orig_rows_sha256": "265f6e7109e8ce96f13a4d0f4f064029fac156db172737ce1c55885716d1997d"
+        },
+        "heldout": {
+          "path": "external_data/s4b4a_folds/fold2022_heldout.parquet",
+          "pairs": 51996,
+          "plots": 724,
+          "images": 33413,
+          "years": [
+            2022
+          ],
+          "span7": 26672,
+          "span14": 25324,
+          "delta_days": {
+            "min": 5,
+            "max": 16,
+            "mean": 10.2859450726979,
+            "median": 9.0,
+            "std": 3.702112434505665
+          },
+          "file_sha256": "067f1a8cc520c4d60803f4a5862f2c9229506c1728489d6be68b031c5a0261c1",
+          "frame_sha256": "345383f39593136809e6f8b5554da41c59980e6959bdc017462116feef014752",
+          "orig_rows_sha256": "9c54c6f9f8918a59d1a93a777b2b335bbeb56ab11e62ed713a7d82db60efa206"
+        }
+      },
+      "disjoint_plots": true,
+      "covers_all_plots": true
+    }
+  ],
+  "conditions": {
+    "b2_no_time": {
+      "description": "z_a only; action channel and every time/environment input removed",
+      "use_delta": false,
+      "delta_mode": "sample",
+      "fixed_delta_days": null,
+      "gdd_mode": "none",
+      "gdd_base": null,
+      "weather_mode": "none",
+      "protocol": "none"
+    },
+    "b2_no_time_constant_delta": {
+      "description": "S4A.1 matched control: full DeltaTimeEncoder, identical width and parameter count to b3_delta, every sample receives the fixed 9.0-day interval.",
+      "use_delta": true,
+      "delta_mode": "constant",
+      "fixed_delta_days": 9.0,
+      "gdd_mode": "none",
+      "gdd_base": null,
+      "weather_mode": "none",
+      "protocol": "none"
+    },
+    "b3_delta": {
+      "description": "z_a + real per-pair delta_days",
+      "use_delta": true,
+      "delta_mode": "sample",
+      "fixed_delta_days": null,
+      "gdd_mode": "none",
+      "gdd_base": null,
+      "weather_mode": "none",
+      "protocol": "none"
+    },
+    "gdd_p": {
+      "description": "z_a + delta_days + past 7/14/28-d GDD (T_base 0); deployable",
+      "use_delta": true,
+      "delta_mode": "sample",
+      "fixed_delta_days": null,
+      "gdd_mode": "past",
+      "gdd_base": 0.0,
+      "weather_mode": "none",
+      "protocol": "P"
+    },
+    "weather_p": {
+      "description": "z_a + delta_days + masked GRU over the past 28 d; deployable",
+      "use_delta": true,
+      "delta_mode": "sample",
+      "fixed_delta_days": null,
+      "gdd_mode": "none",
+      "gdd_base": null,
+      "weather_mode": "past",
+      "protocol": "P"
+    }
+  },
+  "e1_conditions": [
+    "b2_no_time",
+    "b2_no_time_constant_delta",
+    "b3_delta",
+    "gdd_p",
+    "weather_p"
+  ],
+  "e1_contrasts": [
+    [
+      "b2_no_time_constant_delta",
+      "b3_delta",
+      "b3_delta_minus_b2_no_time_constant_delta"
+    ],
+    [
+      "b3_delta",
+      "gdd_p",
+      "gdd_p_minus_b3_delta"
+    ],
+    [
+      "b3_delta",
+      "weather_p",
+      "weather_p_minus_b3_delta"
+    ]
+  ],
+  "e2_conditions": [
+    "A_current",
+    "b2_no_time",
+    "b2_no_time_constant_delta",
+    "b3_delta",
+    "gdd_p",
+    "weather_p"
+  ],
+  "training": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "candidate_epochs": 12,
+    "early_stop_patience": 3,
+    "batch_size": 128,
+    "lr": 0.0003,
+    "selection_metric": "fold_dev_mse_pred"
+  }
+}

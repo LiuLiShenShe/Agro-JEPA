@@ -1,0 +1,2 @@
+[grid] 25 jobs: folds=[2016, 2017, 2018, 2021, 2022] conds=['b2_no_time', 'b2_no_time_constant_delta', 'b3_delta', 'gdd_p', 'weather_p'] seeds=[0]
+[grid] 1/25 start 2016/b2_no_time/s0

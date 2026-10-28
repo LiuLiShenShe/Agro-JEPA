@@ -1,0 +1,10 @@
+/usr/bin/python3 /fj/Agro-JEPA/tools/s4b4a_train.py --config agro_jepa/config/s4b4a_year_heldout.yaml --fold 2016 --condition b2_no_time --seed 0
+using 3d prop position use_3d_pos=False
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 0, "train_loss": 1.35134, "dev_mse": 1.25364, "dev_rel": 0.4409, "sec": 378.3}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 1, "train_loss": 1.24877, "dev_mse": 1.22718, "dev_rel": 0.4527, "sec": 375.0}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 2, "train_loss": 1.22448, "dev_mse": 1.20876, "dev_rel": 0.461, "sec": 375.2}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 3, "train_loss": 1.20833, "dev_mse": 1.20191, "dev_rel": 0.464, "sec": 374.8}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 4, "train_loss": 1.19482, "dev_mse": 1.1939, "dev_rel": 0.4676, "sec": 374.7}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 5, "train_loss": 1.18262, "dev_mse": 1.18666, "dev_rel": 0.4708, "sec": 374.9}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 6, "train_loss": 1.17141, "dev_mse": 1.18521, "dev_rel": 0.4715, "sec": 375.3}
+{"fold": 2016, "condition": "b2_no_time", "seed": 0, "epoch": 7, "train_loss": 1.1613, "dev_mse": 1.17995, "dev_rel": 0.4738, "sec": 375.0}

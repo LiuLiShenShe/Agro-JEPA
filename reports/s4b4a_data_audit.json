@@ -1,0 +1,1028 @@
+{
+  "stage": "S4B.4A",
+  "task": "data / time-encoding / GDD-weather / capacity audit",
+  "generated_at": "2026-10-28T17:38:20+0800",
+  "command": "tools/s4b4a_data_audit.py --config agro_jepa/config/s4b4a_year_heldout.yaml",
+  "config": "agro_jepa/config/s4b4a_year_heldout.yaml",
+  "config_sha256": "f46f03e8790a46ab70cb2fdb717773c88e539561186d6fad9db8ccab596a38aa",
+  "inputs": {
+    "full_train_pairs": "external_data/s4b_index/full_train_pairs.parquet",
+    "full_train_pairs_sha256": "a49b546f57d688818db8f7c5b94504498572dfc39749c33e0e6608886d26e3c6",
+    "train_index": "external_data/s4b2/train_index.parquet",
+    "train_index_sha256": "9741352b3c0bdb0c4416a9437da6ad0ce3c6862c1ab642f3f800422368023ea0",
+    "s3_index": "external_data/s3_index/fip1_s3_v0_index.parquet",
+    "s3_index_sha256_stable": "f6ef1871655277549aba2d883b6f76a5831b7976af90fc74d80206591d884933",
+    "feature_index": "external_data/s4b_features/index.parquet",
+    "feature_index_sha256": "3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d",
+    "conditioning_npz": "external_data/s4b4a_conditioning/full_train_conditioning.npz",
+    "conditioning_npz_sha256": "daf732cd723a132164bd74aaac501ff245d34fedd63b871bcd4ed7a5c92910e7"
+  },
+  "3_1_training_data": {
+    "full_train_index": {
+      "rows": 179823,
+      "plots": 2930,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "pair_types": {
+        "span7": 92136,
+        "span14": 87687
+      },
+      "by_year": {
+        "2016": {
+          "pairs": 19537,
+          "plots": 452,
+          "images": 15585,
+          "span7": 10456,
+          "span14": 9081,
+          "delta_days": {
+            "n": 19537,
+            "mean": 10.457183805087782,
+            "std": 3.7973735360477754,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 16.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2017": {
+          "pairs": 12529,
+          "plots": 492,
+          "images": 8448,
+          "span7": 6671,
+          "span14": 5858,
+          "delta_days": {
+            "n": 12529,
+            "mean": 10.033282783941257,
+            "std": 3.6344139675865286,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 5.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2018": {
+          "pairs": 19515,
+          "plots": 520,
+          "images": 14007,
+          "span7": 9348,
+          "span14": 10167,
+          "delta_days": {
+            "n": 19515,
+            "mean": 10.159005892902895,
+            "std": 3.6613051293960397,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 12.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 5.0,
+              "p25": 7.0,
+              "p50": 12.0,
+              "p75": 13.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2021": {
+          "pairs": 76246,
+          "plots": 742,
+          "images": 43338,
+          "span7": 38989,
+          "span14": 37257,
+          "delta_days": {
+            "n": 76246,
+            "mean": 10.240550323951421,
+            "std": 3.61195692191444,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 8.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 8.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 15.55000000000291,
+              "p100": 16.0
+            }
+          }
+        },
+        "2022": {
+          "pairs": 51996,
+          "plots": 724,
+          "images": 33413,
+          "span7": 26672,
+          "span14": 25324,
+          "delta_days": {
+            "n": 51996,
+            "mean": 10.2859450726979,
+            "std": 3.70207683436109,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 15.0,
+              "p100": 16.0
+            }
+          }
+        }
+      },
+      "delta_days_overall": {
+        "n": 179823,
+        "mean": 10.253921912102456,
+        "std": 3.6668246506160105,
+        "min": 5.0,
+        "max": 16.0,
+        "median": 9.0,
+        "quantiles": {
+          "p0": 5.0,
+          "p1": 5.0,
+          "p5": 5.0,
+          "p25": 7.0,
+          "p50": 9.0,
+          "p75": 14.0,
+          "p95": 15.0,
+          "p99": 16.0,
+          "p100": 16.0
+        }
+      }
+    },
+    "s3_pilot_train": {
+      "rows": 56139,
+      "plots": 1000,
+      "by_year": {
+        "2016": {
+          "pairs": 8608,
+          "plots": 200,
+          "images": 6883,
+          "span7": 4612,
+          "span14": 3996,
+          "delta_days": {
+            "n": 8608,
+            "mean": 10.450278810408921,
+            "std": 3.800324031914064,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 16.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2017": {
+          "pairs": 5078,
+          "plots": 200,
+          "images": 3437,
+          "span7": 2700,
+          "span14": 2378,
+          "delta_days": {
+            "n": 5078,
+            "mean": 10.044899566758566,
+            "std": 3.6384386894172205,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 5.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2018": {
+          "pairs": 7624,
+          "plots": 200,
+          "images": 5440,
+          "span7": 3649,
+          "span14": 3975,
+          "delta_days": {
+            "n": 7624,
+            "mean": 10.146904512067156,
+            "std": 3.6539997157466213,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 12.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 5.0,
+              "p25": 7.0,
+              "p50": 12.0,
+              "p75": 13.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2021": {
+          "pairs": 20543,
+          "plots": 200,
+          "images": 11680,
+          "span7": 10506,
+          "span14": 10037,
+          "delta_days": {
+            "n": 20543,
+            "mean": 10.239448960716546,
+            "std": 3.612498589967129,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 8.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 8.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 15.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2022": {
+          "pairs": 14286,
+          "plots": 200,
+          "images": 9191,
+          "span7": 7325,
+          "span14": 6961,
+          "delta_days": {
+            "n": 14286,
+            "mean": 10.283634327313454,
+            "std": 3.7041727202561683,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 15.0,
+              "p100": 16.0
+            }
+          }
+        }
+      },
+      "delta_days_overall": {
+        "n": 56139,
+        "mean": 10.252854521811932,
+        "std": 3.6747805386218597,
+        "min": 5.0,
+        "max": 16.0,
+        "median": 9.0,
+        "quantiles": {
+          "p0": 5.0,
+          "p1": 5.0,
+          "p5": 5.0,
+          "p25": 7.0,
+          "p50": 9.0,
+          "p75": 14.0,
+          "p95": 15.0,
+          "p99": 16.0,
+          "p100": 16.0
+        }
+      }
+    },
+    "official_validation": {
+      "rows": 15175,
+      "plots": 380,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "by_year": {
+        "2016": {
+          "pairs": 5201,
+          "plots": 119,
+          "images": 4132,
+          "span7": 2777,
+          "span14": 2424,
+          "delta_days": {
+            "n": 5201,
+            "mean": 10.472024610651797,
+            "std": 3.7999428137261346,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 16.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2017": {
+          "pairs": 3485,
+          "plots": 126,
+          "images": 2345,
+          "span7": 1850,
+          "span14": 1635,
+          "delta_days": {
+            "n": 3485,
+            "mean": 10.050215208034434,
+            "std": 3.636741108936303,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 5.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2018": {
+          "pairs": 3831,
+          "plots": 102,
+          "images": 2747,
+          "span7": 1828,
+          "span14": 2003,
+          "delta_days": {
+            "n": 3831,
+            "mean": 10.168102323153224,
+            "std": 3.6559753281546525,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 12.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 5.0,
+              "p25": 7.0,
+              "p50": 12.0,
+              "p75": 13.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2021": {
+          "pairs": 1131,
+          "plots": 11,
+          "images": 641,
+          "span7": 578,
+          "span14": 553,
+          "delta_days": {
+            "n": 1131,
+            "mean": 10.239610963748895,
+            "std": 3.611807122288707,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 16.0,
+              "p100": 16.0
+            }
+          }
+        },
+        "2022": {
+          "pairs": 1527,
+          "plots": 22,
+          "images": 993,
+          "span7": 784,
+          "span14": 743,
+          "delta_days": {
+            "n": 1527,
+            "mean": 10.302554027504911,
+            "std": 3.6999637194713872,
+            "min": 5.0,
+            "max": 16.0,
+            "median": 9.0,
+            "quantiles": {
+              "p0": 5.0,
+              "p1": 5.0,
+              "p5": 6.0,
+              "p25": 7.0,
+              "p50": 9.0,
+              "p75": 14.0,
+              "p95": 15.0,
+              "p99": 15.0,
+              "p100": 16.0
+            }
+          }
+        }
+      }
+    },
+    "official_test": {
+      "test_plot": {
+        "pairs": 9851,
+        "plots": 250,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2021,
+          2022
+        ],
+        "n_by_year": {
+          "2016": 3403,
+          "2017": 1991,
+          "2018": 2764,
+          "2021": 1140,
+          "2022": 553
+        }
+      },
+      "test_genotype": {
+        "pairs": 12059,
+        "plots": 246,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2021,
+          2022
+        ],
+        "n_by_year": {
+          "2016": 2602,
+          "2017": 1620,
+          "2018": 2244,
+          "2021": 2896,
+          "2022": 2697
+        }
+      },
+      "test_environment": {
+        "pairs": 6300,
+        "plots": 190,
+        "years": [
+          2019
+        ],
+        "n_by_year": {
+          "2019": 6300
+        }
+      },
+      "test_genotype_environment": {
+        "pairs": 2147,
+        "plots": 62,
+        "years": [
+          2019
+        ],
+        "n_by_year": {
+          "2019": 2147
+        }
+      }
+    },
+    "normalisation_sources": {
+      "delta": "fitted per fit-call-site (see 3.2)",
+      "gdd_weather": "VectorNormStats fitted on inner-train rows only"
+    }
+  },
+  "3_2_time_encoding": {
+    "class": "agro_jepa.models.time_embedding.DeltaNormStats",
+    "fit_call_sites": {
+      "tools/train_s4.py:213 (S4A/S4A.1)": "fitted on inner-train rows of this model's split only",
+      "agro_jepa/train/train_s4b2_full.py:227": "fitted on the ENTIRE official-train index (all 5 years) -- the frozen S4B.2 baseline"
+    },
+    "s4b2_full_train_stats": {
+      "mean": 10.253921912102456,
+      "std": 3.6668246506160105,
+      "min": 5.0,
+      "max": 16.0,
+      "n_samples": 179823,
+      "rule": "fitted on train split delta_days only; reused for validation/test"
+    },
+    "s4b2_per_checkpoint": {
+      "b2_no_time": {
+        "seed0": {
+          "path": "external_data/s4b2_runs/b2_no_time/seed0/checkpoints/final.pt",
+          "sha256": "08c9dafc450a70a2c24a47216f30c0350c600b858e5eb5ef8847c6dbb3f34b04",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "fixed_delta": null,
+          "epochs": 14,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        },
+        "seed1": {
+          "path": "external_data/s4b2_runs/b2_no_time/seed1/checkpoints/final.pt",
+          "sha256": "7b1b3827c5e6a6d84322dda1b397b0cde9ea4a6ce239f6494a8bf615a5b31503",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "fixed_delta": null,
+          "epochs": 14,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        },
+        "seed2": {
+          "path": "external_data/s4b2_runs/b2_no_time/seed2/checkpoints/final.pt",
+          "sha256": "540bbb96dbb350ffb80cb0fab715e33ce2f36550843b04b14f11cab5e50a57df",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 45898196,
+          "n_condition_parameters": 0,
+          "predictor_input_dim": 928,
+          "fixed_delta": null,
+          "epochs": 14,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        }
+      },
+      "b2_no_time_constant_delta": {
+        "seed0": {
+          "path": "external_data/s4b2_runs/b2_no_time_constant_delta/seed0/checkpoints/final.pt",
+          "sha256": "d8cebf42d2f97ebe27dbf2cfeb231669cbf4f6ff5e60e330649399a3cf292757",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "fixed_delta": {
+            "fixed_delta_rule": "frozen_s4a1_constant",
+            "fixed_delta_days": 9.0,
+            "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+            "shared_delta_norm_mean": 10.253921912102456,
+            "shared_delta_norm_std": 3.6668246506160105,
+            "fixed_delta_normalised_value": -0.3419639692592888
+          },
+          "epochs": 13,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        },
+        "seed1": {
+          "path": "external_data/s4b2_runs/b2_no_time_constant_delta/seed1/checkpoints/final.pt",
+          "sha256": "61a0d962309d3361a5bc1291e13af6b3908f40caf6201c7b9f543d1e823d9d20",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "fixed_delta": {
+            "fixed_delta_rule": "frozen_s4a1_constant",
+            "fixed_delta_days": 9.0,
+            "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+            "shared_delta_norm_mean": 10.253921912102456,
+            "shared_delta_norm_std": 3.6668246506160105,
+            "fixed_delta_normalised_value": -0.3419639692592888
+          },
+          "epochs": 13,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        },
+        "seed2": {
+          "path": "external_data/s4b2_runs/b2_no_time_constant_delta/seed2/checkpoints/final.pt",
+          "sha256": "9391faa54f26c6760a11d86601bed7e94225b7a5e2d3c4b35cd1c593a1316230",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "fixed_delta": {
+            "fixed_delta_rule": "frozen_s4a1_constant",
+            "fixed_delta_days": 9.0,
+            "fixed_delta_source": "S4A.1 frozen control value (not re-derived)",
+            "shared_delta_norm_mean": 10.253921912102456,
+            "shared_delta_norm_std": 3.6668246506160105,
+            "fixed_delta_normalised_value": -0.3419639692592888
+          },
+          "epochs": 13,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        }
+      },
+      "b3_delta": {
+        "seed0": {
+          "path": "external_data/s4b2_runs/b3_delta/seed0/checkpoints/final.pt",
+          "sha256": "f433164646886c691eb2a5d795924167c0f114c0b95f5d261722df565e8a0b5a",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "fixed_delta": null,
+          "epochs": 12,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        },
+        "seed1": {
+          "path": "external_data/s4b2_runs/b3_delta/seed1/checkpoints/final.pt",
+          "sha256": "64ee70f8e4574ba7bff47b2206e6d19a1fed03c34a0e9b59fcc63463afe9ab7f",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "fixed_delta": null,
+          "epochs": 12,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        },
+        "seed2": {
+          "path": "external_data/s4b2_runs/b3_delta/seed2/checkpoints/final.pt",
+          "sha256": "37ca926d05f7ac959710027efc57997173fb4275e2ed67ae5d277e2c55d33e21",
+          "delta_norm": {
+            "mean": 10.253921912102456,
+            "std": 3.6668246506160105,
+            "min": 5.0,
+            "max": 16.0,
+            "n_samples": 179823
+          },
+          "n_trainable_parameters": 53882396,
+          "n_condition_parameters": 72730,
+          "predictor_input_dim": 1088,
+          "fixed_delta": null,
+          "epochs": 12,
+          "index_sha256": "cfd170201b93be701594fec81664e03e2384fe5b2a258ca8bf9f0865132a07d8"
+        }
+      }
+    },
+    "s4a_inner_train_example": {
+      "note": "S4A.1 inner-train delta norm recorded by its verify report",
+      "mean": 10.251753,
+      "std": 3.675335,
+      "n_samples": 44925
+    },
+    "normalisation_rule": "delta_days -> (d - mean) / std, with mean/std from the fitting row set; the held-out rows are transformed with training statistics and never re-fit",
+    "s4b4a_requirement": "each fold must refit DeltaNormStats (and GDD/weather VectorNormStats) on that fold's *training plot* rows only",
+    "all_checkpoints_share_full_train_norm": true
+  },
+  "3_3_gdd_weather": {
+    "gdd": {
+      "definition": "GDD_d = max(T_mean_d - T_base, 0); T_base in {0, 5} degC",
+      "unit": "degC day",
+      "T_mean_source": "S1 confirmed channel T_mean_C",
+      "protocol_R_definition": "(t_a, t_b]",
+      "protocol_R_deployable": false,
+      "protocol_P_definition": "[t_a-W, ..., t_a-1] (strictly before t_a)",
+      "protocol_P_deployable": true,
+      "gdd_keys_present": [
+        "gdd_int_base0",
+        "gdd_int_base5",
+        "gdd_past7_base0",
+        "gdd_past7_base5",
+        "gdd_past14_base0",
+        "gdd_past14_base5",
+        "gdd_past28_base0",
+        "gdd_past28_base5"
+      ],
+      "interval_valid_days_all_full": true,
+      "past_valid_days_all_full": true,
+      "conditioning_rows": 179823,
+      "conditioning_splits": {
+        "train": 179823
+      },
+      "gdd_past28_base0_by_year": {
+        "2016": {
+          "n": 19537,
+          "mean": 216.95533752441406,
+          "std": 125.25283813476562,
+          "min": 56.42110061645508,
+          "max": 508.1585998535156
+        },
+        "2017": {
+          "n": 12529,
+          "mean": 250.25213623046875,
+          "std": 138.1905975341797,
+          "min": 64.0885009765625,
+          "max": 572.5581665039062
+        },
+        "2018": {
+          "n": 19515,
+          "mean": 329.52789306640625,
+          "std": 153.74595642089844,
+          "min": 61.07919692993164,
+          "max": 517.4076538085938
+        },
+        "2021": {
+          "n": 76246,
+          "mean": 281.1175231933594,
+          "std": 140.46090698242188,
+          "min": 55.64960479736328,
+          "max": 528.4276733398438
+        },
+        "2022": {
+          "n": 51996,
+          "mean": 287.9294128417969,
+          "std": 162.92263793945312,
+          "min": 24.899999618530273,
+          "max": 561.0070190429688
+        }
+      }
+    },
+    "weather": {
+      "channels": [
+        "T_mean_C",
+        "T_max_C",
+        "T_min_C",
+        "RH_mean_pct",
+        "Rs_sum_MJ_m2_d"
+      ],
+      "units": {
+        "T_mean_C": "degC",
+        "T_max_C": "degC",
+        "T_min_C": "degC",
+        "RH_mean_pct": "%",
+        "Rs_sum_MJ_m2_d": "MJ m-2 d-1"
+      },
+      "excluded": {
+        "P_sum_raw": "unit unresolved (S1); precipitation integrals forbidden by S2",
+        "VPD_mean_kPa": "derived channel, opt-in only; not used"
+      },
+      "protocol_P_window_days": 28,
+      "mask": "per-day, per-channel validity from S1 hourly-record completeness",
+      "past_window_strictly_before_t_a": true,
+      "structural_limit": "all plots of one harvest_year share a single weather series; weather carries date/year-level environment variation only"
+    },
+    "conditioning_coverage": {
+      "conditioning_pair_ids": 179823,
+      "full_train_pair_ids": 179823,
+      "conditioning_plots": 1000,
+      "full_train_plots": 2930,
+      "conditioned_pairs_also_in_full_train": 179823,
+      "conditioning_covers_full_train": true,
+      "note": "the frozen S4A conditioning npz covers only the S3 pilot index (1,000 official-train plots); GDD-P / Weather-P on the full 2,930-plot index would require a new conditioning build"
+    }
+  },
+  "3_4_capacity": {
+    "model_config": {
+      "num_patches": 256,
+      "visual_dim": 768,
+      "depth": 6,
+      "heads": 16,
+      "mlp_dim": 2048,
+      "dropout": 0.1,
+      "emb_dropout": 0.0,
+      "pool": "mean",
+      "action_emb_dim": 10,
+      "num_action_repeat": 16,
+      "proprio_emb_dim": 10,
+      "num_proprio_repeat": 16,
+      "condition_dim": 160,
+      "proprio_dim": 160,
+      "fusion_hidden": 64,
+      "delta": {
+        "n_frequencies": 8,
+        "base_frequency": 2.0,
+        "hidden_dim": 256,
+        "output_dim": 10,
+        "dropout": 0.0,
+        "use_learned_scale": true,
+        "note": "sinusoidal encoding of the normalised interval, then an MLP to action_dim; matches the upstream action-channel width"
+      },
+      "gdd": {
+        "n_frequencies": 8,
+        "base_frequency": 2.0,
+        "hidden_dim": 128,
+        "output_dim": 10,
+        "dropout": 0.0,
+        "use_learned_scale": false
+      },
+      "weather": {
+        "hidden_dim": 64,
+        "output_dim": 10,
+        "dropout": 0.0,
+        "pooling": "masked_mean",
+        "n_channels": 5
+      },
+      "proprio_placeholder": "constant zeros (no future phenotype input)"
+    },
+    "conditions": {
+      "b2_no_time": {
+        "spec": {
+          "use_delta": false,
+          "delta_mode": "sample",
+          "fixed_delta_days": null,
+          "gdd_mode": "none",
+          "gdd_base": 0.0,
+          "weather_mode": "none",
+          "gdd_features": [],
+          "weather_features": []
+        },
+        "has_condition": false,
+        "parts": [],
+        "n_trainable_parameters": 45898196,
+        "n_condition_parameters": 0,
+        "predictor_input_dim": 928,
+        "delta_encoder_params": 0,
+        "gdd_encoder_params": 0,
+        "weather_encoder_params": 0,
+        "fusion_params": 0,
+        "action_encoder_params": 0
+      },
+      "b2_no_time_constant_delta": {
+        "spec": {
+          "use_delta": true,
+          "delta_mode": "constant",
+          "fixed_delta_days": 9.0,
+          "gdd_mode": "none",
+          "gdd_base": 0.0,
+          "weather_mode": "none",
+          "gdd_features": [],
+          "weather_features": []
+        },
+        "has_condition": true,
+        "parts": [
+          "delta"
+        ],
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "delta_encoder_params": 72730,
+        "gdd_encoder_params": 0,
+        "weather_encoder_params": 0,
+        "fusion_params": 0,
+        "action_encoder_params": 110
+      },
+      "b3_delta": {
+        "spec": {
+          "use_delta": true,
+          "delta_mode": "sample",
+          "fixed_delta_days": null,
+          "gdd_mode": "none",
+          "gdd_base": 0.0,
+          "weather_mode": "none",
+          "gdd_features": [],
+          "weather_features": []
+        },
+        "has_condition": true,
+        "parts": [
+          "delta"
+        ],
+        "n_trainable_parameters": 53882396,
+        "n_condition_parameters": 72730,
+        "predictor_input_dim": 1088,
+        "delta_encoder_params": 72730,
+        "gdd_encoder_params": 0,
+        "weather_encoder_params": 0,
+        "fusion_params": 0,
+        "action_encoder_params": 110
+      },
+      "gdd_p": {
+        "spec": {
+          "use_delta": true,
+          "delta_mode": "sample",
+          "fixed_delta_days": null,
+          "gdd_mode": "past",
+          "gdd_base": 0.0,
+          "weather_mode": "none",
+          "gdd_features": [
+            "gdd_past7_base0",
+            "gdd_past14_base0",
+            "gdd_past28_base0"
+          ],
+          "weather_features": []
+        },
+        "has_condition": true,
+        "parts": [
+          "delta",
+          "gdd"
+        ],
+        "n_trainable_parameters": 53908480,
+        "n_condition_parameters": 98814,
+        "predictor_input_dim": 1088,
+        "delta_encoder_params": 72730,
+        "gdd_encoder_params": 24090,
+        "weather_encoder_params": 0,
+        "fusion_params": 1994,
+        "action_encoder_params": 110
+      },
+      "weather_p": {
+        "spec": {
+          "use_delta": true,
+          "delta_mode": "sample",
+          "fixed_delta_days": null,
+          "gdd_mode": "none",
+          "gdd_base": 0.0,
+          "weather_mode": "past",
+          "gdd_features": [],
+          "weather_features": [
+            "weather_past",
+            "weather_past_mask"
+          ]
+        },
+        "has_condition": true,
+        "parts": [
+          "delta",
+          "weather"
+        ],
+        "n_trainable_parameters": 53906928,
+        "n_condition_parameters": 97262,
+        "predictor_input_dim": 1088,
+        "delta_encoder_params": 72730,
+        "gdd_encoder_params": 0,
+        "weather_encoder_params": 22538,
+        "fusion_params": 1994,
+        "action_encoder_params": 110
+      }
+    },
+    "matching_notes": {
+      "b2_no_time_constant_delta_vs_b3_delta": "identical trainable/condition parameter counts and input dim (the S4A.1 matched control); difference is sample-level delta only",
+      "gdd_and_weather_arms": "add encoder + fusion parameters over B3; capacity is NOT matched to B3, so part of any gain may be parameter-driven"
+    }
+  }
+}
