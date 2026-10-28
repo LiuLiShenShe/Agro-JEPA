@@ -1,0 +1,26 @@
+  ckpt b2_no_time/seed0: 08c9dafc450a70a2
+  ckpt b2_no_time/seed1: 7b1b3827c5e6a6d8
+  ckpt b2_no_time/seed2: 540bbb96dbb350ff
+  ckpt b2_no_time_constant_delta/seed0: d8cebf42d2f97ebe
+  ckpt b2_no_time_constant_delta/seed1: 61a0d962309d3361
+  ckpt b2_no_time_constant_delta/seed2: 9391faa54f26c676
+  ckpt b3_delta/seed0: f433164646886c69
+  ckpt b3_delta/seed1: 64ee70f8e4574ba7
+  ckpt b3_delta/seed2: 37ca926d05f7ac95
+PASS  C1_nine_checkpoints_present: 9 final.pt files
+PASS  C2_feature_index_sha: 3c0196f8592fe2b4 (expected 3c0196f8592fe2b4)
+  test_plot: 9851 pairs / 250 plots, sha 76ef410784562e0b, feature_cov 1.000, labels []
+  test_genotype: 12059 pairs / 246 plots, sha f260423ff94f95bf, feature_cov 1.000, labels []
+  test_environment: 6300 pairs / 190 plots, sha 66dcd5c4f531dab0, feature_cov 1.000, labels []
+  test_genotype_environment: 2147 pairs / 62 plots, sha 0df8e0cfa59768a1, feature_cov 1.000, labels []
+PASS  C3_test_counts_and_sha: row/plot counts and SHA256 match the frozen S4A.1 audit
+PASS  C4_test_feature_coverage: every test image endpoint has a cached DINOv2 feature
+PASS  C5_test_indexes_label_free: no test pair index carries a phenotype label column (E1 blind)
+PASS  C6_total_test_pairs: 30357 pairs over 748 plots across four splits
+PASS  C7_no_pair_id_leak: 0 test pair_ids also in full-train table
+PASS  C8_no_plot_leak: 0 test plots also in full-train table
+PASS  C9_full_train_table_sha: a49b546f57d68881
+PASS  C10_full_train_counts: 179823 pairs / 2930 plots / splits ['train']
+PASS  C11_b2c_vs_b3_distinction: B2-C fixed 9.0 d (normalised -0.341964); B3 uses each pair's real delta_days in [5,16]
+wrote reports/s4b3_test_protocol.json
+wrote reports/s4b3_test_protocol.md

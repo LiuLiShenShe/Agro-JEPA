@@ -1,0 +1,357 @@
+{
+  "stage": "S4B.3",
+  "task": "official test-set evaluation protocol (E1 frozen first)",
+  "generated_at": "2026-10-28T09:58:53+0800",
+  "command": "tools/s4b3_test_protocol.py --config agro_jepa/config/s4b3_official_test.yaml",
+  "config": "agro_jepa/config/s4b3_official_test.yaml",
+  "config_sha256": "10d435ab8b0e561a826213f22a0a1fa7b6246c15a99d2f216d9e849fa32913a8",
+  "git_head": "1df54fb526df77c80a45d44e004999673620651a",
+  "branch": "agro-s4b3-official-test",
+  "s4b2_baseline_commit": "1df54fb526df77c80a45d44e004999673620651a",
+  "test_splits": {
+    "test_plot": {
+      "index": "external_data/s4b_index/test_plot_test_pairs.parquet",
+      "index_sha256": "76ef410784562e0b744ceef0e3af2c8345cee4902202e878ff8586f7853bafb8",
+      "index_sha256_matches_frozen": true,
+      "n_pairs": 9851,
+      "n_pairs_expected": 9851,
+      "n_plots": 250,
+      "n_plots_expected": 250,
+      "n_unique_images": 7050,
+      "by_pair_type": {
+        "span14": 4784,
+        "span7": 5067
+      },
+      "harvest_years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 10.264744695969952
+      },
+      "feature_coverage": {
+        "a": 9851,
+        "b": 9851,
+        "n_pairs": 9851,
+        "fraction": 1.0
+      },
+      "conditioning_npz": "external_data/s4b_conditioning/test_plot_conditioning.npz",
+      "conditioning_npz_sha256": "9744ec89103343c4d812f21137586aa0f22dd919d1933fc74fa60b39508606ad",
+      "conditioning_npz_sha256_matches_frozen": true,
+      "phenotype_label_columns_present": []
+    },
+    "test_genotype": {
+      "index": "external_data/s4b_index/test_genotype_test_pairs.parquet",
+      "index_sha256": "f260423ff94f95bf9d43e77ae0bb94284a5c78871ea3a0d5b3c84576dda6cf5e",
+      "index_sha256_matches_frozen": true,
+      "n_pairs": 12059,
+      "n_pairs_expected": 12059,
+      "n_plots": 246,
+      "n_plots_expected": 246,
+      "n_unique_images": 8149,
+      "by_pair_type": {
+        "span14": 5868,
+        "span7": 6191
+      },
+      "harvest_years": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 10.260386433369268
+      },
+      "feature_coverage": {
+        "a": 12059,
+        "b": 12059,
+        "n_pairs": 12059,
+        "fraction": 1.0
+      },
+      "conditioning_npz": "external_data/s4b_conditioning/test_genotype_conditioning.npz",
+      "conditioning_npz_sha256": "b7fc22f79666a1df01701289abf0458d6204e365332b6fb3fcdb4d12b6cf5468",
+      "conditioning_npz_sha256_matches_frozen": true,
+      "phenotype_label_columns_present": []
+    },
+    "test_environment": {
+      "index": "external_data/s4b_index/test_environment_test_pairs.parquet",
+      "index_sha256": "66dcd5c4f531dab0d1f82559cf68661df491e2b926362a5e4d44b7e75bbf11b2",
+      "index_sha256_matches_frozen": true,
+      "n_pairs": 6300,
+      "n_pairs_expected": 6300,
+      "n_plots": 190,
+      "n_plots_expected": 190,
+      "n_unique_images": 4281,
+      "by_pair_type": {
+        "span14": 2944,
+        "span7": 3356
+      },
+      "harvest_years": [
+        2019
+      ],
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 9.917619047619048
+      },
+      "feature_coverage": {
+        "a": 6300,
+        "b": 6300,
+        "n_pairs": 6300,
+        "fraction": 1.0
+      },
+      "conditioning_npz": "external_data/s4b_conditioning/test_environment_conditioning.npz",
+      "conditioning_npz_sha256": "19db51177498cb511898148f7ca92148defb148845ca8679095f30dbeb46a76a",
+      "conditioning_npz_sha256_matches_frozen": true,
+      "phenotype_label_columns_present": []
+    },
+    "test_genotype_environment": {
+      "index": "external_data/s4b_index/test_genotype_environment_test_pairs.parquet",
+      "index_sha256": "0df8e0cfa59768a1a7c31f62a032e23908da34595c4732382f6eccae9ad97373",
+      "index_sha256_matches_frozen": true,
+      "n_pairs": 2147,
+      "n_pairs_expected": 2147,
+      "n_plots": 62,
+      "n_plots_expected": 62,
+      "n_unique_images": 1479,
+      "by_pair_type": {
+        "span14": 1012,
+        "span7": 1135
+      },
+      "harvest_years": [
+        2019
+      ],
+      "delta_days": {
+        "min": 5,
+        "max": 16,
+        "mean": 9.96599906846763
+      },
+      "feature_coverage": {
+        "a": 2147,
+        "b": 2147,
+        "n_pairs": 2147,
+        "fraction": 1.0
+      },
+      "conditioning_npz": "external_data/s4b_conditioning/test_genotype_environment_conditioning.npz",
+      "conditioning_npz_sha256": "21d6197e2682eda56439e602759edf1a591c1c73acde5968df968fa4228db62d",
+      "conditioning_npz_sha256_matches_frozen": true,
+      "phenotype_label_columns_present": []
+    }
+  },
+  "totals": {
+    "n_pairs": 30357,
+    "n_plots": 748,
+    "n_splits": 4
+  },
+  "checkpoints": {
+    "b2_no_time": {
+      "seed0": {
+        "path": "external_data/s4b2_runs/b2_no_time/seed0/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "08c9dafc450a70a2c24a47216f30c0350c600b858e5eb5ef8847c6dbb3f34b04"
+      },
+      "seed1": {
+        "path": "external_data/s4b2_runs/b2_no_time/seed1/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "7b1b3827c5e6a6d84322dda1b397b0cde9ea4a6ce239f6494a8bf615a5b31503"
+      },
+      "seed2": {
+        "path": "external_data/s4b2_runs/b2_no_time/seed2/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "540bbb96dbb350ffb80cb0fab715e33ce2f36550843b04b14f11cab5e50a57df"
+      }
+    },
+    "b2_no_time_constant_delta": {
+      "seed0": {
+        "path": "external_data/s4b2_runs/b2_no_time_constant_delta/seed0/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "d8cebf42d2f97ebe27dbf2cfeb231669cbf4f6ff5e60e330649399a3cf292757"
+      },
+      "seed1": {
+        "path": "external_data/s4b2_runs/b2_no_time_constant_delta/seed1/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "61a0d962309d3361a5bc1291e13af6b3908f40caf6201c7b9f543d1e823d9d20"
+      },
+      "seed2": {
+        "path": "external_data/s4b2_runs/b2_no_time_constant_delta/seed2/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "9391faa54f26c6760a11d86601bed7e94225b7a5e2d3c4b35cd1c593a1316230"
+      }
+    },
+    "b3_delta": {
+      "seed0": {
+        "path": "external_data/s4b2_runs/b3_delta/seed0/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "f433164646886c691eb2a5d795924167c0f114c0b95f5d261722df565e8a0b5a"
+      },
+      "seed1": {
+        "path": "external_data/s4b2_runs/b3_delta/seed1/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "64ee70f8e4574ba7bff47b2206e6d19a1fed03c34a0e9b59fcc63463afe9ab7f"
+      },
+      "seed2": {
+        "path": "external_data/s4b2_runs/b3_delta/seed2/checkpoints/final.pt",
+        "exists": true,
+        "sha256": "37ca926d05f7ac959710027efc57997173fb4275e2ed67ae5d277e2c55d33e21"
+      }
+    }
+  },
+  "feature_index": {
+    "path": "external_data/s4b_features/index.parquet",
+    "sha256": "3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d",
+    "n_endpoints": 135750,
+    "cache_version": "mainline224_s1-v1"
+  },
+  "e1_protocol": {
+    "conditions": {
+      "B0_persistence": "Z_hat_b = Z_a (no model)",
+      "B1_train_mean": "Z_hat_b = mean Z_b over the full S4B.2 official-train index (no model)",
+      "B2": "b2_no_time checkpoint, z_a only",
+      "B2-C": "b2_no_time_constant_delta checkpoint, fixed 9.0 d",
+      "B3": "b3_delta checkpoint, real per-pair delta_days"
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "seed_averaging": "prediction averaged over seeds {0,1,2} before MSE; each seed is also reported alone",
+    "metrics": [
+      "mse",
+      "cosine_similarity",
+      "relative_improvement_vs_B0",
+      "relative_improvement_vs_B1",
+      "paired_mse_delta_B3_minus_B2-C",
+      "paired_mse_delta_B3_minus_B2"
+    ],
+    "stratification": [
+      "span7",
+      "span14",
+      "harvest_year"
+    ],
+    "bootstrap": {
+      "unit": "plot_uid (all pairs of a resampled plot kept together)",
+      "n_resamples": 2000,
+      "seed": 20261024,
+      "interval": "95% percentile"
+    },
+    "reads_test_phenotype_labels": false,
+    "selection": "none (checkpoints frozen before any test metric)"
+  },
+  "e2_protocol": {
+    "conditions": {
+      "A_current": "mean(z_a) current frozen DINOv2 feature",
+      "B2": "mean(z_hat_b) from b2_no_time",
+      "B2-C": "mean(z_hat_b) from b2_no_time_constant_delta",
+      "B3": "mean(z_hat_b) from b3_delta (real delta_days)"
+    },
+    "train_scope": "all 2,930 official-train plots; inner 80/20 by plot_uid stratified by harvest_year",
+    "inner_split_seed": 20261025,
+    "inner_split_fraction": 0.8,
+    "epoch_selection": "minimum inner-dev MSE over the candidate budget; refit on the full official-train data at the selected epoch",
+    "candidate_epochs": 150,
+    "patience": 20,
+    "architecture": "single linear layer (PooledReadout, 768 -> 1)",
+    "pooling": "mean over 256 patch tokens",
+    "label_max_lag_days": 7,
+    "lag_variants": {
+      "primary_lag7": 7,
+      "strict_lag3": 3,
+      "same_day_lag0": 0
+    },
+    "missing_labels": "validity mask (mask=False fails, never filled with 0)",
+    "metrics": [
+      "mae",
+      "rmse",
+      "r2",
+      "effective_n",
+      "effective_plots"
+    ],
+    "bootstrap": {
+      "unit": "plot_uid",
+      "n_resamples": 2000,
+      "seed": 20261024
+    },
+    "official_validation_in_train": false,
+    "test_labels_used_for_training_or_selection": false,
+    "frozen_before_test_label_read": true
+  },
+  "constraints": [
+    "Nine S4B.2 final.pt checkpoints are evaluated byte-identically.",
+    "No checkpoint, epoch, seed or hyper-parameter is chosen on a test row.",
+    "E1 reads no test phenotype label; the four test indexes carry none.",
+    "E2 trains and selects only on official-train plots; official validation and every test plot stay out of training and selection.",
+    "B2-C receives one fixed 9.0 d interval; B3 receives each pair's real delta_days -- this is the only difference between the two arms."
+  ],
+  "verification": {
+    "n_checks": 11,
+    "n_pass": 11,
+    "all_pass": true,
+    "checks": [
+      {
+        "id": "C1_nine_checkpoints_present",
+        "pass": true,
+        "detail": "9 final.pt files"
+      },
+      {
+        "id": "C2_feature_index_sha",
+        "pass": true,
+        "detail": "3c0196f8592fe2b4 (expected 3c0196f8592fe2b4)"
+      },
+      {
+        "id": "C3_test_counts_and_sha",
+        "pass": true,
+        "detail": "row/plot counts and SHA256 match the frozen S4A.1 audit"
+      },
+      {
+        "id": "C4_test_feature_coverage",
+        "pass": true,
+        "detail": "every test image endpoint has a cached DINOv2 feature"
+      },
+      {
+        "id": "C5_test_indexes_label_free",
+        "pass": true,
+        "detail": "no test pair index carries a phenotype label column (E1 blind)"
+      },
+      {
+        "id": "C6_total_test_pairs",
+        "pass": true,
+        "detail": "30357 pairs over 748 plots across four splits"
+      },
+      {
+        "id": "C7_no_pair_id_leak",
+        "pass": true,
+        "detail": "0 test pair_ids also in full-train table"
+      },
+      {
+        "id": "C8_no_plot_leak",
+        "pass": true,
+        "detail": "0 test plots also in full-train table"
+      },
+      {
+        "id": "C9_full_train_table_sha",
+        "pass": true,
+        "detail": "a49b546f57d68881"
+      },
+      {
+        "id": "C10_full_train_counts",
+        "pass": true,
+        "detail": "179823 pairs / 2930 plots / splits ['train']"
+      },
+      {
+        "id": "C11_b2c_vs_b3_distinction",
+        "pass": true,
+        "detail": "B2-C fixed 9.0 d (normalised -0.341964); B3 uses each pair's real delta_days in [5,16]"
+      }
+    ]
+  },
+  "elapsed_seconds": 15.5
+}

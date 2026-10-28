@@ -1,0 +1,163 @@
+# Agro-JEPA S4B.3 -- official test-set evaluation (frozen protocol)
+#
+# This stage evaluates the nine S4B.2 frozen full-train checkpoints on the four
+# official FIP 1.0 test splits (test_plot / test_genotype / test_environment /
+# test_genotype_environment). It never re-trains, never re-selects a checkpoint,
+# and never uses test rows to tune anything.
+#
+# E1 (future-latent prediction) is frozen BEFORE any test metric is read.
+# E2 (CC / PH phenotype readout) is frozen BEFORE test phenotype labels are read.
+#
+# Frozen visual encoder: DINOv2 ViT-B/14, mainline224_s1-v1, [256, 768] float16.
+# Physical device: run with CUDA_VISIBLE_DEVICES=1 -> GPU1.
+
+stage: S4B.3
+manifest_id: fip1-s4b3-official-test-v1
+
+frozen:
+  visual_encoder: dinov2_vitb14
+  visual_encoder_commit: 7764ea0f912e53c92e82eb78a2a1631e92725fc8
+  visual_weights_sha256: 0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73
+  upstream_dino_wm_commit: 0a9492fa12044b852ae9e001cc74604b79c8bb0c
+  feature_cache_version: mainline224_s1-v1
+  feature_shape: [256, 768]
+  feature_dtype_on_disk: float16
+  s4b2_baseline_commit: 1df54fb526df77c80a45d44e004999673620651a
+  # The nine S4B.2 frozen checkpoints (final.pt) -- byte-identical to S4B.2.
+  checkpoints:
+    b2_no_time:
+      seed0: external_data/s4b2_runs/b2_no_time/seed0/checkpoints/final.pt
+      seed1: external_data/s4b2_runs/b2_no_time/seed1/checkpoints/final.pt
+      seed2: external_data/s4b2_runs/b2_no_time/seed2/checkpoints/final.pt
+    b2_no_time_constant_delta:
+      seed0: external_data/s4b2_runs/b2_no_time_constant_delta/seed0/checkpoints/final.pt
+      seed1: external_data/s4b2_runs/b2_no_time_constant_delta/seed1/checkpoints/final.pt
+      seed2: external_data/s4b2_runs/b2_no_time_constant_delta/seed2/checkpoints/final.pt
+    b3_delta:
+      seed0: external_data/s4b2_runs/b3_delta/seed0/checkpoints/final.pt
+      seed1: external_data/s4b2_runs/b3_delta/seed1/checkpoints/final.pt
+      seed2: external_data/s4b2_runs/b3_delta/seed2/checkpoints/final.pt
+
+data:
+  full_train_pairs: external_data/s4b_index/full_train_pairs.parquet
+  full_train_pairs_sha256: a49b546f57d688818db8f7c5b94504498572dfc39749c33e0e6608886d26e3c6
+  train_cache_index: external_data/s4b2/train_index.parquet
+  feature_index: external_data/s4b_features/index.parquet
+  feature_index_sha256: 3c0196f8592fe2b403d62af5e9094d41985cbe85e8b3837735b017a0c0615a0d
+  s2_pairs: external_data/pairs_cache/fip1_pairs_s2.parquet
+  test_index_dir: external_data/s4b_index
+  test_conditioning_dir: external_data/s4b_conditioning
+  observations_manifest: data/manifests/fip1_observations.csv.gz
+  plots_manifest: data/manifests/fip1_plots.csv
+  label_max_lag_days: 7
+
+# The four official test splits: frozen file -> local re-verified SHA256.
+test_splits:
+  test_plot:
+    index: external_data/s4b_index/test_plot_test_pairs.parquet
+    index_sha256: 76ef410784562e0b744ceef0e3af2c8345cee4902202e878ff8586f7853bafb8
+    conditioning_npz: external_data/s4b_conditioning/test_plot_conditioning.npz
+    conditioning_npz_sha256: 9744ec89103343c4d812f21137586aa0f22dd919d1933fc74fa60b39508606ad
+    n_pairs: 9851
+    n_plots: 250
+  test_genotype:
+    index: external_data/s4b_index/test_genotype_test_pairs.parquet
+    index_sha256: f260423ff94f95bf9d43e77ae0bb94284a5c78871ea3a0d5b3c84576dda6cf5e
+    conditioning_npz: external_data/s4b_conditioning/test_genotype_conditioning.npz
+    conditioning_npz_sha256: b7fc22f79666a1df01701289abf0458d6204e365332b6fb3fcdb4d12b6cf5468
+    n_pairs: 12059
+    n_plots: 246
+  test_environment:
+    index: external_data/s4b_index/test_environment_test_pairs.parquet
+    index_sha256: 66dcd5c4f531dab0d1f82559cf68661df491e2b926362a5e4d44b7e75bbf11b2
+    conditioning_npz: external_data/s4b_conditioning/test_environment_conditioning.npz
+    conditioning_npz_sha256: 19db51177498cb511898148f7ca92148defb148845ca8679095f30dbeb46a76a
+    n_pairs: 6300
+    n_plots: 190
+  test_genotype_environment:
+    index: external_data/s4b_index/test_genotype_environment_test_pairs.parquet
+    index_sha256: 0df8e0cfa59768a1a7c31f62a032e23908da34595c4732382f6eccae9ad97373
+    conditioning_npz: external_data/s4b_conditioning/test_genotype_environment_conditioning.npz
+    conditioning_npz_sha256: 21d6197e2682eda56439e602759edf1a591c1c73acde5968df968fa4228db62d
+    n_pairs: 2147
+    n_plots: 62
+
+conditions:
+  b2_no_time:
+    use_delta: false
+    gdd_mode: none
+    weather_mode: none
+    description: "z_a only; no time channel (B2)"
+  b2_no_time_constant_delta:
+    use_delta: true
+    delta_mode: constant
+    fixed_delta_days: 9.0
+    gdd_mode: none
+    weather_mode: none
+    description: "parameter-matched fixed 9.0 d (B2-C)"
+  b3_delta:
+    use_delta: true
+    delta_mode: sample
+    gdd_mode: none
+    weather_mode: none
+    description: "z_a + real per-pair delta_days (B3)"
+
+# ---- E1 baselines and arms -------------------------------------------------
+# B0 persistence: z_a vs z_b (no model)
+# B1 train-mean future: mean z_b over the full S4B.2 official-train index
+# B2 / B2-C / B3: frozen checkpoints, seeds {0,1,2}, seed-averaged ensemble
+e1:
+  seeds: [0, 1, 2]
+  batch_size: 512
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20261024
+  fixed_delta_days: 9.0   # B2-C constant; frozen S4A.1 value
+  # frozen DeltaNormStats from S4B.2 (fitted on train split deltas only)
+  delta_norm:
+    mean: 10.253921912102456
+    std: 3.6668246506160105
+    min: 5.0
+    max: 16.0
+    n_samples: 179823
+  stratify_by: [span7, span14, harvest_year]
+
+# ---- E2 CC/PH phenotype readout (S3.2 corrected protocol) ----------------
+# A_current: mean(z_a) current visual feature (frozen DINOv2)
+# B2 / B2-C / B3: mean(z_hat_b) predicted future latent
+e2:
+  traits: [cc, ph]
+  seeds: [0, 1, 2]
+  inner_train_fraction: 0.80
+  plot_split_seed: 20261025
+  strata: harvest_year
+  candidate_epochs: 150
+  patience: 20
+  batch_size: 256
+  lr: 1.0e-3
+  weight_decay: 0.01
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20261024
+  lag_variants:
+    primary_lag7: 7
+    strict_lag3: 3
+    same_day_lag0: 0
+  # Full official-train data: 2,930 plots (NOT the S3.2 1,000-plot pilot).
+  use_full_official_train: true
+  architecture: "single linear layer (PooledReadout, 768 -> 1)"
+  pooling: "mean over 256 patch tokens"
+
+device:
+  cuda: cuda:1   # physical GPU1
+
+artifacts:
+  protocol_md: reports/s4b3_test_protocol.md
+  protocol_json: reports/s4b3_test_protocol.json
+  e1_predictions_dir: external_data/s4b3_runs/e1_predictions
+  e1_json: reports/s4b3_test_e1.json
+  e1_md: reports/s4b3_test_e1.md
+  e2_pooled_dir: external_data/s4b3_runs/e2_pooled
+  e2_metrics: reports/s4b3_test_e2.json
+  e2_md: reports/s4b3_test_e2.md
+  e2_predictions: reports/s4b3_test_e2_predictions.parquet
+  verify_json: reports/s4b3_verify.json
+  run_logs_dir: reports/s4b3_run_logs
