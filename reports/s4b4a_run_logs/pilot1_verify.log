@@ -1,0 +1,14 @@
+[PASS] V1_fold_index_sha_matches_protocol: all fold parquet digests match
+[PASS] V2_fold_plot_disjoint_and_complete: 2930 plots, disjoint across roles
+[PASS] V3_heldout_year_boundary: held-out year only in heldout role
+[PASS] V4_delta_norm_fit_on_fold_train_only: 25 checkpoints match fold_train fit
+[PASS] V5_all_checkpoints_present_and_tagged: 25 checkpoints
+[PASS] V6_e1_reads_no_heldout_label: E1 declares heldout_labels_read=False, test_used=False
+[PASS] V7_e1_predictions_are_heldout_only: E1 predictions cover exactly the held-out pairs
+[PASS] V8_e1_metrics_recompute: seed-averaged MSE recomputes
+[PASS] V9_e2_train_dev_heldout_counts_positive: every fold has train/dev/heldout readout rows
+[PASS] V10_e2_heldout_labels_only_for_evaluation: E2 note: 'readout trained on fold-train, epoch chosen on fold-dev, held-out year evaluated once; held-out labels never used for training/selection'
+[FAIL] V11_s0_s4b3_tracked_assets_unmodified: modified: ['agro_jepa/config/s4b4a_year_heldout.yaml', 'reports/s4b4a_conditioning_summary.json', 'reports/s4b4a_data_audit.json', 'reports/s4b4a_data_audit.md', 'reports/s4b4a_protocol.json', 'reports/s4b4a_protocol.md', 'reports/s4b4a_run_logs/pilot1_fold2016_b2_no_time_seed0.log', 'reports/s4b4a_run_logs/pilot1_grid.log', 'reports/s4b4a_run_logs/pilot1_grid.pid', 'tools/s4b4a_data_audit.py', 'tools/s4b4a_eval_e1.py', 'tools/s4b4a_eval_e2.py', 'tools/s4b4a_finish_pilot.sh', 'tools/s4b4a_prepare_conditioning.py', 'tools/s4b4a_protocol.py', 'tools/s4b4a_run_grid.py', 'tools/s4b4a_train.py', 'tools/s4b4a_verify.py', 'tools/s4b4a_write_reports.py']
+[PASS] V12_claude_md_edit_not_staged_or_committed: status: 'M CLAUDE.md'; staged=False
+
+11/12 checks pass -> FAIL

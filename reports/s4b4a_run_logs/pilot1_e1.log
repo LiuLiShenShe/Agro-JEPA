@@ -1,0 +1,56 @@
+[fold 2016] heldout 19537 pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2016] done
+[fold 2017] heldout 12529 pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2017] done
+[fold 2018] heldout 19515 pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2018] done
+[fold 2021] heldout 76246 pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2021] done
+[fold 2022] heldout 51996 pairs
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2022] done
+wrote reports/s4b4a_e1.json

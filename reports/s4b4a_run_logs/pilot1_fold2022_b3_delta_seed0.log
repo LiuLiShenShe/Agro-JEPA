@@ -1,0 +1,30 @@
+/usr/bin/python3 /fj/Agro-JEPA/tools/s4b4a_train.py --config agro_jepa/config/s4b4a_year_heldout.yaml --fold 2022 --condition b3_delta --seed 0
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 0, "train_loss": 1.35098, "dev_mse": 1.23946, "dev_rel": 0.4459, "sec": 326.9}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 1, "train_loss": 1.22361, "dev_mse": 1.19525, "dev_rel": 0.4657, "sec": 321.4}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 2, "train_loss": 1.18749, "dev_mse": 1.17609, "dev_rel": 0.4743, "sec": 320.7}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 3, "train_loss": 1.16381, "dev_mse": 1.16077, "dev_rel": 0.4811, "sec": 321.5}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 4, "train_loss": 1.14393, "dev_mse": 1.1498, "dev_rel": 0.486, "sec": 321.8}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 5, "train_loss": 1.12563, "dev_mse": 1.14302, "dev_rel": 0.489, "sec": 321.2}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 6, "train_loss": 1.10827, "dev_mse": 1.13947, "dev_rel": 0.4906, "sec": 321.3}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 7, "train_loss": 1.09206, "dev_mse": 1.13791, "dev_rel": 0.4913, "sec": 321.3}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 8, "train_loss": 1.0782, "dev_mse": 1.13705, "dev_rel": 0.4917, "sec": 321.4}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 9, "train_loss": 1.06786, "dev_mse": 1.13603, "dev_rel": 0.4922, "sec": 321.7}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 10, "train_loss": 1.06145, "dev_mse": 1.13596, "dev_rel": 0.4922, "sec": 321.5}
+{"fold": 2022, "condition": "b3_delta", "seed": 0, "epoch": 11, "train_loss": 1.05849, "dev_mse": 1.13619, "dev_rel": 0.4921, "sec": 321.2}
+{
+  "fold": 2022,
+  "condition": "b3_delta",
+  "seed": 0,
+  "epochs_completed": 12,
+  "global_step": 9588,
+  "fold_train_pairs": 102284,
+  "fold_dev_pairs": 25543,
+  "wall_clock_seconds": 3861.9,
+  "samples_per_second": 317.78,
+  "peak_gpu_memory_bytes": 14644946944,
+  "n_trainable_parameters": 53882396,
+  "best_epoch": 10,
+  "best_fold_dev_mse": 1.135964956083075
+}

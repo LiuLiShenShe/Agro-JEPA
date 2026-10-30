@@ -1,0 +1,31 @@
+/usr/bin/python3 /fj/Agro-JEPA/tools/s4b4a_train.py --config agro_jepa/config/s4b4a_year_heldout.yaml --fold 2022 --condition b2_no_time_constant_delta --seed 0
+[fixed delta] {'fixed_delta_rule': 'frozen_s4b4a_constant', 'fixed_delta_days': 9.0, 'fixed_delta_source': 'config (S4A.1 frozen control value 9.0 d)', 'fold_train_median': 9.0, 'fold_train_mean': 10.24113253294748, 'fold_train_norm_mean': 10.24113253294748, 'fold_train_norm_std': 3.6524957104717988, 'fixed_delta_normalised_value': -0.33980396729532675}
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 0, "train_loss": 1.36309, "dev_mse": 1.26549, "dev_rel": 0.4343, "sec": 327.7}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 1, "train_loss": 1.25769, "dev_mse": 1.23498, "dev_rel": 0.4479, "sec": 321.0}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 2, "train_loss": 1.23313, "dev_mse": 1.22696, "dev_rel": 0.4515, "sec": 320.8}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 3, "train_loss": 1.21643, "dev_mse": 1.21202, "dev_rel": 0.4582, "sec": 321.1}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 4, "train_loss": 1.20184, "dev_mse": 1.202, "dev_rel": 0.4627, "sec": 321.0}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 5, "train_loss": 1.18881, "dev_mse": 1.19574, "dev_rel": 0.4655, "sec": 320.7}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 6, "train_loss": 1.17659, "dev_mse": 1.1924, "dev_rel": 0.467, "sec": 320.5}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 7, "train_loss": 1.16533, "dev_mse": 1.18978, "dev_rel": 0.4681, "sec": 321.0}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 8, "train_loss": 1.15514, "dev_mse": 1.18645, "dev_rel": 0.4696, "sec": 320.6}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 9, "train_loss": 1.14662, "dev_mse": 1.1861, "dev_rel": 0.4698, "sec": 320.9}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 10, "train_loss": 1.1407, "dev_mse": 1.18554, "dev_rel": 0.47, "sec": 320.8}
+{"fold": 2022, "condition": "b2_no_time_constant_delta", "seed": 0, "epoch": 11, "train_loss": 1.13754, "dev_mse": 1.18554, "dev_rel": 0.47, "sec": 320.6}
+{
+  "fold": 2022,
+  "condition": "b2_no_time_constant_delta",
+  "seed": 0,
+  "epochs_completed": 12,
+  "global_step": 9588,
+  "fold_train_pairs": 102284,
+  "fold_dev_pairs": 25543,
+  "wall_clock_seconds": 3856.9,
+  "samples_per_second": 318.2,
+  "peak_gpu_memory_bytes": 14644554240,
+  "n_trainable_parameters": 53882396,
+  "best_epoch": 10,
+  "best_fold_dev_mse": 1.1855381777948963
+}

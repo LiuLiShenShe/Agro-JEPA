@@ -1,2 +1,52 @@
 [grid] 25 jobs: folds=[2016, 2017, 2018, 2021, 2022] conds=['b2_no_time', 'b2_no_time_constant_delta', 'b3_delta', 'gdd_p', 'weather_p'] seeds=[0]
 [grid] 1/25 start 2016/b2_no_time/s0
+[grid] 1/25 rc=0 2016/b2_no_time/s0 4514s
+[grid] 2/25 start 2016/b2_no_time_constant_delta/s0
+[grid] 2/25 rc=0 2016/b2_no_time_constant_delta/s0 4895s
+[grid] 3/25 start 2016/b3_delta/s0
+[grid] 3/25 rc=0 2016/b3_delta/s0 5884s
+[grid] 4/25 start 2016/gdd_p/s0
+[grid] 4/25 rc=0 2016/gdd_p/s0 6021s
+[grid] 5/25 start 2016/weather_p/s0
+[grid] 5/25 rc=0 2016/weather_p/s0 7059s
+[grid] 6/25 start 2017/b2_no_time/s0
+[grid] 6/25 rc=0 2017/b2_no_time/s0 4709s
+[grid] 7/25 start 2017/b2_no_time_constant_delta/s0
+[grid] 7/25 rc=0 2017/b2_no_time_constant_delta/s0 5065s
+[grid] 8/25 start 2017/b3_delta/s0
+[grid] 8/25 rc=0 2017/b3_delta/s0 5089s
+[grid] 9/25 start 2017/gdd_p/s0
+[grid] 9/25 rc=0 2017/gdd_p/s0 5127s
+[grid] 10/25 start 2017/weather_p/s0
+[grid] 10/25 rc=0 2017/weather_p/s0 5977s
+[grid] 11/25 start 2018/b2_no_time/s0
+[grid] 11/25 rc=0 2018/b2_no_time/s0 4518s
+[grid] 12/25 start 2018/b2_no_time_constant_delta/s0
+[grid] 12/25 rc=0 2018/b2_no_time_constant_delta/s0 4828s
+[grid] 13/25 start 2018/b3_delta/s0
+[grid] 13/25 rc=0 2018/b3_delta/s0 4838s
+[grid] 14/25 start 2018/gdd_p/s0
+[grid] 14/25 rc=0 2018/gdd_p/s0 4865s
+[grid] 15/25 start 2018/weather_p/s0
+[grid] 15/25 rc=0 2018/weather_p/s0 4896s
+[grid] 16/25 start 2021/b2_no_time/s0
+[grid] 16/25 rc=0 2021/b2_no_time/s0 2928s
+[grid] 17/25 start 2021/b2_no_time_constant_delta/s0
+[grid] 17/25 rc=0 2021/b2_no_time_constant_delta/s0 3150s
+[grid] 18/25 start 2021/b3_delta/s0
+[grid] 18/25 rc=0 2021/b3_delta/s0 3148s
+[grid] 19/25 start 2021/gdd_p/s0
+[grid] 19/25 rc=0 2021/gdd_p/s0 3155s
+[grid] 20/25 start 2021/weather_p/s0
+[grid] 20/25 rc=0 2021/weather_p/s0 3182s
+[grid] 21/25 start 2022/b2_no_time/s0
+[grid] 21/25 rc=0 2022/b2_no_time/s0 3620s
+[grid] 22/25 start 2022/b2_no_time_constant_delta/s0
+[grid] 22/25 rc=0 2022/b2_no_time_constant_delta/s0 3867s
+[grid] 23/25 start 2022/b3_delta/s0
+[grid] 23/25 rc=0 2022/b3_delta/s0 3873s
+[grid] 24/25 start 2022/gdd_p/s0
+[grid] 24/25 rc=0 2022/gdd_p/s0 3889s
+[grid] 25/25 start 2022/weather_p/s0
+[grid] 25/25 rc=0 2022/weather_p/s0 3913s
+[grid] all jobs done in 113009s

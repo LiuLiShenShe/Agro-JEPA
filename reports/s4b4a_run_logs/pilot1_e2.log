@@ -1,0 +1,86 @@
+[fold 2016] train 128147 dev 32139 heldout 19537
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2016] pooled 6 arms
+[fold 2016] cc/primary_lag7: A_current=0.7043 b2_no_time=0.7275 b2_no_time_constant_delta=0.7353 b3_delta=0.7074 gdd_p=0.7086 weather_p=0.7151
+[fold 2016] cc/strict_lag3: A_current=0.6985 b2_no_time=0.7316 b2_no_time_constant_delta=0.7314 b3_delta=0.7057 gdd_p=0.7144 weather_p=0.7066
+[fold 2016] cc/same_day_lag0: A_current=0.7070 b2_no_time=0.7268 b2_no_time_constant_delta=0.7277 b3_delta=0.7211 gdd_p=0.6953 weather_p=0.6922
+[fold 2016] ph/primary_lag7: A_current=0.6768 b2_no_time=0.6850 b2_no_time_constant_delta=0.7333 b3_delta=0.7357 gdd_p=0.6965 weather_p=0.6399
+[fold 2016] ph/strict_lag3: A_current=0.6284 b2_no_time=0.6369 b2_no_time_constant_delta=0.6721 b3_delta=0.6579 gdd_p=0.6086 weather_p=0.5757
+[fold 2016] ph/same_day_lag0: A_current=0.8408 b2_no_time=0.8391 b2_no_time_constant_delta=0.8338 b3_delta=0.8259 gdd_p=0.8121 weather_p=0.7930
+[fold 2017] train 133863 dev 33431 heldout 12529
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2017] pooled 6 arms
+[fold 2017] cc/primary_lag7: A_current=0.7587 b2_no_time=0.7693 b2_no_time_constant_delta=0.7930 b3_delta=0.7895 gdd_p=0.7834 weather_p=0.7782
+[fold 2017] cc/strict_lag3: A_current=0.7705 b2_no_time=0.7746 b2_no_time_constant_delta=0.7945 b3_delta=0.8094 gdd_p=0.7921 weather_p=0.7832
+[fold 2017] cc/same_day_lag0: A_current=0.7763 b2_no_time=0.7595 b2_no_time_constant_delta=0.7994 b3_delta=0.8112 gdd_p=0.8025 weather_p=0.8021
+[fold 2017] ph/primary_lag7: A_current=0.8880 b2_no_time=0.8655 b2_no_time_constant_delta=0.8737 b3_delta=0.8935 gdd_p=0.8587 weather_p=0.8777
+[fold 2017] ph/strict_lag3: A_current=0.8482 b2_no_time=0.8312 b2_no_time_constant_delta=0.8314 b3_delta=0.8518 gdd_p=0.8416 weather_p=0.8679
+[fold 2017] ph/same_day_lag0: A_current=0.4038 b2_no_time=0.3177 b2_no_time_constant_delta=0.2849 b3_delta=0.6152 gdd_p=0.4159 weather_p=0.5232
+[fold 2018] train 128205 dev 32103 heldout 19515
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2018] pooled 6 arms
+[fold 2018] cc/primary_lag7: A_current=0.5580 b2_no_time=0.5741 b2_no_time_constant_delta=0.5969 b3_delta=0.5503 gdd_p=0.5536 weather_p=0.4758
+[fold 2018] cc/strict_lag3: A_current=0.5556 b2_no_time=0.6309 b2_no_time_constant_delta=0.6272 b3_delta=0.5908 gdd_p=0.5927 weather_p=0.4939
+[fold 2018] cc/same_day_lag0: A_current=0.6086 b2_no_time=0.6663 b2_no_time_constant_delta=0.6707 b3_delta=0.6444 gdd_p=0.6226 weather_p=0.5347
+[fold 2018] ph/primary_lag7: A_current=0.8967 b2_no_time=0.9069 b2_no_time_constant_delta=0.9066 b3_delta=0.9082 gdd_p=0.9050 weather_p=0.9218
+[fold 2018] ph/strict_lag3: A_current=0.9096 b2_no_time=0.9075 b2_no_time_constant_delta=0.9164 b3_delta=0.9166 gdd_p=0.9150 weather_p=0.9207
+[fold 2018] ph/same_day_lag0: A_current=0.9128 b2_no_time=0.9162 b2_no_time_constant_delta=0.9186 b3_delta=0.9245 gdd_p=0.9222 weather_p=0.9299
+[fold 2021] train 82796 dev 20781 heldout 76246
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2021] pooled 6 arms
+[fold 2021] cc/primary_lag7: A_current=0.7337 b2_no_time=0.7687 b2_no_time_constant_delta=0.7634 b3_delta=0.7881 gdd_p=0.7581 weather_p=0.7473
+[fold 2021] cc/strict_lag3: A_current=0.7213 b2_no_time=0.7635 b2_no_time_constant_delta=0.7517 b3_delta=0.7661 gdd_p=0.7242 weather_p=0.7586
+[fold 2021] cc/same_day_lag0: A_current=0.7333 b2_no_time=0.7762 b2_no_time_constant_delta=0.7412 b3_delta=0.7670 gdd_p=0.7489 weather_p=0.7611
+[fold 2021] ph/primary_lag7: A_current=0.9326 b2_no_time=0.9379 b2_no_time_constant_delta=0.9391 b3_delta=0.9421 gdd_p=0.9475 weather_p=0.9530
+[fold 2021] ph/strict_lag3: A_current=0.9354 b2_no_time=0.9384 b2_no_time_constant_delta=0.9418 b3_delta=0.9455 gdd_p=0.9464 weather_p=0.9522
+[fold 2021] ph/same_day_lag0: A_current=0.9273 b2_no_time=0.9355 b2_no_time_constant_delta=0.9332 b3_delta=0.9422 gdd_p=0.9430 weather_p=0.9419
+[fold 2022] train 102284 dev 25543 heldout 51996
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+using 3d prop position use_3d_pos=False
+[fold 2022] pooled 6 arms
+[fold 2022] cc/primary_lag7: A_current=0.8187 b2_no_time=0.8238 b2_no_time_constant_delta=0.8277 b3_delta=0.8409 gdd_p=0.8324 weather_p=0.8313
+[fold 2022] cc/strict_lag3: A_current=0.7967 b2_no_time=0.8237 b2_no_time_constant_delta=0.8294 b3_delta=0.8422 gdd_p=0.8232 weather_p=0.8189
+[fold 2022] cc/same_day_lag0: A_current=0.8021 b2_no_time=0.8151 b2_no_time_constant_delta=0.8117 b3_delta=0.8326 gdd_p=0.8288 weather_p=0.8102
+[fold 2022] ph/primary_lag7: A_current=0.9399 b2_no_time=0.9350 b2_no_time_constant_delta=0.9376 b3_delta=0.9494 gdd_p=0.9510 weather_p=0.9518
+[fold 2022] ph/strict_lag3: A_current=0.9413 b2_no_time=0.9355 b2_no_time_constant_delta=0.9367 b3_delta=0.9512 gdd_p=0.9518 weather_p=0.9546
+[fold 2022] ph/same_day_lag0: A_current=0.9471 b2_no_time=0.9464 b2_no_time_constant_delta=0.9467 b3_delta=0.9566 gdd_p=0.9582 weather_p=0.9595
+wrote /fj/Agro-JEPA/reports/s4b4a_e2.json

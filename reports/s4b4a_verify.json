@@ -1,0 +1,68 @@
+{
+  "stage": "S4B.4A",
+  "checks": [
+    {
+      "check": "V1_fold_index_sha_matches_protocol",
+      "pass": true,
+      "detail": "all fold parquet digests match"
+    },
+    {
+      "check": "V2_fold_plot_disjoint_and_complete",
+      "pass": true,
+      "detail": "2930 plots, disjoint across roles"
+    },
+    {
+      "check": "V3_heldout_year_boundary",
+      "pass": true,
+      "detail": "held-out year only in heldout role"
+    },
+    {
+      "check": "V4_delta_norm_fit_on_fold_train_only",
+      "pass": true,
+      "detail": "25 checkpoints match fold_train fit"
+    },
+    {
+      "check": "V5_all_checkpoints_present_and_tagged",
+      "pass": true,
+      "detail": "25 checkpoints"
+    },
+    {
+      "check": "V6_e1_reads_no_heldout_label",
+      "pass": true,
+      "detail": "E1 declares heldout_labels_read=False, test_used=False"
+    },
+    {
+      "check": "V7_e1_predictions_are_heldout_only",
+      "pass": true,
+      "detail": "E1 predictions cover exactly the held-out pairs"
+    },
+    {
+      "check": "V8_e1_metrics_recompute",
+      "pass": true,
+      "detail": "seed-averaged MSE recomputes"
+    },
+    {
+      "check": "V9_e2_train_dev_heldout_counts_positive",
+      "pass": true,
+      "detail": "every fold has train/dev/heldout readout rows"
+    },
+    {
+      "check": "V10_e2_heldout_labels_only_for_evaluation",
+      "pass": true,
+      "detail": "E2 note: 'readout trained on fold-train, epoch chosen on fold-dev, held-out year evaluated once; held-out labels never used for training/selection'"
+    },
+    {
+      "check": "V11_s0_s4b3_tracked_assets_unmodified",
+      "pass": true,
+      "detail": "only S4B.4A (config/tools/reports) and the draft CLAUDE.md differ from baseline"
+    },
+    {
+      "check": "V12_claude_md_edit_not_staged_or_committed",
+      "pass": true,
+      "detail": "status: 'M CLAUDE.md'; staged=False"
+    }
+  ],
+  "all_pass": true,
+  "n_pass": 12,
+  "n_total": 12
+}

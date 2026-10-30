@@ -117,21 +117,27 @@ def main() -> int:
 
     e1d = e1_decisions(e1)
     e2d = e2_decisions(e2)
+    pilot_seeds = list(e1["seeds"]) if e1 and "seeds" in e1 else list(cfg["training"]["seeds"])
 
     results = {
         "stage": "S4B.4A",
         "task": "training-set-internal year-held-out diagnostic",
         "protocol": cfg["artifacts"]["protocol_json"],
         "folds_completed": sorted(int(k) for k in (e1["folds"] if e1 else {})),
-        "seeds": cfg["training"]["seeds"],
+        "seeds_run": pilot_seeds,
+        "seeds_planned": list(cfg["training"]["seeds"]),
+        "is_pilot": len(pilot_seeds) == 1,
         "e1_contrasts": e1d,
         "e2_primary_lag7": e2d,
         "notes": [
             "This is a training-set-internal diagnostic, not a 2019 confirmation.",
-            "Differences are plot-clustered bootstrap CIs; per-seed spread is "
-            "training randomness, not a plot interval.",
+            "These numbers are the 1-seed pilot; the formal 3-seed grid (seeds "
+            "0,1,2) has NOT run, so no cross-seed CI is reported here.",
+            "Differences are plot-clustered bootstrap CIs.",
             "GDD-P and Weather-P add parameters over B3 (see data audit §3.4), so "
             "part of any gain may be parameter-driven.",
+            "A positive dMSE (E1) means the second arm is WORSE; a positive dR2 "
+            "(E2) means the second arm is better.",
         ],
     }
     out_json = ROOT / cfg["artifacts"]["results_json"]
@@ -150,7 +156,7 @@ def fmt_ci(row: dict) -> str:
 def write_md(path: Path, r: dict, audit, proto, e1, e2) -> None:
     L = ["# S4B.4A Results -- Cross-Year Diagnostic (training-set internal)", ""]
     L.append(f"- Folds completed: {r['folds_completed']}")
-    L.append(f"- Seeds: {r['seeds']}")
+    L.append(f"- Seeds run: {r['seeds_run']} (pilot); planned grid: {r['seeds_planned']}")
     L.append("- Scope: official-train years only; this is **not** an independent "
              "2019 unseen-environment confirmation.")
     L.append("")
@@ -180,10 +186,15 @@ def write_md(path: Path, r: dict, audit, proto, e1, e2) -> None:
                          f"{row['ci_excludes_zero']} | "
                          f"{row['per_seed_mean']:+.6f} ± {row['per_seed_std']:.6f} |")
             L.append("")
-            L.append(f"- folds with CI entirely below 0: "
-                     f"{d['n_folds_ci_lower_than_zero']}/{d['n_folds']}")
-            L.append(f"- **stable across folds (majority + all CIs exclude 0): "
-                     f"{d['stable_across_folds']}**")
+            L.append(f"- folds with CI entirely below 0 (second arm better): "
+                     f"{d['n_folds_ci_lower_than_zero']}/{d['n_folds']}; "
+                     f"all CIs exclude 0 on {d['n_folds_ci_excludes_zero']}/{d['n_folds']}")
+            direction = ("consistent (same sign every fold)" if d["n_folds"] and
+                         (d["n_folds_ci_lower_than_zero"] in (0, d["n_folds"]))
+                         else "sign flips across folds")
+            L.append(f"- direction: {direction}; "
+                     f"stable across folds (majority + all CIs exclude 0): "
+                     f"{d['stable_across_folds']}")
             L.append("")
     else:
         L.append("_E1 results not yet produced._")

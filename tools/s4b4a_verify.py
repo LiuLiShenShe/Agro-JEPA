@@ -263,13 +263,19 @@ def main() -> int:
           f"E2 note: {e2.get('note', '')!r}")
 
     # ---- 11. S0-S4B.3 tracked assets unmodified --------------------------
+    # Allow the S4B.4A commit (config + new tools + reports) and the pre-existing
+    # draft CLAUDE.md edit; anything else touched vs the frozen baseline fails.
+    allowed_prefixes = (
+        "agro_jepa/config/s4b4a_year_heldout.yaml",
+        "reports/s4b4a_", "tools/s4b4a_", "CLAUDE.md",
+    )
     changed = git("diff", "--name-only", BASELINE_COMMIT, "--",
                   "reports", "agro_jepa", "tools", "dino_wm", "README.md")
-    tracked_bad = [p for p in changed.splitlines() if p.strip()]
-    # new (untracked) S4B.4A files are allowed; only modified tracked files are not
+    tracked_bad = [p for p in changed.splitlines()
+                   if p.strip() and not p.startswith(allowed_prefixes)]
     c.add("V11_s0_s4b3_tracked_assets_unmodified", not tracked_bad,
-          "no tracked S0-S4B.3 file modified" if not tracked_bad
-          else f"modified: {tracked_bad}")
+          "only S4B.4A (config/tools/reports) and the draft CLAUDE.md differ from baseline"
+          if not tracked_bad else f"unexpected modified files: {tracked_bad}")
 
     # ---- 12. CLAUDE.md edit neither staged nor committed -----------------
     staged = git("diff", "--cached", "--name-only")
