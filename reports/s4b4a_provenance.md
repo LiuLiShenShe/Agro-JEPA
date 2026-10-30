@@ -1,7 +1,7 @@
 # S4B.4A Provenance
 
 - Branch: `agro-s4b4a-year-heldout`
-- HEAD: `4231476c58f9d1c564097e5502ad3a88c2765c04`
+- HEAD: `e626bc65c80eaf44254fcda58caeaf1b3d99fb86`
 - Baseline (S4B.3): `27504922095366ac246c8760a08702b3b762d620`
 - Config: `agro_jepa/config/s4b4a_year_heldout.yaml`
 - Protocol: `reports/s4b4a_protocol.json`
